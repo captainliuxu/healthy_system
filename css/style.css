@@ -1,0 +1,61 @@
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background: #f5f7fa;
+}
+
+/* 手机壳 */
+.container {
+    max-width: 400px;
+    margin: 20px auto;
+    background: white;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+}
+
+/* 顶部 */
+.header {
+    padding: 15px;
+    background: #4CAF50;
+    color: white;
+    text-align: center;
+    font-size: 18px;
+}
+
+/* 内容 */
+.content {
+    flex: 1;
+    padding: 15px;
+}
+
+/* 卡片 */
+.card {
+    background: #fff;
+    padding: 15px;
+    margin-bottom: 12px;
+    border-radius: 12px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+}
+
+/* 底部导航 */
+.navbar {
+    display: flex;
+    border-top: 1px solid #ddd;
+}
+
+.navbar a {
+    flex: 1;
+    text-align: center;
+    padding: 10px;
+    text-decoration: none;
+    color: #333;
+}
+
+.navbar a.active {
+    color: #4CAF50;
+    font-weight: bold;
+}
