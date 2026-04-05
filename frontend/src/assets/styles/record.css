@@ -1,0 +1,225 @@
+/* record 页面专属样式 */
+/* 保持移动端观感，不做网页化大布局 */
+
+body {
+    background: #eef3f7;
+}
+
+/* 手机内页整体氛围 */
+.container {
+    background: linear-gradient(180deg, #f7fbf8 0%, #f3f6fb 100%);
+}
+
+/* 顶部标题 */
+.header {
+    padding: 16px 18px;
+    font-size: 18px;
+    font-weight: 700;
+    letter-spacing: 1px;
+    background: linear-gradient(135deg, #4CAF50 0%, #67c26f 100%);
+    color: #ffffff;
+    text-align: center;
+    box-shadow: 0 3px 10px rgba(76, 175, 80, 0.18);
+}
+
+/* 内容区域 */
+.content {
+    flex: 1;
+    padding: 14px 14px 90px;
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+}
+
+/* 顶部提示 */
+.page-tip {
+    background: rgba(76, 175, 80, 0.10);
+    color: #2f6f39;
+    border: 1px solid rgba(76, 175, 80, 0.12);
+    border-radius: 14px;
+    padding: 12px 14px;
+    font-size: 13px;
+    line-height: 1.5;
+}
+
+/* 卡片样式 */
+.content .card {
+    background: rgba(255, 255, 255, 0.96);
+    border-radius: 18px;
+    padding: 16px 14px;
+    margin-bottom: 0;
+    box-shadow:
+        0 6px 18px rgba(76, 175, 80, 0.08),
+        0 2px 8px rgba(0, 0, 0, 0.04);
+    border: 1px solid rgba(76, 175, 80, 0.08);
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+/* 标题 */
+.card-title {
+    font-size: 16px;
+    font-weight: 700;
+    color: #25313c;
+    line-height: 1.4;
+}
+
+/* 说明文字 */
+.card-desc {
+    font-size: 13px;
+    color: #7b8794;
+    line-height: 1.5;
+    margin-top: -4px;
+}
+
+/* 按钮组 */
+.btn-group {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-top: 2px;
+}
+
+/* 输入组 */
+.input-group {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+/* 输入框 */
+.input-group input {
+    width: 100%;
+    box-sizing: border-box;
+    border: 1px solid #d9e2ec;
+    background: #f8fafc;
+    border-radius: 14px;
+    padding: 13px 14px;
+    font-size: 15px;
+    color: #1f2937;
+    outline: none;
+    transition: all 0.2s ease;
+}
+
+.input-group input:focus {
+    border-color: #4CAF50;
+    background: #ffffff;
+    box-shadow: 0 0 0 4px rgba(76, 175, 80, 0.10);
+}
+
+.input-group input::placeholder {
+    color: #94a3b8;
+}
+
+/* 仅限 record 页按钮，避免污染其他页面 */
+/* From Uiverse.io by alexroumi - 经过移动端适配 */
+.content .card button {
+    padding: 12px 18px;
+    min-height: 44px;
+    border: unset;
+    border-radius: 14px;
+    color: #212121;
+    z-index: 1;
+    background: #e8e8e8;
+    position: relative;
+    font-weight: 800;
+    font-size: 15px;
+    letter-spacing: 0.3px;
+    -webkit-box-shadow: 4px 8px 19px -3px rgba(0, 0, 0, 0.18);
+    box-shadow: 4px 8px 19px -3px rgba(0, 0, 0, 0.18);
+    transition: all 250ms;
+    overflow: hidden;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    vertical-align: middle;
+    -webkit-tap-highlight-color: transparent;
+    flex: 0 0 auto;
+}
+
+.content .card button::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 0;
+    border-radius: 14px;
+    background-color: #212121;
+    z-index: -1;
+    -webkit-box-shadow: 4px 8px 19px -3px rgba(0, 0, 0, 0.22);
+    box-shadow: 4px 8px 19px -3px rgba(0, 0, 0, 0.22);
+    transition: all 250ms;
+}
+
+.content .card button:hover {
+    color: #e8e8e8;
+}
+
+.content .card button:hover::before {
+    width: 100%;
+}
+
+.content .card button:active {
+    transform: scale(0.97);
+}
+
+/* 底部导航优化成更像 App */
+.navbar {
+    position: sticky;
+    bottom: 0;
+    display: flex;
+    border-top: 1px solid #e8edf3;
+    background: rgba(255, 255, 255, 0.96);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    box-shadow: 0 -4px 16px rgba(0, 0, 0, 0.04);
+    padding: 6px 0 calc(6px + env(safe-area-inset-bottom));
+}
+
+.navbar a {
+    flex: 1;
+    text-align: center;
+    padding: 10px 4px;
+    text-decoration: none;
+    color: #667085;
+    font-size: 13px;
+    transition: all 0.2s ease;
+}
+
+.navbar a.active {
+    color: #4CAF50;
+    font-weight: 700;
+}
+
+/* 小屏手机适配 */
+@media (max-width: 390px) {
+    .content {
+        padding: 12px 12px 86px;
+        gap: 12px;
+    }
+
+    .content .card {
+        border-radius: 16px;
+        padding: 14px 12px;
+    }
+
+    .card-title {
+        font-size: 15px;
+    }
+
+    .card-desc {
+        font-size: 12px;
+    }
+
+    .content .card button {
+        font-size: 14px;
+        padding: 11px 16px;
+    }
+
+    .input-group input {
+        font-size: 14px;
+        padding: 12px 13px;
+    }
+}
