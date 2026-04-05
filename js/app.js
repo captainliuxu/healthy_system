@@ -36,22 +36,22 @@ function getFakeReply(userText) {
     return "我已经记下了你的情况。你也可以继续告诉我今天是否按时服药、有没有测量血压。";
 }
 
-function sendMessage() {
+async function sendMessage() {
     const input = document.getElementById("chatInput");
-    if (!input) return;
-
     const text = input.value.trim();
     if (!text) return;
 
     appendMessage("user", text);
     input.value = "";
 
-    setTimeout(() => {
-        const reply = getFakeReply(text);
-        appendMessage("ai", reply);
-    }, 500);
+    try {
+        const res = await fetch(`http://127.0.0.1:8000/chat?msg=${encodeURIComponent(text)}`);
+        const data = await res.json();
+        appendMessage("ai", data.reply);
+    } catch (error) {
+        appendMessage("ai", "后端连接失败，请确认 FastAPI 已启动");
+    }
 }
-
 function triggerProactiveMessage() {
     const messages = [
         "现在是晚间服药时间，记得按计划完成用药。",
