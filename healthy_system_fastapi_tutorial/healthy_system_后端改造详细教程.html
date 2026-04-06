@@ -1,0 +1,1354 @@
+<!DOCTYPE html><html><head>
+      <title>healthy_system_后端改造详细教程</title>
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      
+      <link rel="stylesheet" href="file:///c:\Users\Lenovo\.vscode\extensions\shd101wyy.markdown-preview-enhanced-0.8.22\crossnote\dependencies\katex\katex.min.css">
+      
+      
+      
+      
+      
+      <style>
+      code[class*=language-],pre[class*=language-]{color:#333;background:0 0;font-family:Consolas,"Liberation Mono",Menlo,Courier,monospace;text-align:left;white-space:pre;word-spacing:normal;word-break:normal;word-wrap:normal;line-height:1.4;-moz-tab-size:8;-o-tab-size:8;tab-size:8;-webkit-hyphens:none;-moz-hyphens:none;-ms-hyphens:none;hyphens:none}pre[class*=language-]{padding:.8em;overflow:auto;border-radius:3px;background:#f5f5f5}:not(pre)>code[class*=language-]{padding:.1em;border-radius:.3em;white-space:normal;background:#f5f5f5}.token.blockquote,.token.comment{color:#969896}.token.cdata{color:#183691}.token.doctype,.token.macro.property,.token.punctuation,.token.variable{color:#333}.token.builtin,.token.important,.token.keyword,.token.operator,.token.rule{color:#a71d5d}.token.attr-value,.token.regex,.token.string,.token.url{color:#183691}.token.atrule,.token.boolean,.token.code,.token.command,.token.constant,.token.entity,.token.number,.token.property,.token.symbol{color:#0086b3}.token.prolog,.token.selector,.token.tag{color:#63a35c}.token.attr-name,.token.class,.token.class-name,.token.function,.token.id,.token.namespace,.token.pseudo-class,.token.pseudo-element,.token.url-reference .token.variable{color:#795da3}.token.entity{cursor:help}.token.title,.token.title .token.punctuation{font-weight:700;color:#1d3e81}.token.list{color:#ed6a43}.token.inserted{background-color:#eaffea;color:#55a532}.token.deleted{background-color:#ffecec;color:#bd2c00}.token.bold{font-weight:700}.token.italic{font-style:italic}.language-json .token.property{color:#183691}.language-markup .token.tag .token.punctuation{color:#333}.language-css .token.function,code.language-css{color:#0086b3}.language-yaml .token.atrule{color:#63a35c}code.language-yaml{color:#183691}.language-ruby .token.function{color:#333}.language-markdown .token.url{color:#795da3}.language-makefile .token.symbol{color:#795da3}.language-makefile .token.variable{color:#183691}.language-makefile .token.builtin{color:#0086b3}.language-bash .token.keyword{color:#0086b3}pre[data-line]{position:relative;padding:1em 0 1em 3em}pre[data-line] .line-highlight-wrapper{position:absolute;top:0;left:0;background-color:transparent;display:block;width:100%}pre[data-line] .line-highlight{position:absolute;left:0;right:0;padding:inherit 0;margin-top:1em;background:hsla(24,20%,50%,.08);background:linear-gradient(to right,hsla(24,20%,50%,.1) 70%,hsla(24,20%,50%,0));pointer-events:none;line-height:inherit;white-space:pre}pre[data-line] .line-highlight:before,pre[data-line] .line-highlight[data-end]:after{content:attr(data-start);position:absolute;top:.4em;left:.6em;min-width:1em;padding:0 .5em;background-color:hsla(24,20%,50%,.4);color:#f4f1ef;font:bold 65%/1.5 sans-serif;text-align:center;vertical-align:.3em;border-radius:999px;text-shadow:none;box-shadow:0 1px #fff}pre[data-line] .line-highlight[data-end]:after{content:attr(data-end);top:auto;bottom:.4em}html body{font-family:'Helvetica Neue',Helvetica,'Segoe UI',Arial,freesans,sans-serif;font-size:16px;line-height:1.6;color:#333;background-color:#fff;overflow:initial;box-sizing:border-box;word-wrap:break-word}html body>:first-child{margin-top:0}html body h1,html body h2,html body h3,html body h4,html body h5,html body h6{line-height:1.2;margin-top:1em;margin-bottom:16px;color:#000}html body h1{font-size:2.25em;font-weight:300;padding-bottom:.3em}html body h2{font-size:1.75em;font-weight:400;padding-bottom:.3em}html body h3{font-size:1.5em;font-weight:500}html body h4{font-size:1.25em;font-weight:600}html body h5{font-size:1.1em;font-weight:600}html body h6{font-size:1em;font-weight:600}html body h1,html body h2,html body h3,html body h4,html body h5{font-weight:600}html body h5{font-size:1em}html body h6{color:#5c5c5c}html body strong{color:#000}html body del{color:#5c5c5c}html body a:not([href]){color:inherit;text-decoration:none}html body a{color:#08c;text-decoration:none}html body a:hover{color:#00a3f5;text-decoration:none}html body img{max-width:100%}html body>p{margin-top:0;margin-bottom:16px;word-wrap:break-word}html body>ol,html body>ul{margin-bottom:16px}html body ol,html body ul{padding-left:2em}html body ol.no-list,html body ul.no-list{padding:0;list-style-type:none}html body ol ol,html body ol ul,html body ul ol,html body ul ul{margin-top:0;margin-bottom:0}html body li{margin-bottom:0}html body li.task-list-item{list-style:none}html body li>p{margin-top:0;margin-bottom:0}html body .task-list-item-checkbox{margin:0 .2em .25em -1.8em;vertical-align:middle}html body .task-list-item-checkbox:hover{cursor:pointer}html body blockquote{margin:16px 0;font-size:inherit;padding:0 15px;color:#5c5c5c;background-color:#f0f0f0;border-left:4px solid #d6d6d6}html body blockquote>:first-child{margin-top:0}html body blockquote>:last-child{margin-bottom:0}html body hr{height:4px;margin:32px 0;background-color:#d6d6d6;border:0 none}html body table{margin:10px 0 15px 0;border-collapse:collapse;border-spacing:0;display:block;width:100%;overflow:auto;word-break:normal;word-break:keep-all}html body table th{font-weight:700;color:#000}html body table td,html body table th{border:1px solid #d6d6d6;padding:6px 13px}html body dl{padding:0}html body dl dt{padding:0;margin-top:16px;font-size:1em;font-style:italic;font-weight:700}html body dl dd{padding:0 16px;margin-bottom:16px}html body code{font-family:Menlo,Monaco,Consolas,'Courier New',monospace;font-size:.85em;color:#000;background-color:#f0f0f0;border-radius:3px;padding:.2em 0}html body code::after,html body code::before{letter-spacing:-.2em;content:'\00a0'}html body pre>code{padding:0;margin:0;word-break:normal;white-space:pre;background:0 0;border:0}html body .highlight{margin-bottom:16px}html body .highlight pre,html body pre{padding:1em;overflow:auto;line-height:1.45;border:#d6d6d6;border-radius:3px}html body .highlight pre{margin-bottom:0;word-break:normal}html body pre code,html body pre tt{display:inline;max-width:initial;padding:0;margin:0;overflow:initial;line-height:inherit;word-wrap:normal;background-color:transparent;border:0}html body pre code:after,html body pre code:before,html body pre tt:after,html body pre tt:before{content:normal}html body blockquote,html body dl,html body ol,html body p,html body pre,html body ul{margin-top:0;margin-bottom:16px}html body kbd{color:#000;border:1px solid #d6d6d6;border-bottom:2px solid #c7c7c7;padding:2px 4px;background-color:#f0f0f0;border-radius:3px}@media print{html body{background-color:#fff}html body h1,html body h2,html body h3,html body h4,html body h5,html body h6{color:#000;page-break-after:avoid}html body blockquote{color:#5c5c5c}html body pre{page-break-inside:avoid}html body table{display:table}html body img{display:block;max-width:100%;max-height:100%}html body code,html body pre{word-wrap:break-word;white-space:pre}}.markdown-preview{width:100%;height:100%;box-sizing:border-box}.markdown-preview ul{list-style:disc}.markdown-preview ul ul{list-style:circle}.markdown-preview ul ul ul{list-style:square}.markdown-preview ol{list-style:decimal}.markdown-preview ol ol,.markdown-preview ul ol{list-style-type:lower-roman}.markdown-preview ol ol ol,.markdown-preview ol ul ol,.markdown-preview ul ol ol,.markdown-preview ul ul ol{list-style-type:lower-alpha}.markdown-preview .newpage,.markdown-preview .pagebreak{page-break-before:always}.markdown-preview pre.line-numbers{position:relative;padding-left:3.8em;counter-reset:linenumber}.markdown-preview pre.line-numbers>code{position:relative}.markdown-preview pre.line-numbers .line-numbers-rows{position:absolute;pointer-events:none;top:1em;font-size:100%;left:0;width:3em;letter-spacing:-1px;border-right:1px solid #999;-webkit-user-select:none;-moz-user-select:none;-ms-user-select:none;user-select:none}.markdown-preview pre.line-numbers .line-numbers-rows>span{pointer-events:none;display:block;counter-increment:linenumber}.markdown-preview pre.line-numbers .line-numbers-rows>span:before{content:counter(linenumber);color:#999;display:block;padding-right:.8em;text-align:right}.markdown-preview .mathjax-exps .MathJax_Display{text-align:center!important}.markdown-preview:not([data-for=preview]) .code-chunk .code-chunk-btn-group{display:none}.markdown-preview:not([data-for=preview]) .code-chunk .status{display:none}.markdown-preview:not([data-for=preview]) .code-chunk .output-div{margin-bottom:16px}.markdown-preview .md-toc{padding:0}.markdown-preview .md-toc .md-toc-link-wrapper .md-toc-link{display:inline;padding:.25rem 0}.markdown-preview .md-toc .md-toc-link-wrapper .md-toc-link div,.markdown-preview .md-toc .md-toc-link-wrapper .md-toc-link p{display:inline}.markdown-preview .md-toc .md-toc-link-wrapper.highlighted .md-toc-link{font-weight:800}.scrollbar-style::-webkit-scrollbar{width:8px}.scrollbar-style::-webkit-scrollbar-track{border-radius:10px;background-color:transparent}.scrollbar-style::-webkit-scrollbar-thumb{border-radius:5px;background-color:rgba(150,150,150,.66);border:4px solid rgba(150,150,150,.66);background-clip:content-box}html body[for=html-export]:not([data-presentation-mode]){position:relative;width:100%;height:100%;top:0;left:0;margin:0;padding:0;overflow:auto}html body[for=html-export]:not([data-presentation-mode]) .markdown-preview{position:relative;top:0;min-height:100vh}@media screen and (min-width:914px){html body[for=html-export]:not([data-presentation-mode]) .markdown-preview{padding:2em calc(50% - 457px + 2em)}}@media screen and (max-width:914px){html body[for=html-export]:not([data-presentation-mode]) .markdown-preview{padding:2em}}@media screen and (max-width:450px){html body[for=html-export]:not([data-presentation-mode]) .markdown-preview{font-size:14px!important;padding:1em}}@media print{html body[for=html-export]:not([data-presentation-mode]) #sidebar-toc-btn{display:none}}html body[for=html-export]:not([data-presentation-mode]) #sidebar-toc-btn{position:fixed;bottom:8px;left:8px;font-size:28px;cursor:pointer;color:inherit;z-index:99;width:32px;text-align:center;opacity:.4}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] #sidebar-toc-btn{opacity:1}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc{position:fixed;top:0;left:0;width:300px;height:100%;padding:32px 0 48px 0;font-size:14px;box-shadow:0 0 4px rgba(150,150,150,.33);box-sizing:border-box;overflow:auto;background-color:inherit}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc::-webkit-scrollbar{width:8px}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc::-webkit-scrollbar-track{border-radius:10px;background-color:transparent}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc::-webkit-scrollbar-thumb{border-radius:5px;background-color:rgba(150,150,150,.66);border:4px solid rgba(150,150,150,.66);background-clip:content-box}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc a{text-decoration:none}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc .md-toc{padding:0 16px}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc .md-toc .md-toc-link-wrapper .md-toc-link{display:inline;padding:.25rem 0}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc .md-toc .md-toc-link-wrapper .md-toc-link div,html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc .md-toc .md-toc-link-wrapper .md-toc-link p{display:inline}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc .md-toc .md-toc-link-wrapper.highlighted .md-toc-link{font-weight:800}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .markdown-preview{left:300px;width:calc(100% - 300px);padding:2em calc(50% - 457px - 300px / 2);margin:0;box-sizing:border-box}@media screen and (max-width:1274px){html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .markdown-preview{padding:2em}}@media screen and (max-width:450px){html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .markdown-preview{width:100%}}html body[for=html-export]:not([data-presentation-mode]):not([html-show-sidebar-toc]) .markdown-preview{left:50%;transform:translateX(-50%)}html body[for=html-export]:not([data-presentation-mode]):not([html-show-sidebar-toc]) .md-sidebar-toc{display:none}
+/* Please visit the URL below for more information: */
+/*   https://shd101wyy.github.io/markdown-preview-enhanced/#/customize-css */
+
+      </style>
+      <script type="text/javascript">
+  document.addEventListener("DOMContentLoaded", function () {
+    // your code here
+  });
+</script>
+    </head>
+    <body for="html-export">
+      <div class="crossnote markdown-preview  ">
+      <div>
+<h1 id="healthy_system-后端改造详细教程fastapi-工程化版">healthy_system 后端改造详细教程（FastAPI 工程化版） </h1>
+<blockquote>
+<p>适用对象：已经会一点 Flask、刚入门 FastAPI、想把自己的课程/比赛项目改造成真正能展示的项目的人。</p>
+<p>本教程完全围绕你的仓库现状来设计：当前仓库已经是前后端分离结构，根目录有 <code>backend</code> 和 <code>frontend</code>，前端已经有 <code>chat / record / profile</code> 页面路由，但后端目前仍以单文件入口为主，主要只有一个直接调用模型的聊天接口。目标不是“把代码写得更花”，而是把后端改成一个<strong>可维护、可扩展、可联调、可写进简历</strong>的项目。</p>
+</blockquote>
+<hr>
+<h2 id="0-先看清你现在项目的问题">0. 先看清你现在项目的问题 </h2>
+<p>你现在项目并不是“完全没后端”，而是处于一个很典型的阶段：</p>
+<ul>
+<li>目录上已经分成了 <code>backend</code> 和 <code>frontend</code></li>
+<li>前端路由已经有 <code>/</code>、<code>/chat</code>、<code>/record</code>、<code>/profile</code></li>
+<li>后端已经能启动 FastAPI，配置了 CORS，并暴露了一个 <code>GET /chat</code> 接口</li>
+<li>聊天接口里直接读取 <code>.env</code>，直接调用 Qwen SDK</li>
+<li>README 还很薄，几乎没有交接信息</li>
+</ul>
+<p>这说明你已经走出了“从零开始”的阶段，但现在还没走到“工程化项目”的阶段。</p>
+<h3 id="为什么现在不能继续维持单文件写法">为什么现在不能继续维持单文件写法 </h3>
+<p>因为单文件后端有 5 个明显问题：</p>
+<ol>
+<li><strong>所有东西都挤在入口文件里</strong>：配置、接口、模型调用、异常处理混在一起。</li>
+<li><strong>功能一多必乱</strong>：今天只有聊天还能撑住，明天加档案、健康记录、鉴权、数据库就会越来越难改。</li>
+<li><strong>前后端联调不稳定</strong>：没有统一响应结构，前端一旦接入多个页面，接口风格不一致就会难受。</li>
+<li><strong>不利于协作</strong>：别人打开你的仓库，很难一下子看懂“业务写在哪”。</li>
+<li><strong>不利于展示</strong>：面试/答辩时，人家一看就是“能跑的 demo”，不是“会做项目的人做的项目”。</li>
+</ol>
+<p>所以你这次改造的核心目标不是“会几个新语法”，而是：</p>
+<blockquote>
+<p>把后端从“能跑”升级成“像一个真实项目”。</p>
+</blockquote>
+<hr>
+<h2 id="1-改造总目标">1. 改造总目标 </h2>
+<p>改造完成后，你的后端至少要达到这 10 条：</p>
+<ol>
+<li>多文件结构，不再只有一个 <code>main.py</code></li>
+<li>路由、业务逻辑、数据访问分层清晰</li>
+<li>所有接口都有统一前缀 <code>/api/v1</code></li>
+<li>所有接口都有统一响应格式</li>
+<li>所有请求体和响应体都有 Pydantic schema</li>
+<li>数据落库，而不是只存在内存里</li>
+<li>数据库结构由迁移工具管理</li>
+<li>有全局异常处理和基础日志</li>
+<li>前端能稳定联调 <code>profile / record / chat</code></li>
+<li>README、<code>.env.example</code>、启动步骤完整</li>
+</ol>
+<p>这 10 条做到以后，你的项目就已经不是“练习代码”，而是一个合格的学生后端项目。</p>
+<hr>
+<h2 id="2-本教程的最终目录结构">2. 本教程的最终目录结构 </h2>
+<p>先看最终要改成什么样。你在整个改造过程中，可以随时回来看这棵树。</p>
+<pre data-role="codeBlock" data-info="text" class="language-text text"><code>backend/
+├─ app/
+│  ├─ main.py
+│  ├─ api/
+│  │  ├─ deps.py
+│  │  └─ routes/
+│  │     ├─ health.py
+│  │     ├─ profiles.py
+│  │     ├─ records.py
+│  │     └─ chat.py
+│  ├─ core/
+│  │  ├─ config.py
+│  │  ├─ exception.py
+│  │  ├─ response.py
+│  │  └─ logger.py
+│  ├─ db/
+│  │  ├─ base.py
+│  │  ├─ session.py
+│  │  └─ models/
+│  │     ├─ profile.py
+│  │     ├─ record.py
+│  │     └─ __init__.py
+│  ├─ schemas/
+│  │  ├─ common.py
+│  │  ├─ profile.py
+│  │  ├─ record.py
+│  │  └─ chat.py
+│  ├─ repositories/
+│  │  ├─ profile_repo.py
+│  │  └─ record_repo.py
+│  ├─ services/
+│  │  ├─ profile_service.py
+│  │  ├─ record_service.py
+│  │  └─ chat_service.py
+│  └─ utils/
+│     └─ time.py
+├─ tests/
+├─ alembic/
+├─ requirements.txt
+├─ .env
+└─ .env.example
+</code></pre><h3 id="这个结构每层的作用">这个结构每层的作用 </h3>
+<ul>
+<li><code>app/main.py</code>：应用入口，只负责组装，不写业务。</li>
+<li><code>api/routes/</code>：真正的接口地址定义位置。</li>
+<li><code>schemas/</code>：请求和响应的数据结构。</li>
+<li><code>services/</code>：业务逻辑层。</li>
+<li><code>repositories/</code>：数据库读写层。</li>
+<li><code>db/models/</code>：数据库表结构。</li>
+<li><code>core/</code>：配置、异常、统一响应、日志等全局能力。</li>
+<li><code>tests/</code>：基础测试。</li>
+<li><code>alembic/</code>：数据库迁移。</li>
+</ul>
+<blockquote>
+<p><strong>这一步的作用</strong>：让你一开始就知道目标长什么样，后面每创建一个文件，都知道它为什么存在，而不是“先建再说”。</p>
+</blockquote>
+<hr>
+<h2 id="3-第-1-步先保存当前版本避免改崩">3. 第 1 步：先保存当前版本，避免改崩 </h2>
+<h3 id="操作">操作 </h3>
+<p>先在项目根目录执行：</p>
+<pre data-role="codeBlock" data-info="bash" class="language-bash bash"><code><span class="token function">git</span> <span class="token function">add</span> <span class="token builtin class-name">.</span>
+<span class="token function">git</span> commit <span class="token parameter variable">-m</span> <span class="token string">"保存单文件后端版本"</span>
+<span class="token function">git</span> checkout <span class="token parameter variable">-b</span> refactor/backend-v1
+</code></pre><h3 id="这一步的作用">这一步的作用 </h3>
+<p>很多新手一改结构就把项目改崩，最后既回不去，又不知道哪里出错。先保存当前版本的意义是：</p>
+<ul>
+<li>给自己留退路</li>
+<li>后面重构出错可以随时对比</li>
+<li>这是一个真实开发习惯，不是形式主义</li>
+</ul>
+<blockquote>
+<p>真正做项目的人，在大改结构前都会先留一个稳定点。</p>
+</blockquote>
+<hr>
+<h2 id="4-第-2-步确定第一版只做哪些功能">4. 第 2 步：确定第一版只做哪些功能 </h2>
+<h3 id="操作-1">操作 </h3>
+<p>先把本次后端改造的功能范围写下来，不要边做边扩：</p>
+<p>第一版后端只做：</p>
+<ol>
+<li>健康检查接口</li>
+<li>老人档案 CRUD</li>
+<li>健康记录 CRUD</li>
+<li>聊天接口</li>
+<li>统一响应格式</li>
+<li>全局异常处理</li>
+<li>数据库存储</li>
+<li>基础日志</li>
+<li>基础测试</li>
+<li>完整 README</li>
+</ol>
+<p>暂时不做：</p>
+<ul>
+<li>登录注册</li>
+<li>权限系统</li>
+<li>向量库</li>
+<li>Redis</li>
+<li>消息队列</li>
+<li>定时任务</li>
+<li>多角色后台</li>
+</ul>
+<h3 id="这一步的作用-1">这一步的作用 </h3>
+<p>项目最容易失败的原因之一，就是“一边学一边加功能，最后所有东西都半成品”。</p>
+<p>你现在最重要的是先做出一个<strong>闭环</strong>：</p>
+<ul>
+<li>前端有页面</li>
+<li>后端有接口</li>
+<li>数据能保存</li>
+<li>项目能跑</li>
+<li>别人能看懂</li>
+</ul>
+<p>而不是“功能特别多”。</p>
+<hr>
+<h2 id="5-第-3-步先装依赖统一开发环境">5. 第 3 步：先装依赖，统一开发环境 </h2>
+<h3 id="操作-2">操作 </h3>
+<p>进入 <code>backend</code> 目录：</p>
+<pre data-role="codeBlock" data-info="bash" class="language-bash bash"><code><span class="token builtin class-name">cd</span> backend
+</code></pre><p>建议先创建虚拟环境，如果你已经有就激活现有环境：</p>
+<pre data-role="codeBlock" data-info="bash" class="language-bash bash"><code>python <span class="token parameter variable">-m</span> venv .venv
+</code></pre><p>Windows 激活：</p>
+<pre data-role="codeBlock" data-info="bash" class="language-bash bash"><code>.venv<span class="token punctuation">\</span>Scripts<span class="token punctuation">\</span>activate
+</code></pre><p>然后安装第一批依赖：</p>
+<pre data-role="codeBlock" data-info="bash" class="language-bash bash"><code>pip <span class="token function">install</span> fastapi uvicorn python-dotenv sqlalchemy alembic pydantic-settings dashscope pytest httpx
+</code></pre><p>然后生成 <code>requirements.txt</code>：</p>
+<pre data-role="codeBlock" data-info="bash" class="language-bash bash"><code>pip freeze <span class="token operator">&gt;</span> requirements.txt
+</code></pre><h3 id="这一步的作用-2">这一步的作用 </h3>
+<p>这一步不是“机械安装包”，而是为后面每个模块铺路：</p>
+<ul>
+<li><code>fastapi</code>：后端框架</li>
+<li><code>uvicorn</code>：运行服务器</li>
+<li><code>python-dotenv</code>：读环境变量</li>
+<li><code>sqlalchemy</code>：数据库 ORM</li>
+<li><code>alembic</code>：数据库迁移</li>
+<li><code>pydantic-settings</code>：规范管理配置</li>
+<li><code>dashscope</code>：调用你当前用的模型</li>
+<li><code>pytest</code>、<code>httpx</code>：测试接口</li>
+</ul>
+<blockquote>
+<p>没有依赖统一，你后面写出来的教程步骤别人无法复现，你自己下次换电脑也会忘。</p>
+</blockquote>
+<hr>
+<h2 id="6-第-4-步创建新的目录结构">6. 第 4 步：创建新的目录结构 </h2>
+<h3 id="操作-3">操作 </h3>
+<p>在 <code>backend</code> 下手动创建这些目录和文件：</p>
+<pre data-role="codeBlock" data-info="text" class="language-text text"><code>backend/
+├─ app/
+│  ├─ api/
+│  │  └─ routes/
+│  ├─ core/
+│  ├─ db/
+│  │  └─ models/
+│  ├─ schemas/
+│  ├─ repositories/
+│  ├─ services/
+│  └─ utils/
+├─ tests/
+</code></pre><p>并在这些目录里加上 <code>__init__.py</code>（至少 <code>app/</code>、<code>api/</code>、<code>routes/</code>、<code>db/</code>、<code>models/</code>、<code>schemas/</code>、<code>repositories/</code>、<code>services/</code> 这些 Python 包目录建议都加）。</p>
+<h3 id="这一步的作用-3">这一步的作用 </h3>
+<p>这一步是把“代码堆在一起”的后端，改成“按职责划分”的后端。它的价值在于：</p>
+<ul>
+<li>你以后不会再问“这个逻辑该写哪”</li>
+<li>后续加功能不会继续挤爆入口文件</li>
+<li>队友或老师打开仓库能直接理解模块分工</li>
+</ul>
+<blockquote>
+<p>目录结构本身就是一种“工程化表达能力”。</p>
+</blockquote>
+<hr>
+<h2 id="7-第-5-步先写配置中心-coreconfigpy">7. 第 5 步：先写配置中心 <code>core/config.py</code> </h2>
+<h3 id="操作-4">操作 </h3>
+<p>创建 <code>backend/app/core/config.py</code>：</p>
+<pre data-role="codeBlock" data-info="python" class="language-python python"><code><span class="token keyword keyword-from">from</span> pathlib <span class="token keyword keyword-import">import</span> Path
+<span class="token keyword keyword-from">from</span> pydantic_settings <span class="token keyword keyword-import">import</span> BaseSettings<span class="token punctuation">,</span> SettingsConfigDict
+
+
+<span class="token keyword keyword-class">class</span> <span class="token class-name">Settings</span><span class="token punctuation">(</span>BaseSettings<span class="token punctuation">)</span><span class="token punctuation">:</span>
+    APP_NAME<span class="token punctuation">:</span> <span class="token builtin">str</span> <span class="token operator">=</span> <span class="token string">"healthy_system backend"</span>
+    DEBUG<span class="token punctuation">:</span> <span class="token builtin">bool</span> <span class="token operator">=</span> <span class="token boolean">True</span>
+    API_V1_PREFIX<span class="token punctuation">:</span> <span class="token builtin">str</span> <span class="token operator">=</span> <span class="token string">"/api/v1"</span>
+    DATABASE_URL<span class="token punctuation">:</span> <span class="token builtin">str</span> <span class="token operator">=</span> <span class="token string">"sqlite:///./healthy_system.db"</span>
+    DASHSCOPE_API_KEY<span class="token punctuation">:</span> <span class="token builtin">str</span> <span class="token operator">=</span> <span class="token string">""</span>
+    ALLOWED_ORIGINS<span class="token punctuation">:</span> <span class="token builtin">str</span> <span class="token operator">=</span> <span class="token string">"*"</span>
+
+    model_config <span class="token operator">=</span> SettingsConfigDict<span class="token punctuation">(</span>
+        env_file<span class="token operator">=</span><span class="token builtin">str</span><span class="token punctuation">(</span>Path<span class="token punctuation">(</span>__file__<span class="token punctuation">)</span><span class="token punctuation">.</span>resolve<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span>parent<span class="token punctuation">.</span>parent<span class="token punctuation">.</span>parent <span class="token operator">/</span> <span class="token string">".env"</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+        env_file_encoding<span class="token operator">=</span><span class="token string">"utf-8"</span><span class="token punctuation">,</span>
+        extra<span class="token operator">=</span><span class="token string">"ignore"</span><span class="token punctuation">,</span>
+    <span class="token punctuation">)</span>
+
+
+settings <span class="token operator">=</span> Settings<span class="token punctuation">(</span><span class="token punctuation">)</span>
+</code></pre><h3 id="同时创建-envexample">同时创建 <code>.env.example</code> </h3>
+<p>在 <code>backend/.env.example</code> 中写：</p>
+<pre data-role="codeBlock" data-info="env" class="language-env env"><code>APP_NAME=healthy_system backend
+DEBUG=true
+API_V1_PREFIX=/api/v1
+DATABASE_URL=sqlite:///./healthy_system.db
+DASHSCOPE_API_KEY=your_key_here
+ALLOWED_ORIGINS=*
+</code></pre><h3 id="这一步的作用-4">这一步的作用 </h3>
+<p>这一步是为了让“配置”和“代码”分开。</p>
+<p>你现在项目里是直接在入口文件里读 <code>.env</code>。短期能用，但长期会有几个问题：</p>
+<ul>
+<li>哪些配置存在，不清楚</li>
+<li>不同文件到处 <code>os.getenv()</code>，很乱</li>
+<li>换环境时容易漏</li>
+<li>README 难写清楚</li>
+</ul>
+<p>配置中心的核心价值是：</p>
+<ol>
+<li>所有配置只有一个入口</li>
+<li>所有人一眼知道要填哪些环境变量</li>
+<li>以后换数据库、换接口前缀、换模型 key 都不用全局搜字符串</li>
+</ol>
+<blockquote>
+<p>项目里凡是“将来可能变”的东西，都应该尽量从配置中心读，而不是写死在业务逻辑里。</p>
+</blockquote>
+<hr>
+<h2 id="8-第-6-步重写-mainpy让入口文件只负责组装">8. 第 6 步：重写 <code>main.py</code>，让入口文件只负责组装 </h2>
+<h3 id="操作-5">操作 </h3>
+<p>创建 <code>backend/app/main.py</code>：</p>
+<pre data-role="codeBlock" data-info="python" class="language-python python"><code><span class="token keyword keyword-from">from</span> fastapi <span class="token keyword keyword-import">import</span> FastAPI
+<span class="token keyword keyword-from">from</span> fastapi<span class="token punctuation">.</span>middleware<span class="token punctuation">.</span>cors <span class="token keyword keyword-import">import</span> CORSMiddleware
+
+<span class="token keyword keyword-from">from</span> app<span class="token punctuation">.</span>core<span class="token punctuation">.</span>config <span class="token keyword keyword-import">import</span> settings
+<span class="token keyword keyword-from">from</span> app<span class="token punctuation">.</span>api<span class="token punctuation">.</span>routes<span class="token punctuation">.</span>health <span class="token keyword keyword-import">import</span> router <span class="token keyword keyword-as">as</span> health_router
+
+app <span class="token operator">=</span> FastAPI<span class="token punctuation">(</span>title<span class="token operator">=</span>settings<span class="token punctuation">.</span>APP_NAME<span class="token punctuation">)</span>
+
+app<span class="token punctuation">.</span>add_middleware<span class="token punctuation">(</span>
+    CORSMiddleware<span class="token punctuation">,</span>
+    allow_origins<span class="token operator">=</span><span class="token punctuation">[</span><span class="token string">"*"</span><span class="token punctuation">]</span> <span class="token keyword keyword-if">if</span> settings<span class="token punctuation">.</span>ALLOWED_ORIGINS <span class="token operator">==</span> <span class="token string">"*"</span> <span class="token keyword keyword-else">else</span> settings<span class="token punctuation">.</span>ALLOWED_ORIGINS<span class="token punctuation">.</span>split<span class="token punctuation">(</span><span class="token string">","</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+    allow_credentials<span class="token operator">=</span><span class="token boolean">True</span><span class="token punctuation">,</span>
+    allow_methods<span class="token operator">=</span><span class="token punctuation">[</span><span class="token string">"*"</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
+    allow_headers<span class="token operator">=</span><span class="token punctuation">[</span><span class="token string">"*"</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
+<span class="token punctuation">)</span>
+
+app<span class="token punctuation">.</span>include_router<span class="token punctuation">(</span>health_router<span class="token punctuation">,</span> prefix<span class="token operator">=</span>settings<span class="token punctuation">.</span>API_V1_PREFIX<span class="token punctuation">)</span>
+</code></pre><h3 id="这一步的作用-5">这一步的作用 </h3>
+<p>你当前项目最大的结构问题，就是入口文件做了太多事：</p>
+<ul>
+<li>读配置</li>
+<li>配中间件</li>
+<li>定义接口</li>
+<li>调模型</li>
+<li>异常处理</li>
+</ul>
+<p>真正像样的入口文件应该很“瘦”，只负责组装应用。这样做的好处：</p>
+<ul>
+<li>你打开 <code>main.py</code> 就能看懂整个项目挂了哪些模块</li>
+<li>业务逻辑不再污染入口</li>
+<li>新增接口时只要新增 router 并注册即可</li>
+</ul>
+<blockquote>
+<p><strong>入口文件越薄，项目越像项目。</strong></p>
+</blockquote>
+<hr>
+<h2 id="9-第-7-步先做最简单的-health-路由">9. 第 7 步：先做最简单的 <code>health</code> 路由 </h2>
+<h3 id="操作-6">操作 </h3>
+<p>创建 <code>backend/app/api/routes/health.py</code>：</p>
+<pre data-role="codeBlock" data-info="python" class="language-python python"><code><span class="token keyword keyword-from">from</span> fastapi <span class="token keyword keyword-import">import</span> APIRouter
+
+router <span class="token operator">=</span> APIRouter<span class="token punctuation">(</span>tags<span class="token operator">=</span><span class="token punctuation">[</span><span class="token string">"health"</span><span class="token punctuation">]</span><span class="token punctuation">)</span>
+
+
+<span class="token decorator annotation punctuation">@router<span class="token punctuation">.</span>get</span><span class="token punctuation">(</span><span class="token string">"/health"</span><span class="token punctuation">)</span>
+<span class="token keyword keyword-def">def</span> <span class="token function">health_check</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+    <span class="token keyword keyword-return">return</span> <span class="token punctuation">{</span>
+        <span class="token string">"code"</span><span class="token punctuation">:</span> <span class="token number">0</span><span class="token punctuation">,</span>
+        <span class="token string">"message"</span><span class="token punctuation">:</span> <span class="token string">"success"</span><span class="token punctuation">,</span>
+        <span class="token string">"data"</span><span class="token punctuation">:</span> <span class="token punctuation">{</span><span class="token string">"status"</span><span class="token punctuation">:</span> <span class="token string">"ok"</span><span class="token punctuation">}</span>
+    <span class="token punctuation">}</span>
+</code></pre><p>启动项目：</p>
+<pre data-role="codeBlock" data-info="bash" class="language-bash bash"><code>uvicorn app.main:app <span class="token parameter variable">--reload</span>
+</code></pre><p>浏览器访问：</p>
+<pre data-role="codeBlock" data-info="text" class="language-text text"><code>http://127.0.0.1:8000/api/v1/health
+</code></pre><h3 id="这一步的作用-6">这一步的作用 </h3>
+<p>很多人一上来就写最复杂的业务接口，结果一旦出错，不知道是：</p>
+<ul>
+<li>启动有问题</li>
+<li>路由没注册</li>
+<li>中间件有问题</li>
+<li>业务逻辑有问题</li>
+</ul>
+<p>而 <code>health</code> 接口的价值就在于：</p>
+<ul>
+<li>它不依赖数据库</li>
+<li>不依赖模型 SDK</li>
+<li>不依赖前端</li>
+<li>最容易验证“后端基本框架已经通了”</li>
+</ul>
+<blockquote>
+<p>以后你每做一步大改，都先验证 <code>/api/v1/health</code> 是否还正常，这是非常专业的习惯。</p>
+</blockquote>
+<hr>
+<h2 id="10-第-8-步先建立统一响应模型">10. 第 8 步：先建立统一响应模型 </h2>
+<h3 id="操作-7">操作 </h3>
+<p>创建 <code>backend/app/schemas/common.py</code>：</p>
+<pre data-role="codeBlock" data-info="python" class="language-python python"><code><span class="token keyword keyword-from">from</span> typing <span class="token keyword keyword-import">import</span> Generic<span class="token punctuation">,</span> Optional<span class="token punctuation">,</span> TypeVar
+<span class="token keyword keyword-from">from</span> pydantic <span class="token keyword keyword-import">import</span> BaseModel
+
+T <span class="token operator">=</span> TypeVar<span class="token punctuation">(</span><span class="token string">"T"</span><span class="token punctuation">)</span>
+
+
+<span class="token keyword keyword-class">class</span> <span class="token class-name">ApiResponse</span><span class="token punctuation">(</span>BaseModel<span class="token punctuation">,</span> Generic<span class="token punctuation">[</span>T<span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+    code<span class="token punctuation">:</span> <span class="token builtin">int</span> <span class="token operator">=</span> <span class="token number">0</span>
+    message<span class="token punctuation">:</span> <span class="token builtin">str</span> <span class="token operator">=</span> <span class="token string">"success"</span>
+    data<span class="token punctuation">:</span> Optional<span class="token punctuation">[</span>T<span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token boolean">None</span>
+</code></pre><p>创建 <code>backend/app/core/response.py</code>：</p>
+<pre data-role="codeBlock" data-info="python" class="language-python python"><code><span class="token keyword keyword-from">from</span> app<span class="token punctuation">.</span>schemas<span class="token punctuation">.</span>common <span class="token keyword keyword-import">import</span> ApiResponse
+
+
+<span class="token keyword keyword-def">def</span> <span class="token function">success_response</span><span class="token punctuation">(</span>data<span class="token operator">=</span><span class="token boolean">None</span><span class="token punctuation">,</span> message<span class="token punctuation">:</span> <span class="token builtin">str</span> <span class="token operator">=</span> <span class="token string">"success"</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+    <span class="token keyword keyword-return">return</span> ApiResponse<span class="token punctuation">(</span>code<span class="token operator">=</span><span class="token number">0</span><span class="token punctuation">,</span> message<span class="token operator">=</span>message<span class="token punctuation">,</span> data<span class="token operator">=</span>data<span class="token punctuation">)</span>
+</code></pre><p>然后把 <code>health.py</code> 改成：</p>
+<pre data-role="codeBlock" data-info="python" class="language-python python"><code><span class="token keyword keyword-from">from</span> fastapi <span class="token keyword keyword-import">import</span> APIRouter
+<span class="token keyword keyword-from">from</span> app<span class="token punctuation">.</span>core<span class="token punctuation">.</span>response <span class="token keyword keyword-import">import</span> success_response
+
+router <span class="token operator">=</span> APIRouter<span class="token punctuation">(</span>tags<span class="token operator">=</span><span class="token punctuation">[</span><span class="token string">"health"</span><span class="token punctuation">]</span><span class="token punctuation">)</span>
+
+
+<span class="token decorator annotation punctuation">@router<span class="token punctuation">.</span>get</span><span class="token punctuation">(</span><span class="token string">"/health"</span><span class="token punctuation">)</span>
+<span class="token keyword keyword-def">def</span> <span class="token function">health_check</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+    <span class="token keyword keyword-return">return</span> success_response<span class="token punctuation">(</span><span class="token punctuation">{</span><span class="token string">"status"</span><span class="token punctuation">:</span> <span class="token string">"ok"</span><span class="token punctuation">}</span><span class="token punctuation">)</span>
+</code></pre><h3 id="这一步的作用-7">这一步的作用 </h3>
+<p>统一响应不是“花里胡哨”，而是前后端联调效率的核心。</p>
+<p>如果没有统一响应，后面就会出现：</p>
+<ul>
+<li>A 接口返回 <code>{"reply": ...}</code></li>
+<li>B 接口返回 <code>{"status": 200, "data": ...}</code></li>
+<li>C 接口报错返回字符串</li>
+</ul>
+<p>前端处理起来会非常痛苦。</p>
+<p>统一响应格式之后，你的前端拿到任何接口结果，都会按同一套结构处理：</p>
+<ul>
+<li><code>code</code>：是否成功</li>
+<li><code>message</code>：提示信息</li>
+<li><code>data</code>：真正的数据</li>
+</ul>
+<blockquote>
+<p>这一步的价值是给整个后端“立规矩”。</p>
+</blockquote>
+<hr>
+<h2 id="11-第-9-步建立全局异常处理">11. 第 9 步：建立全局异常处理 </h2>
+<h3 id="操作-8">操作 </h3>
+<p>创建 <code>backend/app/core/exception.py</code>：</p>
+<pre data-role="codeBlock" data-info="python" class="language-python python"><code><span class="token keyword keyword-from">from</span> fastapi <span class="token keyword keyword-import">import</span> Request
+<span class="token keyword keyword-from">from</span> fastapi<span class="token punctuation">.</span>responses <span class="token keyword keyword-import">import</span> JSONResponse
+
+
+<span class="token keyword keyword-class">class</span> <span class="token class-name">BusinessException</span><span class="token punctuation">(</span>Exception<span class="token punctuation">)</span><span class="token punctuation">:</span>
+    <span class="token keyword keyword-def">def</span> <span class="token function">__init__</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span> code<span class="token punctuation">:</span> <span class="token builtin">int</span><span class="token punctuation">,</span> message<span class="token punctuation">:</span> <span class="token builtin">str</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+        self<span class="token punctuation">.</span>code <span class="token operator">=</span> code
+        self<span class="token punctuation">.</span>message <span class="token operator">=</span> message
+
+
+<span class="token keyword keyword-async">async</span> <span class="token keyword keyword-def">def</span> <span class="token function">business_exception_handler</span><span class="token punctuation">(</span>request<span class="token punctuation">:</span> Request<span class="token punctuation">,</span> exc<span class="token punctuation">:</span> BusinessException<span class="token punctuation">)</span><span class="token punctuation">:</span>
+    <span class="token keyword keyword-return">return</span> JSONResponse<span class="token punctuation">(</span>
+        status_code<span class="token operator">=</span><span class="token number">400</span><span class="token punctuation">,</span>
+        content<span class="token operator">=</span><span class="token punctuation">{</span>
+            <span class="token string">"code"</span><span class="token punctuation">:</span> exc<span class="token punctuation">.</span>code<span class="token punctuation">,</span>
+            <span class="token string">"message"</span><span class="token punctuation">:</span> exc<span class="token punctuation">.</span>message<span class="token punctuation">,</span>
+            <span class="token string">"data"</span><span class="token punctuation">:</span> <span class="token boolean">None</span><span class="token punctuation">,</span>
+        <span class="token punctuation">}</span><span class="token punctuation">,</span>
+    <span class="token punctuation">)</span>
+
+
+<span class="token keyword keyword-async">async</span> <span class="token keyword keyword-def">def</span> <span class="token function">generic_exception_handler</span><span class="token punctuation">(</span>request<span class="token punctuation">:</span> Request<span class="token punctuation">,</span> exc<span class="token punctuation">:</span> Exception<span class="token punctuation">)</span><span class="token punctuation">:</span>
+    <span class="token keyword keyword-return">return</span> JSONResponse<span class="token punctuation">(</span>
+        status_code<span class="token operator">=</span><span class="token number">500</span><span class="token punctuation">,</span>
+        content<span class="token operator">=</span><span class="token punctuation">{</span>
+            <span class="token string">"code"</span><span class="token punctuation">:</span> <span class="token number">50000</span><span class="token punctuation">,</span>
+            <span class="token string">"message"</span><span class="token punctuation">:</span> <span class="token string">"服务器内部错误"</span><span class="token punctuation">,</span>
+            <span class="token string">"data"</span><span class="token punctuation">:</span> <span class="token boolean">None</span><span class="token punctuation">,</span>
+        <span class="token punctuation">}</span><span class="token punctuation">,</span>
+    <span class="token punctuation">)</span>
+</code></pre><p>然后在 <code>main.py</code> 注册：</p>
+<pre data-role="codeBlock" data-info="python" class="language-python python"><code><span class="token keyword keyword-from">from</span> app<span class="token punctuation">.</span>core<span class="token punctuation">.</span>exception <span class="token keyword keyword-import">import</span> <span class="token punctuation">(</span>
+    BusinessException<span class="token punctuation">,</span>
+    business_exception_handler<span class="token punctuation">,</span>
+    generic_exception_handler<span class="token punctuation">,</span>
+<span class="token punctuation">)</span>
+
+app<span class="token punctuation">.</span>add_exception_handler<span class="token punctuation">(</span>BusinessException<span class="token punctuation">,</span> business_exception_handler<span class="token punctuation">)</span>
+app<span class="token punctuation">.</span>add_exception_handler<span class="token punctuation">(</span>Exception<span class="token punctuation">,</span> generic_exception_handler<span class="token punctuation">)</span>
+</code></pre><h3 id="这一步的作用-8">这一步的作用 </h3>
+<p>你当前聊天接口的写法是把异常直接 <code>try/except</code> 后返回字符串。这种写法有两个问题：</p>
+<ol>
+<li>每个接口都可能各写各的异常风格</li>
+<li>真出错时没有统一结构，前端很难处理</li>
+</ol>
+<p>全局异常处理的意义：</p>
+<ul>
+<li>业务异常统一输出</li>
+<li>系统异常统一兜底</li>
+<li>以后路由里不用到处写 <code>try/except</code></li>
+<li>项目更整洁</li>
+</ul>
+<blockquote>
+<p>当你把“异常”也做成统一能力时，你的后端才真正开始像一个项目。</p>
+</blockquote>
+<hr>
+<h2 id="12-第-10-步设计第一个真实业务模块-profile">12. 第 10 步：设计第一个真实业务模块 <code>profile</code> </h2>
+<h3 id="为什么先做-profile">为什么先做 <code>profile</code> </h3>
+<p>因为你的前端已经有 <code>/profile</code> 页面，且“老人档案”是这个项目里几乎所有业务的基础：</p>
+<ul>
+<li>健康记录依赖老人档案</li>
+<li>聊天建议以后也可能依赖老人档案</li>
+<li>将来提醒、统计、个性化建议都依赖老人档案</li>
+</ul>
+<p>所以 <code>profile</code> 必须是你第一个完整打通的业务模块。</p>
+<hr>
+<h2 id="13-第-11-步先定义-profile-的接口数据结构">13. 第 11 步：先定义 <code>profile</code> 的接口数据结构 </h2>
+<h3 id="操作-9">操作 </h3>
+<p>创建 <code>backend/app/schemas/profile.py</code>：</p>
+<pre data-role="codeBlock" data-info="python" class="language-python python"><code><span class="token keyword keyword-from">from</span> datetime <span class="token keyword keyword-import">import</span> date<span class="token punctuation">,</span> datetime
+<span class="token keyword keyword-from">from</span> typing <span class="token keyword keyword-import">import</span> Optional
+<span class="token keyword keyword-from">from</span> pydantic <span class="token keyword keyword-import">import</span> BaseModel<span class="token punctuation">,</span> Field
+
+
+<span class="token keyword keyword-class">class</span> <span class="token class-name">ProfileBase</span><span class="token punctuation">(</span>BaseModel<span class="token punctuation">)</span><span class="token punctuation">:</span>
+    name<span class="token punctuation">:</span> <span class="token builtin">str</span> <span class="token operator">=</span> Field<span class="token punctuation">(</span><span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">,</span> min_length<span class="token operator">=</span><span class="token number">1</span><span class="token punctuation">,</span> max_length<span class="token operator">=</span><span class="token number">50</span><span class="token punctuation">)</span>
+    gender<span class="token punctuation">:</span> <span class="token builtin">str</span> <span class="token operator">=</span> Field<span class="token punctuation">(</span><span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">,</span> description<span class="token operator">=</span><span class="token string">"男/女/其他"</span><span class="token punctuation">)</span>
+    birth_date<span class="token punctuation">:</span> Optional<span class="token punctuation">[</span>date<span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token boolean">None</span>
+    phone<span class="token punctuation">:</span> Optional<span class="token punctuation">[</span><span class="token builtin">str</span><span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token boolean">None</span>
+    emergency_contact_name<span class="token punctuation">:</span> Optional<span class="token punctuation">[</span><span class="token builtin">str</span><span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token boolean">None</span>
+    emergency_contact_phone<span class="token punctuation">:</span> Optional<span class="token punctuation">[</span><span class="token builtin">str</span><span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token boolean">None</span>
+    chronic_diseases<span class="token punctuation">:</span> Optional<span class="token punctuation">[</span><span class="token builtin">str</span><span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token boolean">None</span>
+    allergies<span class="token punctuation">:</span> Optional<span class="token punctuation">[</span><span class="token builtin">str</span><span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token boolean">None</span>
+    remark<span class="token punctuation">:</span> Optional<span class="token punctuation">[</span><span class="token builtin">str</span><span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token boolean">None</span>
+
+
+<span class="token keyword keyword-class">class</span> <span class="token class-name">ProfileCreate</span><span class="token punctuation">(</span>ProfileBase<span class="token punctuation">)</span><span class="token punctuation">:</span>
+    <span class="token keyword keyword-pass">pass</span>
+
+
+<span class="token keyword keyword-class">class</span> <span class="token class-name">ProfileUpdate</span><span class="token punctuation">(</span>BaseModel<span class="token punctuation">)</span><span class="token punctuation">:</span>
+    name<span class="token punctuation">:</span> Optional<span class="token punctuation">[</span><span class="token builtin">str</span><span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token boolean">None</span>
+    gender<span class="token punctuation">:</span> Optional<span class="token punctuation">[</span><span class="token builtin">str</span><span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token boolean">None</span>
+    birth_date<span class="token punctuation">:</span> Optional<span class="token punctuation">[</span>date<span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token boolean">None</span>
+    phone<span class="token punctuation">:</span> Optional<span class="token punctuation">[</span><span class="token builtin">str</span><span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token boolean">None</span>
+    emergency_contact_name<span class="token punctuation">:</span> Optional<span class="token punctuation">[</span><span class="token builtin">str</span><span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token boolean">None</span>
+    emergency_contact_phone<span class="token punctuation">:</span> Optional<span class="token punctuation">[</span><span class="token builtin">str</span><span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token boolean">None</span>
+    chronic_diseases<span class="token punctuation">:</span> Optional<span class="token punctuation">[</span><span class="token builtin">str</span><span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token boolean">None</span>
+    allergies<span class="token punctuation">:</span> Optional<span class="token punctuation">[</span><span class="token builtin">str</span><span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token boolean">None</span>
+    remark<span class="token punctuation">:</span> Optional<span class="token punctuation">[</span><span class="token builtin">str</span><span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token boolean">None</span>
+
+
+<span class="token keyword keyword-class">class</span> <span class="token class-name">ProfileRead</span><span class="token punctuation">(</span>ProfileBase<span class="token punctuation">)</span><span class="token punctuation">:</span>
+    <span class="token builtin">id</span><span class="token punctuation">:</span> <span class="token builtin">int</span>
+    created_at<span class="token punctuation">:</span> datetime
+    updated_at<span class="token punctuation">:</span> datetime
+
+    model_config <span class="token operator">=</span> <span class="token punctuation">{</span>
+        <span class="token string">"from_attributes"</span><span class="token punctuation">:</span> <span class="token boolean">True</span>
+    <span class="token punctuation">}</span>
+</code></pre><h3 id="这一步的作用-9">这一步的作用 </h3>
+<p>很多新手容易混淆：</p>
+<ul>
+<li>数据库模型</li>
+<li>接口请求体</li>
+<li>接口响应体</li>
+</ul>
+<p>这一步就是在建立一个非常重要的意识：</p>
+<blockquote>
+<p><strong>接口的数据结构，不等于数据库表结构。</strong></p>
+</blockquote>
+<p>为什么要单独写 schema：</p>
+<ul>
+<li>请求时只接收允许用户传的字段</li>
+<li>返回时只返回允许前端看到的字段</li>
+<li>校验规则写在这里更清晰</li>
+<li>文档会自动生成</li>
+</ul>
+<blockquote>
+<p>从这里开始，你就不再是“直接收 dict”，而是在按接口契约开发。</p>
+</blockquote>
+<hr>
+<h2 id="14-第-12-步接数据库先用-sqlite-跑通">14. 第 12 步：接数据库，先用 SQLite 跑通 </h2>
+<h3 id="为什么先用-sqlite">为什么先用 SQLite </h3>
+<p>你当然可以以后换 MySQL，但当前最优解是：</p>
+<ul>
+<li>先用 SQLite 跑通本地开发流程</li>
+<li>代码结构按正式项目写</li>
+<li>以后只换连接串，不大动业务代码</li>
+</ul>
+<p>这样你不会一边学 FastAPI，一边被本地数据库环境折磨。</p>
+<h3 id="操作创建数据库会话">操作：创建数据库会话 </h3>
+<p>创建 <code>backend/app/db/session.py</code>：</p>
+<pre data-role="codeBlock" data-info="python" class="language-python python"><code><span class="token keyword keyword-from">from</span> sqlalchemy <span class="token keyword keyword-import">import</span> create_engine
+<span class="token keyword keyword-from">from</span> sqlalchemy<span class="token punctuation">.</span>orm <span class="token keyword keyword-import">import</span> sessionmaker<span class="token punctuation">,</span> DeclarativeBase
+<span class="token keyword keyword-from">from</span> app<span class="token punctuation">.</span>core<span class="token punctuation">.</span>config <span class="token keyword keyword-import">import</span> settings
+
+
+<span class="token keyword keyword-class">class</span> <span class="token class-name">Base</span><span class="token punctuation">(</span>DeclarativeBase<span class="token punctuation">)</span><span class="token punctuation">:</span>
+    <span class="token keyword keyword-pass">pass</span>
+
+
+engine <span class="token operator">=</span> create_engine<span class="token punctuation">(</span>
+    settings<span class="token punctuation">.</span>DATABASE_URL<span class="token punctuation">,</span>
+    connect_args<span class="token operator">=</span><span class="token punctuation">{</span><span class="token string">"check_same_thread"</span><span class="token punctuation">:</span> <span class="token boolean">False</span><span class="token punctuation">}</span> <span class="token keyword keyword-if">if</span> settings<span class="token punctuation">.</span>DATABASE_URL<span class="token punctuation">.</span>startswith<span class="token punctuation">(</span><span class="token string">"sqlite"</span><span class="token punctuation">)</span> <span class="token keyword keyword-else">else</span> <span class="token punctuation">{</span><span class="token punctuation">}</span><span class="token punctuation">,</span>
+<span class="token punctuation">)</span>
+
+SessionLocal <span class="token operator">=</span> sessionmaker<span class="token punctuation">(</span>bind<span class="token operator">=</span>engine<span class="token punctuation">,</span> autoflush<span class="token operator">=</span><span class="token boolean">False</span><span class="token punctuation">,</span> autocommit<span class="token operator">=</span><span class="token boolean">False</span><span class="token punctuation">)</span>
+
+
+<span class="token keyword keyword-def">def</span> <span class="token function">get_db</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+    db <span class="token operator">=</span> SessionLocal<span class="token punctuation">(</span><span class="token punctuation">)</span>
+    <span class="token keyword keyword-try">try</span><span class="token punctuation">:</span>
+        <span class="token keyword keyword-yield">yield</span> db
+    <span class="token keyword keyword-finally">finally</span><span class="token punctuation">:</span>
+        db<span class="token punctuation">.</span>close<span class="token punctuation">(</span><span class="token punctuation">)</span>
+</code></pre><p>创建 <code>backend/app/api/deps.py</code>：</p>
+<pre data-role="codeBlock" data-info="python" class="language-python python"><code><span class="token keyword keyword-from">from</span> app<span class="token punctuation">.</span>db<span class="token punctuation">.</span>session <span class="token keyword keyword-import">import</span> get_db
+</code></pre><h3 id="这一步的作用-10">这一步的作用 </h3>
+<p>这一步是后面所有“真实落库”的前提。它的价值在于：</p>
+<ul>
+<li>统一管理数据库连接</li>
+<li>接口里可以按依赖注入拿到 <code>db</code></li>
+<li>以后换数据库时，主要改这里和配置即可</li>
+</ul>
+<blockquote>
+<p>这一步开始，你的项目才真正准备从“演示”走向“有状态的应用”。</p>
+</blockquote>
+<hr>
+<h2 id="15-第-13-步建立-profile-数据库表模型">15. 第 13 步：建立 <code>profile</code> 数据库表模型 </h2>
+<h3 id="操作-10">操作 </h3>
+<p>创建 <code>backend/app/db/models/profile.py</code>：</p>
+<pre data-role="codeBlock" data-info="python" class="language-python python"><code><span class="token keyword keyword-from">from</span> datetime <span class="token keyword keyword-import">import</span> datetime
+<span class="token keyword keyword-from">from</span> sqlalchemy <span class="token keyword keyword-import">import</span> String<span class="token punctuation">,</span> Date<span class="token punctuation">,</span> DateTime<span class="token punctuation">,</span> Text
+<span class="token keyword keyword-from">from</span> sqlalchemy<span class="token punctuation">.</span>orm <span class="token keyword keyword-import">import</span> Mapped<span class="token punctuation">,</span> mapped_column
+<span class="token keyword keyword-from">from</span> app<span class="token punctuation">.</span>db<span class="token punctuation">.</span>session <span class="token keyword keyword-import">import</span> Base
+
+
+<span class="token keyword keyword-class">class</span> <span class="token class-name">Profile</span><span class="token punctuation">(</span>Base<span class="token punctuation">)</span><span class="token punctuation">:</span>
+    __tablename__ <span class="token operator">=</span> <span class="token string">"profiles"</span>
+
+    <span class="token builtin">id</span><span class="token punctuation">:</span> Mapped<span class="token punctuation">[</span><span class="token builtin">int</span><span class="token punctuation">]</span> <span class="token operator">=</span> mapped_column<span class="token punctuation">(</span>primary_key<span class="token operator">=</span><span class="token boolean">True</span><span class="token punctuation">,</span> index<span class="token operator">=</span><span class="token boolean">True</span><span class="token punctuation">)</span>
+    name<span class="token punctuation">:</span> Mapped<span class="token punctuation">[</span><span class="token builtin">str</span><span class="token punctuation">]</span> <span class="token operator">=</span> mapped_column<span class="token punctuation">(</span>String<span class="token punctuation">(</span><span class="token number">50</span><span class="token punctuation">)</span><span class="token punctuation">,</span> nullable<span class="token operator">=</span><span class="token boolean">False</span><span class="token punctuation">)</span>
+    gender<span class="token punctuation">:</span> Mapped<span class="token punctuation">[</span><span class="token builtin">str</span><span class="token punctuation">]</span> <span class="token operator">=</span> mapped_column<span class="token punctuation">(</span>String<span class="token punctuation">(</span><span class="token number">20</span><span class="token punctuation">)</span><span class="token punctuation">,</span> nullable<span class="token operator">=</span><span class="token boolean">False</span><span class="token punctuation">)</span>
+    birth_date<span class="token punctuation">:</span> Mapped<span class="token punctuation">[</span>Date <span class="token operator">|</span> <span class="token boolean">None</span><span class="token punctuation">]</span> <span class="token operator">=</span> mapped_column<span class="token punctuation">(</span>Date<span class="token punctuation">,</span> nullable<span class="token operator">=</span><span class="token boolean">True</span><span class="token punctuation">)</span>
+    phone<span class="token punctuation">:</span> Mapped<span class="token punctuation">[</span><span class="token builtin">str</span> <span class="token operator">|</span> <span class="token boolean">None</span><span class="token punctuation">]</span> <span class="token operator">=</span> mapped_column<span class="token punctuation">(</span>String<span class="token punctuation">(</span><span class="token number">20</span><span class="token punctuation">)</span><span class="token punctuation">,</span> nullable<span class="token operator">=</span><span class="token boolean">True</span><span class="token punctuation">)</span>
+    emergency_contact_name<span class="token punctuation">:</span> Mapped<span class="token punctuation">[</span><span class="token builtin">str</span> <span class="token operator">|</span> <span class="token boolean">None</span><span class="token punctuation">]</span> <span class="token operator">=</span> mapped_column<span class="token punctuation">(</span>String<span class="token punctuation">(</span><span class="token number">50</span><span class="token punctuation">)</span><span class="token punctuation">,</span> nullable<span class="token operator">=</span><span class="token boolean">True</span><span class="token punctuation">)</span>
+    emergency_contact_phone<span class="token punctuation">:</span> Mapped<span class="token punctuation">[</span><span class="token builtin">str</span> <span class="token operator">|</span> <span class="token boolean">None</span><span class="token punctuation">]</span> <span class="token operator">=</span> mapped_column<span class="token punctuation">(</span>String<span class="token punctuation">(</span><span class="token number">20</span><span class="token punctuation">)</span><span class="token punctuation">,</span> nullable<span class="token operator">=</span><span class="token boolean">True</span><span class="token punctuation">)</span>
+    chronic_diseases<span class="token punctuation">:</span> Mapped<span class="token punctuation">[</span><span class="token builtin">str</span> <span class="token operator">|</span> <span class="token boolean">None</span><span class="token punctuation">]</span> <span class="token operator">=</span> mapped_column<span class="token punctuation">(</span>Text<span class="token punctuation">,</span> nullable<span class="token operator">=</span><span class="token boolean">True</span><span class="token punctuation">)</span>
+    allergies<span class="token punctuation">:</span> Mapped<span class="token punctuation">[</span><span class="token builtin">str</span> <span class="token operator">|</span> <span class="token boolean">None</span><span class="token punctuation">]</span> <span class="token operator">=</span> mapped_column<span class="token punctuation">(</span>Text<span class="token punctuation">,</span> nullable<span class="token operator">=</span><span class="token boolean">True</span><span class="token punctuation">)</span>
+    remark<span class="token punctuation">:</span> Mapped<span class="token punctuation">[</span><span class="token builtin">str</span> <span class="token operator">|</span> <span class="token boolean">None</span><span class="token punctuation">]</span> <span class="token operator">=</span> mapped_column<span class="token punctuation">(</span>Text<span class="token punctuation">,</span> nullable<span class="token operator">=</span><span class="token boolean">True</span><span class="token punctuation">)</span>
+    created_at<span class="token punctuation">:</span> Mapped<span class="token punctuation">[</span>datetime<span class="token punctuation">]</span> <span class="token operator">=</span> mapped_column<span class="token punctuation">(</span>DateTime<span class="token punctuation">,</span> default<span class="token operator">=</span>datetime<span class="token punctuation">.</span>utcnow<span class="token punctuation">)</span>
+    updated_at<span class="token punctuation">:</span> Mapped<span class="token punctuation">[</span>datetime<span class="token punctuation">]</span> <span class="token operator">=</span> mapped_column<span class="token punctuation">(</span>DateTime<span class="token punctuation">,</span> default<span class="token operator">=</span>datetime<span class="token punctuation">.</span>utcnow<span class="token punctuation">,</span> onupdate<span class="token operator">=</span>datetime<span class="token punctuation">.</span>utcnow<span class="token punctuation">)</span>
+</code></pre><p>再创建 <code>backend/app/db/models/__init__.py</code>：</p>
+<pre data-role="codeBlock" data-info="python" class="language-python python"><code><span class="token keyword keyword-from">from</span> app<span class="token punctuation">.</span>db<span class="token punctuation">.</span>models<span class="token punctuation">.</span>profile <span class="token keyword keyword-import">import</span> Profile
+</code></pre><h3 id="这一步的作用-11">这一步的作用 </h3>
+<p>数据库模型是“数据最终存哪、长什么样”的定义。它的意义是：</p>
+<ul>
+<li>真正把数据落到数据库里</li>
+<li>定义字段类型、长度、是否允许为空</li>
+<li>为后面迁移工具提供依据</li>
+</ul>
+<blockquote>
+<p>Schema 是接口契约，Model 是表结构。二者必须分清。</p>
+</blockquote>
+<hr>
+<h2 id="16-第-14-步先不急着写路由先写-repository">16. 第 14 步：先不急着写路由，先写 repository </h2>
+<h3 id="操作-11">操作 </h3>
+<p>创建 <code>backend/app/repositories/profile_repo.py</code>：</p>
+<pre data-role="codeBlock" data-info="python" class="language-python python"><code><span class="token keyword keyword-from">from</span> sqlalchemy<span class="token punctuation">.</span>orm <span class="token keyword keyword-import">import</span> Session
+<span class="token keyword keyword-from">from</span> app<span class="token punctuation">.</span>db<span class="token punctuation">.</span>models<span class="token punctuation">.</span>profile <span class="token keyword keyword-import">import</span> Profile
+
+
+<span class="token keyword keyword-class">class</span> <span class="token class-name">ProfileRepository</span><span class="token punctuation">:</span>
+    <span class="token keyword keyword-def">def</span> <span class="token function">create</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span> db<span class="token punctuation">:</span> Session<span class="token punctuation">,</span> data<span class="token punctuation">:</span> <span class="token builtin">dict</span><span class="token punctuation">)</span> <span class="token operator">-</span><span class="token operator">&gt;</span> Profile<span class="token punctuation">:</span>
+        obj <span class="token operator">=</span> Profile<span class="token punctuation">(</span><span class="token operator">**</span>data<span class="token punctuation">)</span>
+        db<span class="token punctuation">.</span>add<span class="token punctuation">(</span>obj<span class="token punctuation">)</span>
+        db<span class="token punctuation">.</span>commit<span class="token punctuation">(</span><span class="token punctuation">)</span>
+        db<span class="token punctuation">.</span>refresh<span class="token punctuation">(</span>obj<span class="token punctuation">)</span>
+        <span class="token keyword keyword-return">return</span> obj
+
+    <span class="token keyword keyword-def">def</span> <span class="token function">get_by_id</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span> db<span class="token punctuation">:</span> Session<span class="token punctuation">,</span> profile_id<span class="token punctuation">:</span> <span class="token builtin">int</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+        <span class="token keyword keyword-return">return</span> db<span class="token punctuation">.</span>query<span class="token punctuation">(</span>Profile<span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token builtin">filter</span><span class="token punctuation">(</span>Profile<span class="token punctuation">.</span><span class="token builtin">id</span> <span class="token operator">==</span> profile_id<span class="token punctuation">)</span><span class="token punctuation">.</span>first<span class="token punctuation">(</span><span class="token punctuation">)</span>
+
+    <span class="token keyword keyword-def">def</span> <span class="token function">get_all</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span> db<span class="token punctuation">:</span> Session<span class="token punctuation">)</span><span class="token punctuation">:</span>
+        <span class="token keyword keyword-return">return</span> db<span class="token punctuation">.</span>query<span class="token punctuation">(</span>Profile<span class="token punctuation">)</span><span class="token punctuation">.</span>order_by<span class="token punctuation">(</span>Profile<span class="token punctuation">.</span><span class="token builtin">id</span><span class="token punctuation">.</span>desc<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token builtin">all</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+
+    <span class="token keyword keyword-def">def</span> <span class="token function">update</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span> db<span class="token punctuation">:</span> Session<span class="token punctuation">,</span> obj<span class="token punctuation">:</span> Profile<span class="token punctuation">,</span> data<span class="token punctuation">:</span> <span class="token builtin">dict</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+        <span class="token keyword keyword-for">for</span> key<span class="token punctuation">,</span> value <span class="token keyword keyword-in">in</span> data<span class="token punctuation">.</span>items<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+            <span class="token builtin">setattr</span><span class="token punctuation">(</span>obj<span class="token punctuation">,</span> key<span class="token punctuation">,</span> value<span class="token punctuation">)</span>
+        db<span class="token punctuation">.</span>commit<span class="token punctuation">(</span><span class="token punctuation">)</span>
+        db<span class="token punctuation">.</span>refresh<span class="token punctuation">(</span>obj<span class="token punctuation">)</span>
+        <span class="token keyword keyword-return">return</span> obj
+
+    <span class="token keyword keyword-def">def</span> <span class="token function">delete</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span> db<span class="token punctuation">:</span> Session<span class="token punctuation">,</span> obj<span class="token punctuation">:</span> Profile<span class="token punctuation">)</span><span class="token punctuation">:</span>
+        db<span class="token punctuation">.</span>delete<span class="token punctuation">(</span>obj<span class="token punctuation">)</span>
+        db<span class="token punctuation">.</span>commit<span class="token punctuation">(</span><span class="token punctuation">)</span>
+</code></pre><h3 id="这一步的作用-12">这一步的作用 </h3>
+<p>很多初学者会把所有数据库操作直接写到路由里，这会让接口越来越臃肿。</p>
+<p>Repository 的作用是：</p>
+<ul>
+<li>专门负责数据库操作</li>
+<li>把“查表、增删改”从业务逻辑里拆出去</li>
+<li>以后同一套数据库操作可以被多个 service 重用</li>
+</ul>
+<blockquote>
+<p>Route 不应该直接写一堆 SQLAlchemy 细节。先把“数据库访问层”独立出来，你的代码会干净很多。</p>
+</blockquote>
+<hr>
+<h2 id="17-第-15-步再写-service处理业务规则">17. 第 15 步：再写 service，处理业务规则 </h2>
+<h3 id="操作-12">操作 </h3>
+<p>创建 <code>backend/app/services/profile_service.py</code>：</p>
+<pre data-role="codeBlock" data-info="python" class="language-python python"><code><span class="token keyword keyword-from">from</span> sqlalchemy<span class="token punctuation">.</span>orm <span class="token keyword keyword-import">import</span> Session
+<span class="token keyword keyword-from">from</span> app<span class="token punctuation">.</span>core<span class="token punctuation">.</span>exception <span class="token keyword keyword-import">import</span> BusinessException
+<span class="token keyword keyword-from">from</span> app<span class="token punctuation">.</span>repositories<span class="token punctuation">.</span>profile_repo <span class="token keyword keyword-import">import</span> ProfileRepository
+<span class="token keyword keyword-from">from</span> app<span class="token punctuation">.</span>schemas<span class="token punctuation">.</span>profile <span class="token keyword keyword-import">import</span> ProfileCreate<span class="token punctuation">,</span> ProfileUpdate
+
+repo <span class="token operator">=</span> ProfileRepository<span class="token punctuation">(</span><span class="token punctuation">)</span>
+
+
+<span class="token keyword keyword-class">class</span> <span class="token class-name">ProfileService</span><span class="token punctuation">:</span>
+    <span class="token keyword keyword-def">def</span> <span class="token function">create_profile</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span> db<span class="token punctuation">:</span> Session<span class="token punctuation">,</span> data<span class="token punctuation">:</span> ProfileCreate<span class="token punctuation">)</span><span class="token punctuation">:</span>
+        <span class="token keyword keyword-return">return</span> repo<span class="token punctuation">.</span>create<span class="token punctuation">(</span>db<span class="token punctuation">,</span> data<span class="token punctuation">.</span>model_dump<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+
+    <span class="token keyword keyword-def">def</span> <span class="token function">get_profile</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span> db<span class="token punctuation">:</span> Session<span class="token punctuation">,</span> profile_id<span class="token punctuation">:</span> <span class="token builtin">int</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+        profile <span class="token operator">=</span> repo<span class="token punctuation">.</span>get_by_id<span class="token punctuation">(</span>db<span class="token punctuation">,</span> profile_id<span class="token punctuation">)</span>
+        <span class="token keyword keyword-if">if</span> <span class="token keyword keyword-not">not</span> profile<span class="token punctuation">:</span>
+            <span class="token keyword keyword-raise">raise</span> BusinessException<span class="token punctuation">(</span><span class="token number">40401</span><span class="token punctuation">,</span> <span class="token string">"档案不存在"</span><span class="token punctuation">)</span>
+        <span class="token keyword keyword-return">return</span> profile
+
+    <span class="token keyword keyword-def">def</span> <span class="token function">list_profiles</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span> db<span class="token punctuation">:</span> Session<span class="token punctuation">)</span><span class="token punctuation">:</span>
+        <span class="token keyword keyword-return">return</span> repo<span class="token punctuation">.</span>get_all<span class="token punctuation">(</span>db<span class="token punctuation">)</span>
+
+    <span class="token keyword keyword-def">def</span> <span class="token function">update_profile</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span> db<span class="token punctuation">:</span> Session<span class="token punctuation">,</span> profile_id<span class="token punctuation">:</span> <span class="token builtin">int</span><span class="token punctuation">,</span> data<span class="token punctuation">:</span> ProfileUpdate<span class="token punctuation">)</span><span class="token punctuation">:</span>
+        profile <span class="token operator">=</span> repo<span class="token punctuation">.</span>get_by_id<span class="token punctuation">(</span>db<span class="token punctuation">,</span> profile_id<span class="token punctuation">)</span>
+        <span class="token keyword keyword-if">if</span> <span class="token keyword keyword-not">not</span> profile<span class="token punctuation">:</span>
+            <span class="token keyword keyword-raise">raise</span> BusinessException<span class="token punctuation">(</span><span class="token number">40401</span><span class="token punctuation">,</span> <span class="token string">"档案不存在"</span><span class="token punctuation">)</span>
+        update_data <span class="token operator">=</span> data<span class="token punctuation">.</span>model_dump<span class="token punctuation">(</span>exclude_unset<span class="token operator">=</span><span class="token boolean">True</span><span class="token punctuation">)</span>
+        <span class="token keyword keyword-return">return</span> repo<span class="token punctuation">.</span>update<span class="token punctuation">(</span>db<span class="token punctuation">,</span> profile<span class="token punctuation">,</span> update_data<span class="token punctuation">)</span>
+
+    <span class="token keyword keyword-def">def</span> <span class="token function">delete_profile</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span> db<span class="token punctuation">:</span> Session<span class="token punctuation">,</span> profile_id<span class="token punctuation">:</span> <span class="token builtin">int</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+        profile <span class="token operator">=</span> repo<span class="token punctuation">.</span>get_by_id<span class="token punctuation">(</span>db<span class="token punctuation">,</span> profile_id<span class="token punctuation">)</span>
+        <span class="token keyword keyword-if">if</span> <span class="token keyword keyword-not">not</span> profile<span class="token punctuation">:</span>
+            <span class="token keyword keyword-raise">raise</span> BusinessException<span class="token punctuation">(</span><span class="token number">40401</span><span class="token punctuation">,</span> <span class="token string">"档案不存在"</span><span class="token punctuation">)</span>
+        repo<span class="token punctuation">.</span>delete<span class="token punctuation">(</span>db<span class="token punctuation">,</span> profile<span class="token punctuation">)</span>
+        <span class="token keyword keyword-return">return</span> <span class="token boolean">True</span>
+
+
+profile_service <span class="token operator">=</span> ProfileService<span class="token punctuation">(</span><span class="token punctuation">)</span>
+</code></pre><h3 id="这一步的作用-13">这一步的作用 </h3>
+<p>Service 层就是“业务规则层”。</p>
+<p>为什么不能让路由直接调 repository：</p>
+<ul>
+<li>路由应该尽量薄</li>
+<li>校验某条数据是否存在，这是业务规则，不是路由责任</li>
+<li>以后如果创建档案前要检查手机号是否重复，也应该写在 service</li>
+</ul>
+<blockquote>
+<p>简单理解：</p>
+<ul>
+<li>repository 只管“怎么查库”</li>
+<li>service 只管“业务该怎么走”</li>
+</ul>
+</blockquote>
+<hr>
+<h2 id="18-第-16-步最后才写-profile-路由">18. 第 16 步：最后才写 <code>profile</code> 路由 </h2>
+<h3 id="操作-13">操作 </h3>
+<p>创建 <code>backend/app/api/routes/profiles.py</code>：</p>
+<pre data-role="codeBlock" data-info="python" class="language-python python"><code><span class="token keyword keyword-from">from</span> typing <span class="token keyword keyword-import">import</span> List
+<span class="token keyword keyword-from">from</span> fastapi <span class="token keyword keyword-import">import</span> APIRouter<span class="token punctuation">,</span> Depends
+<span class="token keyword keyword-from">from</span> sqlalchemy<span class="token punctuation">.</span>orm <span class="token keyword keyword-import">import</span> Session
+
+<span class="token keyword keyword-from">from</span> app<span class="token punctuation">.</span>core<span class="token punctuation">.</span>response <span class="token keyword keyword-import">import</span> success_response
+<span class="token keyword keyword-from">from</span> app<span class="token punctuation">.</span>db<span class="token punctuation">.</span>session <span class="token keyword keyword-import">import</span> get_db
+<span class="token keyword keyword-from">from</span> app<span class="token punctuation">.</span>schemas<span class="token punctuation">.</span>profile <span class="token keyword keyword-import">import</span> ProfileCreate<span class="token punctuation">,</span> ProfileRead<span class="token punctuation">,</span> ProfileUpdate
+<span class="token keyword keyword-from">from</span> app<span class="token punctuation">.</span>services<span class="token punctuation">.</span>profile_service <span class="token keyword keyword-import">import</span> profile_service
+
+router <span class="token operator">=</span> APIRouter<span class="token punctuation">(</span>prefix<span class="token operator">=</span><span class="token string">"/profiles"</span><span class="token punctuation">,</span> tags<span class="token operator">=</span><span class="token punctuation">[</span><span class="token string">"profiles"</span><span class="token punctuation">]</span><span class="token punctuation">)</span>
+
+
+<span class="token decorator annotation punctuation">@router<span class="token punctuation">.</span>post</span><span class="token punctuation">(</span><span class="token string">""</span><span class="token punctuation">,</span> response_model<span class="token operator">=</span><span class="token builtin">dict</span><span class="token punctuation">)</span>
+<span class="token keyword keyword-def">def</span> <span class="token function">create_profile</span><span class="token punctuation">(</span>data<span class="token punctuation">:</span> ProfileCreate<span class="token punctuation">,</span> db<span class="token punctuation">:</span> Session <span class="token operator">=</span> Depends<span class="token punctuation">(</span>get_db<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+    profile <span class="token operator">=</span> profile_service<span class="token punctuation">.</span>create_profile<span class="token punctuation">(</span>db<span class="token punctuation">,</span> data<span class="token punctuation">)</span>
+    <span class="token keyword keyword-return">return</span> success_response<span class="token punctuation">(</span>ProfileRead<span class="token punctuation">.</span>model_validate<span class="token punctuation">(</span>profile<span class="token punctuation">)</span><span class="token punctuation">.</span>model_dump<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+
+
+<span class="token decorator annotation punctuation">@router<span class="token punctuation">.</span>get</span><span class="token punctuation">(</span><span class="token string">""</span><span class="token punctuation">,</span> response_model<span class="token operator">=</span><span class="token builtin">dict</span><span class="token punctuation">)</span>
+<span class="token keyword keyword-def">def</span> <span class="token function">list_profiles</span><span class="token punctuation">(</span>db<span class="token punctuation">:</span> Session <span class="token operator">=</span> Depends<span class="token punctuation">(</span>get_db<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+    profiles <span class="token operator">=</span> profile_service<span class="token punctuation">.</span>list_profiles<span class="token punctuation">(</span>db<span class="token punctuation">)</span>
+    <span class="token keyword keyword-return">return</span> success_response<span class="token punctuation">(</span><span class="token punctuation">[</span>ProfileRead<span class="token punctuation">.</span>model_validate<span class="token punctuation">(</span>i<span class="token punctuation">)</span><span class="token punctuation">.</span>model_dump<span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token keyword keyword-for">for</span> i <span class="token keyword keyword-in">in</span> profiles<span class="token punctuation">]</span><span class="token punctuation">)</span>
+
+
+<span class="token decorator annotation punctuation">@router<span class="token punctuation">.</span>get</span><span class="token punctuation">(</span><span class="token string">"/{profile_id}"</span><span class="token punctuation">,</span> response_model<span class="token operator">=</span><span class="token builtin">dict</span><span class="token punctuation">)</span>
+<span class="token keyword keyword-def">def</span> <span class="token function">get_profile</span><span class="token punctuation">(</span>profile_id<span class="token punctuation">:</span> <span class="token builtin">int</span><span class="token punctuation">,</span> db<span class="token punctuation">:</span> Session <span class="token operator">=</span> Depends<span class="token punctuation">(</span>get_db<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+    profile <span class="token operator">=</span> profile_service<span class="token punctuation">.</span>get_profile<span class="token punctuation">(</span>db<span class="token punctuation">,</span> profile_id<span class="token punctuation">)</span>
+    <span class="token keyword keyword-return">return</span> success_response<span class="token punctuation">(</span>ProfileRead<span class="token punctuation">.</span>model_validate<span class="token punctuation">(</span>profile<span class="token punctuation">)</span><span class="token punctuation">.</span>model_dump<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+
+
+<span class="token decorator annotation punctuation">@router<span class="token punctuation">.</span>put</span><span class="token punctuation">(</span><span class="token string">"/{profile_id}"</span><span class="token punctuation">,</span> response_model<span class="token operator">=</span><span class="token builtin">dict</span><span class="token punctuation">)</span>
+<span class="token keyword keyword-def">def</span> <span class="token function">update_profile</span><span class="token punctuation">(</span>profile_id<span class="token punctuation">:</span> <span class="token builtin">int</span><span class="token punctuation">,</span> data<span class="token punctuation">:</span> ProfileUpdate<span class="token punctuation">,</span> db<span class="token punctuation">:</span> Session <span class="token operator">=</span> Depends<span class="token punctuation">(</span>get_db<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+    profile <span class="token operator">=</span> profile_service<span class="token punctuation">.</span>update_profile<span class="token punctuation">(</span>db<span class="token punctuation">,</span> profile_id<span class="token punctuation">,</span> data<span class="token punctuation">)</span>
+    <span class="token keyword keyword-return">return</span> success_response<span class="token punctuation">(</span>ProfileRead<span class="token punctuation">.</span>model_validate<span class="token punctuation">(</span>profile<span class="token punctuation">)</span><span class="token punctuation">.</span>model_dump<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+
+
+<span class="token decorator annotation punctuation">@router<span class="token punctuation">.</span>delete</span><span class="token punctuation">(</span><span class="token string">"/{profile_id}"</span><span class="token punctuation">,</span> response_model<span class="token operator">=</span><span class="token builtin">dict</span><span class="token punctuation">)</span>
+<span class="token keyword keyword-def">def</span> <span class="token function">delete_profile</span><span class="token punctuation">(</span>profile_id<span class="token punctuation">:</span> <span class="token builtin">int</span><span class="token punctuation">,</span> db<span class="token punctuation">:</span> Session <span class="token operator">=</span> Depends<span class="token punctuation">(</span>get_db<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+    profile_service<span class="token punctuation">.</span>delete_profile<span class="token punctuation">(</span>db<span class="token punctuation">,</span> profile_id<span class="token punctuation">)</span>
+    <span class="token keyword keyword-return">return</span> success_response<span class="token punctuation">(</span><span class="token boolean">True</span><span class="token punctuation">,</span> message<span class="token operator">=</span><span class="token string">"删除成功"</span><span class="token punctuation">)</span>
+</code></pre><p>然后在 <code>main.py</code> 注册：</p>
+<pre data-role="codeBlock" data-info="python" class="language-python python"><code><span class="token keyword keyword-from">from</span> app<span class="token punctuation">.</span>api<span class="token punctuation">.</span>routes<span class="token punctuation">.</span>profiles <span class="token keyword keyword-import">import</span> router <span class="token keyword keyword-as">as</span> profile_router
+
+app<span class="token punctuation">.</span>include_router<span class="token punctuation">(</span>profile_router<span class="token punctuation">,</span> prefix<span class="token operator">=</span>settings<span class="token punctuation">.</span>API_V1_PREFIX<span class="token punctuation">)</span>
+</code></pre><h3 id="这一步的作用-14">这一步的作用 </h3>
+<p>这一步你终于打通了一条完整链路：</p>
+<p><strong>router → service → repository → database</strong></p>
+<p>这条链路一旦建立起来，你后面做 <code>record</code>、<code>chat</code> 都可以沿用同一套思路。</p>
+<blockquote>
+<p>你要学的不是“会写某个接口”，而是“会用同一套方法写任何接口”。</p>
+</blockquote>
+<hr>
+<h2 id="19-第-17-步创建表先跑通第一批数据">19. 第 17 步：创建表，先跑通第一批数据 </h2>
+<h3 id="操作临时方案">操作（临时方案） </h3>
+<p>在 <code>main.py</code> 里先临时加入：</p>
+<pre data-role="codeBlock" data-info="python" class="language-python python"><code><span class="token keyword keyword-from">from</span> app<span class="token punctuation">.</span>db<span class="token punctuation">.</span>session <span class="token keyword keyword-import">import</span> Base<span class="token punctuation">,</span> engine
+<span class="token keyword keyword-from">from</span> app<span class="token punctuation">.</span>db<span class="token punctuation">.</span>models <span class="token keyword keyword-import">import</span> <span class="token operator">*</span>
+
+Base<span class="token punctuation">.</span>metadata<span class="token punctuation">.</span>create_all<span class="token punctuation">(</span>bind<span class="token operator">=</span>engine<span class="token punctuation">)</span>
+</code></pre><p>启动项目后，先用 <code>/docs</code> 测试 <code>profiles</code> 的增删改查。</p>
+<h3 id="这一步的作用-15">这一步的作用 </h3>
+<p>这一步是为了快速验证你前面写的分层链路是通的。</p>
+<p>注意，这只是临时方案。后面会换成 Alembic 迁移管理。现在先这么做，是为了让你尽快看到“整个第一业务模块已经跑起来”。</p>
+<blockquote>
+<p>先跑通，再规范化，这是对初学者非常重要的节奏控制。</p>
+</blockquote>
+<hr>
+<h2 id="20-第-18-步再做-record-模块补足项目业务感">20. 第 18 步：再做 <code>record</code> 模块，补足项目业务感 </h2>
+<h3 id="为什么-record-很重要">为什么 <code>record</code> 很重要 </h3>
+<p>你前端已经有 <code>/record</code> 页面。如果你只有聊天和档案，那这个项目还不像“健康管理”项目。</p>
+<p>健康记录模块一做出来，项目业务感会立刻上一个台阶。</p>
+<h3 id="建议的第一版设计">建议的第一版设计 </h3>
+<p>不要一开始拆血压表、血糖表、睡眠表、服药表四五张表。第一版更适合做成“统一记录表”：</p>
+<ul>
+<li><code>profile_id</code></li>
+<li><code>record_type</code>：例如 <code>blood_pressure</code> / <code>blood_sugar</code> / <code>medicine</code></li>
+<li><code>value_json</code>：存具体值</li>
+<li><code>record_time</code></li>
+<li><code>note</code></li>
+</ul>
+<p>这样做的优点：</p>
+<ul>
+<li>开发快</li>
+<li>一张表先够用</li>
+<li>后面如果你要精细化拆表，也还能演进</li>
+</ul>
+<h3 id="操作创建-schema">操作：创建 schema </h3>
+<p><code>backend/app/schemas/record.py</code></p>
+<pre data-role="codeBlock" data-info="python" class="language-python python"><code><span class="token keyword keyword-from">from</span> datetime <span class="token keyword keyword-import">import</span> datetime
+<span class="token keyword keyword-from">from</span> typing <span class="token keyword keyword-import">import</span> Optional<span class="token punctuation">,</span> Dict<span class="token punctuation">,</span> Any
+<span class="token keyword keyword-from">from</span> pydantic <span class="token keyword keyword-import">import</span> BaseModel
+
+
+<span class="token keyword keyword-class">class</span> <span class="token class-name">RecordBase</span><span class="token punctuation">(</span>BaseModel<span class="token punctuation">)</span><span class="token punctuation">:</span>
+    profile_id<span class="token punctuation">:</span> <span class="token builtin">int</span>
+    record_type<span class="token punctuation">:</span> <span class="token builtin">str</span>
+    value_json<span class="token punctuation">:</span> Dict<span class="token punctuation">[</span><span class="token builtin">str</span><span class="token punctuation">,</span> Any<span class="token punctuation">]</span>
+    record_time<span class="token punctuation">:</span> datetime
+    note<span class="token punctuation">:</span> Optional<span class="token punctuation">[</span><span class="token builtin">str</span><span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token boolean">None</span>
+
+
+<span class="token keyword keyword-class">class</span> <span class="token class-name">RecordCreate</span><span class="token punctuation">(</span>RecordBase<span class="token punctuation">)</span><span class="token punctuation">:</span>
+    <span class="token keyword keyword-pass">pass</span>
+
+
+<span class="token keyword keyword-class">class</span> <span class="token class-name">RecordUpdate</span><span class="token punctuation">(</span>BaseModel<span class="token punctuation">)</span><span class="token punctuation">:</span>
+    record_type<span class="token punctuation">:</span> Optional<span class="token punctuation">[</span><span class="token builtin">str</span><span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token boolean">None</span>
+    value_json<span class="token punctuation">:</span> Optional<span class="token punctuation">[</span>Dict<span class="token punctuation">[</span><span class="token builtin">str</span><span class="token punctuation">,</span> Any<span class="token punctuation">]</span><span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token boolean">None</span>
+    record_time<span class="token punctuation">:</span> Optional<span class="token punctuation">[</span>datetime<span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token boolean">None</span>
+    note<span class="token punctuation">:</span> Optional<span class="token punctuation">[</span><span class="token builtin">str</span><span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token boolean">None</span>
+
+
+<span class="token keyword keyword-class">class</span> <span class="token class-name">RecordRead</span><span class="token punctuation">(</span>RecordBase<span class="token punctuation">)</span><span class="token punctuation">:</span>
+    <span class="token builtin">id</span><span class="token punctuation">:</span> <span class="token builtin">int</span>
+
+    model_config <span class="token operator">=</span> <span class="token punctuation">{</span><span class="token string">"from_attributes"</span><span class="token punctuation">:</span> <span class="token boolean">True</span><span class="token punctuation">}</span>
+</code></pre><h3 id="再写-model">再写 model </h3>
+<p><code>backend/app/db/models/record.py</code></p>
+<pre data-role="codeBlock" data-info="python" class="language-python python"><code><span class="token keyword keyword-from">from</span> datetime <span class="token keyword keyword-import">import</span> datetime
+<span class="token keyword keyword-from">from</span> sqlalchemy <span class="token keyword keyword-import">import</span> Integer<span class="token punctuation">,</span> String<span class="token punctuation">,</span> DateTime<span class="token punctuation">,</span> Text<span class="token punctuation">,</span> ForeignKey
+<span class="token keyword keyword-from">from</span> sqlalchemy<span class="token punctuation">.</span>orm <span class="token keyword keyword-import">import</span> Mapped<span class="token punctuation">,</span> mapped_column
+<span class="token keyword keyword-from">from</span> app<span class="token punctuation">.</span>db<span class="token punctuation">.</span>session <span class="token keyword keyword-import">import</span> Base
+
+
+<span class="token keyword keyword-class">class</span> <span class="token class-name">Record</span><span class="token punctuation">(</span>Base<span class="token punctuation">)</span><span class="token punctuation">:</span>
+    __tablename__ <span class="token operator">=</span> <span class="token string">"records"</span>
+
+    <span class="token builtin">id</span><span class="token punctuation">:</span> Mapped<span class="token punctuation">[</span><span class="token builtin">int</span><span class="token punctuation">]</span> <span class="token operator">=</span> mapped_column<span class="token punctuation">(</span>primary_key<span class="token operator">=</span><span class="token boolean">True</span><span class="token punctuation">,</span> index<span class="token operator">=</span><span class="token boolean">True</span><span class="token punctuation">)</span>
+    profile_id<span class="token punctuation">:</span> Mapped<span class="token punctuation">[</span><span class="token builtin">int</span><span class="token punctuation">]</span> <span class="token operator">=</span> mapped_column<span class="token punctuation">(</span>ForeignKey<span class="token punctuation">(</span><span class="token string">"profiles.id"</span><span class="token punctuation">)</span><span class="token punctuation">,</span> nullable<span class="token operator">=</span><span class="token boolean">False</span><span class="token punctuation">)</span>
+    record_type<span class="token punctuation">:</span> Mapped<span class="token punctuation">[</span><span class="token builtin">str</span><span class="token punctuation">]</span> <span class="token operator">=</span> mapped_column<span class="token punctuation">(</span>String<span class="token punctuation">(</span><span class="token number">50</span><span class="token punctuation">)</span><span class="token punctuation">,</span> nullable<span class="token operator">=</span><span class="token boolean">False</span><span class="token punctuation">)</span>
+    value_json<span class="token punctuation">:</span> Mapped<span class="token punctuation">[</span><span class="token builtin">str</span><span class="token punctuation">]</span> <span class="token operator">=</span> mapped_column<span class="token punctuation">(</span>Text<span class="token punctuation">,</span> nullable<span class="token operator">=</span><span class="token boolean">False</span><span class="token punctuation">)</span>
+    record_time<span class="token punctuation">:</span> Mapped<span class="token punctuation">[</span>datetime<span class="token punctuation">]</span> <span class="token operator">=</span> mapped_column<span class="token punctuation">(</span>DateTime<span class="token punctuation">,</span> nullable<span class="token operator">=</span><span class="token boolean">False</span><span class="token punctuation">)</span>
+    note<span class="token punctuation">:</span> Mapped<span class="token punctuation">[</span><span class="token builtin">str</span> <span class="token operator">|</span> <span class="token boolean">None</span><span class="token punctuation">]</span> <span class="token operator">=</span> mapped_column<span class="token punctuation">(</span>Text<span class="token punctuation">,</span> nullable<span class="token operator">=</span><span class="token boolean">True</span><span class="token punctuation">)</span>
+</code></pre><h3 id="这一步的作用-16">这一步的作用 </h3>
+<p><code>record</code> 模块的价值不只是“多一个接口”，而是让项目开始有真正的业务闭环：</p>
+<ul>
+<li>老人档案存在</li>
+<li>健康记录落库</li>
+<li>前端页面不再空着</li>
+<li>以后聊天建议可以基于历史记录扩展</li>
+</ul>
+<blockquote>
+<p>做项目时，业务模块的存在感非常重要。<code>record</code> 就是你这个项目从“聊天 demo”变成“健康管理项目”的关键一步。</p>
+</blockquote>
+<hr>
+<h2 id="21-第-19-步把聊天接口改成真正适合项目的形式">21. 第 19 步：把聊天接口改成真正适合项目的形式 </h2>
+<h3 id="你现在的问题">你现在的问题 </h3>
+<p>你当前聊天接口是：</p>
+<ul>
+<li><code>GET /chat</code></li>
+<li>通过 query 参数传消息</li>
+<li>路由函数里直接调用 SDK</li>
+<li>异常直接字符串返回</li>
+</ul>
+<p>这更像调试接口，不像正式项目接口。</p>
+<h3 id="正确改法">正确改法 </h3>
+<h4 id="schema">schema </h4>
+<p><code>backend/app/schemas/chat.py</code></p>
+<pre data-role="codeBlock" data-info="python" class="language-python python"><code><span class="token keyword keyword-from">from</span> typing <span class="token keyword keyword-import">import</span> Optional
+<span class="token keyword keyword-from">from</span> pydantic <span class="token keyword keyword-import">import</span> BaseModel
+
+
+<span class="token keyword keyword-class">class</span> <span class="token class-name">ChatRequest</span><span class="token punctuation">(</span>BaseModel<span class="token punctuation">)</span><span class="token punctuation">:</span>
+    profile_id<span class="token punctuation">:</span> Optional<span class="token punctuation">[</span><span class="token builtin">int</span><span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token boolean">None</span>
+    message<span class="token punctuation">:</span> <span class="token builtin">str</span>
+
+
+<span class="token keyword keyword-class">class</span> <span class="token class-name">ChatResponse</span><span class="token punctuation">(</span>BaseModel<span class="token punctuation">)</span><span class="token punctuation">:</span>
+    reply<span class="token punctuation">:</span> <span class="token builtin">str</span>
+</code></pre><h4 id="service">service </h4>
+<p><code>backend/app/services/chat_service.py</code></p>
+<pre data-role="codeBlock" data-info="python" class="language-python python"><code><span class="token keyword keyword-import">import</span> dashscope
+<span class="token keyword keyword-from">from</span> app<span class="token punctuation">.</span>core<span class="token punctuation">.</span>config <span class="token keyword keyword-import">import</span> settings
+<span class="token keyword keyword-from">from</span> app<span class="token punctuation">.</span>core<span class="token punctuation">.</span>exception <span class="token keyword keyword-import">import</span> BusinessException
+
+
+dashscope<span class="token punctuation">.</span>api_key <span class="token operator">=</span> settings<span class="token punctuation">.</span>DASHSCOPE_API_KEY
+
+
+<span class="token keyword keyword-class">class</span> <span class="token class-name">ChatService</span><span class="token punctuation">:</span>
+    <span class="token keyword keyword-def">def</span> <span class="token function">chat</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span> message<span class="token punctuation">:</span> <span class="token builtin">str</span><span class="token punctuation">)</span> <span class="token operator">-</span><span class="token operator">&gt;</span> <span class="token builtin">str</span><span class="token punctuation">:</span>
+        <span class="token keyword keyword-if">if</span> <span class="token keyword keyword-not">not</span> settings<span class="token punctuation">.</span>DASHSCOPE_API_KEY<span class="token punctuation">:</span>
+            <span class="token keyword keyword-raise">raise</span> BusinessException<span class="token punctuation">(</span><span class="token number">40002</span><span class="token punctuation">,</span> <span class="token string">"后端未读取到 DASHSCOPE_API_KEY，请检查 .env"</span><span class="token punctuation">)</span>
+
+        response <span class="token operator">=</span> dashscope<span class="token punctuation">.</span>Generation<span class="token punctuation">.</span>call<span class="token punctuation">(</span>
+            model<span class="token operator">=</span><span class="token string">"qwen-turbo"</span><span class="token punctuation">,</span>
+            messages<span class="token operator">=</span><span class="token punctuation">[</span>
+                <span class="token punctuation">{</span><span class="token string">"role"</span><span class="token punctuation">:</span> <span class="token string">"system"</span><span class="token punctuation">,</span> <span class="token string">"content"</span><span class="token punctuation">:</span> <span class="token string">"你是一个慢病健康管理助手，回答简洁、温和"</span><span class="token punctuation">}</span><span class="token punctuation">,</span>
+                <span class="token punctuation">{</span><span class="token string">"role"</span><span class="token punctuation">:</span> <span class="token string">"user"</span><span class="token punctuation">,</span> <span class="token string">"content"</span><span class="token punctuation">:</span> message<span class="token punctuation">}</span><span class="token punctuation">,</span>
+            <span class="token punctuation">]</span><span class="token punctuation">,</span>
+        <span class="token punctuation">)</span>
+        <span class="token keyword keyword-return">return</span> response<span class="token punctuation">[</span><span class="token string">"output"</span><span class="token punctuation">]</span><span class="token punctuation">[</span><span class="token string">"text"</span><span class="token punctuation">]</span>
+
+
+chat_service <span class="token operator">=</span> ChatService<span class="token punctuation">(</span><span class="token punctuation">)</span>
+</code></pre><h4 id="route">route </h4>
+<p><code>backend/app/api/routes/chat.py</code></p>
+<pre data-role="codeBlock" data-info="python" class="language-python python"><code><span class="token keyword keyword-from">from</span> fastapi <span class="token keyword keyword-import">import</span> APIRouter
+<span class="token keyword keyword-from">from</span> app<span class="token punctuation">.</span>core<span class="token punctuation">.</span>response <span class="token keyword keyword-import">import</span> success_response
+<span class="token keyword keyword-from">from</span> app<span class="token punctuation">.</span>schemas<span class="token punctuation">.</span>chat <span class="token keyword keyword-import">import</span> ChatRequest
+<span class="token keyword keyword-from">from</span> app<span class="token punctuation">.</span>services<span class="token punctuation">.</span>chat_service <span class="token keyword keyword-import">import</span> chat_service
+
+router <span class="token operator">=</span> APIRouter<span class="token punctuation">(</span>prefix<span class="token operator">=</span><span class="token string">"/chat"</span><span class="token punctuation">,</span> tags<span class="token operator">=</span><span class="token punctuation">[</span><span class="token string">"chat"</span><span class="token punctuation">]</span><span class="token punctuation">)</span>
+
+
+<span class="token decorator annotation punctuation">@router<span class="token punctuation">.</span>post</span><span class="token punctuation">(</span><span class="token string">""</span><span class="token punctuation">,</span> response_model<span class="token operator">=</span><span class="token builtin">dict</span><span class="token punctuation">)</span>
+<span class="token keyword keyword-def">def</span> <span class="token function">chat</span><span class="token punctuation">(</span>data<span class="token punctuation">:</span> ChatRequest<span class="token punctuation">)</span><span class="token punctuation">:</span>
+    reply <span class="token operator">=</span> chat_service<span class="token punctuation">.</span>chat<span class="token punctuation">(</span>data<span class="token punctuation">.</span>message<span class="token punctuation">)</span>
+    <span class="token keyword keyword-return">return</span> success_response<span class="token punctuation">(</span><span class="token punctuation">{</span><span class="token string">"reply"</span><span class="token punctuation">:</span> reply<span class="token punctuation">}</span><span class="token punctuation">)</span>
+</code></pre><p>注册到 <code>main.py</code>：</p>
+<pre data-role="codeBlock" data-info="python" class="language-python python"><code><span class="token keyword keyword-from">from</span> app<span class="token punctuation">.</span>api<span class="token punctuation">.</span>routes<span class="token punctuation">.</span>chat <span class="token keyword keyword-import">import</span> router <span class="token keyword keyword-as">as</span> chat_router
+app<span class="token punctuation">.</span>include_router<span class="token punctuation">(</span>chat_router<span class="token punctuation">,</span> prefix<span class="token operator">=</span>settings<span class="token punctuation">.</span>API_V1_PREFIX<span class="token punctuation">)</span>
+</code></pre><h3 id="这一步的作用-17">这一步的作用 </h3>
+<p>这一步非常关键，因为它体现了你是不是“在做项目”，而不是“还在写 demo”。</p>
+<p>改成 <code>POST /api/v1/chat</code> 的意义：</p>
+<ul>
+<li>文本适合放在请求体，不适合 query</li>
+<li>后面可以自然扩展 <code>profile_id</code>、上下文、会话 id</li>
+<li>路由层不再直接碰模型 SDK</li>
+<li>更方便加日志、测试、鉴权</li>
+</ul>
+<blockquote>
+<p>当你把第三方能力封装进 service，而不是塞进路由时，你就已经开始学会“抽象变化点”。</p>
+</blockquote>
+<hr>
+<h2 id="22-第-20-步把数据库创建方式从-create_all-升级成-alembic">22. 第 20 步：把数据库创建方式从 <code>create_all</code> 升级成 Alembic </h2>
+<h3 id="为什么要升级">为什么要升级 </h3>
+<p><code>Base.metadata.create_all()</code> 只适合最开始测试，不适合长期项目。</p>
+<p>一旦你后面改字段：</p>
+<ul>
+<li>改表名</li>
+<li>加字段</li>
+<li>改字段类型</li>
+</ul>
+<p>你就会很痛苦。</p>
+<p>Alembic 的意义就是：</p>
+<ul>
+<li>记录数据库结构演进历史</li>
+<li>每次变更都能追踪</li>
+<li>别人拉你的代码可以同步同样的表结构</li>
+</ul>
+<h3 id="操作-14">操作 </h3>
+<p>在 <code>backend</code> 目录执行：</p>
+<pre data-role="codeBlock" data-info="bash" class="language-bash bash"><code>alembic init alembic
+</code></pre><p>编辑 <code>alembic.ini</code>，把数据库 URL 改成和 <code>.env</code> 对应，或者在 <code>env.py</code> 中读取项目配置。</p>
+<p>然后在 <code>alembic/env.py</code> 中导入你的 Base：</p>
+<pre data-role="codeBlock" data-info="python" class="language-python python"><code><span class="token keyword keyword-from">from</span> app<span class="token punctuation">.</span>db<span class="token punctuation">.</span>session <span class="token keyword keyword-import">import</span> Base
+<span class="token keyword keyword-from">from</span> app<span class="token punctuation">.</span>db<span class="token punctuation">.</span>models <span class="token keyword keyword-import">import</span> <span class="token operator">*</span>
+
+target_metadata <span class="token operator">=</span> Base<span class="token punctuation">.</span>metadata
+</code></pre><p>生成第一次迁移：</p>
+<pre data-role="codeBlock" data-info="bash" class="language-bash bash"><code>alembic revision <span class="token parameter variable">--autogenerate</span> <span class="token parameter variable">-m</span> <span class="token string">"create profiles and records tables"</span>
+</code></pre><p>应用迁移：</p>
+<pre data-role="codeBlock" data-info="bash" class="language-bash bash"><code>alembic upgrade <span class="token function">head</span>
+</code></pre><h3 id="这一步的作用-18">这一步的作用 </h3>
+<p>这一步的价值很大，因为它意味着：</p>
+<ul>
+<li>你的数据库结构是“可管理的”</li>
+<li>表结构变更不是靠手改</li>
+<li>项目交接时别人能复现同样的数据库</li>
+</ul>
+<blockquote>
+<p>会 Alembic 不只是“会一个工具”，而是在学真实项目的数据库管理方式。</p>
+</blockquote>
+<hr>
+<h2 id="23-第-21-步加入基础日志">23. 第 21 步：加入基础日志 </h2>
+<h3 id="操作-15">操作 </h3>
+<p>创建 <code>backend/app/core/logger.py</code>：</p>
+<pre data-role="codeBlock" data-info="python" class="language-python python"><code><span class="token keyword keyword-import">import</span> logging
+
+
+<span class="token keyword keyword-def">def</span> <span class="token function">setup_logger</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+    logging<span class="token punctuation">.</span>basicConfig<span class="token punctuation">(</span>
+        level<span class="token operator">=</span>logging<span class="token punctuation">.</span>INFO<span class="token punctuation">,</span>
+        <span class="token builtin">format</span><span class="token operator">=</span><span class="token string">"%(asctime)s | %(levelname)s | %(name)s | %(message)s"</span>
+    <span class="token punctuation">)</span>
+    <span class="token keyword keyword-return">return</span> logging<span class="token punctuation">.</span>getLogger<span class="token punctuation">(</span><span class="token string">"healthy_system"</span><span class="token punctuation">)</span>
+
+
+logger <span class="token operator">=</span> setup_logger<span class="token punctuation">(</span><span class="token punctuation">)</span>
+</code></pre><p>在 <code>main.py</code> 启动时打印：</p>
+<pre data-role="codeBlock" data-info="python" class="language-python python"><code><span class="token keyword keyword-from">from</span> app<span class="token punctuation">.</span>core<span class="token punctuation">.</span>logger <span class="token keyword keyword-import">import</span> logger
+
+logger<span class="token punctuation">.</span>info<span class="token punctuation">(</span><span class="token string">"应用启动中..."</span><span class="token punctuation">)</span>
+</code></pre><p>在关键 service 中加日志，例如创建档案、创建记录、调用聊天接口前后。</p>
+<h3 id="这一步的作用-19">这一步的作用 </h3>
+<p>日志的意义不是为了“看起来专业”，而是为了：</p>
+<ul>
+<li>调试时知道请求走到哪一步</li>
+<li>出错时知道失败点在哪</li>
+<li>以后加任务系统、第三方接口时更容易排查</li>
+</ul>
+<blockquote>
+<p>没有日志的项目，出问题时只能靠猜。</p>
+</blockquote>
+<hr>
+<h2 id="24-第-22-步补测试不要只靠手点-docs">24. 第 22 步：补测试，不要只靠手点 <code>/docs</code> </h2>
+<h3 id="操作-16">操作 </h3>
+<p>创建 <code>backend/tests/test_health.py</code>：</p>
+<pre data-role="codeBlock" data-info="python" class="language-python python"><code><span class="token keyword keyword-from">from</span> fastapi<span class="token punctuation">.</span>testclient <span class="token keyword keyword-import">import</span> TestClient
+<span class="token keyword keyword-from">from</span> app<span class="token punctuation">.</span>main <span class="token keyword keyword-import">import</span> app
+
+client <span class="token operator">=</span> TestClient<span class="token punctuation">(</span>app<span class="token punctuation">)</span>
+
+
+<span class="token keyword keyword-def">def</span> <span class="token function">test_health</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+    resp <span class="token operator">=</span> client<span class="token punctuation">.</span>get<span class="token punctuation">(</span><span class="token string">"/api/v1/health"</span><span class="token punctuation">)</span>
+    <span class="token keyword keyword-assert">assert</span> resp<span class="token punctuation">.</span>status_code <span class="token operator">==</span> <span class="token number">200</span>
+    body <span class="token operator">=</span> resp<span class="token punctuation">.</span>json<span class="token punctuation">(</span><span class="token punctuation">)</span>
+    <span class="token keyword keyword-assert">assert</span> body<span class="token punctuation">[</span><span class="token string">"code"</span><span class="token punctuation">]</span> <span class="token operator">==</span> <span class="token number">0</span>
+    <span class="token keyword keyword-assert">assert</span> body<span class="token punctuation">[</span><span class="token string">"data"</span><span class="token punctuation">]</span><span class="token punctuation">[</span><span class="token string">"status"</span><span class="token punctuation">]</span> <span class="token operator">==</span> <span class="token string">"ok"</span>
+</code></pre><p>创建 <code>backend/tests/test_profiles.py</code>，至少测试：</p>
+<ul>
+<li>创建档案成功</li>
+<li>查询不存在档案失败</li>
+</ul>
+<p>运行：</p>
+<pre data-role="codeBlock" data-info="bash" class="language-bash bash"><code>pytest
+</code></pre><h3 id="这一步的作用-20">这一步的作用 </h3>
+<p>测试的价值在于：</p>
+<ul>
+<li>你以后重构时不怕把老功能改坏</li>
+<li>项目更可信，不是“只能现场点一遍”</li>
+<li>面试答辩时可以证明你有质量意识</li>
+</ul>
+<blockquote>
+<p>学生项目不用追求覆盖率多高，但至少要有“关键路径测试”。</p>
+</blockquote>
+<hr>
+<h2 id="25-第-23-步补-readme让仓库真的能交接">25. 第 23 步：补 README，让仓库真的能交接 </h2>
+<h3 id="操作-17">操作 </h3>
+<p>把 README 至少改成下面这些部分：</p>
+<ol>
+<li>项目简介</li>
+<li>技术栈</li>
+<li>前后端目录结构</li>
+<li>后端启动方式</li>
+<li>环境变量配置方法</li>
+<li>数据库迁移命令</li>
+<li>API 文档地址</li>
+<li>当前已实现模块</li>
+<li>下一步计划</li>
+</ol>
+<h3 id="建议模板">建议模板 </h3>
+<pre data-role="codeBlock" data-info="md" class="language-gfm md"><code># healthy_system
+
+定时关爱老年人健康的 AI 项目，采用 Vue + FastAPI 前后端分离架构。
+
+## 技术栈
+- Frontend: Vue3 + Vite + Vue Router
+- Backend: FastAPI + SQLAlchemy + Alembic
+- Model API: DashScope / Qwen
+
+## 后端启动
+```bash
+cd backend
+python -m venv .venv
+.venv\Scripts\activate
+pip install -r requirements.txt
+uvicorn app.main:app --reload
+</code></pre><h2>API 文档</h2>
+<ul>
+<li>Swagger UI: <code>http://127.0.0.1:8000/docs</code></li>
+<li>ReDoc: <code>http://127.0.0.1:8000/redoc</code></li>
+</ul>
+<h2>已实现模块</h2>
+<ul>
+<li>健康检查</li>
+<li>老人档案 CRUD</li>
+<li>健康记录 CRUD</li>
+<li>AI 聊天接口</li>
+</ul>
+<pre data-role="codeBlock" data-info="" class="language-text"><code>### 这一步的作用 {#这一步的作用-21 }
+
+README 不是“装饰品”，而是项目的门面和使用说明书。
+
+别人打开仓库之后，应该 5 分钟内知道：
+
+- 这是干什么的
+- 怎么跑起来
+- 后端提供什么能力
+- 下一步准备做什么
+
+&gt; 如果 README 很薄，再好的代码也会显得像“半成品”。
+
+---
+
+## 26. 第 24 步：前后端联调时你要怎么做 {#26-第-24-步前后端联调时你要怎么做 }
+
+### 操作顺序 {#操作顺序 }
+
+1. 后端先跑 `/api/v1/health`
+2. 后端再跑 `profiles` CRUD
+3. 前端 `profile` 页面先对接档案接口
+4. 后端跑 `records` CRUD
+5. 前端 `record` 页面再对接健康记录接口
+6. 最后对接 `chat`
+
+### 不要一开始就做的事 {#不要一开始就做的事 }
+
+- 不要前端页面全写完再一次性联调
+- 不要后端接口全写完再一次性对接
+- 不要前后端同时改动太多
+
+### 这一步的作用 {#这一步的作用-22 }
+
+联调最怕“大爆炸式开发”。
+
+最好的方法是：
+
+- 一条链路一条链路打通
+- 一个页面一个页面接通
+- 每次只处理一个模块的问题
+
+&gt; 项目开发不是考试，不是最后一刻一起交卷，而是持续让系统保持“局部可运行”。
+
+---
+
+## 27. 第 25 步：哪些抽象是你现在就该预留的 {#27-第-25-步哪些抽象是你现在就该预留的 }
+
+你说不只是基础，还要有“实际开发中可能需要做的功能的抽象”。这点很重要。
+
+但注意：抽象不是越多越高级，而是**只抽未来一定会变的部分**。
+
+### 现在就应该预留的抽象 {#现在就应该预留的抽象 }
+
+#### 1. LLM 调用抽象 {#1-llm-调用抽象 }
+
+今天你调 Qwen，明天可能换 DeepSeek、GLM。
+
+所以你应该让：
+
+- 路由只调用 `chat_service`
+- `chat_service` 以后再调用 `llm_client`
+
+这样换模型时不用动路由层。
+
+#### 2. 数据访问抽象 {#2-数据访问抽象 }
+
+今天你是 SQLite，明天可能换 MySQL。
+
+所以：
+
+- 数据库连接统一走 `session.py`
+- 数据操作统一走 `repository`
+
+#### 3. 统一响应和异常抽象 {#3-统一响应和异常抽象 }
+
+所有接口都共用一套成功响应和异常响应。
+
+#### 4. API 前缀版本抽象 {#4-api-前缀版本抽象 }
+
+统一用 `settings.API_V1_PREFIX`。
+
+### 现在不要过度抽象的东西 {#现在不要过度抽象的东西 }
+
+- 不要急着写 BaseRepository、BaseService 一堆父类
+- 不要急着上工厂模式
+- 不要现在就为微服务做抽象
+
+### 这一步的作用 {#这一步的作用-23 }
+
+真正的抽象，目的是：
+
+- 降低未来修改成本
+- 让变化点收口
+- 让结构更稳定
+
+而不是“为了显得懂设计模式”。
+
+&gt; **抽象变化点，不抽象一切。** 这是你现在最该建立的工程观。
+
+---
+
+## 28. 第 26 步：做到什么程度，就能说“这个项目拿得出手” {#28-第-26-步做到什么程度就能说这个项目拿得出手 }
+
+当你做完下面这些，你这个项目就已经能展示了：
+
+- &lt;input type="checkbox" class="task-list-item-checkbox" &gt; 多文件 FastAPI 结构
+- &lt;input type="checkbox" class="task-list-item-checkbox" &gt; `/api/v1/health`
+- &lt;input type="checkbox" class="task-list-item-checkbox" &gt; `profiles` 完整 CRUD
+- &lt;input type="checkbox" class="task-list-item-checkbox" &gt; `records` 完整 CRUD
+- &lt;input type="checkbox" class="task-list-item-checkbox" &gt; `POST /api/v1/chat`
+- &lt;input type="checkbox" class="task-list-item-checkbox" &gt; 配置中心
+- &lt;input type="checkbox" class="task-list-item-checkbox" &gt; 统一响应
+- &lt;input type="checkbox" class="task-list-item-checkbox" &gt; 全局异常处理
+- &lt;input type="checkbox" class="task-list-item-checkbox" &gt; SQLAlchemy + Alembic
+- &lt;input type="checkbox" class="task-list-item-checkbox" &gt; 基础日志
+- &lt;input type="checkbox" class="task-list-item-checkbox" &gt; 基础测试
+- &lt;input type="checkbox" class="task-list-item-checkbox" &gt; `.env.example`
+- &lt;input type="checkbox" class="task-list-item-checkbox" &gt; 完整 README
+
+### 这一步的作用 {#这一步的作用-24 }
+
+它帮你把“完成”定义清楚。
+
+没有完成标准时，你会一直觉得：
+
+- 这里还差一点
+- 那里还想补一点
+- 永远不敢说项目完成了
+
+而有了这份清单，你就知道什么是**第一版拿得出手的完成线**。
+
+---
+
+## 29. 第 27 步：推荐你的实际执行顺序 {#29-第-27-步推荐你的实际执行顺序 }
+
+### 第 1 天 {#第-1-天 }
+- 保存当前版本
+- 建目录结构
+- 写 `config.py`
+- 写 `main.py`
+- 写 `health.py`
+- 跑通 `/api/v1/health`
+
+### 第 2 天 {#第-2-天 }
+- 写统一响应
+- 写异常处理
+- 改 `main.py` 注册异常
+- 再验证 health
+
+### 第 3~4 天 {#第-34-天 }
+- 写 `profile` schema / model / repo / service / router
+- 跑通档案 CRUD
+
+### 第 5~6 天 {#第-56-天 }
+- 写 `record` schema / model / repo / service / router
+- 跑通记录 CRUD
+
+### 第 7 天 {#第-7-天 }
+- 重写聊天接口为 `POST /api/v1/chat`
+- 把模型调用彻底移到 service
+
+### 第 8 天 {#第-8-天 }
+- 接 Alembic
+- 生成第一版迁移
+
+### 第 9 天 {#第-9-天 }
+- 加日志
+- 加测试
+
+### 第 10 天 {#第-10-天 }
+- 补 README
+- 补 `.env.example`
+- 完成一次完整演示
+
+### 这一步的作用 {#这一步的作用-25 }
+
+这一步是帮你避免“今天改一点、明天改一点，但一直没有闭环”。
+
+当你按阶段推进时，会更容易持续看到成果。
+
+---
+
+## 30. 最后给你的开发原则 {#30-最后给你的开发原则 }
+
+最后我给你 8 条最重要的原则，今后做任何后端项目都适用：
+
+1. **入口文件越薄越好**
+2. **每个接口都先想清楚 schema**
+3. **路由只负责接和回，不负责业务**
+4. **业务规则写在 service，不写在 route**
+5. **数据库操作单独收口到 repository**
+6. **所有可变配置都从 settings 统一读取**
+7. **先做能跑的闭环，再做高级功能**
+8. **抽象未来一定会变的地方，不要为了抽象而抽象**
+
+---
+
+## 31. 你下一步应该怎么继续 {#31-你下一步应该怎么继续 }
+
+你现在最该做的，不是再去看别人项目，而是：
+
+1. 先按本教程把目录结构搭出来
+2. 先把 `health + profile` 跑通
+3. 再做 `record + chat`
+4. 最后补 Alembic、日志、测试、README
+
+等你把这套第一版做完，再来补：
+
+- 鉴权
+- 向量库
+- 定时任务
+- Redis 缓存
+- 提醒策略
+
+那时你会轻松很多，因为你的地基已经稳了。
+
+---
+
+## 32. 给你的最直接建议 {#32-给你的最直接建议 }
+
+不要追求“一次写成最强版本”。
+
+真正拿得出手的项目，不是功能最多，而是：
+
+- 结构清楚
+- 模块完整
+- 接口规范
+- 能稳定跑
+- 别人能复现
+
+你这次只要把这套后端骨架搭稳，已经会比绝大多数“只会把功能塞进一个文件”的同学强很多。
+
+</code></pre></div>
+      </div>
+      
+      
+    
+    
+    
+    
+    
+    
+  
+    </body></html>
