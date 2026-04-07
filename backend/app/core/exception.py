@@ -11,20 +11,12 @@ class BusinessException(Exception):
 async def business_exception_handler(request: Request, exc: BusinessException):
     return JSONResponse(
         status_code=400,
-        content={
-            "code": exc.code,
-            "message": exc.message,
-            "data": None,
-        },
+        content={"code": exc.code, "message": exc.message, "data": None},
     )
 
 
 async def generic_exception_handler(request: Request, exc: Exception):
     return JSONResponse(
         status_code=500,
-        content={
-            "code": 50000,
-            "message": "服务器内部错误",
-            "data": None,
-        },
+        content={"code": 50000, "message": "服务器内部错误", "data": None},
     )

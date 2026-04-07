@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>第15天 联调验收、答辩、基础功能清单</title>
+<style>
+body{margin:0;background:#f5f7fb;color:#1f2937;font-family:"Microsoft YaHei","PingFang SC",sans-serif;line-height:1.85}
+main{max-width:980px;margin:0 auto;padding:32px 20px 56px}.card{background:#fff;border:1px solid #d9e2ec;border-radius:18px;padding:28px}
+h1,h2,h3{line-height:1.35}h1{margin:0 0 10px;font-size:34px}h2{margin-top:34px;padding-top:10px;border-top:1px solid #d9e2ec}
+blockquote{margin:18px 0;padding:14px 18px;border-left:4px solid #2563eb;background:#eff6ff;border-radius:10px}
+code,pre{font-family:Consolas,monospace}code{background:#eef2ff;color:#312e81;padding:2px 6px;border-radius:6px}pre{background:#0f172a;color:#e2e8f0;padding:14px;border-radius:12px;overflow:auto;font-size:13px}
+table{width:100%;border-collapse:collapse;margin:18px 0}th,td{border:1px solid #d9e2ec;padding:12px;text-align:left;vertical-align:top}th{background:#f8fafc}
+.tag{display:inline-block;background:#dbeafe;color:#1d4ed8;border-radius:999px;padding:4px 10px;font-size:13px;margin-right:8px}
+</style>
+</head>
+<body>
+<main>
+  <div class="card">
+    <p><span class="tag">Day 15 / 15</span><span class="tag">收尾交付</span></p>
+    <h1>第15天：联调验收、答辩表达、基础功能清单</h1>
+    <blockquote>最后一天的目标不是再写新功能，而是确认你前 14 天做的东西已经形成一个真正完整、可演示、可解释的基础版本。很多项目不是死在代码，而是死在没有收口。</blockquote>
+
+    <h2>1. 先确认你到底应该完成到什么程度</h2>
+    <p>对这 15 天版本来说，“基础功能完成”建议定义为下面这套能力闭环：</p>
+    <table>
+      <tr><th>能力</th><th>最低完成标准</th></tr>
+      <tr><td>健康档案</td><td>能创建、查询、更新、删除老人档案</td></tr>
+      <tr><td>健康记录</td><td>能给指定老人添加并查询健康记录</td></tr>
+      <tr><td>会话体系</td><td>会话和消息都有数据库结构</td></tr>
+      <tr><td>聊天</td><td>聊天请求能落用户消息和助手消息</td></tr>
+      <tr><td>上下文</td><td>回复能结合最近消息、老人画像、最近记录</td></tr>
+      <tr><td>主动配置</td><td>能配置主动时间窗，能记录主动日志</td></tr>
+      <tr><td>主动判断</td><td>至少支持时间窗触发和健康异常触发</td></tr>
+      <tr><td>主动执行</td><td>能手动触发主动消息并落库</td></tr>
+      <tr><td>实时推送</td><td>前端能通过 WebSocket 收到推送</td></tr>
+      <tr><td>自动巡检</td><td>调度器能周期性调用主动服务</td></tr>
+    </table>
+
+    <h2>2. 联调顺序一定要按这条链路走</h2>
+    <ol>
+      <li>健康检查接口。</li>
+      <li>老人档案 CRUD。</li>
+      <li>健康记录新增和查询。</li>
+      <li>会话创建和消息持久化结构检查。</li>
+      <li>聊天接口。</li>
+      <li>主动时间窗创建。</li>
+      <li>主动测试触发。</li>
+      <li>WebSocket 连接和推送。</li>
+      <li>调度器自动巡检。</li>
+    </ol>
+    <p>这个顺序不是习惯问题，而是依赖问题。后面的每一步都依赖前面的结果。</p>
+
+    <h2>3. 你应该如何判断“真的完成了”</h2>
+    <p>今天别再只看“接口报不报错”。真正完成至少要满足 4 个层次：</p>
+    <table>
+      <tr><th>层次</th><th>判断方式</th></tr>
+      <tr><td>能跑</td><td>接口、路由、数据库、调度器都能正常启动执行</td></tr>
+      <tr><td>能查</td><td>新增的数据能被查询回来，历史链路可见</td></tr>
+      <tr><td>能串</td><td>档案、记录、聊天、主动消息能够串成一条主链路</td></tr>
+      <tr><td>能讲</td><td>你能解释每个模块在闭环中承担什么作用</td></tr>
+    </table>
+
+    <h2>4. 答辩时怎么讲这套系统</h2>
+    <p>最推荐的讲法不是按文件讲，而是按业务链路讲：</p>
+    <ol>
+      <li>先展示老人档案，说明系统服务对象清晰。</li>
+      <li>再展示健康记录，说明系统有真实数据底座。</li>
+      <li>再展示聊天，说明系统不是空问答，而是结合档案和记录的连续对话。</li>
+      <li>再展示主动时间窗和主动触发，说明系统具备主动关怀能力。</li>
+      <li>最后展示 WebSocket 推送和调度器，说明系统可以实时、自动地提供服务。</li>
+    </ol>
+    <p>你答辩时最值得强调的一句话可以是：</p>
+    <blockquote>我们的系统不是简单的健康数据录入系统，也不是单纯的大模型聊天机器人，而是一个以老人健康数据为底座、具有连续对话与主动关怀能力的后端服务系统。</blockquote>
+
+    <h2>5. 现在你应该真的能解释的几个核心问题</h2>
+    <ul>
+      <li>为什么 <code>profile</code> 是全系统中心实体。</li>
+      <li>为什么 <code>record</code> 第一版做成通用表。</li>
+      <li>为什么聊天必须有 <code>conversation</code> 和 <code>message</code> 两层。</li>
+      <li>为什么模型调用和上下文构造要抽成独立服务。</li>
+      <li>为什么主动功能要拆成“判断”和“执行”。</li>
+      <li>为什么主动日志是可解释性核心。</li>
+      <li>为什么 WebSocket 和调度器放在后期整合。</li>
+    </ul>
+
+    <h2>6. 如果某一步没通过，应该怎么排查</h2>
+    <table>
+      <tr><th>现象</th><th>优先排查什么</th></tr>
+      <tr><td>服务起不来</td><td><code>main.py</code>、配置、数据库连接</td></tr>
+      <tr><td>Profile/Record 接口报错</td><td>Schema、Service、Repo 的参数流转</td></tr>
+      <tr><td>聊天不落历史</td><td>Conversation / Message 是否正确写入</td></tr>
+      <tr><td>聊天回复没有上下文感</td><td>MemoryService 是否正确带入画像和记录</td></tr>
+      <tr><td>主动接口没有触发</td><td>TriggerService 的规则是否命中</td></tr>
+      <tr><td>主动消息生成了但前端没看到</td><td>消息是否落库、WebSocket 是否连接成功</td></tr>
+      <tr><td>定时不执行</td><td>Scheduler 是否启动、任务是否注册、生命周期是否正确</td></tr>
+    </table>
+
+    <h2>7. 学完 15 天后，你应该具备的能力</h2>
+    <ol>
+      <li>你不仅知道代码写在哪，还知道为什么写在那一层。</li>
+      <li>你不仅会照着写模块，还能判断新需求应该挂在哪条链路上。</li>
+      <li>你不仅能把项目跑起来，还能完整解释每一步代码的业务意义。</li>
+      <li>你已经具备把这个项目作为一个完整基础版本交付和演示的能力。</li>
+    </ol>
+
+    <h2>8. 这 15 天版本之后还能怎么扩展</h2>
+    <p>如果基础功能已经稳定，下一阶段最值得做的是：</p>
+    <ul>
+      <li>把记录结构进一步细化。</li>
+      <li>补完整的测试用例。</li>
+      <li>完善前端消息页和主动提醒页。</li>
+      <li>接入真实模型和真实设备。</li>
+      <li>加入鉴权和多角色后台。</li>
+    </ul>
+    <p>但这些都应该发生在基础闭环稳定之后，而不是提前抢跑。</p>
+
+    <h2>9. 最后一条建议</h2>
+    <blockquote>以后你再看完整代码版，不要只问“这一行怎么写”，而要问“这一行为什么必须写在这里”。只要你持续这样学，这个项目就会从“照着敲”变成“你真的会做”。</blockquote>
+  </div>
+</main>
+</body>
+</html>

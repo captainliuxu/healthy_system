@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>第13天 WebSocket 实时推送</title>
+<style>
+body{margin:0;background:#f5f7fb;color:#1f2937;font-family:"Microsoft YaHei","PingFang SC",sans-serif;line-height:1.85}
+main{max-width:980px;margin:0 auto;padding:32px 20px 56px}.card{background:#fff;border:1px solid #d9e2ec;border-radius:18px;padding:28px}
+h1,h2,h3{line-height:1.35}h1{margin:0 0 10px;font-size:34px}h2{margin-top:34px;padding-top:10px;border-top:1px solid #d9e2ec}
+blockquote{margin:18px 0;padding:14px 18px;border-left:4px solid #2563eb;background:#eff6ff;border-radius:10px}
+code{background:#eef2ff;color:#312e81;padding:2px 6px;border-radius:6px;font-family:Consolas,monospace}
+table{width:100%;border-collapse:collapse;margin:18px 0}th,td{border:1px solid #d9e2ec;padding:12px;text-align:left;vertical-align:top}th{background:#f8fafc}
+.tag{display:inline-block;background:#dbeafe;color:#1d4ed8;border-radius:999px;padding:4px 10px;font-size:13px;margin-right:8px}
+</style>
+</head>
+<body>
+<main>
+  <div class="card">
+    <p><span class="tag">Day 13 / 15</span><span class="tag">实时体验</span></p>
+    <h1>第13天：WebSocket，把主动消息实时推到前端</h1>
+    <blockquote>今天你要解决的不是“后端能不能生成主动消息”，而是“用户能不能立刻感受到系统主动性”。这一步决定你的项目从后台逻辑升级成可见交互。</blockquote>
+
+    <h2>1. 今天要完成哪些文件</h2>
+    <ul>
+      <li><code>app/ws/manager.py</code></li>
+      <li><code>app/api/routes/websocket.py</code></li>
+      <li><code>main.py</code> 挂上 websocket 路由</li>
+      <li>理解如何在主动消息生成后触发推送</li>
+    </ul>
+
+    <h2>2. 为什么要单独做 WebSocket，而不是靠轮询</h2>
+    <p>轮询当然也能实现“过一会儿刷新一次”，但它表达不出系统主动性。因为轮询本质上还是前端不断来问：</p>
+    <blockquote>“有新消息吗？有新消息吗？有新消息吗？”</blockquote>
+    <p>而主动交互想表达的是另一种关系：</p>
+    <blockquote>“后端一旦有主动消息，就立刻推给前端。”</blockquote>
+    <p>WebSocket 正好适合这个场景，因为它把连接保持住了。</p>
+
+    <h2>3. ConnectionManager 为什么值得单独写</h2>
+    <p>很多人会把 WebSocket 逻辑直接堆在路由函数里，短期可以，长期会非常乱。单独做一个 <code>ConnectionManager</code>，本质上是把“连接管理”从“路由入口”里拆出来。</p>
+    <p>Manager 至少应该承担三件事：</p>
+    <ol>
+      <li>某个用户上线时，登记连接。</li>
+      <li>断开连接时，清理连接。</li>
+      <li>需要推送时，按用户发送消息。</li>
+    </ol>
+    <p>这说明 Manager 解决的是连接生命周期问题，而不是业务问题。</p>
+
+    <h2>4. 为什么按 <code>profile_id</code> 管理连接</h2>
+    <p>因为你的系统是围绕老人实体运转的。主动消息、聊天历史、提醒配置，全都和某位老人绑定。所以连接层也自然应该按 <code>profile_id</code> 管理。</p>
+    <p>这意味着：当后端知道“某位老人收到了一条主动消息”时，它可以直接找到对应连接进行推送。</p>
+
+    <h2>5. 代码层每一步到底在做什么</h2>
+    <h3>5.1 <code>connect()</code>：接收并登记连接</h3>
+    <p>它真正做的是两件事：</p>
+    <ol>
+      <li>接受 WebSocket 握手。</li>
+      <li>把这个连接存进某个用户对应的连接列表里。</li>
+    </ol>
+    <p>之所以用“列表”，是因为未来可能存在一位老人多个终端同时连接的情况。</p>
+
+    <h3>5.2 <code>disconnect()</code>：清理失效连接</h3>
+    <p>WebSocket 不是一直可靠存在的，所以断开时必须清理。否则后面每次推送都会尝试往失效连接发消息。</p>
+
+    <h3>5.3 <code>send_to_profile()</code>：把业务结果变成前端可见事件</h3>
+    <p>主动消息一旦生成，这个函数就负责把结果送出去。它的价值是把“数据库里多了一条消息”升级成“用户立刻看到了消息”。</p>
+
+    <h2>6. 今天最重要的理解</h2>
+    <blockquote>WebSocket 不是新的业务模块，而是业务结果的实时传输通道。</blockquote>
+    <p>也就是说，触发逻辑、主动消息逻辑都还是业务层负责；WebSocket 只负责把结果快速送达。</p>
+
+    <h2>7. 今天最容易错在哪</h2>
+    <ul>
+      <li>把连接管理逻辑全写在路由函数里。</li>
+      <li>推送没有按 <code>profile_id</code> 区分目标用户。</li>
+      <li>没有处理断开连接，导致失效连接累积。</li>
+      <li>误以为有了 WebSocket 就不需要消息落库。其实落库和推送必须同时存在。</li>
+    </ul>
+
+    <h2>8. 今天完成标准</h2>
+    <ul>
+      <li>前端已经能通过 <code>/ws/{profile_id}</code> 建立连接。</li>
+      <li>你理解 ConnectionManager 和 WebSocket 路由的职责区别。</li>
+      <li>你明白“落库”和“推送”是两件事，缺一不可。</li>
+    </ul>
+
+    <h2>9. 明天衔接</h2>
+    <p>明天把自动化能力补上：Scheduler 和 <code>main.py</code> 生命周期整合。明天之后，你的系统就能在没有手动点击的情况下自动巡检并触发主动行为。</p>
+  </div>
+</main>
+</body>
+</html>

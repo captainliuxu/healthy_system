@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>第14天 APScheduler 与 main 整合</title>
+<style>
+body{margin:0;background:#f5f7fb;color:#1f2937;font-family:"Microsoft YaHei","PingFang SC",sans-serif;line-height:1.85}
+main{max-width:980px;margin:0 auto;padding:32px 20px 56px}.card{background:#fff;border:1px solid #d9e2ec;border-radius:18px;padding:28px}
+h1,h2,h3{line-height:1.35}h1{margin:0 0 10px;font-size:34px}h2{margin-top:34px;padding-top:10px;border-top:1px solid #d9e2ec}
+blockquote{margin:18px 0;padding:14px 18px;border-left:4px solid #2563eb;background:#eff6ff;border-radius:10px}
+code{background:#eef2ff;color:#312e81;padding:2px 6px;border-radius:6px;font-family:Consolas,monospace}
+table{width:100%;border-collapse:collapse;margin:18px 0}th,td{border:1px solid #d9e2ec;padding:12px;text-align:left;vertical-align:top}th{background:#f8fafc}
+.tag{display:inline-block;background:#dbeafe;color:#1d4ed8;border-radius:999px;padding:4px 10px;font-size:13px;margin-right:8px}
+</style>
+</head>
+<body>
+<main>
+  <div class="card">
+    <p><span class="tag">Day 14 / 15</span><span class="tag">自动巡检</span></p>
+    <h1>第14天：APScheduler 与 main 整合</h1>
+    <blockquote>今天的任务是把主动能力从“可手动触发”升级成“系统能自动周期检查并自动执行”。这一步完成后，你的项目才真正具备持续运行的后端味道。</blockquote>
+
+    <h2>1. 今天要完成哪些文件</h2>
+    <ul>
+      <li><code>app/core/scheduler.py</code></li>
+      <li><code>app/main.py</code> 的完整装配版本</li>
+      <li>确保所有模型和路由都已在 <code>main.py</code> 注册</li>
+    </ul>
+
+    <h2>2. 为什么调度器要放在最后</h2>
+    <p>因为调度器自己并不产生业务价值，它只是自动触发已有业务能力。</p>
+    <p>它依赖的前提很多：</p>
+    <ol>
+      <li>主动规则已经能判断。</li>
+      <li>主动服务已经能执行。</li>
+      <li>日志和消息都能落库。</li>
+      <li>服务启动流程已经稳定。</li>
+    </ol>
+    <p>如果前面这些没完成就先上调度器，你只会得到一个不断自动报错的后台任务。</p>
+
+    <h2>3. 调度器真正做了什么</h2>
+    <p>调度器的本质不是“写个定时器”，而是周期性地重复执行一段业务巡检逻辑。</p>
+    <p>对于你的项目，这段逻辑通常是：</p>
+    <blockquote>周期性遍历需要检查的老人 -> 调用主动服务 -> 看是否需要生成主动消息</blockquote>
+    <p>也就是说，调度器只是一个“自动按钮”。它按固定频率帮你按下 Day 12 的那条执行链路。</p>
+
+    <h2>4. 为什么要通过 <code>main.py</code> 的生命周期去启动调度器</h2>
+    <p>因为调度器和应用生命周期强绑定：</p>
+    <ul>
+      <li>应用启动时，调度器应该启动。</li>
+      <li>应用关闭时，调度器应该停止。</li>
+    </ul>
+    <p>这正是 FastAPI <code>lifespan</code> 机制适合干的事情。它不是语法新花样，而是“应用启动/关闭时机”的正式入口。</p>
+
+    <h2>5. 代码层每一步到底在做什么</h2>
+    <h3>5.1 <code>proactive_job()</code>：把一次自动巡检流程封装起来</h3>
+    <p>这个函数通常会：</p>
+    <ol>
+      <li>拿一个数据库会话。</li>
+      <li>查出需要检查的老人列表。</li>
+      <li>逐个调用 <code>proactive_service.trigger_for_profile()</code>。</li>
+      <li>最后关闭数据库会话。</li>
+    </ol>
+    <p>这里很重要的一点是：调度器并不自己实现业务，它只是调用业务服务。</p>
+
+    <h3>5.2 <code>start_scheduler()</code>：注册任务并启动</h3>
+    <p>这一步做的不是业务，而是把“要执行什么”和“多久执行一次”注册到调度器里。</p>
+    <p>这说明“业务逻辑”和“调度策略”也是分开的。</p>
+
+    <h3>5.3 <code>main.py</code> 终于成为真正的装配中心</h3>
+    <p>到今天为止，<code>main.py</code> 要承担的事情已经完整了：</p>
+    <ul>
+      <li>创建表。</li>
+      <li>启动调度器。</li>
+      <li>注册路由。</li>
+      <li>注册异常处理。</li>
+      <li>配置跨域。</li>
+    </ul>
+    <p>但即使到了这一步，<code>main.py</code> 依然不应该写具体业务。这一点说明你的层次没有崩。</p>
+
+    <h2>6. 今天最重要的理解</h2>
+    <blockquote>自动化不是新功能，而是让已有功能持续运行的机制。</blockquote>
+    <p>这个理解能帮你避免一个常见误区：把调度器当成“高级功能核心”。其实它只是让你前面 12 天做出来的能力开始自动工作。</p>
+
+    <h2>7. 今天最容易错在哪</h2>
+    <ul>
+      <li>调度器里直接重写一遍主动逻辑，而不是复用 service。</li>
+      <li>没有正确管理数据库会话，后台任务容易泄露资源。</li>
+      <li>把调度器放到业务代码里启动，而不是应用生命周期里。</li>
+      <li>调度器还没稳定就删除手动触发接口。实际上两者都应该保留。</li>
+    </ul>
+
+    <h2>8. 今天完成标准</h2>
+    <ul>
+      <li>服务启动时能自动初始化调度器。</li>
+      <li>调度器会按设定频率调用主动服务。</li>
+      <li>你明白调度器只是自动按钮，不是业务主体。</li>
+      <li><code>main.py</code> 已经形成完整装配结构。</li>
+    </ul>
+
+    <h2>9. 明天衔接</h2>
+    <p>明天最后一天，不再新增模块，而是做总验收：功能清单、联调顺序、演示路线、答辩表达。也就是把这 14 天搭出来的内容收成一个真正可交付的基础版本。</p>
+  </div>
+</main>
+</body>
+</html>

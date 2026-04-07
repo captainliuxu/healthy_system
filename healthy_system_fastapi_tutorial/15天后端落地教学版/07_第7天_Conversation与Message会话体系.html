@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>第7天 Conversation 与 Message 会话体系</title>
+<style>
+body{margin:0;background:#f5f7fb;color:#1f2937;font-family:"Microsoft YaHei","PingFang SC",sans-serif;line-height:1.85}
+main{max-width:980px;margin:0 auto;padding:32px 20px 56px}.card{background:#fff;border:1px solid #d9e2ec;border-radius:18px;padding:28px}
+h1,h2,h3{line-height:1.35}h1{margin:0 0 10px;font-size:34px}h2{margin-top:34px;padding-top:10px;border-top:1px solid #d9e2ec}
+blockquote{margin:18px 0;padding:14px 18px;border-left:4px solid #2563eb;background:#eff6ff;border-radius:10px}
+code{background:#eef2ff;color:#312e81;padding:2px 6px;border-radius:6px;font-family:Consolas,monospace}
+table{width:100%;border-collapse:collapse;margin:18px 0}th,td{border:1px solid #d9e2ec;padding:12px;text-align:left;vertical-align:top}th{background:#f8fafc}
+.tag{display:inline-block;background:#dbeafe;color:#1d4ed8;border-radius:999px;padding:4px 10px;font-size:13px;margin-right:8px}
+</style>
+</head>
+<body>
+<main>
+  <div class="card">
+    <p><span class="tag">Day 7 / 15</span><span class="tag">会话结构</span></p>
+    <h1>第7天：Conversation 与 Message，会话系统真正搭起来</h1>
+    <blockquote>今天开始，你的系统不再只是“能存数据”。从今天起，它开始具备会话结构，也就是能把聊天变成连续的、可追踪的、可回放的过程。</blockquote>
+
+    <h2>1. 今天要完成哪些文件</h2>
+    <ul>
+      <li><code>app/db/models/conversation.py</code></li>
+      <li><code>app/db/models/message.py</code></li>
+      <li><code>app/schemas/conversation.py</code></li>
+      <li><code>app/repositories/conversation_repo.py</code></li>
+      <li><code>app/repositories/message_repo.py</code></li>
+      <li><code>app/api/routes/conversations.py</code></li>
+    </ul>
+
+    <h2>2. 为什么聊天一定要拆成会话和消息两层</h2>
+    <p>因为“会话”和“消息”根本不是一回事。</p>
+    <table>
+      <tr><th>对象</th><th>你应该怎么理解</th></tr>
+      <tr><td><code>conversation</code></td><td>一次聊天会话的容器，属于某位老人</td></tr>
+      <tr><td><code>message</code></td><td>容器里的每一条消息，可能来自用户，也可能来自系统</td></tr>
+    </table>
+    <p>如果不拆，你会很快遇到这些问题：</p>
+    <ol>
+      <li>一位老人多次聊天，怎么区分不同会话？</li>
+      <li>主动消息放哪？和普通聊天消息怎么共存？</li>
+      <li>你怎么只查询某次会话的历史，而不是把所有消息混在一起？</li>
+    </ol>
+    <p>所以拆层并不是为了“多几张表”，而是因为业务本身就是两层结构。</p>
+
+    <h2>3. 今天最重要的设计理解</h2>
+    <p>你现在要开始把聊天理解成一个持续状态，而不是一个瞬时接口调用。</p>
+    <blockquote>聊天接口不是“收到一句，返回一句”。聊天接口应该被理解为“在一段已有会话里，新增一条用户消息，并基于历史生成一条系统消息”。</blockquote>
+    <p>这句话很重要，因为它会直接决定你后面怎么写 <code>chat_service</code>。</p>
+
+    <h2>4. 代码层每一步在做什么</h2>
+    <h3>4.1 <code>conversation.py</code>：给“这次聊天”一个身份</h3>
+    <p>会话表通常至少要有：</p>
+    <ul>
+      <li><code>profile_id</code>：说明属于谁。</li>
+      <li><code>title</code>：说明这次会话是什么主题，哪怕第一版只是简单标题。</li>
+      <li><code>created_at</code> / <code>updated_at</code>：支持按最近会话排序。</li>
+    </ul>
+    <p>这个表真正的作用，是让“多轮对话”有边界。</p>
+
+    <h3>4.2 <code>message.py</code>：把每一轮输入输出变成可追踪数据</h3>
+    <p>消息表最关键的字段通常有：</p>
+    <ul>
+      <li><code>conversation_id</code>：说明这条消息属于哪个会话。</li>
+      <li><code>role</code>：说明这条消息是谁发的，例如 <code>user</code>、<code>assistant</code>。</li>
+      <li><code>content</code>：消息正文。</li>
+      <li><code>message_type</code>：说明是普通聊天，还是主动关怀。</li>
+    </ul>
+    <p>其中 <code>message_type</code> 很关键，因为它意味着主动消息未来不需要另起一套消息系统，可以直接并入统一消息体系。</p>
+
+    <h3>4.3 Repository：让“按会话查消息”成为基础能力</h3>
+    <p><code>message_repo</code> 不只是提供创建消息的方法，更重要的是提供“按会话查询最近几条消息”的能力。</p>
+    <p>你今天也许还没正式接 LLM，但这一步已经在为 Day 8 和 Day 9 铺路。</p>
+
+    <h3>4.4 Conversation Route：先让会话本身可见</h3>
+    <p>今天会加上会话相关接口，不是因为它比聊天接口更重要，而是因为先让会话对象独立存在，你后面调试聊天时会轻松很多。</p>
+    <p>这体现了一种工程习惯：复杂链路先拆成可观察中间环节。</p>
+
+    <h2>5. 今天容易忽略但其实很重要的一点</h2>
+    <p>你现在建立的并不只是聊天功能，而是在建立“系统记忆载体”。</p>
+    <p>因为未来：</p>
+    <ul>
+      <li>聊天历史从这里取。</li>
+      <li>主动消息也从这里落库。</li>
+      <li>前端消息列表也从这里展示。</li>
+    </ul>
+    <p>所以 Message 表本质上是“交互历史表”。</p>
+
+    <h2>6. 今天最容易错在哪</h2>
+    <ul>
+      <li>把会话和消息混成一张表，导致后面难扩展。</li>
+      <li>只关注创建消息，不考虑怎么查最近历史。</li>
+      <li>没有给消息区分角色和类型。</li>
+      <li>没有把会话挂到 <code>profile_id</code> 上，导致老人与会话失去关联。</li>
+    </ul>
+
+    <h2>7. 今天完成标准</h2>
+    <ul>
+      <li>数据库里已经有会话表和消息表。</li>
+      <li>你能创建会话。</li>
+      <li>你能理解消息应该落在哪个会话里。</li>
+      <li>你知道主动消息以后也会进入同一套消息体系。</li>
+    </ul>
+
+    <h2>8. 明天衔接</h2>
+    <p>明天开始真正做聊天主链路：用户输入 -> 写用户消息 -> 组装上下文 -> 生成回复 -> 写助手消息。明天是项目的核心里程碑之一。</p>
+  </div>
+</main>
+</body>
+</html>

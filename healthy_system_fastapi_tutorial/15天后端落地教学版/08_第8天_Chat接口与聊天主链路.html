@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>第8天 Chat 接口与聊天主链路</title>
+<style>
+body{margin:0;background:#f5f7fb;color:#1f2937;font-family:"Microsoft YaHei","PingFang SC",sans-serif;line-height:1.85}
+main{max-width:980px;margin:0 auto;padding:32px 20px 56px}.card{background:#fff;border:1px solid #d9e2ec;border-radius:18px;padding:28px}
+h1,h2,h3{line-height:1.35}h1{margin:0 0 10px;font-size:34px}h2{margin-top:34px;padding-top:10px;border-top:1px solid #d9e2ec}
+blockquote{margin:18px 0;padding:14px 18px;border-left:4px solid #2563eb;background:#eff6ff;border-radius:10px}
+code,pre{font-family:Consolas,monospace}code{background:#eef2ff;color:#312e81;padding:2px 6px;border-radius:6px}pre{background:#0f172a;color:#e2e8f0;padding:14px;border-radius:12px;overflow:auto;font-size:13px}
+table{width:100%;border-collapse:collapse;margin:18px 0}th,td{border:1px solid #d9e2ec;padding:12px;text-align:left;vertical-align:top}th{background:#f8fafc}
+.tag{display:inline-block;background:#dbeafe;color:#1d4ed8;border-radius:999px;padding:4px 10px;font-size:13px;margin-right:8px}
+</style>
+</head>
+<body>
+<main>
+  <div class="card">
+    <p><span class="tag">Day 8 / 15</span><span class="tag">聊天里程碑</span></p>
+    <h1>第8天：Chat 接口与聊天主链路</h1>
+    <blockquote>今天是整个项目最有“系统感”的一天。你要第一次把多个模块串起来，让一次用户提问真正走完整链路，而不是停留在演示接口层面。</blockquote>
+
+    <h2>1. 今天要完成哪些文件</h2>
+    <ul>
+      <li><code>app/schemas/chat.py</code></li>
+      <li><code>app/services/chat_service.py</code></li>
+      <li><code>app/api/routes/chat.py</code></li>
+      <li><code>main.py</code> 挂上 <code>chat_router</code></li>
+    </ul>
+
+    <h2>2. 今天最核心的一句话</h2>
+    <blockquote>聊天接口的本质不是调模型，而是把一次用户输入正确地放进一条完整业务链路里。</blockquote>
+    <p>这条链路至少应该有 7 步：</p>
+    <ol>
+      <li>确认老人存在。</li>
+      <li>确认会话存在，或者自动创建会话。</li>
+      <li>先保存用户消息。</li>
+      <li>再准备上下文。</li>
+      <li>调用模型生成回复。</li>
+      <li>再保存助手消息。</li>
+      <li>最后把结果返回给前端。</li>
+    </ol>
+    <p>这个顺序不能乱。尤其是“先保存用户消息，再调模型”，因为你需要保证会话历史是真实的、连续的。</p>
+
+    <h2>3. 为什么请求体要这样设计</h2>
+    <p>一个合理的聊天请求通常至少包含：</p>
+    <ul>
+      <li><code>profile_id</code>：你在和哪位老人相关的场景对话。</li>
+      <li><code>conversation_id</code>：这是哪次会话，如果没有就自动创建。</li>
+      <li><code>message</code>：本次用户输入。</li>
+    </ul>
+    <p>这说明聊天请求并不是独立于业务上下文存在的，它是“针对某位老人、在某次会话里”的发言。</p>
+
+    <h2>4. 代码层每一步到底在做什么</h2>
+    <h3>4.1 先查老人，不只是为了防错</h3>
+    <p>你在 <code>chat_service</code> 开头先查老人，看起来像例行校验，其实是在明确业务归属。</p>
+    <p>因为后面聊天不是单纯文字游戏，而是要结合这位老人的健康数据和画像。</p>
+
+    <h3>4.2 自动创建会话，解决“第一次聊天”的问题</h3>
+    <p>如果前端第一次进入聊天页，没有 <code>conversation_id</code>，后端应该自动创建会话。这一步的价值在于：</p>
+    <ol>
+      <li>前端不需要先手动创建会话再聊天。</li>
+      <li>后端能把业务入口设计得更自然。</li>
+      <li>聊天链路变成“即开即聊”。</li>
+    </ol>
+
+    <h3>4.3 为什么一定要先落用户消息</h3>
+    <p>因为聊天不是同步函数调用，而是会话历史的一部分。</p>
+    <p>如果你先调模型，再决定要不要存用户消息，会导致两个问题：</p>
+    <ol>
+      <li>一旦中间报错，历史不完整。</li>
+      <li>你没法保证消息时间线真实。</li>
+    </ol>
+    <p>所以先写用户消息，本质上是在保证“对话事实先成立”。</p>
+
+    <h3>4.4 模型回复也必须落库</h3>
+    <p>很多演示项目只把回复返回给前端，不保存到数据库。这样做的代价很大：</p>
+    <ul>
+      <li>后面刷新页面就没有历史。</li>
+      <li>上下文记忆取不到完整对话。</li>
+      <li>主动消息和普通消息无法统一展示。</li>
+    </ul>
+    <p>所以助手回复也要被当作消息持久化。</p>
+
+    <h2>5. 今天最重要的思维升级</h2>
+    <p>从今天起，你不要再把聊天接口理解成一个“黑箱回复接口”。你要把它看成一个业务流程协调器。</p>
+    <p><code>chat_service</code> 协调的对象包括：</p>
+    <ul>
+      <li>老人档案。</li>
+      <li>会话对象。</li>
+      <li>消息表。</li>
+      <li>上下文服务。</li>
+      <li>模型服务。</li>
+    </ul>
+    <p>这就是 service 层的真正价值。</p>
+
+    <h2>6. 今天最容易错在哪</h2>
+    <ul>
+      <li>聊天接口继续写成 <code>GET</code>，而不是 <code>POST</code>。</li>
+      <li>没有会话概念，所有消息直接堆一起。</li>
+      <li>只存用户消息，不存助手回复。</li>
+      <li>把模型调用硬写在路由里，而不是 service 里。</li>
+    </ul>
+
+    <h2>7. 今天完成标准</h2>
+    <ul>
+      <li>发起一次聊天请求后，能生成用户消息和助手消息两条记录。</li>
+      <li>第一次聊天时，不传会话 id 也能自动创建会话。</li>
+      <li>你能完整复述聊天 7 步链路。</li>
+      <li>你理解聊天接口的核心不是“模型 API”，而是“业务流程”。</li>
+    </ul>
+
+    <h2>8. 明天衔接</h2>
+    <p>明天补上两个抽象：<code>llm_service</code> 和 <code>memory_service</code>。也就是让你的聊天不再只是“能回”，而是开始“像在理解上下文地回”。</p>
+  </div>
+</main>
+</body>
+</html>

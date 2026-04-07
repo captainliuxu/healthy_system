@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>第3天 数据建模：Profile 与 Record</title>
+<style>
+body{margin:0;background:#f5f7fb;color:#1f2937;font-family:"Microsoft YaHei","PingFang SC",sans-serif;line-height:1.85}
+main{max-width:980px;margin:0 auto;padding:32px 20px 56px}.card{background:#fff;border:1px solid #d9e2ec;border-radius:18px;padding:28px}
+h1,h2,h3{line-height:1.35}h1{margin:0 0 10px;font-size:34px}h2{margin-top:34px;padding-top:10px;border-top:1px solid #d9e2ec}
+blockquote{margin:18px 0;padding:14px 18px;border-left:4px solid #2563eb;background:#eff6ff;border-radius:10px}
+code{background:#eef2ff;color:#312e81;padding:2px 6px;border-radius:6px;font-family:Consolas,monospace}
+table{width:100%;border-collapse:collapse;margin:18px 0}th,td{border:1px solid #d9e2ec;padding:12px;text-align:left;vertical-align:top}th{background:#f8fafc}
+.tag{display:inline-block;background:#dbeafe;color:#1d4ed8;border-radius:999px;padding:4px 10px;font-size:13px;margin-right:8px}
+</style>
+</head>
+<body>
+<main>
+  <div class="card">
+    <p><span class="tag">Day 3 / 15</span><span class="tag">业务建模</span></p>
+    <h1>第3天：数据建模，先把 Profile 和 Record 想明白</h1>
+    <blockquote>今天你做的不是“建两张表”这么简单。你其实是在决定系统以后围绕什么实体运转，以及健康数据要用什么方式被统一接住。</blockquote>
+
+    <h2>1. 今天要处理哪些文件</h2>
+    <ul>
+      <li><code>app/db/models/profile.py</code></li>
+      <li><code>app/db/models/record.py</code></li>
+      <li>如果你的 <code>main.py</code> 还没引入模型并创建表，今天要顺手补上</li>
+    </ul>
+
+    <h2>2. 为什么先建这两个模型</h2>
+    <p>因为你整个项目后面所有“看起来高级”的能力，本质上都依赖这两类数据：</p>
+    <ol>
+      <li><strong>Profile</strong>：系统服务对象是谁。</li>
+      <li><strong>Record</strong>：这个对象最近发生了什么健康相关事件。</li>
+    </ol>
+    <p>没有 <code>profile</code>，你的系统没有服务主体；没有 <code>record</code>，你的系统没有事实依据。</p>
+
+    <h2>3. 为什么 <code>profile</code> 一定是中心实体</h2>
+    <p>你后面会做很多功能：聊天、主动提醒、WebSocket 推送、会话历史、健康分析。看起来它们差异很大，但最后都必须回答同一个问题：</p>
+    <blockquote>这条消息、这条记录、这次提醒，到底是给哪位老人准备的？</blockquote>
+    <p>所以 <code>profile</code> 并不是普通用户表，而是整个系统的中心锚点。</p>
+    <p>它的字段不只是身份信息，还包括画像信息。例如：</p>
+    <table>
+      <tr><th>字段</th><th>你应该怎么理解它</th></tr>
+      <tr><td><code>name</code></td><td>最基础的展示名，也是后面提示词里会用到的人称对象</td></tr>
+      <tr><td><code>age</code></td><td>很多健康建议都要参考年龄</td></tr>
+      <tr><td><code>chronic_disease</code></td><td>体现系统不是空聊天，而是带健康背景的辅助</td></tr>
+      <tr><td><code>medicine_note</code></td><td>后续主动提醒和对话建议都可能用到</td></tr>
+      <tr><td><code>usual_sleep_time</code> / <code>usual_wake_time</code></td><td>后续主动时间窗和生活建议可以参考</td></tr>
+      <tr><td><code>emergency_contact_*</code></td><td>不是今天就用，但能体现可扩展性</td></tr>
+    </table>
+
+    <h2>4. 为什么 <code>record</code> 第一版先做通用表</h2>
+    <p>这是今天最重要的设计理解之一。</p>
+    <p>理论上，血压、心率、血糖、睡眠、服药、运动都可以拆成单独表。但对于你当前阶段，最重要的不是极致规范，而是先把健康数据统一接住。</p>
+    <p>所以你用通用记录表，通常会保留这些字段：</p>
+    <ul>
+      <li><code>profile_id</code>：说明这条数据属于谁。</li>
+      <li><code>record_type</code>：说明这是什么类型的数据。</li>
+      <li><code>value_json</code>：保存具体内容。</li>
+      <li><code>source</code>：说明来自手动录入、设备、系统生成等。</li>
+      <li><code>recorded_at</code>：说明记录发生时间。</li>
+    </ul>
+    <p>这套设计真正解决的是“异构健康数据统一落库”的问题。</p>
+    <blockquote>你不是不知道拆细更规范，而是现在优先选择一个更适合比赛落地速度的结构。</blockquote>
+
+    <h2>5. 代码层每一步在做什么</h2>
+    <h3>5.1 主键不是装饰，是后面一切关联的基础</h3>
+    <p>每个表里的 <code>id</code> 都不是例行公事。它直接决定：</p>
+    <ol>
+      <li>消息能不能关联到会话。</li>
+      <li>记录能不能关联到老人。</li>
+      <li>主动日志能不能关联到触发对象。</li>
+    </ol>
+
+    <h3>5.2 时间字段不是为了好看，而是为了“最近”这个概念</h3>
+    <p>你的聊天要拿最近消息，主动触发要看最近健康记录，记录列表要按时间排序，所以时间字段很关键。</p>
+    <p>如果没有这些时间字段，后面很多“上下文”“最近一次”“今天是否已提醒”都做不干净。</p>
+
+    <h3>5.3 <code>ForeignKey</code> 体现的是业务依赖关系</h3>
+    <p><code>record.profile_id</code> 指向 <code>profiles.id</code>，不是数据库技巧，而是在表达一个业务事实：</p>
+    <blockquote>健康记录不能脱离老人独立存在。</blockquote>
+
+    <h2>6. 今天最容易犯的错误</h2>
+    <ul>
+      <li>把老人档案字段做得过于少，后面聊天和主动提醒拿不到画像信息。</li>
+      <li>一上来把健康记录拆成很多表，结果开发节奏被拖慢。</li>
+      <li>没有时间字段，后面所有“最近”“今日”相关逻辑都很难做。</li>
+      <li>没有建立 <code>profile_id</code> 关联，只把记录当成孤立数据。</li>
+    </ul>
+
+    <h2>7. 今天完成标准</h2>
+    <ul>
+      <li>你能清楚说出 <code>profile</code> 和 <code>record</code> 分别代表什么。</li>
+      <li>你能解释为什么记录表第一版用通用结构。</li>
+      <li>数据库里已经有这两张表的基础模型定义。</li>
+      <li>你知道后面聊天和主动触发都会依赖这两张表。</li>
+    </ul>
+
+    <h2>8. 明天衔接</h2>
+    <p>明天开始把 <code>profile</code> 从“模型”做成“完整业务模块”，也就是补上 schema、repo、service、route，让它真正能从前端请求一路走到数据库。</p>
+  </div>
+</main>
+</body>
+</html>

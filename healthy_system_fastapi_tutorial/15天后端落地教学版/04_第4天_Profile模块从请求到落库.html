@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>第4天 Profile 模块从请求到落库</title>
+<style>
+body{margin:0;background:#f5f7fb;color:#1f2937;font-family:"Microsoft YaHei","PingFang SC",sans-serif;line-height:1.85}
+main{max-width:980px;margin:0 auto;padding:32px 20px 56px}.card{background:#fff;border:1px solid #d9e2ec;border-radius:18px;padding:28px}
+h1,h2,h3{line-height:1.35}h1{margin:0 0 10px;font-size:34px}h2{margin-top:34px;padding-top:10px;border-top:1px solid #d9e2ec}
+blockquote{margin:18px 0;padding:14px 18px;border-left:4px solid #2563eb;background:#eff6ff;border-radius:10px}
+code{background:#eef2ff;color:#312e81;padding:2px 6px;border-radius:6px;font-family:Consolas,monospace}
+table{width:100%;border-collapse:collapse;margin:18px 0}th,td{border:1px solid #d9e2ec;padding:12px;text-align:left;vertical-align:top}th{background:#f8fafc}
+.tag{display:inline-block;background:#dbeafe;color:#1d4ed8;border-radius:999px;padding:4px 10px;font-size:13px;margin-right:8px}
+</style>
+</head>
+<body>
+<main>
+  <div class="card">
+    <p><span class="tag">Day 4 / 15</span><span class="tag">第一个完整模块</span></p>
+    <h1>第4天：把 Profile 做成完整业务链路</h1>
+    <blockquote>今天是你第一次真正把“一个模型”扩成“一个模块”。从今天开始，你不只是会建表，而是会把一次请求完整送进系统，再完整返回给前端。</blockquote>
+
+    <h2>1. 今天要完成哪些文件</h2>
+    <ul>
+      <li><code>app/schemas/profile.py</code></li>
+      <li><code>app/repositories/profile_repo.py</code></li>
+      <li><code>app/services/profile_service.py</code></li>
+      <li><code>app/api/routes/profiles.py</code></li>
+      <li><code>app/main.py</code> 中把 <code>profiles_router</code> 挂上去</li>
+    </ul>
+
+    <h2>2. 为什么今天一定要先把 Profile 做完整</h2>
+    <p>因为它是系统中心实体。后面你再做 record、conversation、chat、proactive，都会频繁依赖“先找到某位老人”。</p>
+    <p>如果 Profile 模块本身都不完整，后面所有模块都会不停重复补逻辑。</p>
+
+    <h2>3. 从请求到落库，一次完整流程到底怎么走</h2>
+    <table>
+      <tr><th>环节</th><th>负责文件</th><th>本质动作</th></tr>
+      <tr><td>接收请求</td><td><code>routes/profiles.py</code></td><td>拿到请求参数，交给 service</td></tr>
+      <tr><td>校验数据</td><td><code>schemas/profile.py</code></td><td>确保输入形状正确、字段类型正确</td></tr>
+      <tr><td>业务判断</td><td><code>services/profile_service.py</code></td><td>决定创建、查询、更新、删除应该怎么做</td></tr>
+      <tr><td>数据库操作</td><td><code>repositories/profile_repo.py</code></td><td>把数据真正写入或读出数据库</td></tr>
+      <tr><td>统一返回</td><td><code>response.py</code></td><td>给前端稳定响应结构</td></tr>
+    </table>
+    <p>今天最重要的理解是：这一条链路不是为了显得“正规”，而是为了让你的代码职责清晰。</p>
+
+    <h2>4. 每个文件今天到底在做什么</h2>
+    <h3>4.1 <code>schemas/profile.py</code>：定义接口合同</h3>
+    <p>这里你至少会定义三类结构：</p>
+    <ol>
+      <li><code>ProfileCreate</code>：创建时允许传什么。</li>
+      <li><code>ProfileUpdate</code>：更新时哪些字段可选。</li>
+      <li><code>ProfileRead</code>：返回给前端时长什么样。</li>
+    </ol>
+    <p>真正含义是：输入合同和输出合同分开。</p>
+    <p>比如创建时可能必须要有 <code>name</code>，但查询返回时会多出 <code>id</code>、<code>created_at</code>、<code>updated_at</code>。</p>
+
+    <h3>4.2 <code>profile_repo.py</code>：只做数据库动作，不做业务判断</h3>
+    <p>这个文件主要封装：</p>
+    <ul>
+      <li>创建老人档案。</li>
+      <li>按 id 查询老人档案。</li>
+      <li>分页查询老人列表。</li>
+      <li>更新老人。</li>
+      <li>删除老人。</li>
+    </ul>
+    <p>这里最关键的理解是：repo 不应该思考“这条档案该不该创建”，它只负责“怎么创建”。</p>
+
+    <h3>4.3 <code>profile_service.py</code>：把业务规则放这里</h3>
+    <p>Service 层做的是“决定流程”。例如：</p>
+    <ol>
+      <li>查询不到老人时，不是简单返回空，而是抛业务异常。</li>
+      <li>更新时只更新用户真正传入的字段。</li>
+      <li>删除前先确认对象存在。</li>
+    </ol>
+    <p>这就是为什么 service 才是后端的大脑。</p>
+
+    <h3>4.4 <code>routes/profiles.py</code>：让 HTTP 请求接上业务能力</h3>
+    <p>你今天写的每个接口，本质都在做同一个动作：</p>
+    <blockquote>从 HTTP 世界进入业务世界，再从业务世界返回 HTTP 世界。</blockquote>
+    <p>所以路由文件应该尽量轻，只保留：</p>
+    <ul>
+      <li>请求参数定义。</li>
+      <li>依赖注入 <code>db</code>。</li>
+      <li>调用 service。</li>
+      <li>返回 <code>success_response</code>。</li>
+    </ul>
+
+    <h2>5. 今天你应该如何理解 CRUD</h2>
+    <p>今天的 CRUD 不只是增删改查练手，它是在帮你建立一种固定模式。你后面做 Record、Conversation 甚至主动配置，都会复用这套模块结构。</p>
+    <p>也就是说，Profile 模块是你的第一个“模板模块”。</p>
+
+    <h2>6. 今天最容易错在哪</h2>
+    <ul>
+      <li>把校验逻辑写到路由里，而不是 schema 或 service 里。</li>
+      <li>repo 里开始抛业务异常，职责混乱。</li>
+      <li>更新接口直接整对象覆盖，没有做增量更新。</li>
+      <li>返回数据库对象时没有统一成功结构。</li>
+    </ul>
+
+    <h2>7. 今天完成标准</h2>
+    <ul>
+      <li>能创建老人档案。</li>
+      <li>能获取老人列表。</li>
+      <li>能获取单个老人详情。</li>
+      <li>能更新和删除档案。</li>
+      <li>你能说清 Schema、Repo、Service、Route 在这个模块里分别承担什么。</li>
+    </ul>
+
+    <h2>8. 明天衔接</h2>
+    <p>明天把 Record 模块补起来。明天重点不是重复今天，而是理解“为什么健康记录在结构上和老人档案不同”，以及“为什么它会成为聊天和主动提醒的事实来源”。</p>
+  </div>
+</main>
+</body>
+</html>

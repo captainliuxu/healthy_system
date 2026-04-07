@@ -1,0 +1,501 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>healthy_system 后端纯思路教学版</title>
+<style>
+:root {
+  --bg: #f5f7fb;
+  --card: #ffffff;
+  --text: #1f2937;
+  --muted: #5b6474;
+  --line: #d9e2ec;
+  --accent: #b45309;
+  --accent-soft: #fff7ed;
+}
+* { box-sizing: border-box; }
+body {
+  margin: 0;
+  background:
+    radial-gradient(circle at top left, #eef5ff 0, transparent 28%),
+    radial-gradient(circle at bottom right, #fff3e8 0, transparent 24%),
+    var(--bg);
+  color: var(--text);
+  font-family: "Microsoft YaHei", "PingFang SC", sans-serif;
+  line-height: 1.85;
+}
+.layout {
+  max-width: 1460px;
+  margin: 0 auto;
+  padding: 24px;
+  display: grid;
+  grid-template-columns: 320px minmax(0, 1fr);
+  gap: 24px;
+}
+aside {
+  position: sticky;
+  top: 20px;
+  align-self: start;
+  max-height: calc(100vh - 40px);
+  overflow: auto;
+  background: rgba(255,255,255,0.94);
+  border: 1px solid var(--line);
+  border-radius: 22px;
+  padding: 20px;
+  backdrop-filter: blur(8px);
+}
+aside h2 { margin: 0 0 12px; font-size: 22px; }
+aside ul { list-style: none; margin: 0; padding: 0; }
+aside li { margin: 8px 0; }
+aside .lvl3 { margin-left: 14px; font-size: 14px; }
+aside a { color: var(--muted); text-decoration: none; }
+aside a:hover { color: var(--accent); }
+main {
+  background: rgba(255,255,255,0.96);
+  border: 1px solid var(--line);
+  border-radius: 26px;
+  padding: 40px 48px 56px;
+}
+h1, h2, h3 { line-height: 1.35; scroll-margin-top: 24px; }
+h1 { font-size: 38px; margin: 0 0 12px; }
+h2 {
+  margin-top: 42px;
+  padding-top: 12px;
+  border-top: 1px solid var(--line);
+  font-size: 30px;
+}
+h3 { margin-top: 26px; font-size: 22px; }
+p, li { font-size: 16px; }
+blockquote {
+  margin: 18px 0;
+  padding: 14px 18px;
+  border-left: 4px solid var(--accent);
+  background: var(--accent-soft);
+  border-radius: 12px;
+}
+code {
+  font-family: Consolas, Menlo, Monaco, monospace;
+  background: #fff1e6;
+  color: #9a3412;
+  padding: 2px 6px;
+  border-radius: 6px;
+}
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 18px 0;
+  background: #fff;
+}
+th, td {
+  border: 1px solid var(--line);
+  padding: 12px;
+  text-align: left;
+  vertical-align: top;
+}
+th { background: #f8fafc; }
+.card {
+  border: 1px solid var(--line);
+  border-radius: 18px;
+  padding: 18px 20px;
+  background: linear-gradient(180deg, #ffffff, #fcfdff);
+  margin: 16px 0;
+}
+.tag {
+  display: inline-block;
+  padding: 4px 10px;
+  border-radius: 999px;
+  background: #ffedd5;
+  color: #9a3412;
+  font-size: 13px;
+  margin-right: 8px;
+}
+.warn {
+  border-left-color: #dc2626;
+  background: #fef2f2;
+}
+@media (max-width: 980px) {
+  .layout { grid-template-columns: 1fr; padding: 16px; }
+  aside { position: static; max-height: none; }
+  main { padding: 24px 20px 36px; }
+}
+</style>
+</head>
+<body>
+<div class="layout">
+  <aside>
+    <h2>目录</h2>
+    <ul>
+      <li><a href="#position">0. 这份教程的定位</a></li>
+      <li><a href="#essence">1. 你到底在做什么系统</a></li>
+      <li><a href="#competition">2. 比赛版后端和普通 CRUD 的区别</a></li>
+      <li><a href="#core-entity">3. 核心业务对象怎么想</a></li>
+      <li class="lvl3"><a href="#profile">3.1 为什么 profile 是中心</a></li>
+      <li class="lvl3"><a href="#record">3.2 为什么 record 先做通用表</a></li>
+      <li class="lvl3"><a href="#conversation">3.3 为什么 conversation 和 message 要拆开</a></li>
+      <li class="lvl3"><a href="#proactive-table">3.4 为什么还要主动窗口和主动日志</a></li>
+      <li><a href="#layers">4. 分层不是形式，是在解决复杂度</a></li>
+      <li class="lvl3"><a href="#route-layer">4.1 Route 层到底负责什么</a></li>
+      <li class="lvl3"><a href="#service-layer">4.2 Service 层为什么是大脑</a></li>
+      <li class="lvl3"><a href="#repo-layer">4.3 Repository 层为什么值得单独抽</a></li>
+      <li class="lvl3"><a href="#schema-layer">4.4 Schema 层为什么不能省</a></li>
+      <li><a href="#flows">5. 五条关键业务链路怎么理解</a></li>
+      <li class="lvl3"><a href="#flow-profile">5.1 档案链路</a></li>
+      <li class="lvl3"><a href="#flow-record">5.2 记录链路</a></li>
+      <li class="lvl3"><a href="#flow-chat">5.3 聊天链路</a></li>
+      <li class="lvl3"><a href="#flow-proactive">5.4 主动触发链路</a></li>
+      <li class="lvl3"><a href="#flow-push">5.5 推送链路</a></li>
+      <li><a href="#abstraction">6. 几个关键抽象为什么要提前做</a></li>
+      <li><a href="#order">7. 为什么开发顺序必须这样排</a></li>
+      <li><a href="#mistakes">8. 你最容易犯的思维错误</a></li>
+      <li><a href="#compare">9. 两个版本怎么对照学习</a></li>
+      <li><a href="#goal">10. 学完这两个版本你应该达到什么程度</a></li>
+    </ul>
+  </aside>
+
+  <main>
+    <h1>healthy_system 后端纯思路教学版</h1>
+    <p>
+      <span class="tag">只讲设计思路</span>
+      <span class="tag">不直接讲实现细节</span>
+      <span class="tag">适合和完整代码版对照</span>
+    </p>
+    <blockquote>
+      这份教程解决的不是“代码怎么写”，而是“为什么要这么设计”。如果你只会照抄代码，后面一变需求你就不会改；但如果你理解了这份思路版，再回去看完整代码版，你会知道每个文件到底在承担什么职责。
+    </blockquote>
+
+    <h2 id="position">0. 这份教程的定位</h2>
+    <p>你现在已经有一个“完整代码版”教程，那一份适合解决下面的问题：</p>
+    <ol>
+      <li>这个文件具体写什么。</li>
+      <li>接口应该怎么组织。</li>
+      <li>某个模块最小可跑版本怎么搭出来。</li>
+    </ol>
+    <p>但只看代码版会有一个明显问题：你容易把后端理解成很多文件的拼接，而不是一个有逻辑的系统。</p>
+    <p>所以这一份“纯思路教学版”要解决的是另外几个问题：</p>
+    <ol>
+      <li>为什么你的系统中心一定是老人档案，而不是聊天接口。</li>
+      <li>为什么比赛项目不能只做 CRUD，也不能一上来做太多炫技功能。</li>
+      <li>为什么要分成 <code>route</code>、<code>service</code>、<code>repository</code> 这几层。</li>
+      <li>为什么聊天、主动触发、WebSocket、调度器之间必须按顺序搭建。</li>
+    </ol>
+    <p>你可以把这份文档当成“后端脑图版”。它不替你写代码，但它会告诉你每一行代码背后的判断依据。</p>
+
+    <h2 id="essence">1. 你到底在做什么系统</h2>
+    <p>你做的不是一个普通的健康数据录入系统，也不是一个单纯的大模型问答机器人。</p>
+    <p>你真正要做的是一个<strong>以老人健康数据为底座、具备连续对话能力、并且能主动关怀的健康陪护后端</strong>。</p>
+    <p>这里面有三个关键词：</p>
+    <table>
+      <tr><th>关键词</th><th>含义</th><th>对后端的要求</th></tr>
+      <tr><td>健康数据</td><td>不是空聊天，必须有老人档案和健康记录</td><td>要有稳定的数据表和查询逻辑</td></tr>
+      <tr><td>连续对话</td><td>不是一问一答结束，而是有会话上下文</td><td>要保存消息历史，能取上下文</td></tr>
+      <tr><td>主动关怀</td><td>系统不能永远等用户来问</td><td>要有触发规则、消息生成、推送和日志</td></tr>
+    </table>
+    <blockquote>
+      如果你把这三个关键词理解透，你后面就不会乱。任何一个模块，只要你不知道该不该做，就问自己一句：它是在支撑健康数据、连续对话，还是主动关怀？
+    </blockquote>
+
+    <h2 id="competition">2. 比赛版后端和普通 CRUD 的区别</h2>
+    <p>普通学生项目常见的路线是：建几张表，写几个增删改查接口，再加一个看起来像智能功能的接口。这种项目的问题是，技术元素虽然齐，但没有主线。</p>
+    <p>比赛版项目则完全不同。老师看重的不只是“功能数量”，更看重<strong>你是不是把一个明确场景的主链路闭环做出来了</strong>。</p>
+    <div class="card">
+      <strong>普通 CRUD 思路</strong>
+      <p>表很多，接口很多，但每个功能相互孤立。老人档案和聊天没有关系，聊天和健康记录没有关系，提醒功能也只是单独存在。</p>
+    </div>
+    <div class="card">
+      <strong>比赛闭环思路</strong>
+      <p>老人档案为基础，健康记录持续沉淀，聊天利用这些数据进行上下文回复，主动触发再基于这些数据做判断，然后把生成的主动消息实时推送出去。</p>
+    </div>
+    <p>这两种思路的根本差异不在于“会不会写代码”，而在于你有没有建立一条清晰主线。</p>
+    <blockquote>
+      对你的项目来说，真正的主线不是“我用了 FastAPI、SQLite、WebSocket、LLM”，而是“我让系统围绕老人健康场景形成了一条可解释、可演示、可扩展的服务链路”。
+    </blockquote>
+
+    <h2 id="core-entity">3. 核心业务对象怎么想</h2>
+    <p>如果你一开始业务建模没想清楚，后面所有代码都会变得很别扭。所谓“业务建模”，本质上就是在回答这个问题：</p>
+    <blockquote>
+      系统里真正稳定、真正重要、真正长期存在的数据对象，到底有哪些？
+    </blockquote>
+
+    <h3 id="profile">3.1 为什么 profile 是中心</h3>
+    <p>在你的项目里，<code>profile</code> 不是一个普通用户表，而是所有业务的锚点。</p>
+    <p>原因很简单：无论是健康记录、聊天记录、主动提醒，最后都必须能回答“这是针对哪位老人”。</p>
+    <p>所以 <code>profile</code> 承担的是三种作用：</p>
+    <ol>
+      <li><strong>身份作用</strong>：确定系统服务对象是谁。</li>
+      <li><strong>画像作用</strong>：保存年龄、慢病、作息等长期信息。</li>
+      <li><strong>关联作用</strong>：让其它表都挂到一个主实体上。</li>
+    </ol>
+    <p>也就是说，你的后端并不是围绕“登录用户”建模，而是围绕“被服务的老人”建模。</p>
+    <p>只要这一点想清楚，你就能解释为什么很多接口都要带 <code>profile_id</code>。</p>
+
+    <h3 id="record">3.2 为什么 record 先做通用表</h3>
+    <p>很多人做健康项目时，第一反应是把血压、血糖、睡眠、运动、服药分别拆成很多表。这样理论上很规范，但对你当前阶段并不划算。</p>
+    <p>比赛版第一阶段更重要的是<strong>快速形成健康数据底座</strong>，而不是做特别精细的医疗信息系统。</p>
+    <p>因此把 <code>record</code> 设计成通用健康记录表，本质上是在做一个权衡：</p>
+    <table>
+      <tr><th>方案</th><th>优点</th><th>缺点</th></tr>
+      <tr><td>很多专业子表</td><td>结构清晰、后期统计方便</td><td>早期开发成本高，迁移和联调都慢</td></tr>
+      <tr><td>一个通用记录表</td><td>成型快、扩展快、适合比赛演示</td><td>字段约束没那么强，需要靠业务层规范</td></tr>
+    </table>
+    <p>所以你现在不是不知道更“正规”的表怎么做，而是故意选了一个更适合现阶段的方案。</p>
+    <blockquote>
+      通用记录表不是偷懒，而是工程上的阶段性最优解。
+    </blockquote>
+
+    <h3 id="conversation">3.3 为什么 conversation 和 message 要拆开</h3>
+    <p>很多初学者写聊天接口时，只有一个请求进来，后端直接返回一句话。这样虽然表面上“能聊天”，但这个系统其实没有记忆。</p>
+    <p>真正的聊天系统至少要区分两个层面：</p>
+    <ol>
+      <li><code>conversation</code>：表示一次会话本身。</li>
+      <li><code>message</code>：表示会话中的一条条消息。</li>
+    </ol>
+    <p>你可以把它理解成：</p>
+    <ul>
+      <li><code>conversation</code> 是一个容器。</li>
+      <li><code>message</code> 是容器里面的内容。</li>
+    </ul>
+    <p>这样拆开的原因不是为了“表更多”，而是因为业务本来就是两层。</p>
+    <p>如果你不拆，会立刻遇到这几个问题：</p>
+    <ol>
+      <li>一位老人可以有多次聊天，你怎么区分不同会话？</li>
+      <li>你怎么查询某次会话的历史消息？</li>
+      <li>主动消息插到哪里？是聊天的一部分还是另一套系统？</li>
+    </ol>
+    <p>拆开之后，普通聊天消息和主动关怀消息都能进入同一套消息体系，只是 <code>message_type</code> 不同。</p>
+
+    <h3 id="proactive-table">3.4 为什么还要主动窗口和主动日志</h3>
+    <p>这里是比赛版和普通版拉开差距的关键。</p>
+    <p>如果你只是“在某个时刻直接发一条主动消息”，老师很可能会问你两个问题：</p>
+    <ol>
+      <li>为什么是这个时候发？</li>
+      <li>你怎么证明系统真的有主动判断逻辑？</li>
+    </ol>
+    <p>所以你需要两张额外的表：</p>
+    <table>
+      <tr><th>表</th><th>真正作用</th></tr>
+      <tr><td><code>proactive_window</code></td><td>表达“系统允许在什么时间段打扰用户”</td></tr>
+      <tr><td><code>proactive_log</code></td><td>记录“系统为什么触发、触发了什么、结果是什么”</td></tr>
+    </table>
+    <p>这两张表最重要的价值不是代码层面的，而是可解释性。</p>
+    <blockquote>
+      你不是在做一个黑盒系统，而是在做一个能解释“为什么发出这条关怀消息”的系统。
+    </blockquote>
+
+    <h2 id="layers">4. 分层不是形式，是在解决复杂度</h2>
+    <p>很多人知道“要分层”，但不知道为什么要分层。结果是文件虽然拆了，逻辑仍然乱。</p>
+    <p>你必须先明白一件事：</p>
+    <blockquote>
+      分层的目的不是好看，而是把不同类型的问题分开处理。
+    </blockquote>
+
+    <h3 id="route-layer">4.1 Route 层到底负责什么</h3>
+    <p><code>route</code> 层只做三件事：</p>
+    <ol>
+      <li>接收请求。</li>
+      <li>调用 service。</li>
+      <li>返回统一响应。</li>
+    </ol>
+    <p>它不应该负责复杂判断，不应该直接写数据库操作，也不应该拼一大堆业务流程。</p>
+    <p>为什么？因为路由的本质是“入口”。入口应该轻，才能稳定。</p>
+    <p>如果你把业务逻辑写到路由里，短期看起来快，长期一定会出现两个问题：</p>
+    <ol>
+      <li>后面新增第二个入口时，逻辑没法复用。</li>
+      <li>测试和调试时，你很难看清问题出在哪一层。</li>
+    </ol>
+
+    <h3 id="service-layer">4.2 Service 层为什么是大脑</h3>
+    <p><code>service</code> 层是真正处理业务规则的地方，它关心的是“这件事应该怎么做”。</p>
+    <p>比如聊天这个动作，service 会关心：</p>
+    <ol>
+      <li>老人档案存不存在。</li>
+      <li>会话要不要自动创建。</li>
+      <li>消息先存再调模型，还是先调模型再存。</li>
+      <li>历史上下文怎么拿。</li>
+    </ol>
+    <p>这些问题都不是路由层应该回答的，也不是 repo 层应该回答的。</p>
+    <p>所以你可以把 service 理解为：</p>
+    <blockquote>
+      service 决定“业务怎么走”，repo 决定“数据怎么拿”。
+    </blockquote>
+
+    <h3 id="repo-layer">4.3 Repository 层为什么值得单独抽</h3>
+    <p>有些小项目确实可以不抽 repo，service 里直接写数据库查询。但你的项目后面会越来越复杂，尤其是聊天、触发规则、日志查询会不断增加。</p>
+    <p>这时 repo 的价值就很明显：</p>
+    <ol>
+      <li>把数据库查询细节收起来。</li>
+      <li>让 service 看起来更接近业务语义。</li>
+      <li>后面改数据库实现时，影响范围更小。</li>
+    </ol>
+    <p>比如 “查询某位老人最新一条血压记录” 这种事情，本质上是数据获取逻辑，应该归 repo。</p>
+
+    <h3 id="schema-layer">4.4 Schema 层为什么不能省</h3>
+    <p>很多新手嫌 <code>schema</code> 麻烦，觉得直接用字典不就行了。这样做一开始省事，但很快会出问题。</p>
+    <p><code>schema</code> 至少在做三件有价值的事：</p>
+    <ol>
+      <li>约束输入，避免接口参数混乱。</li>
+      <li>定义输出，保持前后端联调稳定。</li>
+      <li>让接口文档可读，便于测试和答辩展示。</li>
+    </ol>
+    <p>你要把 schema 理解成“接口合同”。没有合同，团队协作和后续维护都很痛苦。</p>
+
+    <h2 id="flows">5. 五条关键业务链路怎么理解</h2>
+    <p>你的后端不是很多独立模块，而是由几条链路串起来的。理解链路，比理解单个文件更重要。</p>
+
+    <h3 id="flow-profile">5.1 档案链路</h3>
+    <p>这条链路是最基础的：</p>
+    <blockquote>
+      前端提交档案信息 -> 后端校验 -> 持久化保存 -> 返回老人对象
+    </blockquote>
+    <p>这条链路的思维重点不在技术，而在业务中心确定。</p>
+    <p>只有老人档案稳定存在，后面的记录、对话、主动关怀才有归属对象。否则你的整个系统就是漂浮的。</p>
+
+    <h3 id="flow-record">5.2 记录链路</h3>
+    <p>健康记录链路的本质是：让系统拥有“最近发生了什么”的事实依据。</p>
+    <p>聊天为什么能给出健康场景建议？因为它能看到记录。</p>
+    <p>主动触发为什么能判断异常？因为它能看到记录。</p>
+    <p>所以 record 链路并不是辅助模块，它是在给系统喂事实数据。</p>
+
+    <h3 id="flow-chat">5.3 聊天链路</h3>
+    <p>聊天链路要分成两层理解。</p>
+    <div class="card">
+      <strong>表面动作</strong>
+      <p>用户发一句话，系统回一句话。</p>
+    </div>
+    <div class="card">
+      <strong>真正链路</strong>
+      <p>确认老人身份 -> 确认会话 -> 保存用户消息 -> 组装上下文 -> 调模型 -> 保存助手消息 -> 返回结果。</p>
+    </div>
+    <p>也就是说，聊天的核心不是“调大模型”，而是“把调模型放进一条完整的业务链路里”。</p>
+    <p>这一点特别关键，因为很多人误以为接上模型 API 就等于做了智能后端。其实不是。真正的难点是让模型和业务数据发生关系。</p>
+
+    <h3 id="flow-proactive">5.4 主动触发链路</h3>
+    <p>主动触发链路可以拆成四个问题：</p>
+    <ol>
+      <li>该不该触发？</li>
+      <li>为什么触发？</li>
+      <li>触发后说什么？</li>
+      <li>触发结果怎么记录？</li>
+    </ol>
+    <p>这四个问题如果混在一起写，你的代码会很快失控。所以一定要拆开：</p>
+    <ul>
+      <li><code>trigger_service</code> 负责“该不该触发”。</li>
+      <li><code>proactive_service</code> 负责“触发后做什么”。</li>
+      <li><code>proactive_log</code> 负责“留下证据”。</li>
+    </ul>
+    <p>你会发现，这其实是在把一个复杂动作拆成可解释的多个环节。</p>
+
+    <h3 id="flow-push">5.5 推送链路</h3>
+    <p>很多项目做到主动消息生成这一步就停了，但那样还不能叫“主动交互”。因为如果消息只存在数据库里，用户根本感知不到系统主动性。</p>
+    <p>所以最终链路必须接到推送：</p>
+    <blockquote>
+      系统判定应该主动关怀 -> 生成消息 -> 保存消息 -> 通过 WebSocket 推给前端
+    </blockquote>
+    <p>这条链路的价值不是技术炫耀，而是把“系统主动性”变成用户可见行为。</p>
+
+    <h2 id="abstraction">6. 几个关键抽象为什么要提前做</h2>
+    <p>你这个项目里有几个抽象，初学者常常会觉得“是不是太早了”。其实这些抽象都不是多余设计，而是在提前避免混乱。</p>
+    <table>
+      <tr><th>抽象</th><th>解决的问题</th><th>为什么早做更好</th></tr>
+      <tr><td><code>llm_service</code></td><td>统一模型调用入口</td><td>以后更换模型供应商不会影响业务层</td></tr>
+      <tr><td><code>memory_service</code></td><td>统一组装上下文</td><td>聊天和主动生成都可能复用</td></tr>
+      <tr><td><code>trigger_service</code></td><td>统一判断是否主动触发</td><td>避免把规则写散在各处</td></tr>
+      <tr><td><code>proactive_service</code></td><td>统一执行主动消息流程</td><td>手动触发和定时触发都能复用</td></tr>
+      <tr><td><code>ws manager</code></td><td>统一管理连接和推送</td><td>后面一个用户多端连接也好扩展</td></tr>
+      <tr><td><code>scheduler</code></td><td>统一周期任务入口</td><td>主动检查逻辑不用散在 main 里</td></tr>
+    </table>
+    <p>判断一个抽象是否值得做，有一个很好用的标准：</p>
+    <blockquote>
+      只要同一类逻辑未来有两个以上调用入口，就应该考虑抽出来。
+    </blockquote>
+    <p>比如主动触发既可以手动测试触发，也可以定时任务触发，所以它天然值得抽成服务。</p>
+
+    <h2 id="order">7. 为什么开发顺序必须这样排</h2>
+    <p>你现在最需要避免的一件事，就是按照“哪个看起来酷就先写哪个”的顺序开发。</p>
+    <p>正确顺序应该是：</p>
+    <ol>
+      <li>先把 <code>profile</code> 做好。</li>
+      <li>再把 <code>record</code> 做好。</li>
+      <li>再补 <code>conversation</code> 和 <code>message</code>。</li>
+      <li>再让聊天链路落地。</li>
+      <li>再做主动窗口和主动日志。</li>
+      <li>再做触发服务和主动服务。</li>
+      <li>最后才做 WebSocket 和 scheduler。</li>
+    </ol>
+    <p>这个顺序背后其实是一条非常清楚的依赖关系：</p>
+    <table>
+      <tr><th>后做的模块</th><th>依赖什么</th></tr>
+      <tr><td>聊天</td><td>依赖 profile、conversation、message</td></tr>
+      <tr><td>主动触发</td><td>依赖 profile、record、message</td></tr>
+      <tr><td>WebSocket 推送</td><td>依赖主动消息已经能生成</td></tr>
+      <tr><td>调度器</td><td>依赖主动服务已经稳定可复用</td></tr>
+    </table>
+    <p>如果你逆着依赖顺序写，会不断返工。比如还没做好主动服务就上调度器，最后调度器里全是临时逻辑，后面一定重写。</p>
+
+    <h2 id="mistakes">8. 你最容易犯的思维错误</h2>
+    <div class="card warn">
+      <strong>错误 1：把“接上模型”当成智能系统的核心</strong>
+      <p>模型只是能力来源，不是系统本身。系统真正的价值来自它能不能结合老人数据、聊天历史和主动规则形成闭环。</p>
+    </div>
+    <div class="card warn">
+      <strong>错误 2：把“表设计很细”当成架构成熟</strong>
+      <p>第一版最重要的是主链路跑通，而不是把每种记录都拆成很多表。</p>
+    </div>
+    <div class="card warn">
+      <strong>错误 3：把所有逻辑写进路由</strong>
+      <p>这样短期快，长期必乱。路由应该越轻越好。</p>
+    </div>
+    <div class="card warn">
+      <strong>错误 4：主动触发只做“发消息”，不做“说明原因”</strong>
+      <p>没有日志和原因记录，答辩时你解释不清触发逻辑。</p>
+    </div>
+    <div class="card warn">
+      <strong>错误 5：过早追求自动化</strong>
+      <p>手动触发接口还没稳，就先做调度器和完整部署，这会显著增加调试成本。</p>
+    </div>
+    <p>你可以记住一句特别实用的话：</p>
+    <blockquote>
+      先把系统做对，再把系统做炫。
+    </blockquote>
+
+    <h2 id="compare">9. 两个版本怎么对照学习</h2>
+    <p>你现在手里应该有两份教程：</p>
+    <ol>
+      <li><strong>完整代码版</strong>：告诉你文件里具体写什么。</li>
+      <li><strong>纯思路教学版</strong>：告诉你为什么要这么写。</li>
+    </ol>
+    <p>最有效的学习方法不是先把一份看完再看另一份，而是<strong>按模块对照</strong>：</p>
+    <table>
+      <tr><th>学习顺序</th><th>先看什么</th><th>再看什么</th><th>目的</th></tr>
+      <tr><td>Profile</td><td>思路版里 profile 为什么是中心</td><td>代码版里 profile 的 model/schema/service/route</td><td>理解“主实体”如何落地</td></tr>
+      <tr><td>Record</td><td>思路版里为什么先做通用记录表</td><td>代码版里 record 的增查逻辑</td><td>理解“阶段性最优解”</td></tr>
+      <tr><td>Chat</td><td>思路版里聊天的完整业务链路</td><td>代码版里 chat_service、message、conversation</td><td>理解“会话式系统”而不是单接口</td></tr>
+      <tr><td>Proactive</td><td>思路版里主动触发四个问题</td><td>代码版里 trigger_service、proactive_service</td><td>理解“规则判断”和“执行流程”的分离</td></tr>
+      <tr><td>Push</td><td>思路版里为什么需要推送</td><td>代码版里 websocket 和 scheduler</td><td>理解主动交互闭环</td></tr>
+    </table>
+    <p>你学习时最好始终问自己两个问题：</p>
+    <ol>
+      <li>这个模块在系统里解决的是什么问题？</li>
+      <li>代码版里哪些文件是在实现这个问题的解决方案？</li>
+    </ol>
+    <p>如果你能把这两个问题答出来，你就不是在抄代码，而是在理解系统。</p>
+
+    <h2 id="goal">10. 学完这两个版本你应该达到什么程度</h2>
+    <p>学完之后，你不应该只是“会写一个当前版本”。你至少应该具备下面这些能力：</p>
+    <ol>
+      <li>知道为什么业务主实体是 <code>profile</code>。</li>
+      <li>知道为什么健康记录第一版应该做成通用表。</li>
+      <li>知道为什么聊天一定要有会话和消息持久化。</li>
+      <li>知道为什么主动功能一定要拆成“判断”和“执行”两部分。</li>
+      <li>知道为什么路由不应该承载业务复杂度。</li>
+      <li>知道为什么 WebSocket 和 scheduler 一定是靠后的阶段性能力。</li>
+      <li>面对新需求时，能判断它应该落在哪一层、哪一类表、哪一条链路上。</li>
+    </ol>
+    <blockquote>
+      你最终学会的应该不是“这一套代码”，而是“以后遇到类似项目时，也能自己搭出一套合理后端”的思考方式。
+    </blockquote>
+    <p>如果你还要继续，我下一步最适合给你补的是一份“对照学习导航版”，把这份思路版的每个章节，精确对应到完整代码版中的相关章节和文件路径，让你复习时更快来回切换。</p>
+  </main>
+</div>
+</body>
+</html>

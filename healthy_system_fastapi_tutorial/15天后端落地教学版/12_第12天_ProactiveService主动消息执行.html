@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>第12天 ProactiveService 主动消息执行</title>
+<style>
+body{margin:0;background:#f5f7fb;color:#1f2937;font-family:"Microsoft YaHei","PingFang SC",sans-serif;line-height:1.85}
+main{max-width:980px;margin:0 auto;padding:32px 20px 56px}.card{background:#fff;border:1px solid #d9e2ec;border-radius:18px;padding:28px}
+h1,h2,h3{line-height:1.35}h1{margin:0 0 10px;font-size:34px}h2{margin-top:34px;padding-top:10px;border-top:1px solid #d9e2ec}
+blockquote{margin:18px 0;padding:14px 18px;border-left:4px solid #2563eb;background:#eff6ff;border-radius:10px}
+code{background:#eef2ff;color:#312e81;padding:2px 6px;border-radius:6px;font-family:Consolas,monospace}
+table{width:100%;border-collapse:collapse;margin:18px 0}th,td{border:1px solid #d9e2ec;padding:12px;text-align:left;vertical-align:top}th{background:#f8fafc}
+.tag{display:inline-block;background:#dbeafe;color:#1d4ed8;border-radius:999px;padding:4px 10px;font-size:13px;margin-right:8px}
+</style>
+</head>
+<body>
+<main>
+  <div class="card">
+    <p><span class="tag">Day 12 / 15</span><span class="tag">主动执行流程</span></p>
+    <h1>第12天：ProactiveService，主动消息如何真正执行</h1>
+    <blockquote>今天你终于把“系统知道该主动了”推进到“系统真的做了主动动作”。这是主动交互闭环里最像业务中台的一层。</blockquote>
+
+    <h2>1. 今天要完成哪些文件</h2>
+    <ul>
+      <li><code>app/services/proactive_service.py</code></li>
+      <li><code>app/api/routes/proactive.py</code></li>
+      <li>必要时补 <code>schemas/proactive.py</code> 中的请求结构</li>
+      <li><code>main.py</code> 挂上主动相关路由</li>
+    </ul>
+
+    <h2>2. ProactiveService 到底负责什么</h2>
+    <p>它不是判断器，那是昨天的 TriggerService 在做的事。它也不是单纯调模型，而是负责把主动行为完整执行完：</p>
+    <ol>
+      <li>先调用 TriggerService 得到判断结果。</li>
+      <li>如果不触发，就返回不触发的原因。</li>
+      <li>如果触发，就找到或创建一个合适会话。</li>
+      <li>准备主动消息提示词。</li>
+      <li>生成消息内容。</li>
+      <li>把消息保存到消息表。</li>
+      <li>把触发结果写到主动日志。</li>
+    </ol>
+    <p>这 7 步合起来，才叫主动消息执行链路。</p>
+
+    <h2>3. 为什么主动消息也要落在消息表里</h2>
+    <p>因为主动消息本质上也是系统和用户的一次交互，不应该脱离会话体系单独存在。</p>
+    <p>你把它落到消息表里的好处有三个：</p>
+    <ol>
+      <li>前端消息列表可以统一展示普通聊天和主动消息。</li>
+      <li>后面上下文记忆也能读取到主动消息。</li>
+      <li>系统历史交互可以完整追溯。</li>
+    </ol>
+    <p>所以主动消息不是“另一套聊天系统”，而是同一套消息体系里的特殊消息。</p>
+
+    <h2>4. 为什么主动功能要有手动触发接口</h2>
+    <p>这是比赛开发特别实用的一点。虽然以后会有调度器自动触发，但当前阶段你必须先有手动接口，例如：</p>
+    <blockquote><code>POST /proactive/trigger-test</code></blockquote>
+    <p>这个接口的价值是：</p>
+    <ul>
+      <li>方便调试。</li>
+      <li>方便前后端联调。</li>
+      <li>方便答辩现场稳定演示。</li>
+    </ul>
+    <p>也就是说，手动触发接口不是临时凑合，而是一个工程上很实用的观察入口。</p>
+
+    <h2>5. 代码层每一步到底在做什么</h2>
+    <h3>5.1 先查老人，再谈主动消息</h3>
+    <p>主动消息必须有明确服务对象，所以第一步还是确认老人存在。这和聊天服务的开头逻辑一致，因为系统所有能力都围绕老人展开。</p>
+
+    <h3>5.2 找会话或建会话，是为了给主动消息安家</h3>
+    <p>如果这位老人已经有会话，可以把主动消息放到已有会话中；如果没有，就自动建一个主动关怀会话。</p>
+    <p>这一步体现的是：消息不应漂浮存在，而应该有上下文容器。</p>
+
+    <h3>5.3 主动文案先求稳定，再求自然</h3>
+    <p>第一版你完全可以先用模板生成，或者让模型在很短的提示下生成一句简短文案。关键是先把链路跑通，而不是一上来追求极致文案质量。</p>
+
+    <h3>5.4 日志在这里落，不在 TriggerService 落</h3>
+    <p>这点很重要。TriggerService 负责判断，ProactiveService 负责执行，所以真正的“执行结果日志”应该由 ProactiveService 写入。</p>
+    <p>这体现了清晰的职责边界。</p>
+
+    <h2>6. 今天最重要的理解</h2>
+    <blockquote>主动功能不是一条“提醒文本”，而是一条“判断 -> 执行 -> 持久化 -> 可追踪”的完整链路。</blockquote>
+    <p>这也是为什么比赛里老师通常更看重主动系统的整体闭环，而不是一句话写得多像人。</p>
+
+    <h2>7. 今天最容易错在哪</h2>
+    <ul>
+      <li>没有日志，只生成消息。</li>
+      <li>生成了主动消息，但没有写进消息表。</li>
+      <li>把判断逻辑再次塞回 ProactiveService，职责重复。</li>
+      <li>没有手动测试入口，导致联调非常痛苦。</li>
+    </ul>
+
+    <h2>8. 今天完成标准</h2>
+    <ul>
+      <li>调用手动触发接口时，系统能返回“是否触发”和结果内容。</li>
+      <li>触发成功时，消息表新增一条主动消息。</li>
+      <li>主动日志表新增一条日志。</li>
+      <li>你能清楚复述 TriggerService 和 ProactiveService 的职责区别。</li>
+    </ul>
+
+    <h2>9. 明天衔接</h2>
+    <p>明天把主动行为真正推到前端：接 WebSocket。到那一步，系统才会从“后台生成了主动消息”升级成“用户实时感知到主动消息”。</p>
+  </div>
+</main>
+</body>
+</html>

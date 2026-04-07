@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>第1天 总路线与后端地图</title>
+<style>
+body{margin:0;background:#f5f7fb;color:#1f2937;font-family:"Microsoft YaHei","PingFang SC",sans-serif;line-height:1.85}
+main{max-width:980px;margin:0 auto;padding:32px 20px 56px}
+.card{background:#fff;border:1px solid #d9e2ec;border-radius:18px;padding:28px}
+h1,h2,h3{line-height:1.35}h1{margin:0 0 10px;font-size:34px}h2{margin-top:34px;padding-top:10px;border-top:1px solid #d9e2ec}
+blockquote{margin:18px 0;padding:14px 18px;border-left:4px solid #2563eb;background:#eff6ff;border-radius:10px}
+code{background:#eef2ff;color:#312e81;padding:2px 6px;border-radius:6px;font-family:Consolas,monospace}
+table{width:100%;border-collapse:collapse;margin:18px 0}th,td{border:1px solid #d9e2ec;padding:12px;text-align:left;vertical-align:top}th{background:#f8fafc}
+.tag{display:inline-block;background:#dbeafe;color:#1d4ed8;border-radius:999px;padding:4px 10px;font-size:13px;margin-right:8px}
+</style>
+</head>
+<body>
+<main>
+  <div class="card">
+    <p><span class="tag">Day 1 / 15</span><span class="tag">先搭脑图</span></p>
+    <h1>第1天：总路线与后端地图</h1>
+    <blockquote>今天不急着写大量代码。今天最重要的任务，是先把“我要做成什么系统、它由哪些模块组成、为什么顺序必须这样排”彻底想清楚。后面 14 天才会顺。</blockquote>
+
+    <h2>1. 今天你要真正搞懂什么</h2>
+    <p>你的项目不是单纯的增删改查，也不是单纯的大模型聊天。它本质上是一个面向老人健康场景的后端系统，这个系统有三条主线：</p>
+    <ol>
+      <li>老人档案和健康记录，负责提供事实数据。</li>
+      <li>会话和消息，负责提供连续对话能力。</li>
+      <li>主动触发、主动消息、实时推送，负责体现系统主动性。</li>
+    </ol>
+    <p>如果你只记一句话，就记这句：</p>
+    <blockquote>先把数据底座建起来，再把对话链路建起来，最后让系统主动起来。</blockquote>
+
+    <h2>2. 15 天路线图</h2>
+    <table>
+      <tr><th>天数</th><th>主题</th><th>本质目标</th></tr>
+      <tr><td>第1天</td><td>总路线与系统地图</td><td>知道项目不是很多接口的堆积，而是一条业务闭环</td></tr>
+      <tr><td>第2天</td><td>骨架、配置、数据库会话</td><td>让项目有稳定启动基础</td></tr>
+      <tr><td>第3天</td><td>Profile 与 Record 建模</td><td>确立核心业务对象</td></tr>
+      <tr><td>第4天</td><td>Profile 模块</td><td>把老人档案从请求写到数据库</td></tr>
+      <tr><td>第5天</td><td>Record 模块</td><td>让系统真正有健康数据可用</td></tr>
+      <tr><td>第6天</td><td>统一响应、异常、接口测试</td><td>让基础接口规范稳定</td></tr>
+      <tr><td>第7天</td><td>Conversation 与 Message</td><td>让聊天有持久化结构</td></tr>
+      <tr><td>第8天</td><td>Chat 主链路</td><td>做出真实聊天流程</td></tr>
+      <tr><td>第9天</td><td>LLM 与 Memory</td><td>让回复结合上下文和健康数据</td></tr>
+      <tr><td>第10天</td><td>主动关怀数据基础</td><td>建立主动时间窗和主动日志</td></tr>
+      <tr><td>第11天</td><td>Trigger 决策逻辑</td><td>判断该不该主动发消息</td></tr>
+      <tr><td>第12天</td><td>Proactive 执行逻辑</td><td>真正生成并保存主动消息</td></tr>
+      <tr><td>第13天</td><td>WebSocket 推送</td><td>让主动消息变成实时可见行为</td></tr>
+      <tr><td>第14天</td><td>Scheduler 与 main 整合</td><td>让系统自动周期巡检</td></tr>
+      <tr><td>第15天</td><td>联调、验收、答辩</td><td>确认基础功能全部闭环</td></tr>
+    </table>
+
+    <h2>3. 先建立正确的系统地图</h2>
+    <p>你后面会接触很多文件，但它们不是平铺的。你应该把它们理解成 4 层：</p>
+    <table>
+      <tr><th>层</th><th>核心问题</th><th>典型文件</th></tr>
+      <tr><td>Route</td><td>接口怎么接收请求、怎么返回</td><td><code>api/routes/*.py</code></td></tr>
+      <tr><td>Service</td><td>业务到底怎么走</td><td><code>services/*.py</code></td></tr>
+      <tr><td>Repository</td><td>数据库数据怎么查、怎么存</td><td><code>repositories/*.py</code></td></tr>
+      <tr><td>Model / Schema</td><td>数据长什么样、接口长什么样</td><td><code>db/models/*.py</code>、<code>schemas/*.py</code></td></tr>
+    </table>
+    <p>这 4 层最容易混。你今天一定要先建立这套判断：</p>
+    <ol>
+      <li>路由不是用来写复杂业务逻辑的。</li>
+      <li>Service 才是你的后端大脑。</li>
+      <li>Repository 只处理“怎么拿数据、怎么存数据”。</li>
+      <li>Model 管数据库形状，Schema 管接口形状。</li>
+    </ol>
+
+    <h2>4. 今天虽然不大量写代码，但你已经在做架构决策</h2>
+    <p>很多人误以为“写代码才算开发”。其实今天这种阶段，恰恰是在做最重要的事情：决定后面代码会不会乱。</p>
+    <p>例如下面这些问题，今天就该有答案：</p>
+    <ol>
+      <li>老人是不是系统中心实体？答案是是。</li>
+      <li>健康记录先做通用表还是很多专业子表？第一版先做通用表。</li>
+      <li>聊天是不是只要一个接口？不是，至少要会话和消息两张表。</li>
+      <li>主动消息是不是随便发？不是，必须有触发依据和日志。</li>
+    </ol>
+    <p>这些看起来像思路，其实已经决定了你的代码怎么长。</p>
+
+    <h2>5. 今天完成标准</h2>
+    <ul>
+      <li>你能用一句话说清项目主线：档案与记录 -> 聊天 -> 主动触发 -> 推送。</li>
+      <li>你知道 15 天每一天为什么要这样安排。</li>
+      <li>你知道 4 层结构分别在解决什么问题。</li>
+      <li>你知道后面任何模块如果拿不准，就先判断它属于哪一层。</li>
+    </ul>
+
+    <h2>6. 明天衔接</h2>
+    <p>明天进入真正的工程起步：配置、数据库会话、统一异常、统一响应、FastAPI 启动入口。明天写的代码不炫，但它决定后面会不会稳。</p>
+  </div>
+</main>
+</body>
+</html>
