@@ -1,27 +1,32 @@
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 
+from app.api.router import api_router
 from app.core.config import settings
-from app.api.routes.health import router as health_router
+from app.core.exception import register_exception_handlers
 
-app = FastAPI(title=settings.APP_NAME)
 
-app.add_middleware(
-    CORSMiddleware,
-    allow_origins=["*"] if settings.ALLOWED_ORIGINS == "*" else settings.ALLOWED_ORIGINS.split(","),
-    allow_credentials=True,
-    allow_methods=["*"],
-    allow_headers=["*"],
-)
+def create_application() -> FastAPI:
+    app = FastAPI(
+        title=settings.PROJECT_NAME,
+        debug=settings.DEBUG,
+        version="0.1.0",
+    )
 
-app.include_router(health_router, prefix=settings.API_V1_PREFIX)
+    app.add_middleware(
+        # 允许前端跨域访问后端
+        # Vue 前端常见是 5173
+        CORSMiddleware,
+        allow_origins=settings.BACKEND_CORS_ORIGINS or ["*"],
+        allow_credentials=True,
+        allow_methods=["*"],
+        allow_headers=["*"],
+    )
 
-# 异常处理
-from app.core.exception import (
-    BusinessException,
-    business_exception_handler,
-    generic_exception_handler,
-)
+    app.include_router(api_router, prefix=settings.API_V1_PREFIX)
+    register_exception_handlers(app)
 
-app.add_exception_handler(BusinessException, business_exception_handler)
-app.add_exception_handler(Exception, generic_exception_handler)
+    return app
+
+
+app = create_application()

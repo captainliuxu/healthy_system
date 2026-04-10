@@ -1,0 +1,266 @@
+Healthy System FastAPI 后端目录分工说明
+
+一、backend 根目录
+
+1. alembic/
+作用：数据库迁移目录。
+你以后新增数据表、修改字段后，要通过 Alembic 生成和执行迁移文件。
+
+2. app/
+作用：后端核心业务代码都放这里。
+日常开发主要就在这个目录里完成。
+
+3. tests/
+作用：测试代码目录。
+后面可以放接口测试、服务层测试、数据库测试。
+
+4. .venv/
+作用：Python 虚拟环境。
+这里只是运行环境，不写业务代码。
+
+5. alembic.ini
+作用：Alembic 的配置文件。
+主要控制迁移路径、数据库连接等。
+
+6. healthy_system.db
+作用：当前本地 SQLite 数据库文件。
+如果以后切 MySQL，这个文件可能就不再作为主数据库使用。
+
+7. requirements.txt
+作用：项目依赖清单。
+新增依赖后要同步维护这个文件。
+
+
+二、app 目录
+
+1. api/
+作用：接口入口层。
+这里负责定义路由、接收请求、调用 service、返回响应。
+
+适合放：
+- auth.py
+- users.py
+- profiles.py
+- health.py
+- deps.py
+- router.py
+
+你可以把它理解成：
+“前端请求最先进入的地方”
+
+
+2. core/
+作用：项目级公共规则。
+这里放全局配置、安全相关、统一响应、统一异常等。
+
+适合放：
+- config.py
+- security.py
+- response.py
+- exception.py
+
+你可以把它理解成：
+“整个项目都要遵守的底层规则”
+
+
+3. db/
+作用：数据库基础设施层。
+这里负责数据库连接、Session、Base、Alembic 关联。
+
+适合放：
+- session.py
+- base.py
+
+你可以把它理解成：
+“项目怎么连数据库”
+
+
+4. models/
+作用：SQLAlchemy ORM 模型层。
+这里定义数据库表结构，以及表与表之间的关系。
+
+适合放：
+- user.py
+- profile.py
+- record.py
+- conversation.py
+- message.py
+
+你可以把它理解成：
+“数据库里有哪些表”
+
+注意：
+- User 是账号身份
+- Profile 是健康档案
+- 不要把请求体校验类写到这里
+
+
+5. schemas/
+作用：Pydantic 数据结构层。
+这里定义请求体、响应体、Token 结构、接口出入参校验规则。
+
+适合放：
+- auth.py
+- user.py
+- profile.py
+- common.py
+
+你可以把它理解成：
+“接口收什么、回什么”
+
+注意：
+- models 是数据库表
+- schemas 是接口数据结构
+- 这两个不要混
+
+
+6. services/
+作用：业务逻辑层。
+这里负责真正的业务编排，不直接处理 HTTP 细节。
+
+适合放：
+- auth_service.py
+- user_service.py
+- profile_service.py
+
+你可以把它理解成：
+“接口背后的真正业务逻辑”
+
+建议：
+- 路由层尽量薄
+- 复杂校验、创建流程、更新逻辑放 service
+
+
+7. repositories/
+作用：数据访问层，可选。
+如果你想把数据库查询进一步拆出来，可以放这里。
+
+适合放：
+- profile_repo.py
+- user_repo.py
+
+当前阶段建议：
+- 项目不复杂时，可以先主要使用 service + SQLAlchemy
+- 不一定非要把 repository 抽得很重
+
+
+8. utils/
+作用：工具函数层。
+这里放与具体业务弱相关的通用工具。
+
+适合放：
+- 时间处理
+- 字符串处理
+- 通用格式转换
+
+注意：
+- 如果某个函数只给某一个业务模块用，不一定要放 utils
+
+
+9. ws/
+作用：WebSocket 相关代码目录。
+当前前两阶段一般先不用重点动它。
+
+适合放：
+- websocket 连接管理
+- 实时消息推送逻辑
+
+
+10. main.py
+作用：FastAPI 应用入口。
+这里负责装配整个应用。
+
+主要职责：
+- 创建 FastAPI 实例
+- 注册中间件
+- 注册异常处理
+- 挂载总路由
+
+注意：
+- main.py 负责装配
+- 不要把业务逻辑大量写进 main.py
+
+
+三、当前阶段你最常操作的目录
+
+第一阶段最常操作：
+- app/core/
+- app/db/
+- app/api/
+- alembic/
+
+第二阶段最常操作：
+- app/models/
+- app/schemas/
+- app/services/
+- app/api/
+- app/core/security.py
+
+第三阶段以后可能会逐步增加：
+- app/ws/
+- app/utils/
+- tests/
+
+
+四、你写新代码时怎么判断该放哪里
+
+1. 如果是“接口地址”
+放 api/
+
+2. 如果是“数据库表结构”
+放 models/
+
+3. 如果是“请求体 / 响应体 / 参数校验”
+放 schemas/
+
+4. 如果是“登录、注册、创建 profile 这类业务流程”
+放 services/
+
+5. 如果是“数据库连接、Base、Session”
+放 db/
+
+6. 如果是“JWT、密码哈希、统一异常、统一响应、配置”
+放 core/
+
+7. 如果是“通用工具函数”
+放 utils/
+
+
+五、当前项目最重要的一条规则
+
+不要混写。
+
+具体来说：
+- 不要把数据库表写进 schemas
+- 不要把请求体验证写进 models
+- 不要把复杂业务逻辑塞进 api 路由
+- 不要把整个项目的规则散落在各个文件里
+
+你现在开发时，最稳的主线是：
+
+1. models 定义表
+2. schemas 定义接口结构
+3. services 写业务逻辑
+4. api 调用 service 暴露接口
+5. core 提供配置、安全、异常、响应支持
+
+
+六、第二阶段最重要的文件组合
+
+如果你现在主要在做用户 / 认证 / Profile，这几个文件最关键：
+
+- app/models/user.py
+- app/models/profile.py
+- app/schemas/auth.py
+- app/schemas/user.py
+- app/schemas/profile.py
+- app/core/security.py
+- app/api/deps.py
+- app/services/auth_service.py
+- app/services/user_service.py
+- app/services/profile_service.py
+- app/api/routes/auth.py
+- app/api/routes/users.py
+- app/api/routes/profiles.py
+
+你后面如果一时忘了某个功能该放哪里，就先回来看这份说明。
