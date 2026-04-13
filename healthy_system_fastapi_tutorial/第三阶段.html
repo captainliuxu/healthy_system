@@ -1,0 +1,1278 @@
+<!DOCTYPE html><html><head>
+      <title>第三阶段</title>
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      
+      <link rel="stylesheet" href="file:///c:\Users\Lenovo\.vscode\extensions\shd101wyy.markdown-preview-enhanced-0.8.22\crossnote\dependencies\katex\katex.min.css">
+      
+      
+      
+      
+      
+      <style>
+      code[class*=language-],pre[class*=language-]{color:#333;background:0 0;font-family:Consolas,"Liberation Mono",Menlo,Courier,monospace;text-align:left;white-space:pre;word-spacing:normal;word-break:normal;word-wrap:normal;line-height:1.4;-moz-tab-size:8;-o-tab-size:8;tab-size:8;-webkit-hyphens:none;-moz-hyphens:none;-ms-hyphens:none;hyphens:none}pre[class*=language-]{padding:.8em;overflow:auto;border-radius:3px;background:#f5f5f5}:not(pre)>code[class*=language-]{padding:.1em;border-radius:.3em;white-space:normal;background:#f5f5f5}.token.blockquote,.token.comment{color:#969896}.token.cdata{color:#183691}.token.doctype,.token.macro.property,.token.punctuation,.token.variable{color:#333}.token.builtin,.token.important,.token.keyword,.token.operator,.token.rule{color:#a71d5d}.token.attr-value,.token.regex,.token.string,.token.url{color:#183691}.token.atrule,.token.boolean,.token.code,.token.command,.token.constant,.token.entity,.token.number,.token.property,.token.symbol{color:#0086b3}.token.prolog,.token.selector,.token.tag{color:#63a35c}.token.attr-name,.token.class,.token.class-name,.token.function,.token.id,.token.namespace,.token.pseudo-class,.token.pseudo-element,.token.url-reference .token.variable{color:#795da3}.token.entity{cursor:help}.token.title,.token.title .token.punctuation{font-weight:700;color:#1d3e81}.token.list{color:#ed6a43}.token.inserted{background-color:#eaffea;color:#55a532}.token.deleted{background-color:#ffecec;color:#bd2c00}.token.bold{font-weight:700}.token.italic{font-style:italic}.language-json .token.property{color:#183691}.language-markup .token.tag .token.punctuation{color:#333}.language-css .token.function,code.language-css{color:#0086b3}.language-yaml .token.atrule{color:#63a35c}code.language-yaml{color:#183691}.language-ruby .token.function{color:#333}.language-markdown .token.url{color:#795da3}.language-makefile .token.symbol{color:#795da3}.language-makefile .token.variable{color:#183691}.language-makefile .token.builtin{color:#0086b3}.language-bash .token.keyword{color:#0086b3}pre[data-line]{position:relative;padding:1em 0 1em 3em}pre[data-line] .line-highlight-wrapper{position:absolute;top:0;left:0;background-color:transparent;display:block;width:100%}pre[data-line] .line-highlight{position:absolute;left:0;right:0;padding:inherit 0;margin-top:1em;background:hsla(24,20%,50%,.08);background:linear-gradient(to right,hsla(24,20%,50%,.1) 70%,hsla(24,20%,50%,0));pointer-events:none;line-height:inherit;white-space:pre}pre[data-line] .line-highlight:before,pre[data-line] .line-highlight[data-end]:after{content:attr(data-start);position:absolute;top:.4em;left:.6em;min-width:1em;padding:0 .5em;background-color:hsla(24,20%,50%,.4);color:#f4f1ef;font:bold 65%/1.5 sans-serif;text-align:center;vertical-align:.3em;border-radius:999px;text-shadow:none;box-shadow:0 1px #fff}pre[data-line] .line-highlight[data-end]:after{content:attr(data-end);top:auto;bottom:.4em}html body{font-family:'Helvetica Neue',Helvetica,'Segoe UI',Arial,freesans,sans-serif;font-size:16px;line-height:1.6;color:#333;background-color:#fff;overflow:initial;box-sizing:border-box;word-wrap:break-word}html body>:first-child{margin-top:0}html body h1,html body h2,html body h3,html body h4,html body h5,html body h6{line-height:1.2;margin-top:1em;margin-bottom:16px;color:#000}html body h1{font-size:2.25em;font-weight:300;padding-bottom:.3em}html body h2{font-size:1.75em;font-weight:400;padding-bottom:.3em}html body h3{font-size:1.5em;font-weight:500}html body h4{font-size:1.25em;font-weight:600}html body h5{font-size:1.1em;font-weight:600}html body h6{font-size:1em;font-weight:600}html body h1,html body h2,html body h3,html body h4,html body h5{font-weight:600}html body h5{font-size:1em}html body h6{color:#5c5c5c}html body strong{color:#000}html body del{color:#5c5c5c}html body a:not([href]){color:inherit;text-decoration:none}html body a{color:#08c;text-decoration:none}html body a:hover{color:#00a3f5;text-decoration:none}html body img{max-width:100%}html body>p{margin-top:0;margin-bottom:16px;word-wrap:break-word}html body>ol,html body>ul{margin-bottom:16px}html body ol,html body ul{padding-left:2em}html body ol.no-list,html body ul.no-list{padding:0;list-style-type:none}html body ol ol,html body ol ul,html body ul ol,html body ul ul{margin-top:0;margin-bottom:0}html body li{margin-bottom:0}html body li.task-list-item{list-style:none}html body li>p{margin-top:0;margin-bottom:0}html body .task-list-item-checkbox{margin:0 .2em .25em -1.8em;vertical-align:middle}html body .task-list-item-checkbox:hover{cursor:pointer}html body blockquote{margin:16px 0;font-size:inherit;padding:0 15px;color:#5c5c5c;background-color:#f0f0f0;border-left:4px solid #d6d6d6}html body blockquote>:first-child{margin-top:0}html body blockquote>:last-child{margin-bottom:0}html body hr{height:4px;margin:32px 0;background-color:#d6d6d6;border:0 none}html body table{margin:10px 0 15px 0;border-collapse:collapse;border-spacing:0;display:block;width:100%;overflow:auto;word-break:normal;word-break:keep-all}html body table th{font-weight:700;color:#000}html body table td,html body table th{border:1px solid #d6d6d6;padding:6px 13px}html body dl{padding:0}html body dl dt{padding:0;margin-top:16px;font-size:1em;font-style:italic;font-weight:700}html body dl dd{padding:0 16px;margin-bottom:16px}html body code{font-family:Menlo,Monaco,Consolas,'Courier New',monospace;font-size:.85em;color:#000;background-color:#f0f0f0;border-radius:3px;padding:.2em 0}html body code::after,html body code::before{letter-spacing:-.2em;content:'\00a0'}html body pre>code{padding:0;margin:0;word-break:normal;white-space:pre;background:0 0;border:0}html body .highlight{margin-bottom:16px}html body .highlight pre,html body pre{padding:1em;overflow:auto;line-height:1.45;border:#d6d6d6;border-radius:3px}html body .highlight pre{margin-bottom:0;word-break:normal}html body pre code,html body pre tt{display:inline;max-width:initial;padding:0;margin:0;overflow:initial;line-height:inherit;word-wrap:normal;background-color:transparent;border:0}html body pre code:after,html body pre code:before,html body pre tt:after,html body pre tt:before{content:normal}html body blockquote,html body dl,html body ol,html body p,html body pre,html body ul{margin-top:0;margin-bottom:16px}html body kbd{color:#000;border:1px solid #d6d6d6;border-bottom:2px solid #c7c7c7;padding:2px 4px;background-color:#f0f0f0;border-radius:3px}@media print{html body{background-color:#fff}html body h1,html body h2,html body h3,html body h4,html body h5,html body h6{color:#000;page-break-after:avoid}html body blockquote{color:#5c5c5c}html body pre{page-break-inside:avoid}html body table{display:table}html body img{display:block;max-width:100%;max-height:100%}html body code,html body pre{word-wrap:break-word;white-space:pre}}.markdown-preview{width:100%;height:100%;box-sizing:border-box}.markdown-preview ul{list-style:disc}.markdown-preview ul ul{list-style:circle}.markdown-preview ul ul ul{list-style:square}.markdown-preview ol{list-style:decimal}.markdown-preview ol ol,.markdown-preview ul ol{list-style-type:lower-roman}.markdown-preview ol ol ol,.markdown-preview ol ul ol,.markdown-preview ul ol ol,.markdown-preview ul ul ol{list-style-type:lower-alpha}.markdown-preview .newpage,.markdown-preview .pagebreak{page-break-before:always}.markdown-preview pre.line-numbers{position:relative;padding-left:3.8em;counter-reset:linenumber}.markdown-preview pre.line-numbers>code{position:relative}.markdown-preview pre.line-numbers .line-numbers-rows{position:absolute;pointer-events:none;top:1em;font-size:100%;left:0;width:3em;letter-spacing:-1px;border-right:1px solid #999;-webkit-user-select:none;-moz-user-select:none;-ms-user-select:none;user-select:none}.markdown-preview pre.line-numbers .line-numbers-rows>span{pointer-events:none;display:block;counter-increment:linenumber}.markdown-preview pre.line-numbers .line-numbers-rows>span:before{content:counter(linenumber);color:#999;display:block;padding-right:.8em;text-align:right}.markdown-preview .mathjax-exps .MathJax_Display{text-align:center!important}.markdown-preview:not([data-for=preview]) .code-chunk .code-chunk-btn-group{display:none}.markdown-preview:not([data-for=preview]) .code-chunk .status{display:none}.markdown-preview:not([data-for=preview]) .code-chunk .output-div{margin-bottom:16px}.markdown-preview .md-toc{padding:0}.markdown-preview .md-toc .md-toc-link-wrapper .md-toc-link{display:inline;padding:.25rem 0}.markdown-preview .md-toc .md-toc-link-wrapper .md-toc-link div,.markdown-preview .md-toc .md-toc-link-wrapper .md-toc-link p{display:inline}.markdown-preview .md-toc .md-toc-link-wrapper.highlighted .md-toc-link{font-weight:800}.scrollbar-style::-webkit-scrollbar{width:8px}.scrollbar-style::-webkit-scrollbar-track{border-radius:10px;background-color:transparent}.scrollbar-style::-webkit-scrollbar-thumb{border-radius:5px;background-color:rgba(150,150,150,.66);border:4px solid rgba(150,150,150,.66);background-clip:content-box}html body[for=html-export]:not([data-presentation-mode]){position:relative;width:100%;height:100%;top:0;left:0;margin:0;padding:0;overflow:auto}html body[for=html-export]:not([data-presentation-mode]) .markdown-preview{position:relative;top:0;min-height:100vh}@media screen and (min-width:914px){html body[for=html-export]:not([data-presentation-mode]) .markdown-preview{padding:2em calc(50% - 457px + 2em)}}@media screen and (max-width:914px){html body[for=html-export]:not([data-presentation-mode]) .markdown-preview{padding:2em}}@media screen and (max-width:450px){html body[for=html-export]:not([data-presentation-mode]) .markdown-preview{font-size:14px!important;padding:1em}}@media print{html body[for=html-export]:not([data-presentation-mode]) #sidebar-toc-btn{display:none}}html body[for=html-export]:not([data-presentation-mode]) #sidebar-toc-btn{position:fixed;bottom:8px;left:8px;font-size:28px;cursor:pointer;color:inherit;z-index:99;width:32px;text-align:center;opacity:.4}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] #sidebar-toc-btn{opacity:1}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc{position:fixed;top:0;left:0;width:300px;height:100%;padding:32px 0 48px 0;font-size:14px;box-shadow:0 0 4px rgba(150,150,150,.33);box-sizing:border-box;overflow:auto;background-color:inherit}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc::-webkit-scrollbar{width:8px}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc::-webkit-scrollbar-track{border-radius:10px;background-color:transparent}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc::-webkit-scrollbar-thumb{border-radius:5px;background-color:rgba(150,150,150,.66);border:4px solid rgba(150,150,150,.66);background-clip:content-box}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc a{text-decoration:none}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc .md-toc{padding:0 16px}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc .md-toc .md-toc-link-wrapper .md-toc-link{display:inline;padding:.25rem 0}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc .md-toc .md-toc-link-wrapper .md-toc-link div,html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc .md-toc .md-toc-link-wrapper .md-toc-link p{display:inline}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc .md-toc .md-toc-link-wrapper.highlighted .md-toc-link{font-weight:800}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .markdown-preview{left:300px;width:calc(100% - 300px);padding:2em calc(50% - 457px - 300px / 2);margin:0;box-sizing:border-box}@media screen and (max-width:1274px){html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .markdown-preview{padding:2em}}@media screen and (max-width:450px){html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .markdown-preview{width:100%}}html body[for=html-export]:not([data-presentation-mode]):not([html-show-sidebar-toc]) .markdown-preview{left:50%;transform:translateX(-50%)}html body[for=html-export]:not([data-presentation-mode]):not([html-show-sidebar-toc]) .md-sidebar-toc{display:none}
+/* Please visit the URL below for more information: */
+/*   https://shd101wyy.github.io/markdown-preview-enhanced/#/customize-css */
+
+      </style>
+      <script type="text/javascript">
+  document.addEventListener("DOMContentLoaded", function () {
+    // your code here
+  });
+</script>
+    </head>
+    <body for="html-export">
+      <div class="crossnote markdown-preview  ">
+      <div>
+<h1 id="healthy-system-fastapi-第三阶段详细教程">Healthy System FastAPI 第三阶段详细教程 </h1>
+<h2 id="1-这一阶段到底要解决什么">1. 这一阶段到底要解决什么 </h2>
+<p>第三阶段只做一件核心事:</p>
+<p>把 <code>Record</code> 做成一个完整、清晰、能直接在 Swagger 演示的业务 CRUD 模块。</p>
+<p>这一阶段的目标不是一上来就把健康记录设计得很复杂，而是先把下面这条完整链路真正走通:</p>
+<ol>
+<li>ORM 模型</li>
+<li>Pydantic schema</li>
+<li>service 业务层</li>
+<li>router 接口层</li>
+<li>CRUD</li>
+<li>数据校验</li>
+<li>分页</li>
+<li>条件筛选</li>
+<li>当前用户权限归属</li>
+</ol>
+<p>你把第三阶段做扎实，后面的聊天上下文、主动提醒、健康分析，基本都只是复用这一套开发方式。</p>
+<hr>
+<h2 id="2-第三阶段完成后的验收标准">2. 第三阶段完成后的验收标准 </h2>
+<p>做到下面这些，就算第三阶段合格:</p>
+<ol>
+<li><code>Record</code> 模块 CRUD 完整</li>
+<li>每条记录都归属当前登录用户</li>
+<li>列表支持分页</li>
+<li>列表支持按类型筛选</li>
+<li>列表支持按时间范围筛选</li>
+<li>用户不能查看、修改、删除别人的记录</li>
+<li><code>/docs</code> 里可以直接完成演示</li>
+</ol>
+<hr>
+<h2 id="3-为什么第三阶段先做-record">3. 为什么第三阶段先做 <code>Record</code> </h2>
+<p>因为它是最适合练完整业务闭环的模块。</p>
+<p><code>Record</code> 比 <code>Conversation</code>、<code>Message</code>、<code>Trigger</code> 都更独立，依赖更少，特别适合你现在这个阶段。</p>
+<p>它会逼着你把下面这些能力真正练会:</p>
+<ol>
+<li>建表</li>
+<li>写 schema</li>
+<li>写 service</li>
+<li>写 route</li>
+<li>写列表接口</li>
+<li>写筛选条件</li>
+<li>做用户权限限制</li>
+</ol>
+<p>如果第三阶段做扎实，后面大部分业务模块都可以照这个模板继续开发。</p>
+<hr>
+<h2 id="4-这一阶段先不做什么">4. 这一阶段先不做什么 </h2>
+<p>这一阶段先不要扩展这些内容:</p>
+<ol>
+<li>不做图表统计</li>
+<li>不做 AI 解释</li>
+<li>不做复杂指标拆分</li>
+<li>不做多表联查</li>
+<li>不做 <code>value_json</code> 这种异构高级设计</li>
+<li>不做多 profile 管理</li>
+</ol>
+<p>先把“当前用户自己的记录 CRUD”做出来，这才是第三阶段的正确目标。</p>
+<hr>
+<h2 id="5-先说明你当前项目里的-record-草稿文件">5. 先说明你当前项目里的 <code>record</code> 草稿文件 </h2>
+<p>你现在仓库里已经有这些文件:</p>
+<ol>
+<li><code>backend/app/db/models/record.py</code></li>
+<li><code>backend/app/schemas/record.py</code></li>
+</ol>
+<p>但你前两阶段的正式结构已经变成了:</p>
+<ol>
+<li>ORM 模型放在 <code>app/models/</code></li>
+<li>Alembic 通过 <code>app/db/base.py</code> 找模型</li>
+<li><code>app/models/__init__.py</code> 负责统一导出模型</li>
+</ol>
+<p>所以第三阶段要统一成这套正式结构。</p>
+<h3 id="51-这一阶段的处理原则">5.1 这一阶段的处理原则 </h3>
+<ol>
+<li>正式版 <code>Record</code> 放到 <code>app/models/record.py</code></li>
+<li><code>app/schemas/record.py</code> 直接按第三阶段需求重写</li>
+<li><code>app/db/base.py</code> 和 <code>app/models/__init__.py</code> 要导入新的 <code>Record</code></li>
+<li><code>app/db/models/record.py</code> 先不要管它，也不要继续 import 它</li>
+</ol>
+<h3 id="52-为什么不建议你现在去删旧草稿文件">5.2 为什么不建议你现在去删旧草稿文件 </h3>
+<p>因为你现在是学习阶段，删文件容易把自己绕乱。</p>
+<p>最稳的做法是:</p>
+<ol>
+<li>旧草稿先留着</li>
+<li>只保证没有任何正式代码去 import 它</li>
+<li>第三阶段正式代码只认 <code>app/models/record.py</code></li>
+</ol>
+<p>这样最不容易出错。</p>
+<hr>
+<h2 id="6-第三阶段推荐的数据设计">6. 第三阶段推荐的数据设计 </h2>
+<h3 id="61-推荐最小模型">6.1 推荐最小模型 </h3>
+<p>这一阶段建议直接用下面这套字段:</p>
+<table>
+<thead>
+<tr>
+<th>字段</th>
+<th>类型</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>id</code></td>
+<td>int</td>
+<td>主键</td>
+</tr>
+<tr>
+<td><code>user_id</code></td>
+<td>int</td>
+<td>归属用户</td>
+</tr>
+<tr>
+<td><code>record_type</code></td>
+<td>str</td>
+<td>记录类型</td>
+</tr>
+<tr>
+<td><code>value</code></td>
+<td>str</td>
+<td>记录值</td>
+</tr>
+<tr>
+<td><code>unit</code></td>
+<td>str | null</td>
+<td>单位</td>
+</tr>
+<tr>
+<td><code>record_time</code></td>
+<td>datetime</td>
+<td>业务记录时间</td>
+</tr>
+<tr>
+<td><code>note</code></td>
+<td>text | null</td>
+<td>备注</td>
+</tr>
+<tr>
+<td><code>created_at</code></td>
+<td>datetime</td>
+<td>创建时间</td>
+</tr>
+<tr>
+<td><code>updated_at</code></td>
+<td>datetime</td>
+<td>更新时间</td>
+</tr>
+</tbody>
+</table>
+<h3 id="62-为什么这里先用-user_id">6.2 为什么这里先用 <code>user_id</code> </h3>
+<p>你第二阶段已经完成了:</p>
+<ol>
+<li><code>User</code></li>
+<li><code>Auth</code></li>
+<li><code>Profile</code></li>
+</ol>
+<p>而第三阶段的验收标准里强调的是:</p>
+<p>每条记录归属当前用户</p>
+<p>所以这一阶段最直接、最容易理解、最适合演示的做法就是:</p>
+<p>让 <code>Record</code> 直接挂到 <code>user_id</code></p>
+<p>这样做的好处是:</p>
+<ol>
+<li>权限判断最简单</li>
+<li>CRUD 查询最直接</li>
+<li>不依赖 profile 是否先创建</li>
+<li>Swagger 演示最顺</li>
+</ol>
+<p>以后如果你要做“一个账号管理多个老人 profile”，再把 <code>Record</code> 改成挂 <code>profile_id</code> 也不迟。</p>
+<h3 id="63-为什么这里先把-value-设计成字符串">6.3 为什么这里先把 <code>value</code> 设计成字符串 </h3>
+<p>因为你当前的记录类型不止一种:</p>
+<ol>
+<li>血压: <code>138/91</code></li>
+<li>血糖: <code>6.8</code></li>
+<li>睡眠: <code>7.5</code></li>
+<li>心情: <code>happy</code></li>
+<li>用药: <code>metformin</code></li>
+</ol>
+<p>如果你现在把 <code>value</code> 强行设计成 <code>float</code>，立刻就会把自己卡死。</p>
+<p>第三阶段先统一成:</p>
+<p><code>value: str</code></p>
+<p>这是为了让结构简单、统一、好演示。</p>
+<h3 id="64-推荐的-record_type">6.4 推荐的 <code>record_type</code> </h3>
+<p>建议第三阶段先限制成固定枚举，别让前端随便传字符串。</p>
+<p>推荐值:</p>
+<ol>
+<li><code>checkin</code></li>
+<li><code>blood_pressure</code></li>
+<li><code>blood_glucose</code></li>
+<li><code>sleep</code></li>
+<li><code>medication</code></li>
+<li><code>mood</code></li>
+</ol>
+<p>这样做好处是:</p>
+<ol>
+<li>Swagger 更清楚</li>
+<li>校验更稳定</li>
+<li>后面筛选更方便</li>
+</ol>
+<hr>
+<h2 id="7-这一阶段会改哪些文件">7. 这一阶段会改哪些文件 </h2>
+<p>如果你按本教程做，第三阶段会涉及这些文件:</p>
+<pre data-role="codeBlock" data-info="text" class="language-text text"><code>backend/
+├─ app/
+│  ├─ api/
+│  │  ├─ routes/
+│  │  │  └─ records.py
+│  │  └─ router.py
+│  ├─ models/
+│  │  ├─ record.py
+│  │  └─ __init__.py
+│  ├─ schemas/
+│  │  └─ record.py
+│  ├─ services/
+│  │  └─ record_service.py
+│  └─ db/
+│     └─ base.py
+└─ alembic/
+   └─ versions/
+</code></pre><p>说明:</p>
+<ol>
+<li><code>app/models/record.py</code> 是新建</li>
+<li><code>app/services/record_service.py</code> 是新建</li>
+<li><code>app/api/routes/records.py</code> 是新建</li>
+<li><code>app/schemas/record.py</code> 是重写</li>
+<li><code>app/api/router.py</code> 要补一行路由导入和一行路由挂载</li>
+<li><code>app/models/__init__.py</code> 和 <code>app/db/base.py</code> 要补 <code>Record</code></li>
+</ol>
+<hr>
+<h2 id="8-这一阶段建议提供的接口">8. 这一阶段建议提供的接口 </h2>
+<table>
+<thead>
+<tr>
+<th>方法</th>
+<th>路径</th>
+<th>作用</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>POST</code></td>
+<td><code>/api/v1/records</code></td>
+<td>创建记录</td>
+</tr>
+<tr>
+<td><code>GET</code></td>
+<td><code>/api/v1/records</code></td>
+<td>获取记录列表</td>
+</tr>
+<tr>
+<td><code>GET</code></td>
+<td><code>/api/v1/records/{record_id}</code></td>
+<td>获取记录详情</td>
+</tr>
+<tr>
+<td><code>PUT</code></td>
+<td><code>/api/v1/records/{record_id}</code></td>
+<td>更新记录</td>
+</tr>
+<tr>
+<td><code>DELETE</code></td>
+<td><code>/api/v1/records/{record_id}</code></td>
+<td>删除记录</td>
+</tr>
+</tbody>
+</table>
+<p>列表接口建议支持这些查询参数:</p>
+<table>
+<thead>
+<tr>
+<th>参数</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>page</code></td>
+<td>页码，默认 1</td>
+</tr>
+<tr>
+<td><code>page_size</code></td>
+<td>每页条数，默认 10</td>
+</tr>
+<tr>
+<td><code>record_type</code></td>
+<td>类型筛选</td>
+</tr>
+<tr>
+<td><code>start_time</code></td>
+<td>开始时间</td>
+</tr>
+<tr>
+<td><code>end_time</code></td>
+<td>结束时间</td>
+</tr>
+</tbody>
+</table>
+<hr>
+<h2 id="9-开发顺序建议">9. 开发顺序建议 </h2>
+<p>这个顺序不要乱:</p>
+<ol>
+<li>先做模型 <code>model</code></li>
+<li>再做结构 <code>schema</code></li>
+<li>再做业务逻辑 <code>service</code></li>
+<li>再做接口层 <code>router</code></li>
+<li>再补总路由 <code>app/api/router.py</code></li>
+<li>再补模型入口 <code>app/models/__init__.py</code></li>
+<li>再补 Alembic 入口 <code>app/db/base.py</code></li>
+<li>最后做 migration 和 Swagger 验收</li>
+</ol>
+<p>原因很简单:</p>
+<ol>
+<li>没有模型就没有表</li>
+<li>没有 schema 就没有输入输出边界</li>
+<li>没有 service，router 会堆业务逻辑</li>
+<li>没有 base 导入，Alembic 会生成空 migration</li>
+<li>没有 Swagger 验收，你不知道链路是不是真的通了</li>
+</ol>
+<hr>
+<h2 id="10-第三阶段正式开始">10. 第三阶段正式开始 </h2>
+<p>下面开始按文件一个一个来。</p>
+<p>为了降低你出错概率，这里尽量采用下面这种教学方式:</p>
+<ol>
+<li>明确告诉你要新建还是替换</li>
+<li>直接给完整代码</li>
+<li>解释这份代码的作用</li>
+<li>说明这一节常见错误</li>
+</ol>
+<hr>
+<h2 id="11-先建-record-orm-模型">11. 先建 <code>Record</code> ORM 模型 </h2>
+<h3 id="111-新建-appmodelsrecordpy">11.1 新建 <code>app/models/record.py</code> </h3>
+<p>如果这个文件还没有，就新建。<br>
+如果你已经自己建过一个版本，也建议先按下面这份完整代码来。</p>
+<p>完整代码如下:</p>
+<pre data-role="codeBlock" data-info="python" class="language-python python"><code><span class="token keyword keyword-from">from</span> __future__ <span class="token keyword keyword-import">import</span> annotations
+
+<span class="token keyword keyword-from">from</span> datetime <span class="token keyword keyword-import">import</span> UTC<span class="token punctuation">,</span> datetime
+
+<span class="token keyword keyword-from">from</span> sqlalchemy <span class="token keyword keyword-import">import</span> DateTime<span class="token punctuation">,</span> ForeignKey<span class="token punctuation">,</span> Integer<span class="token punctuation">,</span> String<span class="token punctuation">,</span> Text
+<span class="token keyword keyword-from">from</span> sqlalchemy<span class="token punctuation">.</span>orm <span class="token keyword keyword-import">import</span> Mapped<span class="token punctuation">,</span> mapped_column
+
+<span class="token keyword keyword-from">from</span> app<span class="token punctuation">.</span>db<span class="token punctuation">.</span>session <span class="token keyword keyword-import">import</span> Base
+
+
+<span class="token keyword keyword-class">class</span> <span class="token class-name">Record</span><span class="token punctuation">(</span>Base<span class="token punctuation">)</span><span class="token punctuation">:</span>
+    __tablename__ <span class="token operator">=</span> <span class="token string">"records"</span>
+
+    <span class="token builtin">id</span><span class="token punctuation">:</span> Mapped<span class="token punctuation">[</span><span class="token builtin">int</span><span class="token punctuation">]</span> <span class="token operator">=</span> mapped_column<span class="token punctuation">(</span>Integer<span class="token punctuation">,</span> primary_key<span class="token operator">=</span><span class="token boolean">True</span><span class="token punctuation">,</span> index<span class="token operator">=</span><span class="token boolean">True</span><span class="token punctuation">)</span>
+    user_id<span class="token punctuation">:</span> Mapped<span class="token punctuation">[</span><span class="token builtin">int</span><span class="token punctuation">]</span> <span class="token operator">=</span> mapped_column<span class="token punctuation">(</span>
+        ForeignKey<span class="token punctuation">(</span><span class="token string">"users.id"</span><span class="token punctuation">,</span> ondelete<span class="token operator">=</span><span class="token string">"CASCADE"</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+        index<span class="token operator">=</span><span class="token boolean">True</span><span class="token punctuation">,</span>
+        nullable<span class="token operator">=</span><span class="token boolean">False</span><span class="token punctuation">,</span>
+    <span class="token punctuation">)</span>
+    record_type<span class="token punctuation">:</span> Mapped<span class="token punctuation">[</span><span class="token builtin">str</span><span class="token punctuation">]</span> <span class="token operator">=</span> mapped_column<span class="token punctuation">(</span>String<span class="token punctuation">(</span><span class="token number">30</span><span class="token punctuation">)</span><span class="token punctuation">,</span> index<span class="token operator">=</span><span class="token boolean">True</span><span class="token punctuation">,</span> nullable<span class="token operator">=</span><span class="token boolean">False</span><span class="token punctuation">)</span>
+    value<span class="token punctuation">:</span> Mapped<span class="token punctuation">[</span><span class="token builtin">str</span><span class="token punctuation">]</span> <span class="token operator">=</span> mapped_column<span class="token punctuation">(</span>String<span class="token punctuation">(</span><span class="token number">100</span><span class="token punctuation">)</span><span class="token punctuation">,</span> nullable<span class="token operator">=</span><span class="token boolean">False</span><span class="token punctuation">)</span>
+    unit<span class="token punctuation">:</span> Mapped<span class="token punctuation">[</span><span class="token builtin">str</span> <span class="token operator">|</span> <span class="token boolean">None</span><span class="token punctuation">]</span> <span class="token operator">=</span> mapped_column<span class="token punctuation">(</span>String<span class="token punctuation">(</span><span class="token number">30</span><span class="token punctuation">)</span><span class="token punctuation">,</span> nullable<span class="token operator">=</span><span class="token boolean">True</span><span class="token punctuation">)</span>
+    record_time<span class="token punctuation">:</span> Mapped<span class="token punctuation">[</span>datetime<span class="token punctuation">]</span> <span class="token operator">=</span> mapped_column<span class="token punctuation">(</span>
+        DateTime<span class="token punctuation">(</span>timezone<span class="token operator">=</span><span class="token boolean">True</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+        default<span class="token operator">=</span><span class="token keyword keyword-lambda">lambda</span><span class="token punctuation">:</span> datetime<span class="token punctuation">.</span>now<span class="token punctuation">(</span>UTC<span class="token punctuation">)</span><span class="token punctuation">,</span>
+        nullable<span class="token operator">=</span><span class="token boolean">False</span><span class="token punctuation">,</span>
+        index<span class="token operator">=</span><span class="token boolean">True</span><span class="token punctuation">,</span>
+    <span class="token punctuation">)</span>
+    note<span class="token punctuation">:</span> Mapped<span class="token punctuation">[</span><span class="token builtin">str</span> <span class="token operator">|</span> <span class="token boolean">None</span><span class="token punctuation">]</span> <span class="token operator">=</span> mapped_column<span class="token punctuation">(</span>Text<span class="token punctuation">,</span> nullable<span class="token operator">=</span><span class="token boolean">True</span><span class="token punctuation">)</span>
+    created_at<span class="token punctuation">:</span> Mapped<span class="token punctuation">[</span>datetime<span class="token punctuation">]</span> <span class="token operator">=</span> mapped_column<span class="token punctuation">(</span>
+        DateTime<span class="token punctuation">(</span>timezone<span class="token operator">=</span><span class="token boolean">True</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+        default<span class="token operator">=</span><span class="token keyword keyword-lambda">lambda</span><span class="token punctuation">:</span> datetime<span class="token punctuation">.</span>now<span class="token punctuation">(</span>UTC<span class="token punctuation">)</span><span class="token punctuation">,</span>
+        nullable<span class="token operator">=</span><span class="token boolean">False</span><span class="token punctuation">,</span>
+    <span class="token punctuation">)</span>
+    updated_at<span class="token punctuation">:</span> Mapped<span class="token punctuation">[</span>datetime<span class="token punctuation">]</span> <span class="token operator">=</span> mapped_column<span class="token punctuation">(</span>
+        DateTime<span class="token punctuation">(</span>timezone<span class="token operator">=</span><span class="token boolean">True</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+        default<span class="token operator">=</span><span class="token keyword keyword-lambda">lambda</span><span class="token punctuation">:</span> datetime<span class="token punctuation">.</span>now<span class="token punctuation">(</span>UTC<span class="token punctuation">)</span><span class="token punctuation">,</span>
+        onupdate<span class="token operator">=</span><span class="token keyword keyword-lambda">lambda</span><span class="token punctuation">:</span> datetime<span class="token punctuation">.</span>now<span class="token punctuation">(</span>UTC<span class="token punctuation">)</span><span class="token punctuation">,</span>
+        nullable<span class="token operator">=</span><span class="token boolean">False</span><span class="token punctuation">,</span>
+    <span class="token punctuation">)</span>
+</code></pre><h3 id="112-这份模型代码在做什么">11.2 这份模型代码在做什么 </h3>
+<ol>
+<li><code>id</code> 是主键</li>
+<li><code>user_id</code> 表示记录归属哪个用户</li>
+<li><code>record_type</code> 表示记录类型</li>
+<li><code>value</code> 表示记录值</li>
+<li><code>unit</code> 表示单位</li>
+<li><code>record_time</code> 表示业务发生时间</li>
+<li><code>note</code> 表示备注</li>
+<li><code>created_at</code> 和 <code>updated_at</code> 是系统维护时间</li>
+</ol>
+<h3 id="113-这里为什么要区分-record_time-和-created_at">11.3 这里为什么要区分 <code>record_time</code> 和 <code>created_at</code> </h3>
+<p>因为这两个时间不是一回事:</p>
+<ol>
+<li><code>record_time</code> 是“这件事什么时候发生”</li>
+<li><code>created_at</code> 是“这条数据什么时候写进数据库”</li>
+</ol>
+<p>举例:</p>
+<p>你可能晚上 11 点睡觉，第二天早上 8 点才补录昨天的睡眠记录。</p>
+<p>这时:</p>
+<ol>
+<li><code>record_time</code> 应该是昨天晚上</li>
+<li><code>created_at</code> 是今天早上</li>
+</ol>
+<p>所以健康记录列表排序和时间筛选，应该优先围绕 <code>record_time</code>。</p>
+<h3 id="114-这里为什么暂时不写-relationship">11.4 这里为什么暂时不写 relationship </h3>
+<p>因为第三阶段的目标是先把 CRUD 跑通。</p>
+<p>你当然可以继续给 <code>User</code> 增加:</p>
+<pre data-role="codeBlock" data-info="python" class="language-python python"><code>records <span class="token operator">=</span> relationship<span class="token punctuation">(</span><span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">)</span>
+</code></pre><p>但这不是第三阶段最核心的部分。<br>
+为了让你少改一个文件，这一阶段先不加 relationship，也完全可以正常完成业务。</p>
+<hr>
+<h2 id="12-把-record-注册到模型入口">12. 把 <code>Record</code> 注册到模型入口 </h2>
+<p>如果只写了 <code>app/models/record.py</code>，但没有把它导入到统一入口，Alembic 很可能看不到这个表。</p>
+<p>所以这一步必须做。</p>
+<h3 id="121-修改-appmodels__init__py">12.1 修改 <code>app/models/__init__.py</code> </h3>
+<p>如果你当前这个文件已经存在，直接整文件替换成下面的内容。</p>
+<p>完整代码如下:</p>
+<pre data-role="codeBlock" data-info="python" class="language-python python"><code><span class="token keyword keyword-from">from</span> app<span class="token punctuation">.</span>models<span class="token punctuation">.</span>profile <span class="token keyword keyword-import">import</span> Profile
+<span class="token keyword keyword-from">from</span> app<span class="token punctuation">.</span>models<span class="token punctuation">.</span>record <span class="token keyword keyword-import">import</span> Record
+<span class="token keyword keyword-from">from</span> app<span class="token punctuation">.</span>models<span class="token punctuation">.</span>user <span class="token keyword keyword-import">import</span> User
+
+__all__ <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token string">"User"</span><span class="token punctuation">,</span> <span class="token string">"Profile"</span><span class="token punctuation">,</span> <span class="token string">"Record"</span><span class="token punctuation">]</span>
+</code></pre><h3 id="122-这一步的作用">12.2 这一步的作用 </h3>
+<p>作用有两个:</p>
+<ol>
+<li>统一导出模型</li>
+<li>让项目里的其他地方可以从 <code>app.models</code> 拿到完整模型集合</li>
+</ol>
+<h3 id="123-修改-appdbbasepy">12.3 修改 <code>app/db/base.py</code> </h3>
+<p>如果你当前这个文件已经存在，直接整文件替换成下面的内容。</p>
+<p>完整代码如下:</p>
+<pre data-role="codeBlock" data-info="python" class="language-python python"><code><span class="token keyword keyword-from">from</span> app<span class="token punctuation">.</span>db<span class="token punctuation">.</span>session <span class="token keyword keyword-import">import</span> Base
+<span class="token keyword keyword-from">from</span> app<span class="token punctuation">.</span>models<span class="token punctuation">.</span>profile <span class="token keyword keyword-import">import</span> Profile  <span class="token comment"># noqa: F401</span>
+<span class="token keyword keyword-from">from</span> app<span class="token punctuation">.</span>models<span class="token punctuation">.</span>record <span class="token keyword keyword-import">import</span> Record  <span class="token comment"># noqa: F401</span>
+<span class="token keyword keyword-from">from</span> app<span class="token punctuation">.</span>models<span class="token punctuation">.</span>user <span class="token keyword keyword-import">import</span> User  <span class="token comment"># noqa: F401</span>
+
+__all__ <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token string">"Base"</span><span class="token punctuation">,</span> <span class="token string">"User"</span><span class="token punctuation">,</span> <span class="token string">"Profile"</span><span class="token punctuation">,</span> <span class="token string">"Record"</span><span class="token punctuation">]</span>
+</code></pre><h3 id="124-这一步为什么必须做">12.4 这一步为什么必须做 </h3>
+<p>因为 Alembic 自动生成 migration 时，要通过 <code>Base.metadata</code> 扫描模型。</p>
+<p>如果 <code>Record</code> 没有被导入到这里，后果通常就是:</p>
+<ol>
+<li>migration 文件是空的</li>
+<li><code>records</code> 表没有被创建</li>
+<li>你后面接口一运行就报表不存在</li>
+</ol>
+<hr>
+<h2 id="13-写-record-模块的-schema">13. 写 <code>Record</code> 模块的 Schema </h2>
+<p>schema 的作用不是“再写一遍表字段”，而是明确:</p>
+<ol>
+<li>新增时前端允许传什么</li>
+<li>更新时前端允许传什么</li>
+<li>返回给前端的结构长什么样</li>
+<li>列表接口的分页和筛选参数长什么样</li>
+</ol>
+<h3 id="131-修改-appschemasrecordpy">13.1 修改 <code>app/schemas/record.py</code> </h3>
+<p>你当前项目里已经有这个文件。<br>
+第三阶段建议直接整文件替换，按下面这份来。</p>
+<p>完整代码如下:</p>
+<pre data-role="codeBlock" data-info="python" class="language-python python"><code><span class="token keyword keyword-from">from</span> datetime <span class="token keyword keyword-import">import</span> datetime
+<span class="token keyword keyword-from">from</span> enum <span class="token keyword keyword-import">import</span> Enum
+
+<span class="token keyword keyword-from">from</span> pydantic <span class="token keyword keyword-import">import</span> BaseModel<span class="token punctuation">,</span> ConfigDict<span class="token punctuation">,</span> Field
+
+
+<span class="token keyword keyword-class">class</span> <span class="token class-name">RecordType</span><span class="token punctuation">(</span><span class="token builtin">str</span><span class="token punctuation">,</span> Enum<span class="token punctuation">)</span><span class="token punctuation">:</span>
+    checkin <span class="token operator">=</span> <span class="token string">"checkin"</span>
+    blood_pressure <span class="token operator">=</span> <span class="token string">"blood_pressure"</span>
+    blood_glucose <span class="token operator">=</span> <span class="token string">"blood_glucose"</span>
+    sleep <span class="token operator">=</span> <span class="token string">"sleep"</span>
+    medication <span class="token operator">=</span> <span class="token string">"medication"</span>
+    mood <span class="token operator">=</span> <span class="token string">"mood"</span>
+
+
+<span class="token keyword keyword-class">class</span> <span class="token class-name">RecordBase</span><span class="token punctuation">(</span>BaseModel<span class="token punctuation">)</span><span class="token punctuation">:</span>
+    record_type<span class="token punctuation">:</span> RecordType
+    value<span class="token punctuation">:</span> <span class="token builtin">str</span> <span class="token operator">=</span> Field<span class="token punctuation">(</span><span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">,</span> min_length<span class="token operator">=</span><span class="token number">1</span><span class="token punctuation">,</span> max_length<span class="token operator">=</span><span class="token number">100</span><span class="token punctuation">)</span>
+    unit<span class="token punctuation">:</span> <span class="token builtin">str</span> <span class="token operator">|</span> <span class="token boolean">None</span> <span class="token operator">=</span> Field<span class="token punctuation">(</span>default<span class="token operator">=</span><span class="token boolean">None</span><span class="token punctuation">,</span> max_length<span class="token operator">=</span><span class="token number">30</span><span class="token punctuation">)</span>
+    note<span class="token punctuation">:</span> <span class="token builtin">str</span> <span class="token operator">|</span> <span class="token boolean">None</span> <span class="token operator">=</span> Field<span class="token punctuation">(</span>default<span class="token operator">=</span><span class="token boolean">None</span><span class="token punctuation">,</span> max_length<span class="token operator">=</span><span class="token number">500</span><span class="token punctuation">)</span>
+
+
+<span class="token keyword keyword-class">class</span> <span class="token class-name">RecordCreate</span><span class="token punctuation">(</span>RecordBase<span class="token punctuation">)</span><span class="token punctuation">:</span>
+    record_time<span class="token punctuation">:</span> datetime <span class="token operator">|</span> <span class="token boolean">None</span> <span class="token operator">=</span> <span class="token boolean">None</span>
+
+
+<span class="token keyword keyword-class">class</span> <span class="token class-name">RecordUpdate</span><span class="token punctuation">(</span>BaseModel<span class="token punctuation">)</span><span class="token punctuation">:</span>
+    record_type<span class="token punctuation">:</span> RecordType <span class="token operator">|</span> <span class="token boolean">None</span> <span class="token operator">=</span> <span class="token boolean">None</span>
+    value<span class="token punctuation">:</span> <span class="token builtin">str</span> <span class="token operator">|</span> <span class="token boolean">None</span> <span class="token operator">=</span> Field<span class="token punctuation">(</span>default<span class="token operator">=</span><span class="token boolean">None</span><span class="token punctuation">,</span> min_length<span class="token operator">=</span><span class="token number">1</span><span class="token punctuation">,</span> max_length<span class="token operator">=</span><span class="token number">100</span><span class="token punctuation">)</span>
+    unit<span class="token punctuation">:</span> <span class="token builtin">str</span> <span class="token operator">|</span> <span class="token boolean">None</span> <span class="token operator">=</span> Field<span class="token punctuation">(</span>default<span class="token operator">=</span><span class="token boolean">None</span><span class="token punctuation">,</span> max_length<span class="token operator">=</span><span class="token number">30</span><span class="token punctuation">)</span>
+    note<span class="token punctuation">:</span> <span class="token builtin">str</span> <span class="token operator">|</span> <span class="token boolean">None</span> <span class="token operator">=</span> Field<span class="token punctuation">(</span>default<span class="token operator">=</span><span class="token boolean">None</span><span class="token punctuation">,</span> max_length<span class="token operator">=</span><span class="token number">500</span><span class="token punctuation">)</span>
+    record_time<span class="token punctuation">:</span> datetime <span class="token operator">|</span> <span class="token boolean">None</span> <span class="token operator">=</span> <span class="token boolean">None</span>
+
+
+<span class="token keyword keyword-class">class</span> <span class="token class-name">RecordRead</span><span class="token punctuation">(</span>RecordBase<span class="token punctuation">)</span><span class="token punctuation">:</span>
+    <span class="token builtin">id</span><span class="token punctuation">:</span> <span class="token builtin">int</span>
+    user_id<span class="token punctuation">:</span> <span class="token builtin">int</span>
+    record_time<span class="token punctuation">:</span> datetime
+    created_at<span class="token punctuation">:</span> datetime
+    updated_at<span class="token punctuation">:</span> datetime
+
+    model_config <span class="token operator">=</span> ConfigDict<span class="token punctuation">(</span>from_attributes<span class="token operator">=</span><span class="token boolean">True</span><span class="token punctuation">)</span>
+
+
+<span class="token keyword keyword-class">class</span> <span class="token class-name">RecordQueryParams</span><span class="token punctuation">(</span>BaseModel<span class="token punctuation">)</span><span class="token punctuation">:</span>
+    page<span class="token punctuation">:</span> <span class="token builtin">int</span> <span class="token operator">=</span> Field<span class="token punctuation">(</span>default<span class="token operator">=</span><span class="token number">1</span><span class="token punctuation">,</span> ge<span class="token operator">=</span><span class="token number">1</span><span class="token punctuation">)</span>
+    page_size<span class="token punctuation">:</span> <span class="token builtin">int</span> <span class="token operator">=</span> Field<span class="token punctuation">(</span>default<span class="token operator">=</span><span class="token number">10</span><span class="token punctuation">,</span> ge<span class="token operator">=</span><span class="token number">1</span><span class="token punctuation">,</span> le<span class="token operator">=</span><span class="token number">50</span><span class="token punctuation">)</span>
+    record_type<span class="token punctuation">:</span> RecordType <span class="token operator">|</span> <span class="token boolean">None</span> <span class="token operator">=</span> <span class="token boolean">None</span>
+    start_time<span class="token punctuation">:</span> datetime <span class="token operator">|</span> <span class="token boolean">None</span> <span class="token operator">=</span> <span class="token boolean">None</span>
+    end_time<span class="token punctuation">:</span> datetime <span class="token operator">|</span> <span class="token boolean">None</span> <span class="token operator">=</span> <span class="token boolean">None</span>
+
+
+<span class="token keyword keyword-class">class</span> <span class="token class-name">RecordListData</span><span class="token punctuation">(</span>BaseModel<span class="token punctuation">)</span><span class="token punctuation">:</span>
+    items<span class="token punctuation">:</span> <span class="token builtin">list</span><span class="token punctuation">[</span>RecordRead<span class="token punctuation">]</span>
+    total<span class="token punctuation">:</span> <span class="token builtin">int</span>
+    page<span class="token punctuation">:</span> <span class="token builtin">int</span>
+    page_size<span class="token punctuation">:</span> <span class="token builtin">int</span>
+    total_pages<span class="token punctuation">:</span> <span class="token builtin">int</span>
+</code></pre><h3 id="132-每个-schema-的作用">13.2 每个 schema 的作用 </h3>
+<h4 id="recordtype"><code>RecordType</code> </h4>
+<p>作用:</p>
+<p>把 <code>record_type</code> 限制在固定范围内。</p>
+<p>好处:</p>
+<ol>
+<li>前端不容易拼错</li>
+<li>Swagger 下拉更清楚</li>
+<li>后续筛选更稳定</li>
+</ol>
+<h4 id="recordbase"><code>RecordBase</code> </h4>
+<p>作用:</p>
+<p>把新增和读取共用的基础字段抽出来。</p>
+<h4 id="recordcreate"><code>RecordCreate</code> </h4>
+<p>作用:</p>
+<p>新增记录时使用。</p>
+<p>这里让 <code>record_time</code> 可不传，是为了:</p>
+<p>如果用户不传时间，就默认用当前时间。</p>
+<h4 id="recordupdate"><code>RecordUpdate</code> </h4>
+<p>作用:</p>
+<p>更新记录时使用。</p>
+<p>这里所有字段都允许不传，因为更新通常是局部更新。</p>
+<h4 id="recordread"><code>RecordRead</code> </h4>
+<p>作用:</p>
+<p>返回给前端的读取结构。</p>
+<p>为什么要单独写这个结构:</p>
+<p>因为返回体里需要包含:</p>
+<ol>
+<li><code>id</code></li>
+<li><code>user_id</code></li>
+<li><code>created_at</code></li>
+<li><code>updated_at</code></li>
+</ol>
+<p>这些字段在创建时不应该让前端自己传。</p>
+<h4 id="recordqueryparams"><code>RecordQueryParams</code> </h4>
+<p>作用:</p>
+<p>把列表接口的分页和筛选参数统一收口。</p>
+<h4 id="recordlistdata"><code>RecordListData</code> </h4>
+<p>作用:</p>
+<p>定义分页列表最终返回的数据结构。</p>
+<hr>
+<h2 id="14-写-recordservice">14. 写 <code>RecordService</code> </h2>
+<p>第三阶段从这里开始，真正进入业务逻辑层。</p>
+<p>service 层主要负责:</p>
+<ol>
+<li>组装查询条件</li>
+<li>做当前用户归属判断</li>
+<li>做不存在时的业务异常</li>
+<li>做更新逻辑</li>
+<li>做删除逻辑</li>
+</ol>
+<p>你现在项目第二阶段还没有强推 repository 层，所以第三阶段继续沿用当前风格:</p>
+<p><code>router -&gt; service -&gt; Session/ORM</code></p>
+<h3 id="141-新建-appservicesrecord_servicepy">14.1 新建 <code>app/services/record_service.py</code> </h3>
+<p>完整代码如下:</p>
+<pre data-role="codeBlock" data-info="python" class="language-python python"><code><span class="token keyword keyword-from">from</span> datetime <span class="token keyword keyword-import">import</span> UTC<span class="token punctuation">,</span> datetime
+
+<span class="token keyword keyword-from">from</span> sqlalchemy <span class="token keyword keyword-import">import</span> func<span class="token punctuation">,</span> select
+<span class="token keyword keyword-from">from</span> sqlalchemy<span class="token punctuation">.</span>orm <span class="token keyword keyword-import">import</span> Session
+
+<span class="token keyword keyword-from">from</span> app<span class="token punctuation">.</span>core<span class="token punctuation">.</span>exception <span class="token keyword keyword-import">import</span> BusinessException
+<span class="token keyword keyword-from">from</span> app<span class="token punctuation">.</span>models<span class="token punctuation">.</span>record <span class="token keyword keyword-import">import</span> Record
+<span class="token keyword keyword-from">from</span> app<span class="token punctuation">.</span>schemas<span class="token punctuation">.</span>record <span class="token keyword keyword-import">import</span> RecordCreate<span class="token punctuation">,</span> RecordQueryParams<span class="token punctuation">,</span> RecordUpdate
+
+
+<span class="token keyword keyword-class">class</span> <span class="token class-name">RecordService</span><span class="token punctuation">:</span>
+    <span class="token keyword keyword-def">def</span> <span class="token function">create_for_user</span><span class="token punctuation">(</span>
+        self<span class="token punctuation">,</span>
+        db<span class="token punctuation">:</span> Session<span class="token punctuation">,</span>
+        user_id<span class="token punctuation">:</span> <span class="token builtin">int</span><span class="token punctuation">,</span>
+        payload<span class="token punctuation">:</span> RecordCreate<span class="token punctuation">,</span>
+    <span class="token punctuation">)</span> <span class="token operator">-</span><span class="token operator">&gt;</span> Record<span class="token punctuation">:</span>
+        record <span class="token operator">=</span> Record<span class="token punctuation">(</span>
+            user_id<span class="token operator">=</span>user_id<span class="token punctuation">,</span>
+            record_type<span class="token operator">=</span>payload<span class="token punctuation">.</span>record_type<span class="token punctuation">.</span>value<span class="token punctuation">,</span>
+            value<span class="token operator">=</span>payload<span class="token punctuation">.</span>value<span class="token punctuation">,</span>
+            unit<span class="token operator">=</span>payload<span class="token punctuation">.</span>unit<span class="token punctuation">,</span>
+            record_time<span class="token operator">=</span>payload<span class="token punctuation">.</span>record_time <span class="token keyword keyword-or">or</span> datetime<span class="token punctuation">.</span>now<span class="token punctuation">(</span>UTC<span class="token punctuation">)</span><span class="token punctuation">,</span>
+            note<span class="token operator">=</span>payload<span class="token punctuation">.</span>note<span class="token punctuation">,</span>
+        <span class="token punctuation">)</span>
+        db<span class="token punctuation">.</span>add<span class="token punctuation">(</span>record<span class="token punctuation">)</span>
+        db<span class="token punctuation">.</span>commit<span class="token punctuation">(</span><span class="token punctuation">)</span>
+        db<span class="token punctuation">.</span>refresh<span class="token punctuation">(</span>record<span class="token punctuation">)</span>
+        <span class="token keyword keyword-return">return</span> record
+
+    <span class="token keyword keyword-def">def</span> <span class="token function">get_or_raise</span><span class="token punctuation">(</span>
+        self<span class="token punctuation">,</span>
+        db<span class="token punctuation">:</span> Session<span class="token punctuation">,</span>
+        user_id<span class="token punctuation">:</span> <span class="token builtin">int</span><span class="token punctuation">,</span>
+        record_id<span class="token punctuation">:</span> <span class="token builtin">int</span><span class="token punctuation">,</span>
+    <span class="token punctuation">)</span> <span class="token operator">-</span><span class="token operator">&gt;</span> Record<span class="token punctuation">:</span>
+        stmt <span class="token operator">=</span> select<span class="token punctuation">(</span>Record<span class="token punctuation">)</span><span class="token punctuation">.</span>where<span class="token punctuation">(</span>
+            Record<span class="token punctuation">.</span><span class="token builtin">id</span> <span class="token operator">==</span> record_id<span class="token punctuation">,</span>
+            Record<span class="token punctuation">.</span>user_id <span class="token operator">==</span> user_id<span class="token punctuation">,</span>
+        <span class="token punctuation">)</span>
+        record <span class="token operator">=</span> db<span class="token punctuation">.</span>scalar<span class="token punctuation">(</span>stmt<span class="token punctuation">)</span>
+        <span class="token keyword keyword-if">if</span> <span class="token keyword keyword-not">not</span> record<span class="token punctuation">:</span>
+            <span class="token keyword keyword-raise">raise</span> BusinessException<span class="token punctuation">(</span>
+                code<span class="token operator">=</span><span class="token number">40421</span><span class="token punctuation">,</span>
+                message<span class="token operator">=</span><span class="token string">"record not found"</span><span class="token punctuation">,</span>
+                status_code<span class="token operator">=</span><span class="token number">404</span><span class="token punctuation">,</span>
+            <span class="token punctuation">)</span>
+        <span class="token keyword keyword-return">return</span> record
+
+    <span class="token keyword keyword-def">def</span> <span class="token function">list_for_user</span><span class="token punctuation">(</span>
+        self<span class="token punctuation">,</span>
+        db<span class="token punctuation">:</span> Session<span class="token punctuation">,</span>
+        user_id<span class="token punctuation">:</span> <span class="token builtin">int</span><span class="token punctuation">,</span>
+        query<span class="token punctuation">:</span> RecordQueryParams<span class="token punctuation">,</span>
+    <span class="token punctuation">)</span> <span class="token operator">-</span><span class="token operator">&gt;</span> <span class="token builtin">tuple</span><span class="token punctuation">[</span><span class="token builtin">list</span><span class="token punctuation">[</span>Record<span class="token punctuation">]</span><span class="token punctuation">,</span> <span class="token builtin">int</span><span class="token punctuation">]</span><span class="token punctuation">:</span>
+        filters <span class="token operator">=</span> <span class="token punctuation">[</span>Record<span class="token punctuation">.</span>user_id <span class="token operator">==</span> user_id<span class="token punctuation">]</span>
+
+        <span class="token keyword keyword-if">if</span> query<span class="token punctuation">.</span>record_type<span class="token punctuation">:</span>
+            filters<span class="token punctuation">.</span>append<span class="token punctuation">(</span>Record<span class="token punctuation">.</span>record_type <span class="token operator">==</span> query<span class="token punctuation">.</span>record_type<span class="token punctuation">.</span>value<span class="token punctuation">)</span>
+
+        <span class="token keyword keyword-if">if</span> query<span class="token punctuation">.</span>start_time<span class="token punctuation">:</span>
+            filters<span class="token punctuation">.</span>append<span class="token punctuation">(</span>Record<span class="token punctuation">.</span>record_time <span class="token operator">&gt;=</span> query<span class="token punctuation">.</span>start_time<span class="token punctuation">)</span>
+
+        <span class="token keyword keyword-if">if</span> query<span class="token punctuation">.</span>end_time<span class="token punctuation">:</span>
+            filters<span class="token punctuation">.</span>append<span class="token punctuation">(</span>Record<span class="token punctuation">.</span>record_time <span class="token operator">&lt;=</span> query<span class="token punctuation">.</span>end_time<span class="token punctuation">)</span>
+
+        total <span class="token operator">=</span> db<span class="token punctuation">.</span>scalar<span class="token punctuation">(</span>
+            select<span class="token punctuation">(</span>func<span class="token punctuation">.</span>count<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">.</span>select_from<span class="token punctuation">(</span>Record<span class="token punctuation">)</span><span class="token punctuation">.</span>where<span class="token punctuation">(</span><span class="token operator">*</span>filters<span class="token punctuation">)</span>
+        <span class="token punctuation">)</span> <span class="token keyword keyword-or">or</span> <span class="token number">0</span>
+
+        stmt <span class="token operator">=</span> <span class="token punctuation">(</span>
+            select<span class="token punctuation">(</span>Record<span class="token punctuation">)</span>
+            <span class="token punctuation">.</span>where<span class="token punctuation">(</span><span class="token operator">*</span>filters<span class="token punctuation">)</span>
+            <span class="token punctuation">.</span>order_by<span class="token punctuation">(</span>Record<span class="token punctuation">.</span>record_time<span class="token punctuation">.</span>desc<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span> Record<span class="token punctuation">.</span><span class="token builtin">id</span><span class="token punctuation">.</span>desc<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+            <span class="token punctuation">.</span>offset<span class="token punctuation">(</span><span class="token punctuation">(</span>query<span class="token punctuation">.</span>page <span class="token operator">-</span> <span class="token number">1</span><span class="token punctuation">)</span> <span class="token operator">*</span> query<span class="token punctuation">.</span>page_size<span class="token punctuation">)</span>
+            <span class="token punctuation">.</span>limit<span class="token punctuation">(</span>query<span class="token punctuation">.</span>page_size<span class="token punctuation">)</span>
+        <span class="token punctuation">)</span>
+        items <span class="token operator">=</span> <span class="token builtin">list</span><span class="token punctuation">(</span>db<span class="token punctuation">.</span>scalars<span class="token punctuation">(</span>stmt<span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token builtin">all</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+        <span class="token keyword keyword-return">return</span> items<span class="token punctuation">,</span> total
+
+    <span class="token keyword keyword-def">def</span> <span class="token function">update_for_user</span><span class="token punctuation">(</span>
+        self<span class="token punctuation">,</span>
+        db<span class="token punctuation">:</span> Session<span class="token punctuation">,</span>
+        user_id<span class="token punctuation">:</span> <span class="token builtin">int</span><span class="token punctuation">,</span>
+        record_id<span class="token punctuation">:</span> <span class="token builtin">int</span><span class="token punctuation">,</span>
+        payload<span class="token punctuation">:</span> RecordUpdate<span class="token punctuation">,</span>
+    <span class="token punctuation">)</span> <span class="token operator">-</span><span class="token operator">&gt;</span> Record<span class="token punctuation">:</span>
+        record <span class="token operator">=</span> self<span class="token punctuation">.</span>get_or_raise<span class="token punctuation">(</span>db<span class="token punctuation">,</span> user_id<span class="token punctuation">,</span> record_id<span class="token punctuation">)</span>
+        update_data <span class="token operator">=</span> payload<span class="token punctuation">.</span>model_dump<span class="token punctuation">(</span>exclude_unset<span class="token operator">=</span><span class="token boolean">True</span><span class="token punctuation">)</span>
+
+        <span class="token keyword keyword-if">if</span> <span class="token string">"record_type"</span> <span class="token keyword keyword-in">in</span> update_data<span class="token punctuation">:</span>
+            <span class="token keyword keyword-if">if</span> update_data<span class="token punctuation">[</span><span class="token string">"record_type"</span><span class="token punctuation">]</span> <span class="token keyword keyword-is">is</span> <span class="token boolean">None</span><span class="token punctuation">:</span>
+                <span class="token keyword keyword-raise">raise</span> BusinessException<span class="token punctuation">(</span>
+                    code<span class="token operator">=</span><span class="token number">40021</span><span class="token punctuation">,</span>
+                    message<span class="token operator">=</span><span class="token string">"record_type cannot be null"</span><span class="token punctuation">,</span>
+                    status_code<span class="token operator">=</span><span class="token number">400</span><span class="token punctuation">,</span>
+                <span class="token punctuation">)</span>
+            update_data<span class="token punctuation">[</span><span class="token string">"record_type"</span><span class="token punctuation">]</span> <span class="token operator">=</span> update_data<span class="token punctuation">[</span><span class="token string">"record_type"</span><span class="token punctuation">]</span><span class="token punctuation">.</span>value
+
+        <span class="token keyword keyword-if">if</span> <span class="token string">"value"</span> <span class="token keyword keyword-in">in</span> update_data <span class="token keyword keyword-and">and</span> update_data<span class="token punctuation">[</span><span class="token string">"value"</span><span class="token punctuation">]</span> <span class="token keyword keyword-is">is</span> <span class="token boolean">None</span><span class="token punctuation">:</span>
+            <span class="token keyword keyword-raise">raise</span> BusinessException<span class="token punctuation">(</span>
+                code<span class="token operator">=</span><span class="token number">40022</span><span class="token punctuation">,</span>
+                message<span class="token operator">=</span><span class="token string">"value cannot be null"</span><span class="token punctuation">,</span>
+                status_code<span class="token operator">=</span><span class="token number">400</span><span class="token punctuation">,</span>
+            <span class="token punctuation">)</span>
+
+        <span class="token keyword keyword-if">if</span> <span class="token string">"record_time"</span> <span class="token keyword keyword-in">in</span> update_data <span class="token keyword keyword-and">and</span> update_data<span class="token punctuation">[</span><span class="token string">"record_time"</span><span class="token punctuation">]</span> <span class="token keyword keyword-is">is</span> <span class="token boolean">None</span><span class="token punctuation">:</span>
+            <span class="token keyword keyword-raise">raise</span> BusinessException<span class="token punctuation">(</span>
+                code<span class="token operator">=</span><span class="token number">40023</span><span class="token punctuation">,</span>
+                message<span class="token operator">=</span><span class="token string">"record_time cannot be null"</span><span class="token punctuation">,</span>
+                status_code<span class="token operator">=</span><span class="token number">400</span><span class="token punctuation">,</span>
+            <span class="token punctuation">)</span>
+
+        <span class="token keyword keyword-for">for</span> field<span class="token punctuation">,</span> value <span class="token keyword keyword-in">in</span> update_data<span class="token punctuation">.</span>items<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+            <span class="token builtin">setattr</span><span class="token punctuation">(</span>record<span class="token punctuation">,</span> field<span class="token punctuation">,</span> value<span class="token punctuation">)</span>
+
+        db<span class="token punctuation">.</span>add<span class="token punctuation">(</span>record<span class="token punctuation">)</span>
+        db<span class="token punctuation">.</span>commit<span class="token punctuation">(</span><span class="token punctuation">)</span>
+        db<span class="token punctuation">.</span>refresh<span class="token punctuation">(</span>record<span class="token punctuation">)</span>
+        <span class="token keyword keyword-return">return</span> record
+
+    <span class="token keyword keyword-def">def</span> <span class="token function">delete_for_user</span><span class="token punctuation">(</span>
+        self<span class="token punctuation">,</span>
+        db<span class="token punctuation">:</span> Session<span class="token punctuation">,</span>
+        user_id<span class="token punctuation">:</span> <span class="token builtin">int</span><span class="token punctuation">,</span>
+        record_id<span class="token punctuation">:</span> <span class="token builtin">int</span><span class="token punctuation">,</span>
+    <span class="token punctuation">)</span> <span class="token operator">-</span><span class="token operator">&gt;</span> <span class="token boolean">None</span><span class="token punctuation">:</span>
+        record <span class="token operator">=</span> self<span class="token punctuation">.</span>get_or_raise<span class="token punctuation">(</span>db<span class="token punctuation">,</span> user_id<span class="token punctuation">,</span> record_id<span class="token punctuation">)</span>
+        db<span class="token punctuation">.</span>delete<span class="token punctuation">(</span>record<span class="token punctuation">)</span>
+        db<span class="token punctuation">.</span>commit<span class="token punctuation">(</span><span class="token punctuation">)</span>
+
+
+record_service <span class="token operator">=</span> RecordService<span class="token punctuation">(</span><span class="token punctuation">)</span>
+</code></pre><h3 id="142-这份-service-代码最核心的地方">14.2 这份 service 代码最核心的地方 </h3>
+<h4 id="1-所有查询都必须带-user_id">1. 所有查询都必须带 <code>user_id</code> </h4>
+<p>这是第三阶段最重要的权限原则。</p>
+<p>不管是详情、更新还是删除，你都不能只写:</p>
+<pre data-role="codeBlock" data-info="python" class="language-python python"><code>db<span class="token punctuation">.</span>get<span class="token punctuation">(</span>Record<span class="token punctuation">,</span> record_id<span class="token punctuation">)</span>
+</code></pre><p>因为这样只是按主键查，完全没有限制当前用户归属。</p>
+<p>正确思路必须是:</p>
+<pre data-role="codeBlock" data-info="python" class="language-python python"><code>where<span class="token punctuation">(</span>Record<span class="token punctuation">.</span><span class="token builtin">id</span> <span class="token operator">==</span> record_id<span class="token punctuation">,</span> Record<span class="token punctuation">.</span>user_id <span class="token operator">==</span> user_id<span class="token punctuation">)</span>
+</code></pre><h4 id="2-create_for_user-里不允许前端传-user_id">2. <code>create_for_user</code> 里不允许前端传 <code>user_id</code> </h4>
+<p>为什么:</p>
+<p>因为 <code>user_id</code> 必须来自当前登录用户，不能由前端随便指定。</p>
+<p>也就是说:</p>
+<ol>
+<li>前端负责传记录内容</li>
+<li>后端负责把当前用户身份写进去</li>
+</ol>
+<h4 id="3-列表接口的筛选条件要动态拼">3. 列表接口的筛选条件要动态拼 </h4>
+<p><code>list_for_user</code> 里的 <code>filters</code> 列表就是干这个的。</p>
+<p>一开始先放:</p>
+<pre data-role="codeBlock" data-info="python" class="language-python python"><code><span class="token punctuation">[</span>Record<span class="token punctuation">.</span>user_id <span class="token operator">==</span> user_id<span class="token punctuation">]</span>
+</code></pre><p>然后根据用户有没有传:</p>
+<ol>
+<li><code>record_type</code></li>
+<li><code>start_time</code></li>
+<li><code>end_time</code></li>
+</ol>
+<p>再决定要不要继续往里追加条件。</p>
+<h4 id="4-列表排序为什么推荐-record_timedesc">4. 列表排序为什么推荐 <code>record_time.desc()</code> </h4>
+<p>因为健康记录通常要看“最近发生了什么”，不是看“最近插入数据库的是什么”。</p>
+<p>所以排序推荐:</p>
+<pre data-role="codeBlock" data-info="python" class="language-python python"><code><span class="token punctuation">.</span>order_by<span class="token punctuation">(</span>Record<span class="token punctuation">.</span>record_time<span class="token punctuation">.</span>desc<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span> Record<span class="token punctuation">.</span><span class="token builtin">id</span><span class="token punctuation">.</span>desc<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+</code></pre><h4 id="5-更新逻辑为什么用-exclude_unsettrue">5. 更新逻辑为什么用 <code>exclude_unset=True</code> </h4>
+<p>因为更新接口一般只改一部分字段。</p>
+<p>比如前端只想改 <code>note</code>，那就不应该把其他没传的字段一起覆盖掉。</p>
+<hr>
+<h2 id="15-写-record-路由">15. 写 <code>Record</code> 路由 </h2>
+<p>路由层要做的事情是:</p>
+<ol>
+<li>接收请求</li>
+<li>注入数据库会话</li>
+<li>注入当前登录用户</li>
+<li>调用 service</li>
+<li>把结果转成统一响应结构</li>
+</ol>
+<h3 id="151-新建-appapiroutesrecordspy">15.1 新建 <code>app/api/routes/records.py</code> </h3>
+<p>完整代码如下:</p>
+<pre data-role="codeBlock" data-info="python" class="language-python python"><code><span class="token keyword keyword-from">from</span> datetime <span class="token keyword keyword-import">import</span> datetime
+
+<span class="token keyword keyword-from">from</span> fastapi <span class="token keyword keyword-import">import</span> APIRouter<span class="token punctuation">,</span> Depends<span class="token punctuation">,</span> Query<span class="token punctuation">,</span> status
+<span class="token keyword keyword-from">from</span> sqlalchemy<span class="token punctuation">.</span>orm <span class="token keyword keyword-import">import</span> Session
+
+<span class="token keyword keyword-from">from</span> app<span class="token punctuation">.</span>api<span class="token punctuation">.</span>deps <span class="token keyword keyword-import">import</span> get_current_active_user<span class="token punctuation">,</span> get_db
+<span class="token keyword keyword-from">from</span> app<span class="token punctuation">.</span>core<span class="token punctuation">.</span>exception <span class="token keyword keyword-import">import</span> BusinessException
+<span class="token keyword keyword-from">from</span> app<span class="token punctuation">.</span>core<span class="token punctuation">.</span>response <span class="token keyword keyword-import">import</span> success_response
+<span class="token keyword keyword-from">from</span> app<span class="token punctuation">.</span>models<span class="token punctuation">.</span>user <span class="token keyword keyword-import">import</span> User
+<span class="token keyword keyword-from">from</span> app<span class="token punctuation">.</span>schemas<span class="token punctuation">.</span>common <span class="token keyword keyword-import">import</span> ApiResponse
+<span class="token keyword keyword-from">from</span> app<span class="token punctuation">.</span>schemas<span class="token punctuation">.</span>record <span class="token keyword keyword-import">import</span> <span class="token punctuation">(</span>
+    RecordCreate<span class="token punctuation">,</span>
+    RecordListData<span class="token punctuation">,</span>
+    RecordQueryParams<span class="token punctuation">,</span>
+    RecordRead<span class="token punctuation">,</span>
+    RecordType<span class="token punctuation">,</span>
+    RecordUpdate<span class="token punctuation">,</span>
+<span class="token punctuation">)</span>
+<span class="token keyword keyword-from">from</span> app<span class="token punctuation">.</span>services<span class="token punctuation">.</span>record_service <span class="token keyword keyword-import">import</span> record_service
+
+router <span class="token operator">=</span> APIRouter<span class="token punctuation">(</span>prefix<span class="token operator">=</span><span class="token string">"/records"</span><span class="token punctuation">,</span> tags<span class="token operator">=</span><span class="token punctuation">[</span><span class="token string">"records"</span><span class="token punctuation">]</span><span class="token punctuation">)</span>
+
+
+<span class="token keyword keyword-def">def</span> <span class="token function">get_record_query_params</span><span class="token punctuation">(</span>
+    page<span class="token punctuation">:</span> <span class="token builtin">int</span> <span class="token operator">=</span> Query<span class="token punctuation">(</span>default<span class="token operator">=</span><span class="token number">1</span><span class="token punctuation">,</span> ge<span class="token operator">=</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+    page_size<span class="token punctuation">:</span> <span class="token builtin">int</span> <span class="token operator">=</span> Query<span class="token punctuation">(</span>default<span class="token operator">=</span><span class="token number">10</span><span class="token punctuation">,</span> ge<span class="token operator">=</span><span class="token number">1</span><span class="token punctuation">,</span> le<span class="token operator">=</span><span class="token number">50</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+    record_type<span class="token punctuation">:</span> RecordType <span class="token operator">|</span> <span class="token boolean">None</span> <span class="token operator">=</span> Query<span class="token punctuation">(</span>default<span class="token operator">=</span><span class="token boolean">None</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+    start_time<span class="token punctuation">:</span> datetime <span class="token operator">|</span> <span class="token boolean">None</span> <span class="token operator">=</span> Query<span class="token punctuation">(</span>
+        default<span class="token operator">=</span><span class="token boolean">None</span><span class="token punctuation">,</span>
+        description<span class="token operator">=</span><span class="token string">"ISO8601，例如 2026-04-01T00:00:00Z"</span><span class="token punctuation">,</span>
+    <span class="token punctuation">)</span><span class="token punctuation">,</span>
+    end_time<span class="token punctuation">:</span> datetime <span class="token operator">|</span> <span class="token boolean">None</span> <span class="token operator">=</span> Query<span class="token punctuation">(</span>
+        default<span class="token operator">=</span><span class="token boolean">None</span><span class="token punctuation">,</span>
+        description<span class="token operator">=</span><span class="token string">"ISO8601，例如 2026-04-10T23:59:59Z"</span><span class="token punctuation">,</span>
+    <span class="token punctuation">)</span><span class="token punctuation">,</span>
+<span class="token punctuation">)</span> <span class="token operator">-</span><span class="token operator">&gt;</span> RecordQueryParams<span class="token punctuation">:</span>
+    <span class="token keyword keyword-if">if</span> start_time <span class="token keyword keyword-and">and</span> end_time <span class="token keyword keyword-and">and</span> start_time <span class="token operator">&gt;</span> end_time<span class="token punctuation">:</span>
+        <span class="token keyword keyword-raise">raise</span> BusinessException<span class="token punctuation">(</span>
+            code<span class="token operator">=</span><span class="token number">40024</span><span class="token punctuation">,</span>
+            message<span class="token operator">=</span><span class="token string">"start_time cannot be greater than end_time"</span><span class="token punctuation">,</span>
+            status_code<span class="token operator">=</span><span class="token number">400</span><span class="token punctuation">,</span>
+        <span class="token punctuation">)</span>
+
+    <span class="token keyword keyword-return">return</span> RecordQueryParams<span class="token punctuation">(</span>
+        page<span class="token operator">=</span>page<span class="token punctuation">,</span>
+        page_size<span class="token operator">=</span>page_size<span class="token punctuation">,</span>
+        record_type<span class="token operator">=</span>record_type<span class="token punctuation">,</span>
+        start_time<span class="token operator">=</span>start_time<span class="token punctuation">,</span>
+        end_time<span class="token operator">=</span>end_time<span class="token punctuation">,</span>
+    <span class="token punctuation">)</span>
+
+
+<span class="token decorator annotation punctuation">@router<span class="token punctuation">.</span>post</span><span class="token punctuation">(</span>
+    <span class="token string">""</span><span class="token punctuation">,</span>
+    response_model<span class="token operator">=</span>ApiResponse<span class="token punctuation">[</span>RecordRead<span class="token punctuation">]</span><span class="token punctuation">,</span>
+    status_code<span class="token operator">=</span>status<span class="token punctuation">.</span>HTTP_201_CREATED<span class="token punctuation">,</span>
+<span class="token punctuation">)</span>
+<span class="token keyword keyword-def">def</span> <span class="token function">create_record</span><span class="token punctuation">(</span>
+    payload<span class="token punctuation">:</span> RecordCreate<span class="token punctuation">,</span>
+    db<span class="token punctuation">:</span> Session <span class="token operator">=</span> Depends<span class="token punctuation">(</span>get_db<span class="token punctuation">)</span><span class="token punctuation">,</span>
+    current_user<span class="token punctuation">:</span> User <span class="token operator">=</span> Depends<span class="token punctuation">(</span>get_current_active_user<span class="token punctuation">)</span><span class="token punctuation">,</span>
+<span class="token punctuation">)</span><span class="token punctuation">:</span>
+    record <span class="token operator">=</span> record_service<span class="token punctuation">.</span>create_for_user<span class="token punctuation">(</span>db<span class="token punctuation">,</span> current_user<span class="token punctuation">.</span><span class="token builtin">id</span><span class="token punctuation">,</span> payload<span class="token punctuation">)</span>
+    <span class="token keyword keyword-return">return</span> success_response<span class="token punctuation">(</span>
+        data<span class="token operator">=</span>RecordRead<span class="token punctuation">.</span>model_validate<span class="token punctuation">(</span>record<span class="token punctuation">)</span><span class="token punctuation">,</span>
+        message<span class="token operator">=</span><span class="token string">"record created"</span><span class="token punctuation">,</span>
+    <span class="token punctuation">)</span>
+
+
+<span class="token decorator annotation punctuation">@router<span class="token punctuation">.</span>get</span><span class="token punctuation">(</span>
+    <span class="token string">""</span><span class="token punctuation">,</span>
+    response_model<span class="token operator">=</span>ApiResponse<span class="token punctuation">[</span>RecordListData<span class="token punctuation">]</span><span class="token punctuation">,</span>
+<span class="token punctuation">)</span>
+<span class="token keyword keyword-def">def</span> <span class="token function">list_records</span><span class="token punctuation">(</span>
+    query<span class="token punctuation">:</span> RecordQueryParams <span class="token operator">=</span> Depends<span class="token punctuation">(</span>get_record_query_params<span class="token punctuation">)</span><span class="token punctuation">,</span>
+    db<span class="token punctuation">:</span> Session <span class="token operator">=</span> Depends<span class="token punctuation">(</span>get_db<span class="token punctuation">)</span><span class="token punctuation">,</span>
+    current_user<span class="token punctuation">:</span> User <span class="token operator">=</span> Depends<span class="token punctuation">(</span>get_current_active_user<span class="token punctuation">)</span><span class="token punctuation">,</span>
+<span class="token punctuation">)</span><span class="token punctuation">:</span>
+    items<span class="token punctuation">,</span> total <span class="token operator">=</span> record_service<span class="token punctuation">.</span>list_for_user<span class="token punctuation">(</span>db<span class="token punctuation">,</span> current_user<span class="token punctuation">.</span><span class="token builtin">id</span><span class="token punctuation">,</span> query<span class="token punctuation">)</span>
+    total_pages <span class="token operator">=</span> <span class="token punctuation">(</span>total <span class="token operator">+</span> query<span class="token punctuation">.</span>page_size <span class="token operator">-</span> <span class="token number">1</span><span class="token punctuation">)</span> <span class="token operator">//</span> query<span class="token punctuation">.</span>page_size <span class="token keyword keyword-if">if</span> total <span class="token keyword keyword-else">else</span> <span class="token number">0</span>
+
+    <span class="token keyword keyword-return">return</span> success_response<span class="token punctuation">(</span>
+        data<span class="token operator">=</span>RecordListData<span class="token punctuation">(</span>
+            items<span class="token operator">=</span><span class="token punctuation">[</span>RecordRead<span class="token punctuation">.</span>model_validate<span class="token punctuation">(</span>item<span class="token punctuation">)</span> <span class="token keyword keyword-for">for</span> item <span class="token keyword keyword-in">in</span> items<span class="token punctuation">]</span><span class="token punctuation">,</span>
+            total<span class="token operator">=</span>total<span class="token punctuation">,</span>
+            page<span class="token operator">=</span>query<span class="token punctuation">.</span>page<span class="token punctuation">,</span>
+            page_size<span class="token operator">=</span>query<span class="token punctuation">.</span>page_size<span class="token punctuation">,</span>
+            total_pages<span class="token operator">=</span>total_pages<span class="token punctuation">,</span>
+        <span class="token punctuation">)</span><span class="token punctuation">,</span>
+        message<span class="token operator">=</span><span class="token string">"success"</span><span class="token punctuation">,</span>
+    <span class="token punctuation">)</span>
+
+
+<span class="token decorator annotation punctuation">@router<span class="token punctuation">.</span>get</span><span class="token punctuation">(</span>
+    <span class="token string">"/{record_id}"</span><span class="token punctuation">,</span>
+    response_model<span class="token operator">=</span>ApiResponse<span class="token punctuation">[</span>RecordRead<span class="token punctuation">]</span><span class="token punctuation">,</span>
+<span class="token punctuation">)</span>
+<span class="token keyword keyword-def">def</span> <span class="token function">get_record_detail</span><span class="token punctuation">(</span>
+    record_id<span class="token punctuation">:</span> <span class="token builtin">int</span><span class="token punctuation">,</span>
+    db<span class="token punctuation">:</span> Session <span class="token operator">=</span> Depends<span class="token punctuation">(</span>get_db<span class="token punctuation">)</span><span class="token punctuation">,</span>
+    current_user<span class="token punctuation">:</span> User <span class="token operator">=</span> Depends<span class="token punctuation">(</span>get_current_active_user<span class="token punctuation">)</span><span class="token punctuation">,</span>
+<span class="token punctuation">)</span><span class="token punctuation">:</span>
+    record <span class="token operator">=</span> record_service<span class="token punctuation">.</span>get_or_raise<span class="token punctuation">(</span>db<span class="token punctuation">,</span> current_user<span class="token punctuation">.</span><span class="token builtin">id</span><span class="token punctuation">,</span> record_id<span class="token punctuation">)</span>
+    <span class="token keyword keyword-return">return</span> success_response<span class="token punctuation">(</span>
+        data<span class="token operator">=</span>RecordRead<span class="token punctuation">.</span>model_validate<span class="token punctuation">(</span>record<span class="token punctuation">)</span><span class="token punctuation">,</span>
+        message<span class="token operator">=</span><span class="token string">"success"</span><span class="token punctuation">,</span>
+    <span class="token punctuation">)</span>
+
+
+<span class="token decorator annotation punctuation">@router<span class="token punctuation">.</span>put</span><span class="token punctuation">(</span>
+    <span class="token string">"/{record_id}"</span><span class="token punctuation">,</span>
+    response_model<span class="token operator">=</span>ApiResponse<span class="token punctuation">[</span>RecordRead<span class="token punctuation">]</span><span class="token punctuation">,</span>
+<span class="token punctuation">)</span>
+<span class="token keyword keyword-def">def</span> <span class="token function">update_record</span><span class="token punctuation">(</span>
+    record_id<span class="token punctuation">:</span> <span class="token builtin">int</span><span class="token punctuation">,</span>
+    payload<span class="token punctuation">:</span> RecordUpdate<span class="token punctuation">,</span>
+    db<span class="token punctuation">:</span> Session <span class="token operator">=</span> Depends<span class="token punctuation">(</span>get_db<span class="token punctuation">)</span><span class="token punctuation">,</span>
+    current_user<span class="token punctuation">:</span> User <span class="token operator">=</span> Depends<span class="token punctuation">(</span>get_current_active_user<span class="token punctuation">)</span><span class="token punctuation">,</span>
+<span class="token punctuation">)</span><span class="token punctuation">:</span>
+    record <span class="token operator">=</span> record_service<span class="token punctuation">.</span>update_for_user<span class="token punctuation">(</span>
+        db<span class="token operator">=</span>db<span class="token punctuation">,</span>
+        user_id<span class="token operator">=</span>current_user<span class="token punctuation">.</span><span class="token builtin">id</span><span class="token punctuation">,</span>
+        record_id<span class="token operator">=</span>record_id<span class="token punctuation">,</span>
+        payload<span class="token operator">=</span>payload<span class="token punctuation">,</span>
+    <span class="token punctuation">)</span>
+    <span class="token keyword keyword-return">return</span> success_response<span class="token punctuation">(</span>
+        data<span class="token operator">=</span>RecordRead<span class="token punctuation">.</span>model_validate<span class="token punctuation">(</span>record<span class="token punctuation">)</span><span class="token punctuation">,</span>
+        message<span class="token operator">=</span><span class="token string">"record updated"</span><span class="token punctuation">,</span>
+    <span class="token punctuation">)</span>
+
+
+<span class="token decorator annotation punctuation">@router<span class="token punctuation">.</span>delete</span><span class="token punctuation">(</span>
+    <span class="token string">"/{record_id}"</span><span class="token punctuation">,</span>
+    response_model<span class="token operator">=</span>ApiResponse<span class="token punctuation">[</span><span class="token boolean">None</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
+<span class="token punctuation">)</span>
+<span class="token keyword keyword-def">def</span> <span class="token function">delete_record</span><span class="token punctuation">(</span>
+    record_id<span class="token punctuation">:</span> <span class="token builtin">int</span><span class="token punctuation">,</span>
+    db<span class="token punctuation">:</span> Session <span class="token operator">=</span> Depends<span class="token punctuation">(</span>get_db<span class="token punctuation">)</span><span class="token punctuation">,</span>
+    current_user<span class="token punctuation">:</span> User <span class="token operator">=</span> Depends<span class="token punctuation">(</span>get_current_active_user<span class="token punctuation">)</span><span class="token punctuation">,</span>
+<span class="token punctuation">)</span><span class="token punctuation">:</span>
+    record_service<span class="token punctuation">.</span>delete_for_user<span class="token punctuation">(</span>db<span class="token punctuation">,</span> current_user<span class="token punctuation">.</span><span class="token builtin">id</span><span class="token punctuation">,</span> record_id<span class="token punctuation">)</span>
+    <span class="token keyword keyword-return">return</span> success_response<span class="token punctuation">(</span>message<span class="token operator">=</span><span class="token string">"record deleted"</span><span class="token punctuation">)</span>
+</code></pre><h3 id="152-这份路由代码在做什么">15.2 这份路由代码在做什么 </h3>
+<h4 id="1-router--apirouterprefixrecords-tagsrecords">1. <code>router = APIRouter(prefix="/records", tags=["records"])</code> </h4>
+<p>作用:</p>
+<ol>
+<li>设置这一组接口的统一前缀</li>
+<li>设置 Swagger 里的分组名字</li>
+</ol>
+<h4 id="2-get_record_query_params">2. <code>get_record_query_params</code> </h4>
+<p>这个函数专门负责把列表页的查询参数收口起来。</p>
+<p>它主要做三件事:</p>
+<ol>
+<li>处理分页参数</li>
+<li>处理筛选参数</li>
+<li>校验 <code>start_time</code> 不能大于 <code>end_time</code></li>
+</ol>
+<p>为什么不把这些参数直接全塞到 <code>list_records</code> 里:</p>
+<p>因为那样路由函数会越来越长，不利于阅读。</p>
+<h4 id="3-create_record">3. <code>create_record</code> </h4>
+<p>这个接口负责创建记录。</p>
+<p>关键点:</p>
+<ol>
+<li>请求体是 <code>RecordCreate</code></li>
+<li>当前用户来自 <code>get_current_active_user</code></li>
+<li><code>user_id</code> 不从前端拿，而是用 <code>current_user.id</code></li>
+</ol>
+<h4 id="4-list_records">4. <code>list_records</code> </h4>
+<p>这个接口负责:</p>
+<ol>
+<li>分页</li>
+<li>筛选</li>
+<li>返回分页结构</li>
+</ol>
+<p>为什么这里返回的是 <code>RecordListData</code> 而不是 <code>list[RecordRead]</code></p>
+<p>因为分页列表除了 <code>items</code> 之外，你还需要:</p>
+<ol>
+<li><code>total</code></li>
+<li><code>page</code></li>
+<li><code>page_size</code></li>
+<li><code>total_pages</code></li>
+</ol>
+<h4 id="5-get_record_detail">5. <code>get_record_detail</code> </h4>
+<p>这个接口负责查看单条记录详情。</p>
+<p>关键点:</p>
+<p>必须走:</p>
+<pre data-role="codeBlock" data-info="python" class="language-python python"><code>record_service<span class="token punctuation">.</span>get_or_raise<span class="token punctuation">(</span>db<span class="token punctuation">,</span> current_user<span class="token punctuation">.</span><span class="token builtin">id</span><span class="token punctuation">,</span> record_id<span class="token punctuation">)</span>
+</code></pre><p>这样才能保证:</p>
+<ol>
+<li>数据存在</li>
+<li>并且数据属于当前用户</li>
+</ol>
+<h4 id="6-update_record">6. <code>update_record</code> </h4>
+<p>这个接口负责更新记录。</p>
+<p>关键点和详情一样:</p>
+<p>更新前必须先确认这条记录属于当前用户。</p>
+<h4 id="7-delete_record">7. <code>delete_record</code> </h4>
+<p>这个接口负责删除记录。</p>
+<p>删除的前提也一样:</p>
+<p>先按:</p>
+<ol>
+<li><code>record_id</code></li>
+<li><code>user_id</code></li>
+</ol>
+<p>一起查到记录，才能删。</p>
+<hr>
+<h2 id="16-把-records-路由挂到总路由里">16. 把 <code>records</code> 路由挂到总路由里 </h2>
+<p>如果你不把新路由挂到总路由，接口就不会生效。</p>
+<h3 id="161-修改-appapirouterpy">16.1 修改 <code>app/api/router.py</code> </h3>
+<p>如果你当前这个文件已经存在，直接整文件替换成下面内容。</p>
+<p>完整代码如下:</p>
+<pre data-role="codeBlock" data-info="python" class="language-python python"><code><span class="token keyword keyword-from">from</span> fastapi <span class="token keyword keyword-import">import</span> APIRouter
+
+<span class="token keyword keyword-from">from</span> app<span class="token punctuation">.</span>api<span class="token punctuation">.</span>routes<span class="token punctuation">.</span>auth <span class="token keyword keyword-import">import</span> router <span class="token keyword keyword-as">as</span> auth_router
+<span class="token keyword keyword-from">from</span> app<span class="token punctuation">.</span>api<span class="token punctuation">.</span>routes<span class="token punctuation">.</span>health <span class="token keyword keyword-import">import</span> router <span class="token keyword keyword-as">as</span> health_router
+<span class="token keyword keyword-from">from</span> app<span class="token punctuation">.</span>api<span class="token punctuation">.</span>routes<span class="token punctuation">.</span>profiles <span class="token keyword keyword-import">import</span> router <span class="token keyword keyword-as">as</span> profiles_router
+<span class="token keyword keyword-from">from</span> app<span class="token punctuation">.</span>api<span class="token punctuation">.</span>routes<span class="token punctuation">.</span>records <span class="token keyword keyword-import">import</span> router <span class="token keyword keyword-as">as</span> records_router
+<span class="token keyword keyword-from">from</span> app<span class="token punctuation">.</span>api<span class="token punctuation">.</span>routes<span class="token punctuation">.</span>users <span class="token keyword keyword-import">import</span> router <span class="token keyword keyword-as">as</span> users_router
+
+api_router <span class="token operator">=</span> APIRouter<span class="token punctuation">(</span><span class="token punctuation">)</span>
+api_router<span class="token punctuation">.</span>include_router<span class="token punctuation">(</span>health_router<span class="token punctuation">)</span>
+api_router<span class="token punctuation">.</span>include_router<span class="token punctuation">(</span>auth_router<span class="token punctuation">)</span>
+api_router<span class="token punctuation">.</span>include_router<span class="token punctuation">(</span>users_router<span class="token punctuation">)</span>
+api_router<span class="token punctuation">.</span>include_router<span class="token punctuation">(</span>profiles_router<span class="token punctuation">)</span>
+api_router<span class="token punctuation">.</span>include_router<span class="token punctuation">(</span>records_router<span class="token punctuation">)</span>
+</code></pre><h3 id="162-这一步的作用">16.2 这一步的作用 </h3>
+<ol>
+<li>统一收口所有 API 子路由</li>
+<li><code>main.py</code> 仍然只挂一个总路由</li>
+<li>新增的 <code>records</code> 接口真正对外生效</li>
+</ol>
+<hr>
+<h2 id="17-第三阶段哪些文件不用动">17. 第三阶段哪些文件不用动 </h2>
+<p>下面这些第二阶段已经写好的文件，这一阶段一般不需要动:</p>
+<ol>
+<li><code>app/api/deps.py</code></li>
+<li><code>app/core/security.py</code></li>
+<li><code>app/core/response.py</code></li>
+<li><code>app/core/exception.py</code></li>
+<li><code>app/main.py</code></li>
+<li><code>app/api/routes/auth.py</code></li>
+<li><code>app/api/routes/users.py</code></li>
+<li><code>app/api/routes/profiles.py</code></li>
+</ol>
+<p>为什么这里特意说这个:</p>
+<p>因为你现在是跟着教程一行行敲，最容易犯的错误之一就是“越改越多”。<br>
+第三阶段先只聚焦 <code>Record</code>，不要顺手把别的地方也改乱。</p>
+<hr>
+<h2 id="18-现在开始做数据库迁移">18. 现在开始做数据库迁移 </h2>
+<p>前面的 Python 代码都准备好之后，才轮到数据库迁移。</p>
+<h3 id="181-先确认这几件事">18.1 先确认这几件事 </h3>
+<p>在跑 Alembic 之前，先确认:</p>
+<ol>
+<li><code>app/models/record.py</code> 已经存在</li>
+<li><code>app/models/__init__.py</code> 已经导入 <code>Record</code></li>
+<li><code>app/db/base.py</code> 已经导入 <code>Record</code></li>
+<li><code>app/api/router.py</code> 已经挂载了 <code>records_router</code></li>
+<li>没有任何正式代码去 import <code>app/db/models/record.py</code></li>
+</ol>
+<h3 id="182-进入后端目录">18.2 进入后端目录 </h3>
+<pre data-role="codeBlock" data-info="powershell" class="language-powershell powershell"><code>cd D:\vue_fastapi\backend
+</code></pre><h3 id="183-生成-migration">18.3 生成 migration </h3>
+<pre data-role="codeBlock" data-info="powershell" class="language-powershell powershell"><code>alembic revision <span class="token operator">--</span>autogenerate <span class="token operator">-</span>m <span class="token string">"create records table"</span>
+</code></pre><h3 id="184-你需要检查生成的-migration-文件">18.4 你需要检查生成的 migration 文件 </h3>
+<p>正常情况下，Alembic 生成的新文件里应该出现:</p>
+<ol>
+<li><code>records</code> 表</li>
+<li><code>user_id</code> 外键</li>
+<li><code>record_type</code> 字段</li>
+<li><code>value</code> 字段</li>
+<li><code>unit</code> 字段</li>
+<li><code>record_time</code> 字段</li>
+<li><code>note</code> 字段</li>
+<li><code>created_at</code> 字段</li>
+<li><code>updated_at</code> 字段</li>
+</ol>
+<p>并且应该看到一些索引，比如:</p>
+<ol>
+<li><code>id</code></li>
+<li><code>user_id</code></li>
+<li><code>record_type</code></li>
+<li><code>record_time</code></li>
+</ol>
+<h3 id="185-如果-migration-是空的通常只有两个原因">18.5 如果 migration 是空的，通常只有两个原因 </h3>
+<ol>
+<li>你忘了在 <code>app/db/base.py</code> 里导入 <code>Record</code></li>
+<li>你把 <code>Record</code> 写到了 <code>app/db/models/record.py</code>，但正式入口没扫到</li>
+</ol>
+<h3 id="186-执行迁移">18.6 执行迁移 </h3>
+<pre data-role="codeBlock" data-info="powershell" class="language-powershell powershell"><code>alembic upgrade head
+</code></pre><p>执行完成后，数据库里就应该有 <code>records</code> 表了。</p>
+<hr>
+<h2 id="19-如果你想知道-migration-大概应该长什么样">19. 如果你想知道 migration 大概应该长什么样 </h2>
+<p>这一节不是让你手敲 migration。<br>
+正常情况下你应该优先使用:</p>
+<pre data-role="codeBlock" data-info="powershell" class="language-powershell powershell"><code>alembic revision <span class="token operator">--</span>autogenerate
+</code></pre><p>这里只是让你知道，生成后的 migration 大致会包含什么。</p>
+<p>你应该重点检查:</p>
+<ol>
+<li><code>op.create_table("records", ...)</code></li>
+<li><code>sa.ForeignKeyConstraint(["user_id"], ["users.id"], ondelete="CASCADE")</code></li>
+<li><code>op.create_index(...)</code></li>
+</ol>
+<p>如果这些都没有，说明你的模型没有被 Alembic 正确发现。</p>
+<hr>
+<h2 id="20-启动项目并做-swagger-验收">20. 启动项目并做 Swagger 验收 </h2>
+<h3 id="201-启动后端">20.1 启动后端 </h3>
+<p>如果你平时就是这样启动后端，可以继续使用你原来的方式。</p>
+<p>最常见的是:</p>
+<pre data-role="codeBlock" data-info="powershell" class="language-powershell powershell"><code>uvicorn app<span class="token punctuation">.</span>main:app <span class="token operator">--</span>reload
+</code></pre><h3 id="202-打开-swagger">20.2 打开 Swagger </h3>
+<p>访问:</p>
+<pre data-role="codeBlock" data-info="text" class="language-text text"><code>http://127.0.0.1:8000/docs
+</code></pre><h3 id="203-先登录">20.3 先登录 </h3>
+<p>第三阶段所有 <code>records</code> 接口都依赖当前登录用户，所以你必须先走第二阶段的登录流程。</p>
+<p>先准备:</p>
+<ol>
+<li>注册用户</li>
+<li>登录拿 token</li>
+</ol>
+<h3 id="204-注册接口示例">20.4 注册接口示例 </h3>
+<p><code>POST /api/v1/auth/register</code></p>
+<pre data-role="codeBlock" data-info="json" class="language-json json"><code><span class="token punctuation">{</span>
+  <span class="token property">"username"</span><span class="token operator">:</span> <span class="token string">"alice"</span><span class="token punctuation">,</span>
+  <span class="token property">"email"</span><span class="token operator">:</span> <span class="token string">"alice@example.com"</span><span class="token punctuation">,</span>
+  <span class="token property">"phone"</span><span class="token operator">:</span> <span class="token string">"13800138000"</span><span class="token punctuation">,</span>
+  <span class="token property">"password"</span><span class="token operator">:</span> <span class="token string">"12345678"</span><span class="token punctuation">,</span>
+  <span class="token property">"confirm_password"</span><span class="token operator">:</span> <span class="token string">"12345678"</span>
+<span class="token punctuation">}</span>
+</code></pre><h3 id="205-登录接口示例">20.5 登录接口示例 </h3>
+<p><code>POST /api/v1/auth/login</code></p>
+<p>注意:</p>
+<p>这个接口不是传 JSON，而是 <code>application/x-www-form-urlencoded</code>。</p>
+<p>在 Swagger 里填:</p>
+<ol>
+<li><code>username</code>: <code>alice</code></li>
+<li><code>password</code>: <code>12345678</code></li>
+</ol>
+<p>成功后会返回 token。</p>
+<h3 id="206-点击-swagger-右上角-authorize">20.6 点击 Swagger 右上角 <code>Authorize</code> </h3>
+<p>把 token 填进去，然后再去测试 <code>records</code> 接口。</p>
+<hr>
+<h2 id="21-record-模块的-swagger-演示顺序">21. <code>Record</code> 模块的 Swagger 演示顺序 </h2>
+<p>建议你严格按这个顺序来测。</p>
+<h3 id="211-先创建一条血压记录">21.1 先创建一条血压记录 </h3>
+<p><code>POST /api/v1/records</code></p>
+<pre data-role="codeBlock" data-info="json" class="language-json json"><code><span class="token punctuation">{</span>
+  <span class="token property">"record_type"</span><span class="token operator">:</span> <span class="token string">"blood_pressure"</span><span class="token punctuation">,</span>
+  <span class="token property">"value"</span><span class="token operator">:</span> <span class="token string">"138/91"</span><span class="token punctuation">,</span>
+  <span class="token property">"unit"</span><span class="token operator">:</span> <span class="token string">"mmHg"</span><span class="token punctuation">,</span>
+  <span class="token property">"record_time"</span><span class="token operator">:</span> <span class="token string">"2026-04-10T08:30:00Z"</span><span class="token punctuation">,</span>
+  <span class="token property">"note"</span><span class="token operator">:</span> <span class="token string">"早起测量"</span>
+<span class="token punctuation">}</span>
+</code></pre><p>你应该看到:</p>
+<ol>
+<li><code>code = 0</code></li>
+<li><code>message = "record created"</code></li>
+<li><code>data</code> 里有 <code>id</code></li>
+<li><code>data.user_id</code> 是当前登录用户的 id</li>
+</ol>
+<h3 id="212-再创建一条睡眠记录">21.2 再创建一条睡眠记录 </h3>
+<p><code>POST /api/v1/records</code></p>
+<pre data-role="codeBlock" data-info="json" class="language-json json"><code><span class="token punctuation">{</span>
+  <span class="token property">"record_type"</span><span class="token operator">:</span> <span class="token string">"sleep"</span><span class="token punctuation">,</span>
+  <span class="token property">"value"</span><span class="token operator">:</span> <span class="token string">"7.5"</span><span class="token punctuation">,</span>
+  <span class="token property">"unit"</span><span class="token operator">:</span> <span class="token string">"hour"</span><span class="token punctuation">,</span>
+  <span class="token property">"record_time"</span><span class="token operator">:</span> <span class="token string">"2026-04-09T23:00:00Z"</span><span class="token punctuation">,</span>
+  <span class="token property">"note"</span><span class="token operator">:</span> <span class="token string">"睡眠一般"</span>
+<span class="token punctuation">}</span>
+</code></pre><h3 id="213-测试不带筛选的列表接口">21.3 测试不带筛选的列表接口 </h3>
+<pre data-role="codeBlock" data-info="text" class="language-text text"><code>GET /api/v1/records?page=1&amp;page_size=10
+</code></pre><p>你应该看到返回里除了 <code>items</code> 之外，还有:</p>
+<ol>
+<li><code>total</code></li>
+<li><code>page</code></li>
+<li><code>page_size</code></li>
+<li><code>total_pages</code></li>
+</ol>
+<h3 id="214-测试按类型筛选">21.4 测试按类型筛选 </h3>
+<pre data-role="codeBlock" data-info="text" class="language-text text"><code>GET /api/v1/records?page=1&amp;page_size=10&amp;record_type=blood_pressure
+</code></pre><p>预期:</p>
+<p>列表里只剩血压记录。</p>
+<h3 id="215-测试按时间范围筛选">21.5 测试按时间范围筛选 </h3>
+<pre data-role="codeBlock" data-info="text" class="language-text text"><code>GET /api/v1/records?page=1&amp;page_size=10&amp;start_time=2026-04-01T00:00:00Z&amp;end_time=2026-04-10T23:59:59Z
+</code></pre><h3 id="216-测试组合筛选">21.6 测试组合筛选 </h3>
+<pre data-role="codeBlock" data-info="text" class="language-text text"><code>GET /api/v1/records?page=1&amp;page_size=10&amp;record_type=sleep&amp;start_time=2026-04-01T00:00:00Z&amp;end_time=2026-04-10T23:59:59Z
+</code></pre><h3 id="217-测试详情接口">21.7 测试详情接口 </h3>
+<pre data-role="codeBlock" data-info="text" class="language-text text"><code>GET /api/v1/records/{record_id}
+</code></pre><p>这里的 <code>record_id</code> 用你刚刚新增成功后返回的 id。</p>
+<h3 id="218-测试更新接口">21.8 测试更新接口 </h3>
+<p><code>PUT /api/v1/records/{record_id}</code></p>
+<p>例如只改备注:</p>
+<pre data-role="codeBlock" data-info="json" class="language-json json"><code><span class="token punctuation">{</span>
+  <span class="token property">"note"</span><span class="token operator">:</span> <span class="token string">"复测后状态稳定"</span>
+<span class="token punctuation">}</span>
+</code></pre><p>或者改数值和备注:</p>
+<pre data-role="codeBlock" data-info="json" class="language-json json"><code><span class="token punctuation">{</span>
+  <span class="token property">"value"</span><span class="token operator">:</span> <span class="token string">"135/88"</span><span class="token punctuation">,</span>
+  <span class="token property">"note"</span><span class="token operator">:</span> <span class="token string">"休息后复测"</span>
+<span class="token punctuation">}</span>
+</code></pre><h3 id="219-测试删除接口">21.9 测试删除接口 </h3>
+<pre data-role="codeBlock" data-info="text" class="language-text text"><code>DELETE /api/v1/records/{record_id}
+</code></pre><p>删除成功后，再用同一个 <code>record_id</code> 查详情，应该返回:</p>
+<pre data-role="codeBlock" data-info="text" class="language-text text"><code>record not found
+</code></pre><hr>
+<h2 id="22-这一阶段最容易写错的地方">22. 这一阶段最容易写错的地方 </h2>
+<h3 id="221-只按-record_id-查不按-user_id-限制">22.1 只按 <code>record_id</code> 查，不按 <code>user_id</code> 限制 </h3>
+<p>这是最典型的越权 bug。</p>
+<p>错误写法:</p>
+<pre data-role="codeBlock" data-info="python" class="language-python python"><code>record <span class="token operator">=</span> db<span class="token punctuation">.</span>get<span class="token punctuation">(</span>Record<span class="token punctuation">,</span> record_id<span class="token punctuation">)</span>
+</code></pre><p>正确思路:</p>
+<pre data-role="codeBlock" data-info="python" class="language-python python"><code>where<span class="token punctuation">(</span>Record<span class="token punctuation">.</span><span class="token builtin">id</span> <span class="token operator">==</span> record_id<span class="token punctuation">,</span> Record<span class="token punctuation">.</span>user_id <span class="token operator">==</span> current_user<span class="token punctuation">.</span><span class="token builtin">id</span><span class="token punctuation">)</span>
+</code></pre><h3 id="222-让前端传-user_id">22.2 让前端传 <code>user_id</code> </h3>
+<p>这是权限设计里非常危险的一种写法。</p>
+<p>如果前端可以自己传:</p>
+<pre data-role="codeBlock" data-info="json" class="language-json json"><code><span class="token punctuation">{</span>
+  <span class="token property">"user_id"</span><span class="token operator">:</span> <span class="token number">2</span>
+<span class="token punctuation">}</span>
+</code></pre><p>那用户就有机会把记录伪造到别人名下。</p>
+<p>所以第三阶段一定要记住:</p>
+<p><code>user_id</code> 必须来自当前登录用户，而不是请求体。</p>
+<h3 id="223-把-value-设计成数字">22.3 把 <code>value</code> 设计成数字 </h3>
+<p>这样会直接限制:</p>
+<ol>
+<li>血压</li>
+<li>心情</li>
+<li>用药</li>
+<li>文字打卡</li>
+</ol>
+<p>第三阶段先统一成字符串，后面要细化时再扩展。</p>
+<h3 id="224-用-created_at-代替-record_time">22.4 用 <code>created_at</code> 代替 <code>record_time</code> </h3>
+<p>健康记录的业务时间应该看 <code>record_time</code>，不是 <code>created_at</code>。</p>
+<h3 id="225-忘了在-appdbbasepy-里导入-record">22.5 忘了在 <code>app/db/base.py</code> 里导入 <code>Record</code> </h3>
+<p>这会导致 Alembic 看不到 <code>records</code> 表。</p>
+<h3 id="226-修改了-appdbmodelsrecordpy却没改-appmodelsrecordpy">22.6 修改了 <code>app/db/models/record.py</code>，却没改 <code>app/models/record.py</code> </h3>
+<p>你当前项目的正式模型入口是 <code>app/models/</code>。</p>
+<p>如果你把主要精力花在 <code>app/db/models/record.py</code> 上，最后很容易出现:</p>
+<ol>
+<li>代码写了</li>
+<li>Alembic 没看到</li>
+<li>接口没生效</li>
+<li>你以为自己代码错了</li>
+</ol>
+<p>实际上只是路径改错了。</p>
+<hr>
+<h2 id="23-第三阶段做完后你应该真正学会了什么">23. 第三阶段做完后，你应该真正学会了什么 </h2>
+<p>做完这一阶段，你至少应该能把下面这些点讲清楚:</p>
+<ol>
+<li>为什么 <code>Record</code> 适合先做</li>
+<li>为什么第三阶段先用 <code>user_id</code></li>
+<li>为什么 <code>value</code> 先用字符串</li>
+<li>为什么列表接口要支持分页和筛选</li>
+<li>为什么详情、更新、删除必须做当前用户归属校验</li>
+<li>为什么 <code>record_time</code> 和 <code>created_at</code> 不是同一个概念</li>
+</ol>
+<p>如果这些你都能讲清楚，说明你已经不是在“机械抄接口”，而是真正开始理解后端业务开发了。</p>
+<hr>
+<h2 id="24-第三阶段最终检查清单">24. 第三阶段最终检查清单 </h2>
+<ul>
+<li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox"> <code>app/models/record.py</code> 已创建</li>
+<li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox"> <code>app/models/__init__.py</code> 已导入 <code>Record</code></li>
+<li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox"> <code>app/db/base.py</code> 已导入 <code>Record</code></li>
+<li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox"> <code>app/schemas/record.py</code> 已重写</li>
+<li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox"> <code>app/services/record_service.py</code> 已创建</li>
+<li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox"> <code>app/api/routes/records.py</code> 已创建</li>
+<li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox"> <code>app/api/router.py</code> 已挂载 <code>records_router</code></li>
+<li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox"> Alembic migration 已生成</li>
+<li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox"> Alembic migration 已执行</li>
+<li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox"> Swagger 可新增记录</li>
+<li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox"> Swagger 可查看记录列表</li>
+<li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox"> Swagger 可按类型筛选</li>
+<li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox"> Swagger 可按时间筛选</li>
+<li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox"> Swagger 可查看记录详情</li>
+<li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox"> Swagger 可更新记录</li>
+<li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox"> Swagger 可删除记录</li>
+<li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox"> 所有记录都只能归属当前登录用户</li>
+</ul>
+<hr>
+<h2 id="25-这一阶段完成后的意义">25. 这一阶段完成后的意义 </h2>
+<p>第三阶段做完，你就不再只是写“基础骨架”了，而是在写真正的业务模块。</p>
+<p>更重要的是，从这一阶段开始，后面的模块其实都可以照这个模板继续长出来。</p>
+<p>比如后面你做:</p>
+<ol>
+<li><code>Conversation</code></li>
+<li><code>Message</code></li>
+<li><code>Reminder</code></li>
+<li><code>ProactiveLog</code></li>
+</ol>
+<p>本质上还是这条开发路线:</p>
+<ol>
+<li>先建模</li>
+<li>再定义 schema</li>
+<li>再写 service</li>
+<li>再写 router</li>
+<li>再做用户归属</li>
+<li>再做列表筛选</li>
+<li>再做 Swagger 验收</li>
+</ol>
+<p>这就是第三阶段真正的价值。</p>
+</div>
+      </div>
+      
+      
+    
+    
+    
+    
+    
+    
+  
+    </body></html>

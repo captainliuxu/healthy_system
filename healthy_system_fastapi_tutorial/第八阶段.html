@@ -1,0 +1,1469 @@
+<!DOCTYPE html><html><head>
+      <title>第八阶段</title>
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      
+      <link rel="stylesheet" href="file:///c:\Users\Lenovo\.vscode\extensions\shd101wyy.markdown-preview-enhanced-0.8.22\crossnote\dependencies\katex\katex.min.css">
+      
+      
+      
+      
+      
+      <style>
+      code[class*=language-],pre[class*=language-]{color:#333;background:0 0;font-family:Consolas,"Liberation Mono",Menlo,Courier,monospace;text-align:left;white-space:pre;word-spacing:normal;word-break:normal;word-wrap:normal;line-height:1.4;-moz-tab-size:8;-o-tab-size:8;tab-size:8;-webkit-hyphens:none;-moz-hyphens:none;-ms-hyphens:none;hyphens:none}pre[class*=language-]{padding:.8em;overflow:auto;border-radius:3px;background:#f5f5f5}:not(pre)>code[class*=language-]{padding:.1em;border-radius:.3em;white-space:normal;background:#f5f5f5}.token.blockquote,.token.comment{color:#969896}.token.cdata{color:#183691}.token.doctype,.token.macro.property,.token.punctuation,.token.variable{color:#333}.token.builtin,.token.important,.token.keyword,.token.operator,.token.rule{color:#a71d5d}.token.attr-value,.token.regex,.token.string,.token.url{color:#183691}.token.atrule,.token.boolean,.token.code,.token.command,.token.constant,.token.entity,.token.number,.token.property,.token.symbol{color:#0086b3}.token.prolog,.token.selector,.token.tag{color:#63a35c}.token.attr-name,.token.class,.token.class-name,.token.function,.token.id,.token.namespace,.token.pseudo-class,.token.pseudo-element,.token.url-reference .token.variable{color:#795da3}.token.entity{cursor:help}.token.title,.token.title .token.punctuation{font-weight:700;color:#1d3e81}.token.list{color:#ed6a43}.token.inserted{background-color:#eaffea;color:#55a532}.token.deleted{background-color:#ffecec;color:#bd2c00}.token.bold{font-weight:700}.token.italic{font-style:italic}.language-json .token.property{color:#183691}.language-markup .token.tag .token.punctuation{color:#333}.language-css .token.function,code.language-css{color:#0086b3}.language-yaml .token.atrule{color:#63a35c}code.language-yaml{color:#183691}.language-ruby .token.function{color:#333}.language-markdown .token.url{color:#795da3}.language-makefile .token.symbol{color:#795da3}.language-makefile .token.variable{color:#183691}.language-makefile .token.builtin{color:#0086b3}.language-bash .token.keyword{color:#0086b3}pre[data-line]{position:relative;padding:1em 0 1em 3em}pre[data-line] .line-highlight-wrapper{position:absolute;top:0;left:0;background-color:transparent;display:block;width:100%}pre[data-line] .line-highlight{position:absolute;left:0;right:0;padding:inherit 0;margin-top:1em;background:hsla(24,20%,50%,.08);background:linear-gradient(to right,hsla(24,20%,50%,.1) 70%,hsla(24,20%,50%,0));pointer-events:none;line-height:inherit;white-space:pre}pre[data-line] .line-highlight:before,pre[data-line] .line-highlight[data-end]:after{content:attr(data-start);position:absolute;top:.4em;left:.6em;min-width:1em;padding:0 .5em;background-color:hsla(24,20%,50%,.4);color:#f4f1ef;font:bold 65%/1.5 sans-serif;text-align:center;vertical-align:.3em;border-radius:999px;text-shadow:none;box-shadow:0 1px #fff}pre[data-line] .line-highlight[data-end]:after{content:attr(data-end);top:auto;bottom:.4em}html body{font-family:'Helvetica Neue',Helvetica,'Segoe UI',Arial,freesans,sans-serif;font-size:16px;line-height:1.6;color:#333;background-color:#fff;overflow:initial;box-sizing:border-box;word-wrap:break-word}html body>:first-child{margin-top:0}html body h1,html body h2,html body h3,html body h4,html body h5,html body h6{line-height:1.2;margin-top:1em;margin-bottom:16px;color:#000}html body h1{font-size:2.25em;font-weight:300;padding-bottom:.3em}html body h2{font-size:1.75em;font-weight:400;padding-bottom:.3em}html body h3{font-size:1.5em;font-weight:500}html body h4{font-size:1.25em;font-weight:600}html body h5{font-size:1.1em;font-weight:600}html body h6{font-size:1em;font-weight:600}html body h1,html body h2,html body h3,html body h4,html body h5{font-weight:600}html body h5{font-size:1em}html body h6{color:#5c5c5c}html body strong{color:#000}html body del{color:#5c5c5c}html body a:not([href]){color:inherit;text-decoration:none}html body a{color:#08c;text-decoration:none}html body a:hover{color:#00a3f5;text-decoration:none}html body img{max-width:100%}html body>p{margin-top:0;margin-bottom:16px;word-wrap:break-word}html body>ol,html body>ul{margin-bottom:16px}html body ol,html body ul{padding-left:2em}html body ol.no-list,html body ul.no-list{padding:0;list-style-type:none}html body ol ol,html body ol ul,html body ul ol,html body ul ul{margin-top:0;margin-bottom:0}html body li{margin-bottom:0}html body li.task-list-item{list-style:none}html body li>p{margin-top:0;margin-bottom:0}html body .task-list-item-checkbox{margin:0 .2em .25em -1.8em;vertical-align:middle}html body .task-list-item-checkbox:hover{cursor:pointer}html body blockquote{margin:16px 0;font-size:inherit;padding:0 15px;color:#5c5c5c;background-color:#f0f0f0;border-left:4px solid #d6d6d6}html body blockquote>:first-child{margin-top:0}html body blockquote>:last-child{margin-bottom:0}html body hr{height:4px;margin:32px 0;background-color:#d6d6d6;border:0 none}html body table{margin:10px 0 15px 0;border-collapse:collapse;border-spacing:0;display:block;width:100%;overflow:auto;word-break:normal;word-break:keep-all}html body table th{font-weight:700;color:#000}html body table td,html body table th{border:1px solid #d6d6d6;padding:6px 13px}html body dl{padding:0}html body dl dt{padding:0;margin-top:16px;font-size:1em;font-style:italic;font-weight:700}html body dl dd{padding:0 16px;margin-bottom:16px}html body code{font-family:Menlo,Monaco,Consolas,'Courier New',monospace;font-size:.85em;color:#000;background-color:#f0f0f0;border-radius:3px;padding:.2em 0}html body code::after,html body code::before{letter-spacing:-.2em;content:'\00a0'}html body pre>code{padding:0;margin:0;word-break:normal;white-space:pre;background:0 0;border:0}html body .highlight{margin-bottom:16px}html body .highlight pre,html body pre{padding:1em;overflow:auto;line-height:1.45;border:#d6d6d6;border-radius:3px}html body .highlight pre{margin-bottom:0;word-break:normal}html body pre code,html body pre tt{display:inline;max-width:initial;padding:0;margin:0;overflow:initial;line-height:inherit;word-wrap:normal;background-color:transparent;border:0}html body pre code:after,html body pre code:before,html body pre tt:after,html body pre tt:before{content:normal}html body blockquote,html body dl,html body ol,html body p,html body pre,html body ul{margin-top:0;margin-bottom:16px}html body kbd{color:#000;border:1px solid #d6d6d6;border-bottom:2px solid #c7c7c7;padding:2px 4px;background-color:#f0f0f0;border-radius:3px}@media print{html body{background-color:#fff}html body h1,html body h2,html body h3,html body h4,html body h5,html body h6{color:#000;page-break-after:avoid}html body blockquote{color:#5c5c5c}html body pre{page-break-inside:avoid}html body table{display:table}html body img{display:block;max-width:100%;max-height:100%}html body code,html body pre{word-wrap:break-word;white-space:pre}}.markdown-preview{width:100%;height:100%;box-sizing:border-box}.markdown-preview ul{list-style:disc}.markdown-preview ul ul{list-style:circle}.markdown-preview ul ul ul{list-style:square}.markdown-preview ol{list-style:decimal}.markdown-preview ol ol,.markdown-preview ul ol{list-style-type:lower-roman}.markdown-preview ol ol ol,.markdown-preview ol ul ol,.markdown-preview ul ol ol,.markdown-preview ul ul ol{list-style-type:lower-alpha}.markdown-preview .newpage,.markdown-preview .pagebreak{page-break-before:always}.markdown-preview pre.line-numbers{position:relative;padding-left:3.8em;counter-reset:linenumber}.markdown-preview pre.line-numbers>code{position:relative}.markdown-preview pre.line-numbers .line-numbers-rows{position:absolute;pointer-events:none;top:1em;font-size:100%;left:0;width:3em;letter-spacing:-1px;border-right:1px solid #999;-webkit-user-select:none;-moz-user-select:none;-ms-user-select:none;user-select:none}.markdown-preview pre.line-numbers .line-numbers-rows>span{pointer-events:none;display:block;counter-increment:linenumber}.markdown-preview pre.line-numbers .line-numbers-rows>span:before{content:counter(linenumber);color:#999;display:block;padding-right:.8em;text-align:right}.markdown-preview .mathjax-exps .MathJax_Display{text-align:center!important}.markdown-preview:not([data-for=preview]) .code-chunk .code-chunk-btn-group{display:none}.markdown-preview:not([data-for=preview]) .code-chunk .status{display:none}.markdown-preview:not([data-for=preview]) .code-chunk .output-div{margin-bottom:16px}.markdown-preview .md-toc{padding:0}.markdown-preview .md-toc .md-toc-link-wrapper .md-toc-link{display:inline;padding:.25rem 0}.markdown-preview .md-toc .md-toc-link-wrapper .md-toc-link div,.markdown-preview .md-toc .md-toc-link-wrapper .md-toc-link p{display:inline}.markdown-preview .md-toc .md-toc-link-wrapper.highlighted .md-toc-link{font-weight:800}.scrollbar-style::-webkit-scrollbar{width:8px}.scrollbar-style::-webkit-scrollbar-track{border-radius:10px;background-color:transparent}.scrollbar-style::-webkit-scrollbar-thumb{border-radius:5px;background-color:rgba(150,150,150,.66);border:4px solid rgba(150,150,150,.66);background-clip:content-box}html body[for=html-export]:not([data-presentation-mode]){position:relative;width:100%;height:100%;top:0;left:0;margin:0;padding:0;overflow:auto}html body[for=html-export]:not([data-presentation-mode]) .markdown-preview{position:relative;top:0;min-height:100vh}@media screen and (min-width:914px){html body[for=html-export]:not([data-presentation-mode]) .markdown-preview{padding:2em calc(50% - 457px + 2em)}}@media screen and (max-width:914px){html body[for=html-export]:not([data-presentation-mode]) .markdown-preview{padding:2em}}@media screen and (max-width:450px){html body[for=html-export]:not([data-presentation-mode]) .markdown-preview{font-size:14px!important;padding:1em}}@media print{html body[for=html-export]:not([data-presentation-mode]) #sidebar-toc-btn{display:none}}html body[for=html-export]:not([data-presentation-mode]) #sidebar-toc-btn{position:fixed;bottom:8px;left:8px;font-size:28px;cursor:pointer;color:inherit;z-index:99;width:32px;text-align:center;opacity:.4}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] #sidebar-toc-btn{opacity:1}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc{position:fixed;top:0;left:0;width:300px;height:100%;padding:32px 0 48px 0;font-size:14px;box-shadow:0 0 4px rgba(150,150,150,.33);box-sizing:border-box;overflow:auto;background-color:inherit}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc::-webkit-scrollbar{width:8px}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc::-webkit-scrollbar-track{border-radius:10px;background-color:transparent}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc::-webkit-scrollbar-thumb{border-radius:5px;background-color:rgba(150,150,150,.66);border:4px solid rgba(150,150,150,.66);background-clip:content-box}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc a{text-decoration:none}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc .md-toc{padding:0 16px}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc .md-toc .md-toc-link-wrapper .md-toc-link{display:inline;padding:.25rem 0}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc .md-toc .md-toc-link-wrapper .md-toc-link div,html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc .md-toc .md-toc-link-wrapper .md-toc-link p{display:inline}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc .md-toc .md-toc-link-wrapper.highlighted .md-toc-link{font-weight:800}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .markdown-preview{left:300px;width:calc(100% - 300px);padding:2em calc(50% - 457px - 300px / 2);margin:0;box-sizing:border-box}@media screen and (max-width:1274px){html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .markdown-preview{padding:2em}}@media screen and (max-width:450px){html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .markdown-preview{width:100%}}html body[for=html-export]:not([data-presentation-mode]):not([html-show-sidebar-toc]) .markdown-preview{left:50%;transform:translateX(-50%)}html body[for=html-export]:not([data-presentation-mode]):not([html-show-sidebar-toc]) .md-sidebar-toc{display:none}
+/* Please visit the URL below for more information: */
+/*   https://shd101wyy.github.io/markdown-preview-enhanced/#/customize-css */
+
+      </style>
+      <script type="text/javascript">
+  document.addEventListener("DOMContentLoaded", function () {
+    // your code here
+  });
+</script>
+    </head>
+    <body for="html-export">
+      <div class="crossnote markdown-preview  ">
+      
+<h1 id="healthy-system-fastapi-第八阶段详细教程">Healthy System FastAPI 第八阶段详细教程 </h1>
+<h2 id="1-这一阶段到底要解决什么">1. 这一阶段到底要解决什么 </h2>
+<p>第八阶段要做的，不是新增新的业务核心，而是把前面已经做好的能力变得：</p>
+<ol>
+<li>更实时</li>
+<li>更自动</li>
+<li>更像真实产品</li>
+</ol>
+<p>如果说第七阶段已经让系统具备了：</p>
+<p>“根据规则生成主动消息”</p>
+<p>那么第八阶段要把它推进成：</p>
+<p>“系统会自动检查，并且一旦生成主动消息，可以实时推到前端”</p>
+<p>一句话理解第八阶段：</p>
+<p>让主动服务从“手动触发可运行”，升级成“自动巡检 + 实时送达”。</p>
+<hr>
+<h2 id="2-第八阶段完成后的验收标准">2. 第八阶段完成后的验收标准 </h2>
+<p>做到下面这些，就算第八阶段合格：</p>
+<ol>
+<li>前端可以建立 WebSocket 连接</li>
+<li>当前用户连接成功后，能收到一条欢迎消息</li>
+<li>后端可以向当前用户推送一条测试实时消息</li>
+<li><code>proactive_service</code> 创建主动消息后，可以选配实时推送</li>
+<li>调度器能按固定周期自动扫描规则</li>
+<li>自动扫描后仍然通过原有 <code>active_log</code> 留痕</li>
+<li>即使 WebSocket 推送失败，也不会影响主动消息落库</li>
+</ol>
+<hr>
+<h2 id="3-为什么-websocket-和-scheduler-都要放在后面">3. 为什么 WebSocket 和 Scheduler 都要放在后面 </h2>
+<p>因为它们解决的都不是“核心业务是否成立”，而是：</p>
+<ol>
+<li>WebSocket 解决结果怎么更快送达</li>
+<li>Scheduler 解决业务怎么自动执行</li>
+</ol>
+<p>但这两层都依赖前面的业务已经稳定：</p>
+<ol>
+<li>第四阶段的 <code>Conversation / Message</code></li>
+<li>第五阶段的聊天主链路</li>
+<li>第六阶段的 <code>TriggerRule / ActiveLog</code></li>
+<li>第七阶段的 <code>ProactiveWindow / ProactiveMessage / ProactiveService</code></li>
+</ol>
+<p>如果这些前置层没打稳，你第八阶段只会得到：</p>
+<ol>
+<li>一个会连上但没业务可推的 WebSocket</li>
+<li>一个会定时空转甚至定时报错的 Scheduler</li>
+</ol>
+<p>所以第八阶段在工程上一定是增强层，不是起步层。</p>
+<hr>
+<h2 id="4-先明确第八阶段和第七阶段的衔接点">4. 先明确第八阶段和第七阶段的衔接点 </h2>
+<p>第七阶段已经有一条完整主链路：</p>
+<p><code>trigger_rule_service.evaluate_for_user()</code></p>
+<p>-&gt; <code>proactive_window_service.allow_trigger_now()</code></p>
+<p>-&gt; <code>proactive_service.execute_rule_for_user()</code></p>
+<p>-&gt; <code>ProactiveMessage</code></p>
+<p>-&gt; <code>ActiveLog</code></p>
+<p>第八阶段不会改这条主链路的核心职责。</p>
+<p>它只是往这条链路外面再接两层：</p>
+<h3 id="41-websocket-层">4.1 WebSocket 层 </h3>
+<p>当 <code>proactive_service</code> 成功创建一条 <code>ProactiveMessage</code> 后：</p>
+<ol>
+<li>消息照样落库</li>
+<li>日志照样落库</li>
+<li>如果用户当前在线，再尝试实时推一份到前端</li>
+</ol>
+<h3 id="42-scheduler-层">4.2 Scheduler 层 </h3>
+<p>定时去调用：</p>
+<p><code>proactive_service.execute_rule_for_user()</code></p>
+<p>也就是说，Scheduler 不是再写一遍主动逻辑，而是：</p>
+<p>帮你定时按下第七阶段那颗“执行主动规则”的按钮。</p>
+<hr>
+<h2 id="5-第八阶段推荐的最小实现策略">5. 第八阶段推荐的最小实现策略 </h2>
+<p>为了让第八阶段既好讲，又不把系统搞复杂，我建议你固定用下面这套最小版：</p>
+<h2 id="51-websocket-最小版">5.1 WebSocket 最小版 </h2>
+<p>先只做三件事：</p>
+<ol>
+<li>建立当前用户连接</li>
+<li>连接成功后发一条欢迎消息</li>
+<li>支持向当前用户推送一条文本测试消息</li>
+</ol>
+<p>不要一开始就做：</p>
+<ol>
+<li>房间系统</li>
+<li>多种事件总线</li>
+<li>在线状态矩阵</li>
+<li>聊天流式 token 推送</li>
+</ol>
+<h2 id="52-scheduler-最小版">5.2 Scheduler 最小版 </h2>
+<p>先只做一个周期任务：</p>
+<p><code>proactive_scan_job</code></p>
+<p>它每隔一段时间做一次：</p>
+<ol>
+<li>查活跃用户</li>
+<li>查已启用规则</li>
+<li>逐个用户执行主动规则</li>
+<li>复用第七阶段主动服务</li>
+</ol>
+<p>第八阶段先不要急着上：</p>
+<ol>
+<li>多任务编排</li>
+<li>分布式队列</li>
+<li>Celery</li>
+<li>定时任务控制台</li>
+</ol>
+<p>你现在最重要的是：</p>
+<p>先把“自动巡检”这件事跑起来。</p>
+<hr>
+<h2 id="6-第八阶段建议新增或修改哪些文件">6. 第八阶段建议新增或修改哪些文件 </h2>
+<p>如果你按这份教程做，第八阶段会涉及下面这些文件：</p>
+<pre data-role="codeBlock" data-info="text" class="language-text text"><code>backend/
+├─ app/
+│  ├─ api/
+│  │  ├─ routes/
+│  │  │  └─ realtime.py
+│  │  └─ router.py
+│  ├─ core/
+│  │  ├─ config.py
+│  │  └─ scheduler.py
+│  ├─ schemas/
+│  │  └─ realtime.py
+│  ├─ services/
+│  │  └─ proactive_service.py
+│  ├─ ws/
+│  │  └─ manager.py
+│  └─ main.py
+├─ requirements.txt
+└─ .env.example
+</code></pre><p>说明：</p>
+<ol>
+<li><code>app/ws/manager.py</code> 是新建</li>
+<li><code>app/api/routes/realtime.py</code> 是新建</li>
+<li><code>app/schemas/realtime.py</code> 是新建</li>
+<li><code>app/core/scheduler.py</code> 是新建</li>
+<li><code>app/services/proactive_service.py</code> 需要升级成“落库后可选实时推送”版本</li>
+<li><code>app/core/config.py</code> 需要增加 WebSocket / Scheduler 配置</li>
+<li><code>app/main.py</code> 需要改成带 <code>lifespan</code> 的装配版</li>
+<li><code>requirements.txt</code> 需要增加 <code>APScheduler</code></li>
+</ol>
+<hr>
+<h2 id="7-第八阶段的核心设计原则">7. 第八阶段的核心设计原则 </h2>
+<p>这一阶段最重要的不是代码量，而是边界不要乱。</p>
+<h3 id="71-websocket-不是业务层">7.1 WebSocket 不是业务层 </h3>
+<p>WebSocket 只负责：</p>
+<p>把已有业务结果实时送出去</p>
+<p>它不负责：</p>
+<ol>
+<li>判断是否触发</li>
+<li>决定是否限流</li>
+<li>决定生成什么主动消息</li>
+</ol>
+<p>这些还是第七阶段业务层负责。</p>
+<h3 id="72-scheduler-不是业务层">7.2 Scheduler 不是业务层 </h3>
+<p>Scheduler 只负责：</p>
+<p>定时调用已有业务服务</p>
+<p>它不负责：</p>
+<ol>
+<li>自己再写一遍规则判断</li>
+<li>自己再写一遍主动消息生成</li>
+</ol>
+<h3 id="73-proactive_service-仍然是主动链路核心">7.3 <code>proactive_service</code> 仍然是主动链路核心 </h3>
+<p>也就是说，第八阶段新增的一切，都应该围绕：</p>
+<p><code>proactive_service.execute_rule_for_user()</code></p>
+<p>来做增强，而不是绕开它。</p>
+<hr>
+<h2 id="8-第八阶段的事件流应该长什么样">8. 第八阶段的事件流应该长什么样 </h2>
+<p>这里建议你把这一张流程图记住，因为它就是答辩时最好讲的一页。</p>
+<pre data-role="codeBlock" data-info="text" class="language-text text"><code>Scheduler 定时触发
+        ↓
+查活跃用户 + 已启用规则
+        ↓
+调用 proactive_service.execute_rule_for_user()
+        ↓
+规则命中 + 窗口允许 + 频率允许
+        ↓
+创建 ProactiveMessage
+        ↓
+写 ActiveLog(status="created")
+        ↓
+如果用户当前有 WebSocket 连接
+        ↓
+实时推送 proactive_message_created 事件
+</code></pre><p>这里有一个非常关键的工程结论：</p>
+<p>即使最后一步 WebSocket 没推成功，</p>
+<p>前面的：</p>
+<ol>
+<li>主动消息落库</li>
+<li>主动日志落库</li>
+</ol>
+<p>也都必须已经成功。</p>
+<p>这说明：</p>
+<p>实时推送是增强层，不是主事务核心。</p>
+<hr>
+<h2 id="9-这一阶段不新增数据库表">9. 这一阶段不新增数据库表 </h2>
+<p>这一点要讲清楚。</p>
+<p>第八阶段虽然加了两个大能力：</p>
+<ol>
+<li>WebSocket</li>
+<li>Scheduler</li>
+</ol>
+<p>但它本质上都是：</p>
+<p>对第七阶段已有业务的增强</p>
+<p>所以第八阶段正常情况下：</p>
+<p>不需要新增数据库表</p>
+<p>也就不需要新增 Alembic migration。</p>
+<p>如果你发现自己第八阶段又开始想建一堆新表，通常说明设计开始偏了。</p>
+<hr>
+<h2 id="10-先补依赖和配置">10. 先补依赖和配置 </h2>
+<h2 id="101-修改-backendrequirementstxt">10.1 修改 <code>backend/requirements.txt</code> </h2>
+<p>第八阶段最重要的新依赖就是：</p>
+<p><code>APScheduler</code></p>
+<p>你不需要重写整份 <code>requirements.txt</code>，只要在文件末尾追加这一行：</p>
+<pre data-role="codeBlock" data-info="txt" class="language-txt txt"><code>APScheduler==3.10.4
+</code></pre><h3 id="为什么第八阶段这里选-apscheduler而不是-celery">为什么第八阶段这里选 APScheduler，而不是 Celery </h3>
+<p>因为你当前项目还是：</p>
+<p>单体 FastAPI + 本地数据库 + 比赛型后端</p>
+<p>这时候最适合的是：</p>
+<p>先上一个轻量、易讲、易调试的调度器。</p>
+<p>Celery 当然更强，但会立刻带来：</p>
+<ol>
+<li>broker</li>
+<li>worker</li>
+<li>任务序列化</li>
+<li>部署复杂度</li>
+</ol>
+<p>这对当前阶段明显过重。</p>
+<h2 id="102-修改-appcoreconfigpy">10.2 修改 <code>app/core/config.py</code> </h2>
+<p>第八阶段建议把下面这几个配置补进去：</p>
+<ol>
+<li><code>WS_ENABLED</code></li>
+<li><code>SCHEDULER_ENABLED</code></li>
+<li><code>SCHEDULER_SCAN_INTERVAL_MINUTES</code></li>
+<li><code>SCHEDULER_TIMEZONE</code></li>
+</ol>
+<p>完整代码如下：</p>
+<pre data-role="codeBlock" data-info="python" class="language-python python"><code><span class="token keyword keyword-from">from</span> functools <span class="token keyword keyword-import">import</span> lru_cache
+<span class="token keyword keyword-from">from</span> pathlib <span class="token keyword keyword-import">import</span> Path
+<span class="token keyword keyword-from">from</span> typing <span class="token keyword keyword-import">import</span> Annotated
+
+<span class="token keyword keyword-from">from</span> pydantic <span class="token keyword keyword-import">import</span> field_validator
+<span class="token keyword keyword-from">from</span> pydantic_settings <span class="token keyword keyword-import">import</span> BaseSettings<span class="token punctuation">,</span> NoDecode<span class="token punctuation">,</span> SettingsConfigDict
+
+BASE_DIR <span class="token operator">=</span> Path<span class="token punctuation">(</span>__file__<span class="token punctuation">)</span><span class="token punctuation">.</span>resolve<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span>parent<span class="token punctuation">.</span>parent<span class="token punctuation">.</span>parent
+PROJECT_ROOT <span class="token operator">=</span> BASE_DIR<span class="token punctuation">.</span>parent
+
+
+<span class="token keyword keyword-class">class</span> <span class="token class-name">Settings</span><span class="token punctuation">(</span>BaseSettings<span class="token punctuation">)</span><span class="token punctuation">:</span>
+    PROJECT_NAME<span class="token punctuation">:</span> <span class="token builtin">str</span> <span class="token operator">=</span> <span class="token string">"healthy_system_fastapi"</span>
+    APP_ENV<span class="token punctuation">:</span> <span class="token builtin">str</span> <span class="token operator">=</span> <span class="token string">"dev"</span>
+    DEBUG<span class="token punctuation">:</span> <span class="token builtin">bool</span> <span class="token operator">=</span> <span class="token boolean">True</span>
+    API_V1_PREFIX<span class="token punctuation">:</span> <span class="token builtin">str</span> <span class="token operator">=</span> <span class="token string">"/api/v1"</span>
+
+    DATABASE_URL<span class="token punctuation">:</span> <span class="token builtin">str</span> <span class="token operator">=</span> <span class="token string">"sqlite:///./healthy_system.db"</span>
+
+    JWT_SECRET_KEY<span class="token punctuation">:</span> <span class="token builtin">str</span> <span class="token operator">=</span> <span class="token string">"replace_this_in_production"</span>
+    JWT_ALGORITHM<span class="token punctuation">:</span> <span class="token builtin">str</span> <span class="token operator">=</span> <span class="token string">"HS256"</span>
+    JWT_ACCESS_TOKEN_EXPIRE_MINUTES<span class="token punctuation">:</span> <span class="token builtin">int</span> <span class="token operator">=</span> <span class="token number">120</span>
+    JWT_REFRESH_TOKEN_EXPIRE_DAYS<span class="token punctuation">:</span> <span class="token builtin">int</span> <span class="token operator">=</span> <span class="token number">7</span>
+
+    LLM_PROVIDER<span class="token punctuation">:</span> <span class="token builtin">str</span> <span class="token operator">=</span> <span class="token string">"dashscope"</span>
+    LLM_API_KEY<span class="token punctuation">:</span> <span class="token builtin">str</span> <span class="token operator">=</span> <span class="token string">""</span>
+    LLM_BASE_URL<span class="token punctuation">:</span> <span class="token builtin">str</span> <span class="token operator">=</span> <span class="token string">""</span>
+    LLM_MODEL_NAME<span class="token punctuation">:</span> <span class="token builtin">str</span> <span class="token operator">=</span> <span class="token string">"qwen-plus"</span>
+
+    WS_ENABLED<span class="token punctuation">:</span> <span class="token builtin">bool</span> <span class="token operator">=</span> <span class="token boolean">True</span>
+    SCHEDULER_ENABLED<span class="token punctuation">:</span> <span class="token builtin">bool</span> <span class="token operator">=</span> <span class="token boolean">True</span>
+    SCHEDULER_SCAN_INTERVAL_MINUTES<span class="token punctuation">:</span> <span class="token builtin">int</span> <span class="token operator">=</span> <span class="token number">30</span>
+    SCHEDULER_TIMEZONE<span class="token punctuation">:</span> <span class="token builtin">str</span> <span class="token operator">=</span> <span class="token string">"Asia/Shanghai"</span>
+
+    BACKEND_CORS_ORIGINS<span class="token punctuation">:</span> Annotated<span class="token punctuation">[</span><span class="token builtin">list</span><span class="token punctuation">[</span><span class="token builtin">str</span><span class="token punctuation">]</span><span class="token punctuation">,</span> NoDecode<span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token punctuation">[</span>
+        <span class="token string">"http://localhost:5173"</span><span class="token punctuation">,</span>
+        <span class="token string">"http://127.0.0.1:5173"</span><span class="token punctuation">,</span>
+    <span class="token punctuation">]</span>
+
+    <span class="token decorator annotation punctuation">@field_validator</span><span class="token punctuation">(</span><span class="token string">"BACKEND_CORS_ORIGINS"</span><span class="token punctuation">,</span> mode<span class="token operator">=</span><span class="token string">"before"</span><span class="token punctuation">)</span>
+    <span class="token decorator annotation punctuation">@classmethod</span>
+    <span class="token keyword keyword-def">def</span> <span class="token function">parse_cors_origins</span><span class="token punctuation">(</span>cls<span class="token punctuation">,</span> value<span class="token punctuation">)</span><span class="token punctuation">:</span>
+        <span class="token keyword keyword-if">if</span> <span class="token builtin">isinstance</span><span class="token punctuation">(</span>value<span class="token punctuation">,</span> <span class="token builtin">str</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+            <span class="token keyword keyword-if">if</span> <span class="token keyword keyword-not">not</span> value<span class="token punctuation">.</span>strip<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+                <span class="token keyword keyword-return">return</span> <span class="token punctuation">[</span><span class="token punctuation">]</span>
+            <span class="token keyword keyword-return">return</span> <span class="token punctuation">[</span>item<span class="token punctuation">.</span>strip<span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token keyword keyword-for">for</span> item <span class="token keyword keyword-in">in</span> value<span class="token punctuation">.</span>split<span class="token punctuation">(</span><span class="token string">","</span><span class="token punctuation">)</span> <span class="token keyword keyword-if">if</span> item<span class="token punctuation">.</span>strip<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">]</span>
+        <span class="token keyword keyword-return">return</span> value
+
+    model_config <span class="token operator">=</span> SettingsConfigDict<span class="token punctuation">(</span>
+        env_file<span class="token operator">=</span><span class="token punctuation">(</span>BASE_DIR <span class="token operator">/</span> <span class="token string">".env"</span><span class="token punctuation">,</span> PROJECT_ROOT <span class="token operator">/</span> <span class="token string">".env"</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+        env_file_encoding<span class="token operator">=</span><span class="token string">"utf-8"</span><span class="token punctuation">,</span>
+        env_ignore_empty<span class="token operator">=</span><span class="token boolean">True</span><span class="token punctuation">,</span>
+        extra<span class="token operator">=</span><span class="token string">"ignore"</span><span class="token punctuation">,</span>
+    <span class="token punctuation">)</span>
+
+
+<span class="token decorator annotation punctuation">@lru_cache</span>
+<span class="token keyword keyword-def">def</span> <span class="token function">get_settings</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">-</span><span class="token operator">&gt;</span> Settings<span class="token punctuation">:</span>
+    <span class="token keyword keyword-return">return</span> Settings<span class="token punctuation">(</span><span class="token punctuation">)</span>
+
+
+settings <span class="token operator">=</span> get_settings<span class="token punctuation">(</span><span class="token punctuation">)</span>
+</code></pre><h3 id="103-这一阶段建议补的-envexample">10.3 这一阶段建议补的 <code>.env.example</code> </h3>
+<p>建议把下面几行加到 <code>.env.example</code>：</p>
+<pre data-role="codeBlock" data-info="dotenv" class="language-dotenv dotenv"><code>WS_ENABLED=true
+SCHEDULER_ENABLED=true
+SCHEDULER_SCAN_INTERVAL_MINUTES=30
+SCHEDULER_TIMEZONE=Asia/Shanghai
+</code></pre><p>如果你想更方便地演示 Scheduler，可以临时改成：</p>
+<pre data-role="codeBlock" data-info="dotenv" class="language-dotenv dotenv"><code>SCHEDULER_SCAN_INTERVAL_MINUTES=1
+</code></pre><p>这样你不用等太久就能看到自动巡检效果。</p>
+<hr>
+<h2 id="11-先把实时连接管理器写出来">11. 先把实时连接管理器写出来 </h2>
+<p>这一层是 WebSocket 最值得独立出来的一层。</p>
+<p>它负责：</p>
+<ol>
+<li>用户连接登记</li>
+<li>断线清理</li>
+<li>向某个用户发送 JSON 事件</li>
+<li>给同步业务代码提供“线程安全推送入口”</li>
+</ol>
+<h3 id="111-新建-appwsmanagerpy">11.1 新建 <code>app/ws/manager.py</code> </h3>
+<p>完整代码如下：</p>
+<pre data-role="codeBlock" data-info="python" class="language-python python"><code><span class="token keyword keyword-from">from</span> __future__ <span class="token keyword keyword-import">import</span> annotations
+
+<span class="token keyword keyword-import">import</span> asyncio
+<span class="token keyword keyword-from">from</span> collections <span class="token keyword keyword-import">import</span> defaultdict
+<span class="token keyword keyword-from">from</span> threading <span class="token keyword keyword-import">import</span> Lock
+<span class="token keyword keyword-from">from</span> typing <span class="token keyword keyword-import">import</span> Any
+
+<span class="token keyword keyword-from">from</span> fastapi <span class="token keyword keyword-import">import</span> WebSocket
+
+
+<span class="token keyword keyword-class">class</span> <span class="token class-name">ConnectionManager</span><span class="token punctuation">:</span>
+    <span class="token keyword keyword-def">def</span> <span class="token function">__init__</span><span class="token punctuation">(</span>self<span class="token punctuation">)</span> <span class="token operator">-</span><span class="token operator">&gt;</span> <span class="token boolean">None</span><span class="token punctuation">:</span>
+        self<span class="token punctuation">.</span>_connections<span class="token punctuation">:</span> <span class="token builtin">dict</span><span class="token punctuation">[</span><span class="token builtin">int</span><span class="token punctuation">,</span> <span class="token builtin">set</span><span class="token punctuation">[</span>WebSocket<span class="token punctuation">]</span><span class="token punctuation">]</span> <span class="token operator">=</span> defaultdict<span class="token punctuation">(</span><span class="token builtin">set</span><span class="token punctuation">)</span>
+        self<span class="token punctuation">.</span>_lock <span class="token operator">=</span> Lock<span class="token punctuation">(</span><span class="token punctuation">)</span>
+        self<span class="token punctuation">.</span>_loop<span class="token punctuation">:</span> asyncio<span class="token punctuation">.</span>AbstractEventLoop <span class="token operator">|</span> <span class="token boolean">None</span> <span class="token operator">=</span> <span class="token boolean">None</span>
+
+    <span class="token keyword keyword-def">def</span> <span class="token function">bind_loop</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span> loop<span class="token punctuation">:</span> asyncio<span class="token punctuation">.</span>AbstractEventLoop<span class="token punctuation">)</span> <span class="token operator">-</span><span class="token operator">&gt;</span> <span class="token boolean">None</span><span class="token punctuation">:</span>
+        self<span class="token punctuation">.</span>_loop <span class="token operator">=</span> loop
+
+    <span class="token keyword keyword-async">async</span> <span class="token keyword keyword-def">def</span> <span class="token function">connect</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span> user_id<span class="token punctuation">:</span> <span class="token builtin">int</span><span class="token punctuation">,</span> websocket<span class="token punctuation">:</span> WebSocket<span class="token punctuation">)</span> <span class="token operator">-</span><span class="token operator">&gt;</span> <span class="token boolean">None</span><span class="token punctuation">:</span>
+        <span class="token keyword keyword-await">await</span> websocket<span class="token punctuation">.</span>accept<span class="token punctuation">(</span><span class="token punctuation">)</span>
+        <span class="token keyword keyword-with">with</span> self<span class="token punctuation">.</span>_lock<span class="token punctuation">:</span>
+            self<span class="token punctuation">.</span>_connections<span class="token punctuation">[</span>user_id<span class="token punctuation">]</span><span class="token punctuation">.</span>add<span class="token punctuation">(</span>websocket<span class="token punctuation">)</span>
+
+    <span class="token keyword keyword-def">def</span> <span class="token function">disconnect</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span> user_id<span class="token punctuation">:</span> <span class="token builtin">int</span><span class="token punctuation">,</span> websocket<span class="token punctuation">:</span> WebSocket<span class="token punctuation">)</span> <span class="token operator">-</span><span class="token operator">&gt;</span> <span class="token boolean">None</span><span class="token punctuation">:</span>
+        <span class="token keyword keyword-with">with</span> self<span class="token punctuation">.</span>_lock<span class="token punctuation">:</span>
+            sockets <span class="token operator">=</span> self<span class="token punctuation">.</span>_connections<span class="token punctuation">.</span>get<span class="token punctuation">(</span>user_id<span class="token punctuation">)</span>
+            <span class="token keyword keyword-if">if</span> <span class="token keyword keyword-not">not</span> sockets<span class="token punctuation">:</span>
+                <span class="token keyword keyword-return">return</span>
+
+            sockets<span class="token punctuation">.</span>discard<span class="token punctuation">(</span>websocket<span class="token punctuation">)</span>
+            <span class="token keyword keyword-if">if</span> <span class="token keyword keyword-not">not</span> sockets<span class="token punctuation">:</span>
+                self<span class="token punctuation">.</span>_connections<span class="token punctuation">.</span>pop<span class="token punctuation">(</span>user_id<span class="token punctuation">,</span> <span class="token boolean">None</span><span class="token punctuation">)</span>
+
+    <span class="token keyword keyword-async">async</span> <span class="token keyword keyword-def">def</span> <span class="token function">send_json_to_user</span><span class="token punctuation">(</span>
+        self<span class="token punctuation">,</span>
+        user_id<span class="token punctuation">:</span> <span class="token builtin">int</span><span class="token punctuation">,</span>
+        payload<span class="token punctuation">:</span> <span class="token builtin">dict</span><span class="token punctuation">[</span><span class="token builtin">str</span><span class="token punctuation">,</span> Any<span class="token punctuation">]</span><span class="token punctuation">,</span>
+    <span class="token punctuation">)</span> <span class="token operator">-</span><span class="token operator">&gt;</span> <span class="token builtin">int</span><span class="token punctuation">:</span>
+        <span class="token keyword keyword-with">with</span> self<span class="token punctuation">.</span>_lock<span class="token punctuation">:</span>
+            sockets <span class="token operator">=</span> <span class="token builtin">list</span><span class="token punctuation">(</span>self<span class="token punctuation">.</span>_connections<span class="token punctuation">.</span>get<span class="token punctuation">(</span>user_id<span class="token punctuation">,</span> <span class="token builtin">set</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+
+        delivered_count <span class="token operator">=</span> <span class="token number">0</span>
+        broken_sockets<span class="token punctuation">:</span> <span class="token builtin">list</span><span class="token punctuation">[</span>WebSocket<span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token punctuation">]</span>
+
+        <span class="token keyword keyword-for">for</span> websocket <span class="token keyword keyword-in">in</span> sockets<span class="token punctuation">:</span>
+            <span class="token keyword keyword-try">try</span><span class="token punctuation">:</span>
+                <span class="token keyword keyword-await">await</span> websocket<span class="token punctuation">.</span>send_json<span class="token punctuation">(</span>payload<span class="token punctuation">)</span>
+                delivered_count <span class="token operator">+=</span> <span class="token number">1</span>
+            <span class="token keyword keyword-except">except</span> Exception<span class="token punctuation">:</span>
+                broken_sockets<span class="token punctuation">.</span>append<span class="token punctuation">(</span>websocket<span class="token punctuation">)</span>
+
+        <span class="token keyword keyword-for">for</span> websocket <span class="token keyword keyword-in">in</span> broken_sockets<span class="token punctuation">:</span>
+            self<span class="token punctuation">.</span>disconnect<span class="token punctuation">(</span>user_id<span class="token punctuation">,</span> websocket<span class="token punctuation">)</span>
+
+        <span class="token keyword keyword-return">return</span> delivered_count
+
+    <span class="token keyword keyword-def">def</span> <span class="token function">send_json_to_user_sync</span><span class="token punctuation">(</span>
+        self<span class="token punctuation">,</span>
+        user_id<span class="token punctuation">:</span> <span class="token builtin">int</span><span class="token punctuation">,</span>
+        payload<span class="token punctuation">:</span> <span class="token builtin">dict</span><span class="token punctuation">[</span><span class="token builtin">str</span><span class="token punctuation">,</span> Any<span class="token punctuation">]</span><span class="token punctuation">,</span>
+        timeout<span class="token punctuation">:</span> <span class="token builtin">float</span> <span class="token operator">=</span> <span class="token number">5</span><span class="token punctuation">,</span>
+    <span class="token punctuation">)</span> <span class="token operator">-</span><span class="token operator">&gt;</span> <span class="token builtin">int</span><span class="token punctuation">:</span>
+        <span class="token keyword keyword-if">if</span> self<span class="token punctuation">.</span>_loop <span class="token keyword keyword-is">is</span> <span class="token boolean">None</span> <span class="token keyword keyword-or">or</span> self<span class="token punctuation">.</span>_loop<span class="token punctuation">.</span>is_closed<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+            <span class="token keyword keyword-return">return</span> <span class="token number">0</span>
+
+        future <span class="token operator">=</span> asyncio<span class="token punctuation">.</span>run_coroutine_threadsafe<span class="token punctuation">(</span>
+            self<span class="token punctuation">.</span>send_json_to_user<span class="token punctuation">(</span>user_id<span class="token punctuation">,</span> payload<span class="token punctuation">)</span><span class="token punctuation">,</span>
+            self<span class="token punctuation">.</span>_loop<span class="token punctuation">,</span>
+        <span class="token punctuation">)</span>
+        <span class="token keyword keyword-try">try</span><span class="token punctuation">:</span>
+            <span class="token keyword keyword-return">return</span> future<span class="token punctuation">.</span>result<span class="token punctuation">(</span>timeout<span class="token operator">=</span>timeout<span class="token punctuation">)</span>
+        <span class="token keyword keyword-except">except</span> Exception<span class="token punctuation">:</span>
+            <span class="token keyword keyword-return">return</span> <span class="token number">0</span>
+
+    <span class="token keyword keyword-def">def</span> <span class="token function">count_for_user</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span> user_id<span class="token punctuation">:</span> <span class="token builtin">int</span><span class="token punctuation">)</span> <span class="token operator">-</span><span class="token operator">&gt;</span> <span class="token builtin">int</span><span class="token punctuation">:</span>
+        <span class="token keyword keyword-with">with</span> self<span class="token punctuation">.</span>_lock<span class="token punctuation">:</span>
+            <span class="token keyword keyword-return">return</span> <span class="token builtin">len</span><span class="token punctuation">(</span>self<span class="token punctuation">.</span>_connections<span class="token punctuation">.</span>get<span class="token punctuation">(</span>user_id<span class="token punctuation">,</span> <span class="token builtin">set</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+
+    <span class="token keyword keyword-def">def</span> <span class="token function">reset</span><span class="token punctuation">(</span>self<span class="token punctuation">)</span> <span class="token operator">-</span><span class="token operator">&gt;</span> <span class="token boolean">None</span><span class="token punctuation">:</span>
+        <span class="token keyword keyword-with">with</span> self<span class="token punctuation">.</span>_lock<span class="token punctuation">:</span>
+            self<span class="token punctuation">.</span>_connections<span class="token punctuation">.</span>clear<span class="token punctuation">(</span><span class="token punctuation">)</span>
+        self<span class="token punctuation">.</span>_loop <span class="token operator">=</span> <span class="token boolean">None</span>
+
+
+realtime_manager <span class="token operator">=</span> ConnectionManager<span class="token punctuation">(</span><span class="token punctuation">)</span>
+</code></pre><h3 id="112-这份代码的关键点">11.2 这份代码的关键点 </h3>
+<h4 id="1-为什么这里按-user_id-管理连接">1. 为什么这里按 <code>user_id</code> 管理连接 </h4>
+<p>因为你当前正式后端主链路已经全面按 <code>user_id</code> 统一了。</p>
+<p>比如：</p>
+<ol>
+<li><code>Conversation.user_id</code></li>
+<li><code>Record.user_id</code></li>
+<li><code>ActiveLog.user_id</code></li>
+<li>第七阶段推荐的 <code>ProactiveWindow.user_id</code></li>
+<li>第七阶段推荐的 <code>ProactiveMessage.user_id</code></li>
+</ol>
+<p>所以第八阶段的 WebSocket 也应该继续按 <code>user_id</code> 管。</p>
+<p>不要再回退到旧草稿那种按 <code>profile_id</code> 管理连接的写法。</p>
+<h4 id="2-为什么这里要有-send_json_to_user_sync">2. 为什么这里要有 <code>send_json_to_user_sync</code> </h4>
+<p>这是第八阶段最容易忽略、但最关键的一点。</p>
+<p>因为：</p>
+<ol>
+<li>WebSocket 发送本身是异步的</li>
+<li>但你的 <code>proactive_service</code> 和 APScheduler 任务都是同步调用风格</li>
+</ol>
+<p>所以这里必须有一个桥接方法，让同步业务代码也能安全触发实时推送。</p>
+<h4 id="3-为什么推送失败时返回-0而不是抛异常">3. 为什么推送失败时返回 0，而不是抛异常 </h4>
+<p>因为实时推送是增强层。</p>
+<p>它失败了，不应该把：</p>
+<ol>
+<li>主动消息落库</li>
+<li>主动日志落库</li>
+</ol>
+<p>整个都搞失败。</p>
+<p>这也是第八阶段最重要的稳定性原则之一。</p>
+<hr>
+<h2 id="12-再定义一个最小实时推送-schema">12. 再定义一个最小实时推送 schema </h2>
+<p>虽然 WebSocket 不像 HTTP 那样强制 response_model，但第八阶段最好还是给测试推送准备一份干净的 schema。</p>
+<h3 id="121-新建-appschemasrealtimepy">12.1 新建 <code>app/schemas/realtime.py</code> </h3>
+<p>完整代码如下：</p>
+<pre data-role="codeBlock" data-info="python" class="language-python python"><code><span class="token keyword keyword-from">from</span> pydantic <span class="token keyword keyword-import">import</span> BaseModel<span class="token punctuation">,</span> Field
+
+
+<span class="token keyword keyword-class">class</span> <span class="token class-name">RealtimePushTestRequest</span><span class="token punctuation">(</span>BaseModel<span class="token punctuation">)</span><span class="token punctuation">:</span>
+    content<span class="token punctuation">:</span> <span class="token builtin">str</span> <span class="token operator">=</span> Field<span class="token punctuation">(</span><span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">,</span> min_length<span class="token operator">=</span><span class="token number">1</span><span class="token punctuation">,</span> max_length<span class="token operator">=</span><span class="token number">500</span><span class="token punctuation">)</span>
+
+
+<span class="token keyword keyword-class">class</span> <span class="token class-name">RealtimePushTestData</span><span class="token punctuation">(</span>BaseModel<span class="token punctuation">)</span><span class="token punctuation">:</span>
+    event<span class="token punctuation">:</span> <span class="token builtin">str</span>
+    content<span class="token punctuation">:</span> <span class="token builtin">str</span>
+    delivered_connection_count<span class="token punctuation">:</span> <span class="token builtin">int</span>
+</code></pre><h3 id="122-为什么这里还要单独建-schema">12.2 为什么这里还要单独建 schema </h3>
+<p>因为第八阶段不只是写 WebSocket 路由，还建议你保留一个：</p>
+<p>HTTP 测试推送接口</p>
+<p>这样你就能把排障拆成两步：</p>
+<ol>
+<li>先证明 WebSocket 能连上</li>
+<li>再证明后端能主动推消息</li>
+</ol>
+<p>有了这个测试接口，联调会容易很多。</p>
+<hr>
+<h2 id="13-写实时路由">13. 写实时路由 </h2>
+<p>这一层建议同时提供：</p>
+<ol>
+<li>WebSocket 连接入口</li>
+<li>一个 HTTP 测试推送入口</li>
+</ol>
+<h3 id="131-为什么这里不建议直接在-websocket-上做复杂认证依赖">13.1 为什么这里不建议直接在 WebSocket 上做复杂认证依赖 </h3>
+<p>很多人会想直接把：</p>
+<p><code>Depends(get_current_active_user)</code></p>
+<p>塞进 WebSocket 路由。</p>
+<p>技术上不是完全不行，但有个问题：</p>
+<p><code>get_db</code> 这种请求级依赖，会把数据库会话跟着整个 WebSocket 长连接一起存活。</p>
+<p>而 WebSocket 可能持续几分钟、几十分钟，甚至更久。</p>
+<p>这会让数据库会话生命周期很别扭。</p>
+<p>所以第八阶段更稳的做法是：</p>
+<ol>
+<li>WebSocket 只拿 <code>token</code></li>
+<li>自己短暂开一个 <code>SessionLocal()</code></li>
+<li>做完用户鉴权立刻关闭数据库会话</li>
+</ol>
+<p>这样长连接更干净。</p>
+<h3 id="132-新建-appapiroutesrealtimepy">13.2 新建 <code>app/api/routes/realtime.py</code> </h3>
+<p>完整代码如下：</p>
+<pre data-role="codeBlock" data-info="python" class="language-python python"><code><span class="token keyword keyword-from">from</span> __future__ <span class="token keyword keyword-import">import</span> annotations
+
+<span class="token keyword keyword-from">from</span> datetime <span class="token keyword keyword-import">import</span> UTC<span class="token punctuation">,</span> datetime
+
+<span class="token keyword keyword-from">from</span> fastapi <span class="token keyword keyword-import">import</span> APIRouter<span class="token punctuation">,</span> Depends<span class="token punctuation">,</span> Query<span class="token punctuation">,</span> WebSocket<span class="token punctuation">,</span> WebSocketDisconnect
+
+<span class="token keyword keyword-from">from</span> app<span class="token punctuation">.</span>api<span class="token punctuation">.</span>deps <span class="token keyword keyword-import">import</span> get_current_active_user
+<span class="token keyword keyword-from">from</span> app<span class="token punctuation">.</span>core<span class="token punctuation">.</span>config <span class="token keyword keyword-import">import</span> settings
+<span class="token keyword keyword-from">from</span> app<span class="token punctuation">.</span>core<span class="token punctuation">.</span>exception <span class="token keyword keyword-import">import</span> BusinessException
+<span class="token keyword keyword-from">from</span> app<span class="token punctuation">.</span>core<span class="token punctuation">.</span>response <span class="token keyword keyword-import">import</span> success_response
+<span class="token keyword keyword-from">from</span> app<span class="token punctuation">.</span>core<span class="token punctuation">.</span>security <span class="token keyword keyword-import">import</span> InvalidTokenError<span class="token punctuation">,</span> decode_access_token
+<span class="token keyword keyword-from">from</span> app<span class="token punctuation">.</span>db<span class="token punctuation">.</span>session <span class="token keyword keyword-import">import</span> SessionLocal
+<span class="token keyword keyword-from">from</span> app<span class="token punctuation">.</span>models<span class="token punctuation">.</span>user <span class="token keyword keyword-import">import</span> User
+<span class="token keyword keyword-from">from</span> app<span class="token punctuation">.</span>schemas<span class="token punctuation">.</span>common <span class="token keyword keyword-import">import</span> ApiResponse
+<span class="token keyword keyword-from">from</span> app<span class="token punctuation">.</span>schemas<span class="token punctuation">.</span>realtime <span class="token keyword keyword-import">import</span> RealtimePushTestData<span class="token punctuation">,</span> RealtimePushTestRequest
+<span class="token keyword keyword-from">from</span> app<span class="token punctuation">.</span>ws<span class="token punctuation">.</span>manager <span class="token keyword keyword-import">import</span> realtime_manager
+
+router <span class="token operator">=</span> APIRouter<span class="token punctuation">(</span>prefix<span class="token operator">=</span><span class="token string">"/realtime"</span><span class="token punctuation">,</span> tags<span class="token operator">=</span><span class="token punctuation">[</span><span class="token string">"realtime"</span><span class="token punctuation">]</span><span class="token punctuation">)</span>
+
+
+<span class="token keyword keyword-def">def</span> <span class="token function">authenticate_websocket_user</span><span class="token punctuation">(</span>token<span class="token punctuation">:</span> <span class="token builtin">str</span><span class="token punctuation">)</span> <span class="token operator">-</span><span class="token operator">&gt;</span> User<span class="token punctuation">:</span>
+    credentials_error <span class="token operator">=</span> BusinessException<span class="token punctuation">(</span>
+        code<span class="token operator">=</span><span class="token number">40100</span><span class="token punctuation">,</span>
+        message<span class="token operator">=</span><span class="token string">"invalid or expired token"</span><span class="token punctuation">,</span>
+        status_code<span class="token operator">=</span><span class="token number">401</span><span class="token punctuation">,</span>
+    <span class="token punctuation">)</span>
+
+    <span class="token keyword keyword-try">try</span><span class="token punctuation">:</span>
+        payload <span class="token operator">=</span> decode_access_token<span class="token punctuation">(</span>token<span class="token punctuation">)</span>
+    <span class="token keyword keyword-except">except</span> InvalidTokenError<span class="token punctuation">:</span>
+        <span class="token keyword keyword-raise">raise</span> credentials_error
+
+    user_id <span class="token operator">=</span> payload<span class="token punctuation">.</span>get<span class="token punctuation">(</span><span class="token string">"sub"</span><span class="token punctuation">)</span>
+    <span class="token keyword keyword-if">if</span> <span class="token keyword keyword-not">not</span> user_id<span class="token punctuation">:</span>
+        <span class="token keyword keyword-raise">raise</span> credentials_error
+
+    db <span class="token operator">=</span> SessionLocal<span class="token punctuation">(</span><span class="token punctuation">)</span>
+    <span class="token keyword keyword-try">try</span><span class="token punctuation">:</span>
+        user <span class="token operator">=</span> db<span class="token punctuation">.</span>get<span class="token punctuation">(</span>User<span class="token punctuation">,</span> <span class="token builtin">int</span><span class="token punctuation">(</span>user_id<span class="token punctuation">)</span><span class="token punctuation">)</span>
+        <span class="token keyword keyword-if">if</span> <span class="token keyword keyword-not">not</span> user<span class="token punctuation">:</span>
+            <span class="token keyword keyword-raise">raise</span> credentials_error
+        <span class="token keyword keyword-if">if</span> <span class="token keyword keyword-not">not</span> user<span class="token punctuation">.</span>is_active<span class="token punctuation">:</span>
+            <span class="token keyword keyword-raise">raise</span> BusinessException<span class="token punctuation">(</span>
+                code<span class="token operator">=</span><span class="token number">40300</span><span class="token punctuation">,</span>
+                message<span class="token operator">=</span><span class="token string">"inactive user"</span><span class="token punctuation">,</span>
+                status_code<span class="token operator">=</span><span class="token number">403</span><span class="token punctuation">,</span>
+            <span class="token punctuation">)</span>
+        <span class="token keyword keyword-return">return</span> user
+    <span class="token keyword keyword-finally">finally</span><span class="token punctuation">:</span>
+        db<span class="token punctuation">.</span>close<span class="token punctuation">(</span><span class="token punctuation">)</span>
+
+
+<span class="token decorator annotation punctuation">@router<span class="token punctuation">.</span>websocket</span><span class="token punctuation">(</span><span class="token string">"/ws"</span><span class="token punctuation">)</span>
+<span class="token keyword keyword-async">async</span> <span class="token keyword keyword-def">def</span> <span class="token function">websocket_endpoint</span><span class="token punctuation">(</span>
+    websocket<span class="token punctuation">:</span> WebSocket<span class="token punctuation">,</span>
+    token<span class="token punctuation">:</span> <span class="token builtin">str</span> <span class="token operator">=</span> Query<span class="token punctuation">(</span><span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+<span class="token punctuation">)</span><span class="token punctuation">:</span>
+    <span class="token keyword keyword-if">if</span> <span class="token keyword keyword-not">not</span> settings<span class="token punctuation">.</span>WS_ENABLED<span class="token punctuation">:</span>
+        <span class="token keyword keyword-await">await</span> websocket<span class="token punctuation">.</span>close<span class="token punctuation">(</span>code<span class="token operator">=</span><span class="token number">1008</span><span class="token punctuation">,</span> reason<span class="token operator">=</span><span class="token string">"websocket is disabled"</span><span class="token punctuation">)</span>
+        <span class="token keyword keyword-return">return</span>
+
+    <span class="token keyword keyword-try">try</span><span class="token punctuation">:</span>
+        current_user <span class="token operator">=</span> authenticate_websocket_user<span class="token punctuation">(</span>token<span class="token punctuation">)</span>
+    <span class="token keyword keyword-except">except</span> BusinessException <span class="token keyword keyword-as">as</span> exc<span class="token punctuation">:</span>
+        <span class="token keyword keyword-await">await</span> websocket<span class="token punctuation">.</span>close<span class="token punctuation">(</span>code<span class="token operator">=</span><span class="token number">1008</span><span class="token punctuation">,</span> reason<span class="token operator">=</span>exc<span class="token punctuation">.</span>message<span class="token punctuation">)</span>
+        <span class="token keyword keyword-return">return</span>
+
+    <span class="token keyword keyword-await">await</span> realtime_manager<span class="token punctuation">.</span>connect<span class="token punctuation">(</span>current_user<span class="token punctuation">.</span><span class="token builtin">id</span><span class="token punctuation">,</span> websocket<span class="token punctuation">)</span>
+    <span class="token keyword keyword-await">await</span> realtime_manager<span class="token punctuation">.</span>send_json_to_user<span class="token punctuation">(</span>
+        current_user<span class="token punctuation">.</span><span class="token builtin">id</span><span class="token punctuation">,</span>
+        <span class="token punctuation">{</span>
+            <span class="token string">"event"</span><span class="token punctuation">:</span> <span class="token string">"connected"</span><span class="token punctuation">,</span>
+            <span class="token string">"message"</span><span class="token punctuation">:</span> <span class="token string">"realtime channel connected"</span><span class="token punctuation">,</span>
+            <span class="token string">"user_id"</span><span class="token punctuation">:</span> current_user<span class="token punctuation">.</span><span class="token builtin">id</span><span class="token punctuation">,</span>
+            <span class="token string">"connected_at"</span><span class="token punctuation">:</span> datetime<span class="token punctuation">.</span>now<span class="token punctuation">(</span>UTC<span class="token punctuation">)</span><span class="token punctuation">.</span>isoformat<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+        <span class="token punctuation">}</span><span class="token punctuation">,</span>
+    <span class="token punctuation">)</span>
+
+    <span class="token keyword keyword-try">try</span><span class="token punctuation">:</span>
+        <span class="token keyword keyword-while">while</span> <span class="token boolean">True</span><span class="token punctuation">:</span>
+            text <span class="token operator">=</span> <span class="token keyword keyword-await">await</span> websocket<span class="token punctuation">.</span>receive_text<span class="token punctuation">(</span><span class="token punctuation">)</span>
+            <span class="token keyword keyword-if">if</span> text<span class="token punctuation">.</span>strip<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span>lower<span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">==</span> <span class="token string">"ping"</span><span class="token punctuation">:</span>
+                <span class="token keyword keyword-await">await</span> websocket<span class="token punctuation">.</span>send_json<span class="token punctuation">(</span>
+                    <span class="token punctuation">{</span>
+                        <span class="token string">"event"</span><span class="token punctuation">:</span> <span class="token string">"pong"</span><span class="token punctuation">,</span>
+                        <span class="token string">"message"</span><span class="token punctuation">:</span> <span class="token string">"pong"</span><span class="token punctuation">,</span>
+                        <span class="token string">"sent_at"</span><span class="token punctuation">:</span> datetime<span class="token punctuation">.</span>now<span class="token punctuation">(</span>UTC<span class="token punctuation">)</span><span class="token punctuation">.</span>isoformat<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+                    <span class="token punctuation">}</span>
+                <span class="token punctuation">)</span>
+    <span class="token keyword keyword-except">except</span> WebSocketDisconnect<span class="token punctuation">:</span>
+        realtime_manager<span class="token punctuation">.</span>disconnect<span class="token punctuation">(</span>current_user<span class="token punctuation">.</span><span class="token builtin">id</span><span class="token punctuation">,</span> websocket<span class="token punctuation">)</span>
+    <span class="token keyword keyword-except">except</span> Exception<span class="token punctuation">:</span>
+        realtime_manager<span class="token punctuation">.</span>disconnect<span class="token punctuation">(</span>current_user<span class="token punctuation">.</span><span class="token builtin">id</span><span class="token punctuation">,</span> websocket<span class="token punctuation">)</span>
+        <span class="token keyword keyword-raise">raise</span>
+
+
+<span class="token decorator annotation punctuation">@router<span class="token punctuation">.</span>post</span><span class="token punctuation">(</span>
+    <span class="token string">"/test-push/me"</span><span class="token punctuation">,</span>
+    response_model<span class="token operator">=</span>ApiResponse<span class="token punctuation">[</span>RealtimePushTestData<span class="token punctuation">]</span><span class="token punctuation">,</span>
+<span class="token punctuation">)</span>
+<span class="token keyword keyword-def">def</span> <span class="token function">send_test_push_to_current_user</span><span class="token punctuation">(</span>
+    payload<span class="token punctuation">:</span> RealtimePushTestRequest<span class="token punctuation">,</span>
+    current_user<span class="token punctuation">:</span> User <span class="token operator">=</span> Depends<span class="token punctuation">(</span>get_current_active_user<span class="token punctuation">)</span><span class="token punctuation">,</span>
+<span class="token punctuation">)</span><span class="token punctuation">:</span>
+    delivered_connection_count <span class="token operator">=</span> realtime_manager<span class="token punctuation">.</span>send_json_to_user_sync<span class="token punctuation">(</span>
+        current_user<span class="token punctuation">.</span><span class="token builtin">id</span><span class="token punctuation">,</span>
+        <span class="token punctuation">{</span>
+            <span class="token string">"event"</span><span class="token punctuation">:</span> <span class="token string">"manual_test_push"</span><span class="token punctuation">,</span>
+            <span class="token string">"data"</span><span class="token punctuation">:</span> <span class="token punctuation">{</span>
+                <span class="token string">"content"</span><span class="token punctuation">:</span> payload<span class="token punctuation">.</span>content<span class="token punctuation">,</span>
+                <span class="token string">"sent_at"</span><span class="token punctuation">:</span> datetime<span class="token punctuation">.</span>now<span class="token punctuation">(</span>UTC<span class="token punctuation">)</span><span class="token punctuation">.</span>isoformat<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+            <span class="token punctuation">}</span><span class="token punctuation">,</span>
+        <span class="token punctuation">}</span><span class="token punctuation">,</span>
+    <span class="token punctuation">)</span>
+    <span class="token keyword keyword-return">return</span> success_response<span class="token punctuation">(</span>
+        data<span class="token operator">=</span>RealtimePushTestData<span class="token punctuation">(</span>
+            event<span class="token operator">=</span><span class="token string">"manual_test_push"</span><span class="token punctuation">,</span>
+            content<span class="token operator">=</span>payload<span class="token punctuation">.</span>content<span class="token punctuation">,</span>
+            delivered_connection_count<span class="token operator">=</span>delivered_connection_count<span class="token punctuation">,</span>
+        <span class="token punctuation">)</span><span class="token punctuation">,</span>
+        message<span class="token operator">=</span><span class="token string">"realtime push sent"</span><span class="token punctuation">,</span>
+    <span class="token punctuation">)</span>
+</code></pre><h3 id="133-这份实时路由在做什么">13.3 这份实时路由在做什么 </h3>
+<h4 id="1-get--post-都没有websocket-走的是-routerwebsocket">1. <code>GET</code> / <code>POST</code> 都没有，WebSocket 走的是 <code>@router.websocket</code> </h4>
+<p>它最终会提供一个类似下面的连接入口：</p>
+<p><code>ws://127.0.0.1:8000/api/v1/realtime/ws?token=你的JWT</code></p>
+<p>这里要注意，因为这个路由挂在 <code>api_router</code> 里，所以路径前面仍然会带：</p>
+<p><code>/api/v1</code></p>
+<h4 id="2-为什么欢迎消息还要走-manager-发">2. 为什么欢迎消息还要走 manager 发 </h4>
+<p>因为这能保证：</p>
+<p>你后续所有实时消息都走同一个发送口径。</p>
+<p>也就是说：</p>
+<ol>
+<li>测试消息走 manager</li>
+<li>主动消息走 manager</li>
+<li>欢迎消息也走 manager</li>
+</ol>
+<p>这会让第八阶段结构更统一。</p>
+<h4 id="3-为什么测试推送接口保留-http">3. 为什么测试推送接口保留 HTTP </h4>
+<p>因为这能让你把 WebSocket 调试从业务调试里分离出来。</p>
+<p>当你怀疑：</p>
+<p>“为什么前端没收到实时消息”</p>
+<p>你就可以先调用：</p>
+<p><code>POST /api/v1/realtime/test-push/me</code></p>
+<p>如果这都收不到，那问题通常就不在主动服务，而在：</p>
+<ol>
+<li>连接没建好</li>
+<li>token 不对</li>
+<li>前端监听没写对</li>
+</ol>
+<hr>
+<h2 id="14-把实时路由挂到总路由">14. 把实时路由挂到总路由 </h2>
+<h3 id="141-修改-appapirouterpy">14.1 修改 <code>app/api/router.py</code> </h3>
+<p>完整代码如下：</p>
+<pre data-role="codeBlock" data-info="python" class="language-python python"><code><span class="token keyword keyword-from">from</span> fastapi <span class="token keyword keyword-import">import</span> APIRouter
+
+<span class="token keyword keyword-from">from</span> app<span class="token punctuation">.</span>api<span class="token punctuation">.</span>routes<span class="token punctuation">.</span>active_logs <span class="token keyword keyword-import">import</span> router <span class="token keyword keyword-as">as</span> active_logs_router
+<span class="token keyword keyword-from">from</span> app<span class="token punctuation">.</span>api<span class="token punctuation">.</span>routes<span class="token punctuation">.</span>auth <span class="token keyword keyword-import">import</span> router <span class="token keyword keyword-as">as</span> auth_router
+<span class="token keyword keyword-from">from</span> app<span class="token punctuation">.</span>api<span class="token punctuation">.</span>routes<span class="token punctuation">.</span>chat <span class="token keyword keyword-import">import</span> router <span class="token keyword keyword-as">as</span> chat_router
+<span class="token keyword keyword-from">from</span> app<span class="token punctuation">.</span>api<span class="token punctuation">.</span>routes<span class="token punctuation">.</span>conversations <span class="token keyword keyword-import">import</span> router <span class="token keyword keyword-as">as</span> conversations_router
+<span class="token keyword keyword-from">from</span> app<span class="token punctuation">.</span>api<span class="token punctuation">.</span>routes<span class="token punctuation">.</span>health <span class="token keyword keyword-import">import</span> router <span class="token keyword keyword-as">as</span> health_router
+<span class="token keyword keyword-from">from</span> app<span class="token punctuation">.</span>api<span class="token punctuation">.</span>routes<span class="token punctuation">.</span>messages <span class="token keyword keyword-import">import</span> router <span class="token keyword keyword-as">as</span> messages_router
+<span class="token keyword keyword-from">from</span> app<span class="token punctuation">.</span>api<span class="token punctuation">.</span>routes<span class="token punctuation">.</span>proactive <span class="token keyword keyword-import">import</span> router <span class="token keyword keyword-as">as</span> proactive_router
+<span class="token keyword keyword-from">from</span> app<span class="token punctuation">.</span>api<span class="token punctuation">.</span>routes<span class="token punctuation">.</span>profiles <span class="token keyword keyword-import">import</span> router <span class="token keyword keyword-as">as</span> profiles_router
+<span class="token keyword keyword-from">from</span> app<span class="token punctuation">.</span>api<span class="token punctuation">.</span>routes<span class="token punctuation">.</span>realtime <span class="token keyword keyword-import">import</span> router <span class="token keyword keyword-as">as</span> realtime_router
+<span class="token keyword keyword-from">from</span> app<span class="token punctuation">.</span>api<span class="token punctuation">.</span>routes<span class="token punctuation">.</span>records <span class="token keyword keyword-import">import</span> router <span class="token keyword keyword-as">as</span> records_router
+<span class="token keyword keyword-from">from</span> app<span class="token punctuation">.</span>api<span class="token punctuation">.</span>routes<span class="token punctuation">.</span>trigger_rules <span class="token keyword keyword-import">import</span> router <span class="token keyword keyword-as">as</span> trigger_rules_router
+<span class="token keyword keyword-from">from</span> app<span class="token punctuation">.</span>api<span class="token punctuation">.</span>routes<span class="token punctuation">.</span>users <span class="token keyword keyword-import">import</span> router <span class="token keyword keyword-as">as</span> users_router
+
+api_router <span class="token operator">=</span> APIRouter<span class="token punctuation">(</span><span class="token punctuation">)</span>
+api_router<span class="token punctuation">.</span>include_router<span class="token punctuation">(</span>health_router<span class="token punctuation">)</span>
+api_router<span class="token punctuation">.</span>include_router<span class="token punctuation">(</span>auth_router<span class="token punctuation">)</span>
+api_router<span class="token punctuation">.</span>include_router<span class="token punctuation">(</span>users_router<span class="token punctuation">)</span>
+api_router<span class="token punctuation">.</span>include_router<span class="token punctuation">(</span>profiles_router<span class="token punctuation">)</span>
+api_router<span class="token punctuation">.</span>include_router<span class="token punctuation">(</span>records_router<span class="token punctuation">)</span>
+api_router<span class="token punctuation">.</span>include_router<span class="token punctuation">(</span>conversations_router<span class="token punctuation">)</span>
+api_router<span class="token punctuation">.</span>include_router<span class="token punctuation">(</span>messages_router<span class="token punctuation">)</span>
+api_router<span class="token punctuation">.</span>include_router<span class="token punctuation">(</span>chat_router<span class="token punctuation">)</span>
+api_router<span class="token punctuation">.</span>include_router<span class="token punctuation">(</span>trigger_rules_router<span class="token punctuation">)</span>
+api_router<span class="token punctuation">.</span>include_router<span class="token punctuation">(</span>active_logs_router<span class="token punctuation">)</span>
+api_router<span class="token punctuation">.</span>include_router<span class="token punctuation">(</span>proactive_router<span class="token punctuation">)</span>
+api_router<span class="token punctuation">.</span>include_router<span class="token punctuation">(</span>realtime_router<span class="token punctuation">)</span>
+</code></pre><h3 id="142-为什么-websocket-路由也可以挂在-api_router">14.2 为什么 WebSocket 路由也可以挂在 <code>api_router</code> </h3>
+<p>因为 FastAPI 的 <code>APIRouter</code> 不只是能注册 HTTP 路由，也能注册 WebSocket 路由。</p>
+<p>这样做的好处是：</p>
+<ol>
+<li>你的所有 API 入口仍然统一管理</li>
+<li><code>API_V1_PREFIX</code> 仍然统一生效</li>
+<li>结构上更整洁</li>
+</ol>
+<hr>
+<h2 id="15-升级-proactive_servicepy让它在创建主动消息后可选实时推送">15. 升级 <code>proactive_service.py</code>，让它在创建主动消息后可选实时推送 </h2>
+<p>这一步是第八阶段衔接第七阶段最重要的一步。</p>
+<p>第七阶段的 <code>proactive_service</code> 已经能：</p>
+<ol>
+<li>评估规则</li>
+<li>检查窗口</li>
+<li>检查频率</li>
+<li>创建 <code>ProactiveMessage</code></li>
+<li>写 <code>ActiveLog</code></li>
+</ol>
+<p>第八阶段只给它加一层：</p>
+<p>创建成功后，尝试实时推送</p>
+<p>注意：</p>
+<p>这里只是“尝试”推送。</p>
+<p>推送失败不能影响主链路成功。</p>
+<h3 id="151-替换-appservicesproactive_servicepy">15.1 替换 <code>app/services/proactive_service.py</code> </h3>
+<p>完整代码如下：</p>
+<pre data-role="codeBlock" data-info="python" class="language-python python"><code><span class="token keyword keyword-from">from</span> __future__ <span class="token keyword keyword-import">import</span> annotations
+
+<span class="token keyword keyword-from">from</span> datetime <span class="token keyword keyword-import">import</span> UTC<span class="token punctuation">,</span> datetime
+<span class="token keyword keyword-from">from</span> typing <span class="token keyword keyword-import">import</span> Any
+
+<span class="token keyword keyword-from">from</span> sqlalchemy <span class="token keyword keyword-import">import</span> func<span class="token punctuation">,</span> select
+<span class="token keyword keyword-from">from</span> sqlalchemy<span class="token punctuation">.</span>orm <span class="token keyword keyword-import">import</span> Session
+
+<span class="token keyword keyword-from">from</span> app<span class="token punctuation">.</span>models<span class="token punctuation">.</span>active_log <span class="token keyword keyword-import">import</span> ActiveLog
+<span class="token keyword keyword-from">from</span> app<span class="token punctuation">.</span>models<span class="token punctuation">.</span>proactive_message <span class="token keyword keyword-import">import</span> ProactiveMessage
+<span class="token keyword keyword-from">from</span> app<span class="token punctuation">.</span>models<span class="token punctuation">.</span>trigger_rule <span class="token keyword keyword-import">import</span> TriggerRule
+<span class="token keyword keyword-from">from</span> app<span class="token punctuation">.</span>services<span class="token punctuation">.</span>active_log_service <span class="token keyword keyword-import">import</span> active_log_service
+<span class="token keyword keyword-from">from</span> app<span class="token punctuation">.</span>services<span class="token punctuation">.</span>proactive_message_service <span class="token keyword keyword-import">import</span> proactive_message_service
+<span class="token keyword keyword-from">from</span> app<span class="token punctuation">.</span>services<span class="token punctuation">.</span>proactive_window_service <span class="token keyword keyword-import">import</span> proactive_window_service
+<span class="token keyword keyword-from">from</span> app<span class="token punctuation">.</span>services<span class="token punctuation">.</span>trigger_rule_service <span class="token keyword keyword-import">import</span> trigger_rule_service
+<span class="token keyword keyword-from">from</span> app<span class="token punctuation">.</span>ws<span class="token punctuation">.</span>manager <span class="token keyword keyword-import">import</span> realtime_manager
+
+
+<span class="token keyword keyword-class">class</span> <span class="token class-name">ProactiveService</span><span class="token punctuation">:</span>
+    <span class="token keyword keyword-def">def</span> <span class="token function">execute_rule_for_user</span><span class="token punctuation">(</span>
+        self<span class="token punctuation">,</span>
+        db<span class="token punctuation">:</span> Session<span class="token punctuation">,</span>
+        user_id<span class="token punctuation">:</span> <span class="token builtin">int</span><span class="token punctuation">,</span>
+        rule_id<span class="token punctuation">:</span> <span class="token builtin">int</span><span class="token punctuation">,</span>
+    <span class="token punctuation">)</span> <span class="token operator">-</span><span class="token operator">&gt;</span> <span class="token builtin">dict</span><span class="token punctuation">[</span><span class="token builtin">str</span><span class="token punctuation">,</span> Any<span class="token punctuation">]</span><span class="token punctuation">:</span>
+        rule <span class="token operator">=</span> trigger_rule_service<span class="token punctuation">.</span>get_or_raise<span class="token punctuation">(</span>db<span class="token punctuation">,</span> rule_id<span class="token punctuation">)</span>
+        request_payload <span class="token operator">=</span> <span class="token punctuation">{</span>
+            <span class="token string">"rule_id"</span><span class="token punctuation">:</span> rule<span class="token punctuation">.</span><span class="token builtin">id</span><span class="token punctuation">,</span>
+            <span class="token string">"trigger_type"</span><span class="token punctuation">:</span> rule<span class="token punctuation">.</span>trigger_type<span class="token punctuation">,</span>
+            <span class="token string">"condition_json"</span><span class="token punctuation">:</span> rule<span class="token punctuation">.</span>condition_json<span class="token punctuation">,</span>
+            <span class="token string">"executed_at"</span><span class="token punctuation">:</span> datetime<span class="token punctuation">.</span>now<span class="token punctuation">(</span>UTC<span class="token punctuation">)</span><span class="token punctuation">.</span>isoformat<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+        <span class="token punctuation">}</span>
+
+        <span class="token keyword keyword-try">try</span><span class="token punctuation">:</span>
+            evaluation <span class="token operator">=</span> trigger_rule_service<span class="token punctuation">.</span>evaluate_for_user<span class="token punctuation">(</span>db<span class="token punctuation">,</span> user_id<span class="token punctuation">,</span> rule<span class="token punctuation">)</span>
+
+            <span class="token keyword keyword-if">if</span> <span class="token keyword keyword-not">not</span> evaluation<span class="token punctuation">[</span><span class="token string">"triggered"</span><span class="token punctuation">]</span><span class="token punctuation">:</span>
+                log <span class="token operator">=</span> active_log_service<span class="token punctuation">.</span>create_log<span class="token punctuation">(</span>
+                    db<span class="token operator">=</span>db<span class="token punctuation">,</span>
+                    user_id<span class="token operator">=</span>user_id<span class="token punctuation">,</span>
+                    trigger_rule_id<span class="token operator">=</span>rule<span class="token punctuation">.</span><span class="token builtin">id</span><span class="token punctuation">,</span>
+                    action_type<span class="token operator">=</span><span class="token string">"generate_proactive_message"</span><span class="token punctuation">,</span>
+                    status<span class="token operator">=</span><span class="token string">"skipped"</span><span class="token punctuation">,</span>
+                    request_payload<span class="token operator">=</span>request_payload<span class="token punctuation">,</span>
+                    response_payload<span class="token operator">=</span>evaluation<span class="token punctuation">,</span>
+                <span class="token punctuation">)</span>
+                <span class="token keyword keyword-return">return</span> <span class="token punctuation">{</span>
+                    <span class="token string">"log_id"</span><span class="token punctuation">:</span> log<span class="token punctuation">.</span><span class="token builtin">id</span><span class="token punctuation">,</span>
+                    <span class="token string">"rule_id"</span><span class="token punctuation">:</span> rule<span class="token punctuation">.</span><span class="token builtin">id</span><span class="token punctuation">,</span>
+                    <span class="token string">"triggered"</span><span class="token punctuation">:</span> <span class="token boolean">False</span><span class="token punctuation">,</span>
+                    <span class="token string">"message_created"</span><span class="token punctuation">:</span> <span class="token boolean">False</span><span class="token punctuation">,</span>
+                    <span class="token string">"status"</span><span class="token punctuation">:</span> <span class="token string">"skipped"</span><span class="token punctuation">,</span>
+                    <span class="token string">"reason"</span><span class="token punctuation">:</span> evaluation<span class="token punctuation">[</span><span class="token string">"reason"</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
+                    <span class="token string">"proactive_message"</span><span class="token punctuation">:</span> <span class="token boolean">None</span><span class="token punctuation">,</span>
+                <span class="token punctuation">}</span>
+
+            window <span class="token operator">=</span> proactive_window_service<span class="token punctuation">.</span>get_or_create_for_user<span class="token punctuation">(</span>db<span class="token punctuation">,</span> user_id<span class="token punctuation">)</span>
+            allowed<span class="token punctuation">,</span> window_reason <span class="token operator">=</span> proactive_window_service<span class="token punctuation">.</span>allow_trigger_now<span class="token punctuation">(</span>window<span class="token punctuation">)</span>
+
+            <span class="token keyword keyword-if">if</span> <span class="token keyword keyword-not">not</span> allowed<span class="token punctuation">:</span>
+                response_payload <span class="token operator">=</span> <span class="token punctuation">{</span>
+                    <span class="token operator">**</span>evaluation<span class="token punctuation">,</span>
+                    <span class="token string">"window_reason"</span><span class="token punctuation">:</span> window_reason<span class="token punctuation">,</span>
+                    <span class="token string">"quiet_hours_start"</span><span class="token punctuation">:</span> window<span class="token punctuation">.</span>quiet_hours_start<span class="token punctuation">,</span>
+                    <span class="token string">"quiet_hours_end"</span><span class="token punctuation">:</span> window<span class="token punctuation">.</span>quiet_hours_end<span class="token punctuation">,</span>
+                <span class="token punctuation">}</span>
+                log <span class="token operator">=</span> active_log_service<span class="token punctuation">.</span>create_log<span class="token punctuation">(</span>
+                    db<span class="token operator">=</span>db<span class="token punctuation">,</span>
+                    user_id<span class="token operator">=</span>user_id<span class="token punctuation">,</span>
+                    trigger_rule_id<span class="token operator">=</span>rule<span class="token punctuation">.</span><span class="token builtin">id</span><span class="token punctuation">,</span>
+                    action_type<span class="token operator">=</span><span class="token string">"generate_proactive_message"</span><span class="token punctuation">,</span>
+                    status<span class="token operator">=</span><span class="token string">"blocked"</span><span class="token punctuation">,</span>
+                    request_payload<span class="token operator">=</span>request_payload<span class="token punctuation">,</span>
+                    response_payload<span class="token operator">=</span>response_payload<span class="token punctuation">,</span>
+                <span class="token punctuation">)</span>
+                <span class="token keyword keyword-return">return</span> <span class="token punctuation">{</span>
+                    <span class="token string">"log_id"</span><span class="token punctuation">:</span> log<span class="token punctuation">.</span><span class="token builtin">id</span><span class="token punctuation">,</span>
+                    <span class="token string">"rule_id"</span><span class="token punctuation">:</span> rule<span class="token punctuation">.</span><span class="token builtin">id</span><span class="token punctuation">,</span>
+                    <span class="token string">"triggered"</span><span class="token punctuation">:</span> <span class="token boolean">True</span><span class="token punctuation">,</span>
+                    <span class="token string">"message_created"</span><span class="token punctuation">:</span> <span class="token boolean">False</span><span class="token punctuation">,</span>
+                    <span class="token string">"status"</span><span class="token punctuation">:</span> <span class="token string">"blocked"</span><span class="token punctuation">,</span>
+                    <span class="token string">"reason"</span><span class="token punctuation">:</span> window_reason<span class="token punctuation">,</span>
+                    <span class="token string">"proactive_message"</span><span class="token punctuation">:</span> <span class="token boolean">None</span><span class="token punctuation">,</span>
+                <span class="token punctuation">}</span>
+
+            today_count <span class="token operator">=</span> self<span class="token punctuation">.</span>count_today_created<span class="token punctuation">(</span>db<span class="token punctuation">,</span> user_id<span class="token punctuation">)</span>
+            <span class="token keyword keyword-if">if</span> today_count <span class="token operator">&gt;=</span> window<span class="token punctuation">.</span>max_trigger_per_day<span class="token punctuation">:</span>
+                response_payload <span class="token operator">=</span> <span class="token punctuation">{</span>
+                    <span class="token operator">**</span>evaluation<span class="token punctuation">,</span>
+                    <span class="token string">"today_count"</span><span class="token punctuation">:</span> today_count<span class="token punctuation">,</span>
+                    <span class="token string">"max_trigger_per_day"</span><span class="token punctuation">:</span> window<span class="token punctuation">.</span>max_trigger_per_day<span class="token punctuation">,</span>
+                <span class="token punctuation">}</span>
+                log <span class="token operator">=</span> active_log_service<span class="token punctuation">.</span>create_log<span class="token punctuation">(</span>
+                    db<span class="token operator">=</span>db<span class="token punctuation">,</span>
+                    user_id<span class="token operator">=</span>user_id<span class="token punctuation">,</span>
+                    trigger_rule_id<span class="token operator">=</span>rule<span class="token punctuation">.</span><span class="token builtin">id</span><span class="token punctuation">,</span>
+                    action_type<span class="token operator">=</span><span class="token string">"generate_proactive_message"</span><span class="token punctuation">,</span>
+                    status<span class="token operator">=</span><span class="token string">"rate_limited"</span><span class="token punctuation">,</span>
+                    request_payload<span class="token operator">=</span>request_payload<span class="token punctuation">,</span>
+                    response_payload<span class="token operator">=</span>response_payload<span class="token punctuation">,</span>
+                <span class="token punctuation">)</span>
+                <span class="token keyword keyword-return">return</span> <span class="token punctuation">{</span>
+                    <span class="token string">"log_id"</span><span class="token punctuation">:</span> log<span class="token punctuation">.</span><span class="token builtin">id</span><span class="token punctuation">,</span>
+                    <span class="token string">"rule_id"</span><span class="token punctuation">:</span> rule<span class="token punctuation">.</span><span class="token builtin">id</span><span class="token punctuation">,</span>
+                    <span class="token string">"triggered"</span><span class="token punctuation">:</span> <span class="token boolean">True</span><span class="token punctuation">,</span>
+                    <span class="token string">"message_created"</span><span class="token punctuation">:</span> <span class="token boolean">False</span><span class="token punctuation">,</span>
+                    <span class="token string">"status"</span><span class="token punctuation">:</span> <span class="token string">"rate_limited"</span><span class="token punctuation">,</span>
+                    <span class="token string">"reason"</span><span class="token punctuation">:</span> <span class="token string">"max trigger per day exceeded"</span><span class="token punctuation">,</span>
+                    <span class="token string">"proactive_message"</span><span class="token punctuation">:</span> <span class="token boolean">None</span><span class="token punctuation">,</span>
+                <span class="token punctuation">}</span>
+
+            title<span class="token punctuation">,</span> content <span class="token operator">=</span> self<span class="token punctuation">.</span>build_message_content<span class="token punctuation">(</span>rule<span class="token punctuation">,</span> evaluation<span class="token punctuation">)</span>
+            proactive_message <span class="token operator">=</span> proactive_message_service<span class="token punctuation">.</span>create_message<span class="token punctuation">(</span>
+                db<span class="token operator">=</span>db<span class="token punctuation">,</span>
+                user_id<span class="token operator">=</span>user_id<span class="token punctuation">,</span>
+                trigger_rule<span class="token operator">=</span>rule<span class="token punctuation">,</span>
+                title<span class="token operator">=</span>title<span class="token punctuation">,</span>
+                content<span class="token operator">=</span>content<span class="token punctuation">,</span>
+            <span class="token punctuation">)</span>
+
+            delivered_connection_count <span class="token operator">=</span> self<span class="token punctuation">.</span>_push_created_message<span class="token punctuation">(</span>
+                user_id<span class="token operator">=</span>user_id<span class="token punctuation">,</span>
+                proactive_message<span class="token operator">=</span>proactive_message<span class="token punctuation">,</span>
+            <span class="token punctuation">)</span>
+
+            response_payload <span class="token operator">=</span> <span class="token punctuation">{</span>
+                <span class="token operator">**</span>evaluation<span class="token punctuation">,</span>
+                <span class="token string">"proactive_message_id"</span><span class="token punctuation">:</span> proactive_message<span class="token punctuation">.</span><span class="token builtin">id</span><span class="token punctuation">,</span>
+                <span class="token string">"title"</span><span class="token punctuation">:</span> proactive_message<span class="token punctuation">.</span>title<span class="token punctuation">,</span>
+                <span class="token string">"status"</span><span class="token punctuation">:</span> proactive_message<span class="token punctuation">.</span>status<span class="token punctuation">,</span>
+                <span class="token string">"realtime_delivered_connection_count"</span><span class="token punctuation">:</span> delivered_connection_count<span class="token punctuation">,</span>
+            <span class="token punctuation">}</span>
+            log <span class="token operator">=</span> active_log_service<span class="token punctuation">.</span>create_log<span class="token punctuation">(</span>
+                db<span class="token operator">=</span>db<span class="token punctuation">,</span>
+                user_id<span class="token operator">=</span>user_id<span class="token punctuation">,</span>
+                trigger_rule_id<span class="token operator">=</span>rule<span class="token punctuation">.</span><span class="token builtin">id</span><span class="token punctuation">,</span>
+                action_type<span class="token operator">=</span><span class="token string">"generate_proactive_message"</span><span class="token punctuation">,</span>
+                status<span class="token operator">=</span><span class="token string">"created"</span><span class="token punctuation">,</span>
+                request_payload<span class="token operator">=</span>request_payload<span class="token punctuation">,</span>
+                response_payload<span class="token operator">=</span>response_payload<span class="token punctuation">,</span>
+            <span class="token punctuation">)</span>
+            <span class="token keyword keyword-return">return</span> <span class="token punctuation">{</span>
+                <span class="token string">"log_id"</span><span class="token punctuation">:</span> log<span class="token punctuation">.</span><span class="token builtin">id</span><span class="token punctuation">,</span>
+                <span class="token string">"rule_id"</span><span class="token punctuation">:</span> rule<span class="token punctuation">.</span><span class="token builtin">id</span><span class="token punctuation">,</span>
+                <span class="token string">"triggered"</span><span class="token punctuation">:</span> <span class="token boolean">True</span><span class="token punctuation">,</span>
+                <span class="token string">"message_created"</span><span class="token punctuation">:</span> <span class="token boolean">True</span><span class="token punctuation">,</span>
+                <span class="token string">"status"</span><span class="token punctuation">:</span> <span class="token string">"created"</span><span class="token punctuation">,</span>
+                <span class="token string">"reason"</span><span class="token punctuation">:</span> evaluation<span class="token punctuation">[</span><span class="token string">"reason"</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
+                <span class="token string">"proactive_message"</span><span class="token punctuation">:</span> proactive_message<span class="token punctuation">,</span>
+            <span class="token punctuation">}</span>
+        <span class="token keyword keyword-except">except</span> Exception <span class="token keyword keyword-as">as</span> exc<span class="token punctuation">:</span>
+            active_log_service<span class="token punctuation">.</span>create_log<span class="token punctuation">(</span>
+                db<span class="token operator">=</span>db<span class="token punctuation">,</span>
+                user_id<span class="token operator">=</span>user_id<span class="token punctuation">,</span>
+                trigger_rule_id<span class="token operator">=</span>rule<span class="token punctuation">.</span><span class="token builtin">id</span><span class="token punctuation">,</span>
+                action_type<span class="token operator">=</span><span class="token string">"generate_proactive_message"</span><span class="token punctuation">,</span>
+                status<span class="token operator">=</span><span class="token string">"failed"</span><span class="token punctuation">,</span>
+                request_payload<span class="token operator">=</span>request_payload<span class="token punctuation">,</span>
+                response_payload<span class="token operator">=</span><span class="token punctuation">{</span><span class="token string">"error"</span><span class="token punctuation">:</span> <span class="token builtin">str</span><span class="token punctuation">(</span>exc<span class="token punctuation">)</span><span class="token punctuation">}</span><span class="token punctuation">,</span>
+            <span class="token punctuation">)</span>
+            <span class="token keyword keyword-raise">raise</span>
+
+    <span class="token keyword keyword-def">def</span> <span class="token function">count_today_created</span><span class="token punctuation">(</span>
+        self<span class="token punctuation">,</span>
+        db<span class="token punctuation">:</span> Session<span class="token punctuation">,</span>
+        user_id<span class="token punctuation">:</span> <span class="token builtin">int</span><span class="token punctuation">,</span>
+    <span class="token punctuation">)</span> <span class="token operator">-</span><span class="token operator">&gt;</span> <span class="token builtin">int</span><span class="token punctuation">:</span>
+        day_start <span class="token operator">=</span> datetime<span class="token punctuation">.</span>now<span class="token punctuation">(</span>UTC<span class="token punctuation">)</span><span class="token punctuation">.</span>replace<span class="token punctuation">(</span>
+            hour<span class="token operator">=</span><span class="token number">0</span><span class="token punctuation">,</span>
+            minute<span class="token operator">=</span><span class="token number">0</span><span class="token punctuation">,</span>
+            second<span class="token operator">=</span><span class="token number">0</span><span class="token punctuation">,</span>
+            microsecond<span class="token operator">=</span><span class="token number">0</span><span class="token punctuation">,</span>
+        <span class="token punctuation">)</span>
+
+        stmt <span class="token operator">=</span> <span class="token punctuation">(</span>
+            select<span class="token punctuation">(</span>func<span class="token punctuation">.</span>count<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+            <span class="token punctuation">.</span>select_from<span class="token punctuation">(</span>ActiveLog<span class="token punctuation">)</span>
+            <span class="token punctuation">.</span>where<span class="token punctuation">(</span>
+                ActiveLog<span class="token punctuation">.</span>user_id <span class="token operator">==</span> user_id<span class="token punctuation">,</span>
+                ActiveLog<span class="token punctuation">.</span>action_type <span class="token operator">==</span> <span class="token string">"generate_proactive_message"</span><span class="token punctuation">,</span>
+                ActiveLog<span class="token punctuation">.</span>status <span class="token operator">==</span> <span class="token string">"created"</span><span class="token punctuation">,</span>
+                ActiveLog<span class="token punctuation">.</span>created_at <span class="token operator">&gt;=</span> day_start<span class="token punctuation">,</span>
+            <span class="token punctuation">)</span>
+        <span class="token punctuation">)</span>
+        <span class="token keyword keyword-return">return</span> db<span class="token punctuation">.</span>scalar<span class="token punctuation">(</span>stmt<span class="token punctuation">)</span> <span class="token keyword keyword-or">or</span> <span class="token number">0</span>
+
+    <span class="token keyword keyword-def">def</span> <span class="token function">build_message_content</span><span class="token punctuation">(</span>
+        self<span class="token punctuation">,</span>
+        rule<span class="token punctuation">:</span> TriggerRule<span class="token punctuation">,</span>
+        evaluation<span class="token punctuation">:</span> <span class="token builtin">dict</span><span class="token punctuation">[</span><span class="token builtin">str</span><span class="token punctuation">,</span> Any<span class="token punctuation">]</span><span class="token punctuation">,</span>
+    <span class="token punctuation">)</span> <span class="token operator">-</span><span class="token operator">&gt;</span> <span class="token builtin">tuple</span><span class="token punctuation">[</span><span class="token builtin">str</span><span class="token punctuation">,</span> <span class="token builtin">str</span><span class="token punctuation">]</span><span class="token punctuation">:</span>
+        <span class="token keyword keyword-if">if</span> rule<span class="token punctuation">.</span>trigger_type <span class="token operator">==</span> <span class="token string">"days_without_record"</span><span class="token punctuation">:</span>
+            <span class="token keyword keyword-return">return</span> self<span class="token punctuation">.</span>_build_days_without_record_message<span class="token punctuation">(</span>evaluation<span class="token punctuation">)</span>
+
+        <span class="token keyword keyword-if">if</span> rule<span class="token punctuation">.</span>trigger_type <span class="token operator">==</span> <span class="token string">"recent_chat_keyword"</span><span class="token punctuation">:</span>
+            <span class="token keyword keyword-return">return</span> self<span class="token punctuation">.</span>_build_recent_chat_keyword_message<span class="token punctuation">(</span>evaluation<span class="token punctuation">)</span>
+
+        <span class="token keyword keyword-return">return</span> <span class="token punctuation">(</span>
+            <span class="token string">"主动关怀提醒"</span><span class="token punctuation">,</span>
+            <span class="token string">"系统检测到你可能需要一次健康关注，你可以打开应用查看建议。"</span><span class="token punctuation">,</span>
+        <span class="token punctuation">)</span>
+
+    <span class="token keyword keyword-def">def</span> <span class="token function">_build_days_without_record_message</span><span class="token punctuation">(</span>
+        self<span class="token punctuation">,</span>
+        evaluation<span class="token punctuation">:</span> <span class="token builtin">dict</span><span class="token punctuation">[</span><span class="token builtin">str</span><span class="token punctuation">,</span> Any<span class="token punctuation">]</span><span class="token punctuation">,</span>
+    <span class="token punctuation">)</span> <span class="token operator">-</span><span class="token operator">&gt;</span> <span class="token builtin">tuple</span><span class="token punctuation">[</span><span class="token builtin">str</span><span class="token punctuation">,</span> <span class="token builtin">str</span><span class="token punctuation">]</span><span class="token punctuation">:</span>
+        record_type <span class="token operator">=</span> <span class="token builtin">str</span><span class="token punctuation">(</span>evaluation<span class="token punctuation">.</span>get<span class="token punctuation">(</span><span class="token string">"record_type"</span><span class="token punctuation">,</span> <span class="token string">"健康数据"</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+        days_without_record <span class="token operator">=</span> <span class="token builtin">int</span><span class="token punctuation">(</span>evaluation<span class="token punctuation">.</span>get<span class="token punctuation">(</span><span class="token string">"days_without_record"</span><span class="token punctuation">,</span> <span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+        record_label <span class="token operator">=</span> self<span class="token punctuation">.</span>_record_type_label<span class="token punctuation">(</span>record_type<span class="token punctuation">)</span>
+
+        title <span class="token operator">=</span> <span class="token string">"健康记录提醒"</span>
+        content <span class="token operator">=</span> <span class="token punctuation">(</span>
+            <span class="token string-interpolation"><span class="token string">f"我注意到你已经 </span><span class="token interpolation"><span class="token punctuation">{</span>days_without_record<span class="token punctuation">}</span></span><span class="token string"> 天没有记录</span><span class="token interpolation"><span class="token punctuation">{</span>record_label<span class="token punctuation">}</span></span><span class="token string">了。"</span></span>
+            <span class="token string">"如果今天方便，可以补记一条；如果最近状态有波动，也建议尽快测一次。"</span>
+        <span class="token punctuation">)</span>
+        <span class="token keyword keyword-return">return</span> title<span class="token punctuation">,</span> content
+
+    <span class="token keyword keyword-def">def</span> <span class="token function">_build_recent_chat_keyword_message</span><span class="token punctuation">(</span>
+        self<span class="token punctuation">,</span>
+        evaluation<span class="token punctuation">:</span> <span class="token builtin">dict</span><span class="token punctuation">[</span><span class="token builtin">str</span><span class="token punctuation">,</span> Any<span class="token punctuation">]</span><span class="token punctuation">,</span>
+    <span class="token punctuation">)</span> <span class="token operator">-</span><span class="token operator">&gt;</span> <span class="token builtin">tuple</span><span class="token punctuation">[</span><span class="token builtin">str</span><span class="token punctuation">,</span> <span class="token builtin">str</span><span class="token punctuation">]</span><span class="token punctuation">:</span>
+        keywords <span class="token operator">=</span> evaluation<span class="token punctuation">.</span>get<span class="token punctuation">(</span><span class="token string">"matched_keywords"</span><span class="token punctuation">)</span> <span class="token keyword keyword-or">or</span> <span class="token punctuation">[</span><span class="token punctuation">]</span>
+        keyword_text <span class="token operator">=</span> <span class="token string">"、"</span><span class="token punctuation">.</span>join<span class="token punctuation">(</span><span class="token builtin">str</span><span class="token punctuation">(</span>item<span class="token punctuation">)</span> <span class="token keyword keyword-for">for</span> item <span class="token keyword keyword-in">in</span> keywords<span class="token punctuation">)</span> <span class="token keyword keyword-or">or</span> <span class="token string">"当前困扰"</span>
+
+        title <span class="token operator">=</span> <span class="token string">"健康关怀提示"</span>
+        content <span class="token operator">=</span> <span class="token punctuation">(</span>
+            <span class="token string-interpolation"><span class="token string">f"我注意到你最近的表达里出现了“</span><span class="token interpolation"><span class="token punctuation">{</span>keyword_text<span class="token punctuation">}</span></span><span class="token string">”相关内容。"</span></span>
+            <span class="token string">"如果你愿意，可以继续说说现在最困扰你的点，我会先帮你整理成几个可执行的小建议。"</span>
+        <span class="token punctuation">)</span>
+        <span class="token keyword keyword-return">return</span> title<span class="token punctuation">,</span> content
+
+    <span class="token keyword keyword-def">def</span> <span class="token function">_record_type_label</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span> record_type<span class="token punctuation">:</span> <span class="token builtin">str</span><span class="token punctuation">)</span> <span class="token operator">-</span><span class="token operator">&gt;</span> <span class="token builtin">str</span><span class="token punctuation">:</span>
+        mapping <span class="token operator">=</span> <span class="token punctuation">{</span>
+            <span class="token string">"blood_pressure"</span><span class="token punctuation">:</span> <span class="token string">"血压"</span><span class="token punctuation">,</span>
+            <span class="token string">"blood_glucose"</span><span class="token punctuation">:</span> <span class="token string">"血糖"</span><span class="token punctuation">,</span>
+            <span class="token string">"sleep"</span><span class="token punctuation">:</span> <span class="token string">"睡眠"</span><span class="token punctuation">,</span>
+            <span class="token string">"medication"</span><span class="token punctuation">:</span> <span class="token string">"用药"</span><span class="token punctuation">,</span>
+            <span class="token string">"mood"</span><span class="token punctuation">:</span> <span class="token string">"情绪"</span><span class="token punctuation">,</span>
+            <span class="token string">"checkin"</span><span class="token punctuation">:</span> <span class="token string">"健康打卡"</span><span class="token punctuation">,</span>
+        <span class="token punctuation">}</span>
+        <span class="token keyword keyword-return">return</span> mapping<span class="token punctuation">.</span>get<span class="token punctuation">(</span>record_type<span class="token punctuation">,</span> record_type<span class="token punctuation">)</span>
+
+    <span class="token keyword keyword-def">def</span> <span class="token function">_push_created_message</span><span class="token punctuation">(</span>
+        self<span class="token punctuation">,</span>
+        user_id<span class="token punctuation">:</span> <span class="token builtin">int</span><span class="token punctuation">,</span>
+        proactive_message<span class="token punctuation">:</span> ProactiveMessage<span class="token punctuation">,</span>
+    <span class="token punctuation">)</span> <span class="token operator">-</span><span class="token operator">&gt;</span> <span class="token builtin">int</span><span class="token punctuation">:</span>
+        payload <span class="token operator">=</span> <span class="token punctuation">{</span>
+            <span class="token string">"event"</span><span class="token punctuation">:</span> <span class="token string">"proactive_message_created"</span><span class="token punctuation">,</span>
+            <span class="token string">"data"</span><span class="token punctuation">:</span> <span class="token punctuation">{</span>
+                <span class="token string">"id"</span><span class="token punctuation">:</span> proactive_message<span class="token punctuation">.</span><span class="token builtin">id</span><span class="token punctuation">,</span>
+                <span class="token string">"user_id"</span><span class="token punctuation">:</span> proactive_message<span class="token punctuation">.</span>user_id<span class="token punctuation">,</span>
+                <span class="token string">"trigger_rule_id"</span><span class="token punctuation">:</span> proactive_message<span class="token punctuation">.</span>trigger_rule_id<span class="token punctuation">,</span>
+                <span class="token string">"trigger_type"</span><span class="token punctuation">:</span> proactive_message<span class="token punctuation">.</span>trigger_type<span class="token punctuation">,</span>
+                <span class="token string">"title"</span><span class="token punctuation">:</span> proactive_message<span class="token punctuation">.</span>title<span class="token punctuation">,</span>
+                <span class="token string">"content"</span><span class="token punctuation">:</span> proactive_message<span class="token punctuation">.</span>content<span class="token punctuation">,</span>
+                <span class="token string">"status"</span><span class="token punctuation">:</span> proactive_message<span class="token punctuation">.</span>status<span class="token punctuation">,</span>
+                <span class="token string">"created_at"</span><span class="token punctuation">:</span> proactive_message<span class="token punctuation">.</span>created_at<span class="token punctuation">.</span>isoformat<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+                <span class="token string">"displayed_at"</span><span class="token punctuation">:</span> <span class="token punctuation">(</span>
+                    proactive_message<span class="token punctuation">.</span>displayed_at<span class="token punctuation">.</span>isoformat<span class="token punctuation">(</span><span class="token punctuation">)</span>
+                    <span class="token keyword keyword-if">if</span> proactive_message<span class="token punctuation">.</span>displayed_at
+                    <span class="token keyword keyword-else">else</span> <span class="token boolean">None</span>
+                <span class="token punctuation">)</span><span class="token punctuation">,</span>
+            <span class="token punctuation">}</span><span class="token punctuation">,</span>
+        <span class="token punctuation">}</span>
+        <span class="token keyword keyword-return">return</span> realtime_manager<span class="token punctuation">.</span>send_json_to_user_sync<span class="token punctuation">(</span>user_id<span class="token punctuation">,</span> payload<span class="token punctuation">)</span>
+
+
+proactive_service <span class="token operator">=</span> ProactiveService<span class="token punctuation">(</span><span class="token punctuation">)</span>
+</code></pre><h3 id="152-这里最关键的设计点">15.2 这里最关键的设计点 </h3>
+<h4 id="1-先落库再推送">1. 先落库，再推送 </h4>
+<p>顺序一定要是：</p>
+<ol>
+<li>创建 <code>ProactiveMessage</code></li>
+<li>尝试实时推送</li>
+</ol>
+<p>不能反过来。</p>
+<p>因为你真正的主事实应该是：</p>
+<p>主动消息已经被系统创建出来了</p>
+<p>实时推送只是“更快送达”的附加能力。</p>
+<h4 id="2-推送结果只作为附加信息记录">2. 推送结果只作为附加信息记录 </h4>
+<p>你会看到：</p>
+<p><code>realtime_delivered_connection_count</code></p>
+<p>只是被写进了日志的 <code>response_payload</code></p>
+<p>它不是成功与否的主判断标准。</p>
+<h4 id="3-websocket-推送失败不会让主动服务失败">3. WebSocket 推送失败不会让主动服务失败 </h4>
+<p>这点必须坚持。</p>
+<p>否则第八阶段一加实时推送，系统稳定性反而会下降。</p>
+<hr>
+<h2 id="16-写-scheduler">16. 写 Scheduler </h2>
+<p>这一层负责的事情非常明确：</p>
+<p>按固定周期自动巡检用户和规则</p>
+<h3 id="161-第八阶段为什么建议先用-interval不先用-cron">16.1 第八阶段为什么建议先用 interval，不先用 cron </h3>
+<p>因为第八阶段的目标首先是：</p>
+<p>证明自动巡检链路是通的</p>
+<p>所以第一版最适合先用：</p>
+<p><code>interval</code></p>
+<p>比如每 1 分钟或者每 30 分钟扫一次。</p>
+<p>这样你调试时最方便。</p>
+<p>等你链路稳定了，再把任务从 interval 改成：</p>
+<ol>
+<li>每天 8 点</li>
+<li>每小时</li>
+<li>每晚 23 点归档</li>
+</ol>
+<p>这种 cron 风格，会更顺。</p>
+<h3 id="162-新建-appcoreschedulerpy">16.2 新建 <code>app/core/scheduler.py</code> </h3>
+<p>完整代码如下：</p>
+<pre data-role="codeBlock" data-info="python" class="language-python python"><code><span class="token keyword keyword-from">from</span> __future__ <span class="token keyword keyword-import">import</span> annotations
+
+<span class="token keyword keyword-import">import</span> logging
+
+<span class="token keyword keyword-from">from</span> apscheduler<span class="token punctuation">.</span>schedulers<span class="token punctuation">.</span>background <span class="token keyword keyword-import">import</span> BackgroundScheduler
+<span class="token keyword keyword-from">from</span> sqlalchemy <span class="token keyword keyword-import">import</span> select
+
+<span class="token keyword keyword-from">from</span> app<span class="token punctuation">.</span>core<span class="token punctuation">.</span>config <span class="token keyword keyword-import">import</span> settings
+<span class="token keyword keyword-from">from</span> app<span class="token punctuation">.</span>db<span class="token punctuation">.</span>session <span class="token keyword keyword-import">import</span> SessionLocal
+<span class="token keyword keyword-from">from</span> app<span class="token punctuation">.</span>models<span class="token punctuation">.</span>trigger_rule <span class="token keyword keyword-import">import</span> TriggerRule
+<span class="token keyword keyword-from">from</span> app<span class="token punctuation">.</span>models<span class="token punctuation">.</span>user <span class="token keyword keyword-import">import</span> User
+<span class="token keyword keyword-from">from</span> app<span class="token punctuation">.</span>services<span class="token punctuation">.</span>proactive_service <span class="token keyword keyword-import">import</span> proactive_service
+
+logger <span class="token operator">=</span> logging<span class="token punctuation">.</span>getLogger<span class="token punctuation">(</span>__name__<span class="token punctuation">)</span>
+
+scheduler <span class="token operator">=</span> BackgroundScheduler<span class="token punctuation">(</span>timezone<span class="token operator">=</span>settings<span class="token punctuation">.</span>SCHEDULER_TIMEZONE<span class="token punctuation">)</span>
+
+
+<span class="token keyword keyword-def">def</span> <span class="token function">proactive_scan_job</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">-</span><span class="token operator">&gt;</span> <span class="token boolean">None</span><span class="token punctuation">:</span>
+    logger<span class="token punctuation">.</span>info<span class="token punctuation">(</span><span class="token string">"proactive scan job started"</span><span class="token punctuation">)</span>
+
+    db <span class="token operator">=</span> SessionLocal<span class="token punctuation">(</span><span class="token punctuation">)</span>
+    <span class="token keyword keyword-try">try</span><span class="token punctuation">:</span>
+        users <span class="token operator">=</span> <span class="token builtin">list</span><span class="token punctuation">(</span>
+            db<span class="token punctuation">.</span>scalars<span class="token punctuation">(</span>
+                select<span class="token punctuation">(</span>User<span class="token punctuation">)</span>
+                <span class="token punctuation">.</span>where<span class="token punctuation">(</span>User<span class="token punctuation">.</span>is_active<span class="token punctuation">.</span>is_<span class="token punctuation">(</span><span class="token boolean">True</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+                <span class="token punctuation">.</span>order_by<span class="token punctuation">(</span>User<span class="token punctuation">.</span><span class="token builtin">id</span><span class="token punctuation">.</span>asc<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+            <span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token builtin">all</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+        <span class="token punctuation">)</span>
+        rules <span class="token operator">=</span> <span class="token builtin">list</span><span class="token punctuation">(</span>
+            db<span class="token punctuation">.</span>scalars<span class="token punctuation">(</span>
+                select<span class="token punctuation">(</span>TriggerRule<span class="token punctuation">)</span>
+                <span class="token punctuation">.</span>where<span class="token punctuation">(</span>TriggerRule<span class="token punctuation">.</span>enabled<span class="token punctuation">.</span>is_<span class="token punctuation">(</span><span class="token boolean">True</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+                <span class="token punctuation">.</span>order_by<span class="token punctuation">(</span>
+                    TriggerRule<span class="token punctuation">.</span>priority<span class="token punctuation">.</span>asc<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+                    TriggerRule<span class="token punctuation">.</span><span class="token builtin">id</span><span class="token punctuation">.</span>asc<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+                <span class="token punctuation">)</span>
+            <span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token builtin">all</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+        <span class="token punctuation">)</span>
+
+        <span class="token keyword keyword-if">if</span> <span class="token keyword keyword-not">not</span> users<span class="token punctuation">:</span>
+            logger<span class="token punctuation">.</span>info<span class="token punctuation">(</span><span class="token string">"proactive scan skipped: no active users"</span><span class="token punctuation">)</span>
+            <span class="token keyword keyword-return">return</span>
+
+        <span class="token keyword keyword-if">if</span> <span class="token keyword keyword-not">not</span> rules<span class="token punctuation">:</span>
+            logger<span class="token punctuation">.</span>info<span class="token punctuation">(</span><span class="token string">"proactive scan skipped: no enabled trigger rules"</span><span class="token punctuation">)</span>
+            <span class="token keyword keyword-return">return</span>
+
+        <span class="token keyword keyword-for">for</span> user <span class="token keyword keyword-in">in</span> users<span class="token punctuation">:</span>
+            <span class="token keyword keyword-for">for</span> rule <span class="token keyword keyword-in">in</span> rules<span class="token punctuation">:</span>
+                <span class="token keyword keyword-try">try</span><span class="token punctuation">:</span>
+                    result <span class="token operator">=</span> proactive_service<span class="token punctuation">.</span>execute_rule_for_user<span class="token punctuation">(</span>
+                        db<span class="token operator">=</span>db<span class="token punctuation">,</span>
+                        user_id<span class="token operator">=</span>user<span class="token punctuation">.</span><span class="token builtin">id</span><span class="token punctuation">,</span>
+                        rule_id<span class="token operator">=</span>rule<span class="token punctuation">.</span><span class="token builtin">id</span><span class="token punctuation">,</span>
+                    <span class="token punctuation">)</span>
+
+                    <span class="token keyword keyword-if">if</span> result<span class="token punctuation">[</span><span class="token string">"status"</span><span class="token punctuation">]</span> <span class="token keyword keyword-in">in</span> <span class="token punctuation">{</span><span class="token string">"created"</span><span class="token punctuation">,</span> <span class="token string">"blocked"</span><span class="token punctuation">,</span> <span class="token string">"rate_limited"</span><span class="token punctuation">}</span><span class="token punctuation">:</span>
+                        <span class="token keyword keyword-break">break</span>
+                <span class="token keyword keyword-except">except</span> Exception<span class="token punctuation">:</span>
+                    logger<span class="token punctuation">.</span>exception<span class="token punctuation">(</span>
+                        <span class="token string">"proactive scan failed for user_id=%s rule_id=%s"</span><span class="token punctuation">,</span>
+                        user<span class="token punctuation">.</span><span class="token builtin">id</span><span class="token punctuation">,</span>
+                        rule<span class="token punctuation">.</span><span class="token builtin">id</span><span class="token punctuation">,</span>
+                    <span class="token punctuation">)</span>
+                    <span class="token keyword keyword-continue">continue</span>
+    <span class="token keyword keyword-finally">finally</span><span class="token punctuation">:</span>
+        db<span class="token punctuation">.</span>close<span class="token punctuation">(</span><span class="token punctuation">)</span>
+
+    logger<span class="token punctuation">.</span>info<span class="token punctuation">(</span><span class="token string">"proactive scan job finished"</span><span class="token punctuation">)</span>
+
+
+<span class="token keyword keyword-def">def</span> <span class="token function">start_scheduler</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">-</span><span class="token operator">&gt;</span> <span class="token boolean">None</span><span class="token punctuation">:</span>
+    <span class="token keyword keyword-if">if</span> <span class="token keyword keyword-not">not</span> settings<span class="token punctuation">.</span>SCHEDULER_ENABLED<span class="token punctuation">:</span>
+        logger<span class="token punctuation">.</span>info<span class="token punctuation">(</span><span class="token string">"scheduler is disabled by config"</span><span class="token punctuation">)</span>
+        <span class="token keyword keyword-return">return</span>
+
+    <span class="token keyword keyword-if">if</span> scheduler<span class="token punctuation">.</span>get_job<span class="token punctuation">(</span><span class="token string">"proactive_scan_job"</span><span class="token punctuation">)</span> <span class="token keyword keyword-is">is</span> <span class="token boolean">None</span><span class="token punctuation">:</span>
+        scheduler<span class="token punctuation">.</span>add_job<span class="token punctuation">(</span>
+            proactive_scan_job<span class="token punctuation">,</span>
+            trigger<span class="token operator">=</span><span class="token string">"interval"</span><span class="token punctuation">,</span>
+            minutes<span class="token operator">=</span>settings<span class="token punctuation">.</span>SCHEDULER_SCAN_INTERVAL_MINUTES<span class="token punctuation">,</span>
+            <span class="token builtin">id</span><span class="token operator">=</span><span class="token string">"proactive_scan_job"</span><span class="token punctuation">,</span>
+            replace_existing<span class="token operator">=</span><span class="token boolean">True</span><span class="token punctuation">,</span>
+            max_instances<span class="token operator">=</span><span class="token number">1</span><span class="token punctuation">,</span>
+            coalesce<span class="token operator">=</span><span class="token boolean">True</span><span class="token punctuation">,</span>
+        <span class="token punctuation">)</span>
+
+    <span class="token keyword keyword-if">if</span> <span class="token keyword keyword-not">not</span> scheduler<span class="token punctuation">.</span>running<span class="token punctuation">:</span>
+        scheduler<span class="token punctuation">.</span>start<span class="token punctuation">(</span><span class="token punctuation">)</span>
+        logger<span class="token punctuation">.</span>info<span class="token punctuation">(</span>
+            <span class="token string">"scheduler started, proactive_scan_job interval=%s minutes"</span><span class="token punctuation">,</span>
+            settings<span class="token punctuation">.</span>SCHEDULER_SCAN_INTERVAL_MINUTES<span class="token punctuation">,</span>
+        <span class="token punctuation">)</span>
+
+
+<span class="token keyword keyword-def">def</span> <span class="token function">shutdown_scheduler</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">-</span><span class="token operator">&gt;</span> <span class="token boolean">None</span><span class="token punctuation">:</span>
+    <span class="token keyword keyword-if">if</span> scheduler<span class="token punctuation">.</span>running<span class="token punctuation">:</span>
+        scheduler<span class="token punctuation">.</span>shutdown<span class="token punctuation">(</span>wait<span class="token operator">=</span><span class="token boolean">False</span><span class="token punctuation">)</span>
+        logger<span class="token punctuation">.</span>info<span class="token punctuation">(</span><span class="token string">"scheduler stopped"</span><span class="token punctuation">)</span>
+</code></pre><h3 id="163-这份调度器代码的关键点">16.3 这份调度器代码的关键点 </h3>
+<h4 id="1-为什么任务里直接查-user-和-triggerrule">1. 为什么任务里直接查 <code>User</code> 和 <code>TriggerRule</code> </h4>
+<p>因为 Scheduler 本质是一个装配和巡检层。</p>
+<p>它当然可以调用 service，但这里查：</p>
+<ol>
+<li>活跃用户列表</li>
+<li>已启用规则列表</li>
+</ol>
+<p>属于非常基础的装配查询，放在这里是合理的。</p>
+<p>真正的主动执行仍然完全复用：</p>
+<p><code>proactive_service.execute_rule_for_user()</code></p>
+<h4 id="2-为什么每个用户在出现-created--blocked--rate_limited-后就-break">2. 为什么每个用户在出现 <code>created / blocked / rate_limited</code> 后就 <code>break</code> </h4>
+<p>这是一个非常实用的小优化。</p>
+<p>如果你不 break，会发生什么？</p>
+<p>同一个用户在一次扫描里，后面的规则可能继续被执行，然后产生很多重复的：</p>
+<ol>
+<li><code>blocked</code></li>
+<li><code>rate_limited</code></li>
+</ol>
+<p>日志。</p>
+<p>这样会让第八阶段演示和排查都变得很乱。</p>
+<p>所以当前最小版的策略是：</p>
+<p>对每个用户按优先级从高到低扫规则，一旦已经：</p>
+<ol>
+<li>成功创建主动消息</li>
+<li>被窗口阻塞</li>
+<li>被频率限制</li>
+</ol>
+<p>就结束这个用户本轮扫描。</p>
+<h4 id="3-为什么这里用-backgroundscheduler">3. 为什么这里用 <code>BackgroundScheduler</code> </h4>
+<p>因为你当前主动服务是同步风格、数据库访问也是同步风格。</p>
+<p><code>BackgroundScheduler</code> 在第八阶段最省心：</p>
+<ol>
+<li>好接入</li>
+<li>容易理解</li>
+<li>和当前项目风格匹配</li>
+</ol>
+<hr>
+<h2 id="17-用-lifespan-把-scheduler-和-websocket-运行时整合到主程序">17. 用 <code>lifespan</code> 把 Scheduler 和 WebSocket 运行时整合到主程序 </h2>
+<p>第八阶段最值得你吸收的工程点之一，就是：</p>
+<p>用 FastAPI 的 <code>lifespan</code> 做应用启动和关闭装配。</p>
+<h3 id="171-为什么这里不用旧式-startup--shutdown-事件">17.1 为什么这里不用旧式 <code>startup / shutdown</code> 事件 </h3>
+<p>因为 <code>lifespan</code> 更适合把：</p>
+<ol>
+<li>绑定事件循环</li>
+<li>启动调度器</li>
+<li>应用关闭时回收资源</li>
+</ol>
+<p>这些动作统一放到一个地方。</p>
+<p>你后面讲工程结构时也更清楚。</p>
+<h3 id="172-替换-appmainpy">17.2 替换 <code>app/main.py</code> </h3>
+<p>完整代码如下：</p>
+<pre data-role="codeBlock" data-info="python" class="language-python python"><code><span class="token keyword keyword-import">import</span> asyncio
+<span class="token keyword keyword-from">from</span> contextlib <span class="token keyword keyword-import">import</span> asynccontextmanager
+
+<span class="token keyword keyword-from">from</span> fastapi <span class="token keyword keyword-import">import</span> FastAPI
+<span class="token keyword keyword-from">from</span> fastapi<span class="token punctuation">.</span>middleware<span class="token punctuation">.</span>cors <span class="token keyword keyword-import">import</span> CORSMiddleware
+
+<span class="token keyword keyword-from">from</span> app<span class="token punctuation">.</span>api<span class="token punctuation">.</span>router <span class="token keyword keyword-import">import</span> api_router
+<span class="token keyword keyword-from">from</span> app<span class="token punctuation">.</span>core<span class="token punctuation">.</span>config <span class="token keyword keyword-import">import</span> settings
+<span class="token keyword keyword-from">from</span> app<span class="token punctuation">.</span>core<span class="token punctuation">.</span>exception <span class="token keyword keyword-import">import</span> register_exception_handlers
+<span class="token keyword keyword-from">from</span> app<span class="token punctuation">.</span>core<span class="token punctuation">.</span>scheduler <span class="token keyword keyword-import">import</span> shutdown_scheduler<span class="token punctuation">,</span> start_scheduler
+<span class="token keyword keyword-from">from</span> app<span class="token punctuation">.</span>ws<span class="token punctuation">.</span>manager <span class="token keyword keyword-import">import</span> realtime_manager
+
+
+<span class="token decorator annotation punctuation">@asynccontextmanager</span>
+<span class="token keyword keyword-async">async</span> <span class="token keyword keyword-def">def</span> <span class="token function">lifespan</span><span class="token punctuation">(</span>app<span class="token punctuation">:</span> FastAPI<span class="token punctuation">)</span><span class="token punctuation">:</span>
+    realtime_manager<span class="token punctuation">.</span>bind_loop<span class="token punctuation">(</span>asyncio<span class="token punctuation">.</span>get_running_loop<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+    start_scheduler<span class="token punctuation">(</span><span class="token punctuation">)</span>
+
+    <span class="token keyword keyword-try">try</span><span class="token punctuation">:</span>
+        <span class="token keyword keyword-yield">yield</span>
+    <span class="token keyword keyword-finally">finally</span><span class="token punctuation">:</span>
+        shutdown_scheduler<span class="token punctuation">(</span><span class="token punctuation">)</span>
+        realtime_manager<span class="token punctuation">.</span>reset<span class="token punctuation">(</span><span class="token punctuation">)</span>
+
+
+<span class="token keyword keyword-def">def</span> <span class="token function">create_application</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">-</span><span class="token operator">&gt;</span> FastAPI<span class="token punctuation">:</span>
+    app <span class="token operator">=</span> FastAPI<span class="token punctuation">(</span>
+        title<span class="token operator">=</span>settings<span class="token punctuation">.</span>PROJECT_NAME<span class="token punctuation">,</span>
+        debug<span class="token operator">=</span>settings<span class="token punctuation">.</span>DEBUG<span class="token punctuation">,</span>
+        version<span class="token operator">=</span><span class="token string">"0.1.0"</span><span class="token punctuation">,</span>
+        lifespan<span class="token operator">=</span>lifespan<span class="token punctuation">,</span>
+    <span class="token punctuation">)</span>
+
+    app<span class="token punctuation">.</span>add_middleware<span class="token punctuation">(</span>
+        CORSMiddleware<span class="token punctuation">,</span>
+        allow_origins<span class="token operator">=</span>settings<span class="token punctuation">.</span>BACKEND_CORS_ORIGINS <span class="token keyword keyword-or">or</span> <span class="token punctuation">[</span><span class="token string">"*"</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
+        allow_credentials<span class="token operator">=</span><span class="token boolean">True</span><span class="token punctuation">,</span>
+        allow_methods<span class="token operator">=</span><span class="token punctuation">[</span><span class="token string">"*"</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
+        allow_headers<span class="token operator">=</span><span class="token punctuation">[</span><span class="token string">"*"</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
+    <span class="token punctuation">)</span>
+
+    app<span class="token punctuation">.</span>include_router<span class="token punctuation">(</span>api_router<span class="token punctuation">,</span> prefix<span class="token operator">=</span>settings<span class="token punctuation">.</span>API_V1_PREFIX<span class="token punctuation">)</span>
+    register_exception_handlers<span class="token punctuation">(</span>app<span class="token punctuation">)</span>
+
+    <span class="token keyword keyword-return">return</span> app
+
+
+app <span class="token operator">=</span> create_application<span class="token punctuation">(</span><span class="token punctuation">)</span>
+</code></pre><h3 id="173-这里最关键的两个动作是什么">17.3 这里最关键的两个动作是什么 </h3>
+<h4 id="1-realtime_managerbind_loopasyncioget_running_loop">1. <code>realtime_manager.bind_loop(asyncio.get_running_loop())</code> </h4>
+<p>这是为了让同步代码也能安全触发异步 WebSocket 推送。</p>
+<p>如果不绑定事件循环，前面写的：</p>
+<p><code>send_json_to_user_sync()</code></p>
+<p>就不知道该把协程扔到哪个 loop 上执行。</p>
+<h4 id="2-start_scheduler--shutdown_scheduler">2. <code>start_scheduler()</code> / <code>shutdown_scheduler()</code> </h4>
+<p>这让调度器和应用生命周期真正绑定起来：</p>
+<ol>
+<li>应用启动，调度器启动</li>
+<li>应用关闭，调度器关闭</li>
+</ol>
+<p>这就是第八阶段里 <code>main.py</code> 的核心职责。</p>
+<hr>
+<h2 id="18-第八阶段最终的文件改动顺序建议">18. 第八阶段最终的文件改动顺序建议 </h2>
+<p>你真正动手时，建议严格按这个顺序来：</p>
+<ol>
+<li><code>requirements.txt</code> 追加 <code>APScheduler</code></li>
+<li><code>app/core/config.py</code> 增加配置项</li>
+<li><code>app/ws/manager.py</code> 新建连接管理器</li>
+<li><code>app/schemas/realtime.py</code> 新建实时测试 schema</li>
+<li><code>app/api/routes/realtime.py</code> 新建实时路由</li>
+<li><code>app/api/router.py</code> 挂上实时路由</li>
+<li><code>app/services/proactive_service.py</code> 升级成支持实时推送版</li>
+<li><code>app/core/scheduler.py</code> 新建调度器</li>
+<li><code>app/main.py</code> 切换成 <code>lifespan</code> 装配版</li>
+</ol>
+<p>原因：</p>
+<ol>
+<li>没有 manager，你后面实时路由和主动服务都没法写</li>
+<li>没有实时路由，你很难先独立验证 WebSocket</li>
+<li>没有 <code>proactive_service</code> 升级，Scheduler 只会自动落库，不能联动实时推送</li>
+<li>没有 <code>main.py</code> 生命周期整合，Scheduler 就没有正确的启动时机</li>
+</ol>
+<hr>
+<h2 id="19-第八阶段最容易写错的地方">19. 第八阶段最容易写错的地方 </h2>
+<h2 id="191-把-websocket-推送放到主事务前面">19.1 把 WebSocket 推送放到主事务前面 </h2>
+<p>顺序一定不能反。</p>
+<p>应该先：</p>
+<ol>
+<li>落主动消息</li>
+<li>写主动日志</li>
+<li>再尝试推送</li>
+</ol>
+<h2 id="192-在-websocket-路由里长时间持有数据库会话">19.2 在 WebSocket 路由里长时间持有数据库会话 </h2>
+<p>这一点前面已经讲过。</p>
+<p>WebSocket 是长连接，不适合把请求级 <code>Session</code> 一直挂着不放。</p>
+<h2 id="193-调度器里重写业务逻辑">19.3 调度器里重写业务逻辑 </h2>
+<p>你如果在 <code>scheduler.py</code> 里又重写一份：</p>
+<ol>
+<li>规则判断</li>
+<li>主动窗口判断</li>
+<li>主动消息创建</li>
+</ol>
+<p>那说明层次已经乱了。</p>
+<p>调度器只应该调：</p>
+<p><code>proactive_service.execute_rule_for_user()</code></p>
+<h2 id="194-实时推送失败就把整个主动服务判失败">19.4 实时推送失败就把整个主动服务判失败 </h2>
+<p>这是第八阶段很常见的误区。</p>
+<p>WebSocket 推送失败只说明：</p>
+<p>用户当前可能不在线，或者连接断了</p>
+<p>不应该说明：</p>
+<p>主动消息创建失败</p>
+<h2 id="195-一上来就做聊天流式输出">19.5 一上来就做聊天流式输出 </h2>
+<p>第八阶段当然可以往后做聊天流式输出，但不应该作为第一个目标。</p>
+<p>因为你当前项目最有价值、最能展示主动性的实时场景其实是：</p>
+<p>主动提醒实时弹出</p>
+<p>先把这个做稳，比先做 SSE 或 token 流推送更有性价比。</p>
+<hr>
+<h2 id="20-websocket-怎么测">20. WebSocket 怎么测 </h2>
+<p>WebSocket 不能像普通 HTTP 接口那样直接靠 Swagger 页面点一下就完整演示。</p>
+<p>所以你最好按下面顺序测。</p>
+<h2 id="201-先登录拿-jwt">20.1 先登录拿 JWT </h2>
+<p>还是走你当前已有的：</p>
+<p><code>POST /api/v1/auth/login</code></p>
+<p>拿到：</p>
+<p><code>access_token</code></p>
+<h2 id="202-用浏览器控制台或者前端页面建立连接">20.2 用浏览器控制台或者前端页面建立连接 </h2>
+<p>最小示例：</p>
+<pre data-role="codeBlock" data-info="javascript" class="language-javascript javascript"><code><span class="token keyword keyword-const">const</span> token <span class="token operator">=</span> <span class="token string">"这里换成你自己的 access_token"</span><span class="token punctuation">;</span>
+<span class="token keyword keyword-const">const</span> ws <span class="token operator">=</span> <span class="token keyword keyword-new">new</span> <span class="token class-name">WebSocket</span><span class="token punctuation">(</span>
+  <span class="token template-string"><span class="token template-punctuation string">`</span><span class="token string">ws://127.0.0.1:8000/api/v1/realtime/ws?token=</span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">${</span>token<span class="token interpolation-punctuation punctuation">}</span></span><span class="token template-punctuation string">`</span></span>
+<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+ws<span class="token punctuation">.</span><span class="token method-variable function-variable method function property-access">onopen</span> <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token arrow operator">=&gt;</span> <span class="token punctuation">{</span>
+  <span class="token console class-name">console</span><span class="token punctuation">.</span><span class="token method function property-access">log</span><span class="token punctuation">(</span><span class="token string">"ws connected"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  ws<span class="token punctuation">.</span><span class="token method function property-access">send</span><span class="token punctuation">(</span><span class="token string">"ping"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span class="token punctuation">;</span>
+
+ws<span class="token punctuation">.</span><span class="token method-variable function-variable method function property-access">onmessage</span> <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token parameter">event</span><span class="token punctuation">)</span> <span class="token arrow operator">=&gt;</span> <span class="token punctuation">{</span>
+  <span class="token console class-name">console</span><span class="token punctuation">.</span><span class="token method function property-access">log</span><span class="token punctuation">(</span><span class="token string">"ws message:"</span><span class="token punctuation">,</span> <span class="token known-class-name class-name">JSON</span><span class="token punctuation">.</span><span class="token method function property-access">parse</span><span class="token punctuation">(</span>event<span class="token punctuation">.</span><span class="token property-access">data</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span class="token punctuation">;</span>
+
+ws<span class="token punctuation">.</span><span class="token method-variable function-variable method function property-access">onclose</span> <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token parameter">event</span><span class="token punctuation">)</span> <span class="token arrow operator">=&gt;</span> <span class="token punctuation">{</span>
+  <span class="token console class-name">console</span><span class="token punctuation">.</span><span class="token method function property-access">log</span><span class="token punctuation">(</span><span class="token string">"ws closed:"</span><span class="token punctuation">,</span> event<span class="token punctuation">.</span><span class="token property-access">code</span><span class="token punctuation">,</span> event<span class="token punctuation">.</span><span class="token property-access">reason</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span class="token punctuation">;</span>
+</code></pre><p>如果连接成功，你应该先收到一条：</p>
+<p><code>connected</code></p>
+<p>事件。</p>
+<p>然后发送 <code>ping</code> 后，应该能收到：</p>
+<p><code>pong</code></p>
+<p>事件。</p>
+<h2 id="203-用-http-测试推送接口验证实时通道">20.3 用 HTTP 测试推送接口验证实时通道 </h2>
+<p>调用：</p>
+<p><code>POST /api/v1/realtime/test-push/me</code></p>
+<p>请求体示例：</p>
+<pre data-role="codeBlock" data-info="json" class="language-json json"><code><span class="token punctuation">{</span>
+  <span class="token property">"content"</span><span class="token operator">:</span> <span class="token string">"这是一条实时测试消息"</span>
+<span class="token punctuation">}</span>
+</code></pre><p>你应该看到两边同时成立：</p>
+<ol>
+<li>HTTP 返回里有 <code>delivered_connection_count</code></li>
+<li>浏览器控制台里收到 <code>manual_test_push</code> 事件</li>
+</ol>
+<p>如果 HTTP 返回 <code>delivered_connection_count = 0</code>，通常意味着：</p>
+<ol>
+<li>WebSocket 还没连上</li>
+<li>token 不是同一个用户</li>
+<li>连接已经断开</li>
+</ol>
+<hr>
+<h2 id="21-scheduler-怎么测">21. Scheduler 怎么测 </h2>
+<p>Scheduler 的测试思路要和 WebSocket 分开。</p>
+<h2 id="211-先把扫描间隔改小">21.1 先把扫描间隔改小 </h2>
+<p>临时把 <code>.env</code> 里的：</p>
+<pre data-role="codeBlock" data-info="dotenv" class="language-dotenv dotenv"><code>SCHEDULER_SCAN_INTERVAL_MINUTES=1
+</code></pre><p>这样更容易演示。</p>
+<h2 id="212-先确保第七阶段前置已经准备好">21.2 先确保第七阶段前置已经准备好 </h2>
+<p>至少要有：</p>
+<ol>
+<li>一条启用状态的 <code>TriggerRule</code></li>
+<li>一个允许主动的 <code>ProactiveWindow</code></li>
+<li>能命中的测试数据</li>
+</ol>
+<p>比如：</p>
+<ol>
+<li>最近 3 天没血压记录</li>
+<li>最近聊天里含焦虑关键词</li>
+</ol>
+<h2 id="213-启动服务后观察-3-个地方">21.3 启动服务后观察 3 个地方 </h2>
+<h3 id="1-终端日志">1. 终端日志 </h3>
+<p>你应该看到调度器启动，以及 <code>proactive scan job started / finished</code></p>
+<h3 id="2-get-apiv1active-logs">2. <code>GET /api/v1/active-logs</code> </h3>
+<p>你应该能看到新的：</p>
+<p><code>generate_proactive_message</code></p>
+<p>日志。</p>
+<h3 id="3-get-apiv1proactivemessages">3. <code>GET /api/v1/proactive/messages</code> </h3>
+<p>如果规则命中且允许创建主动消息，这里应该会新增记录。</p>
+<h3 id="4-如果当前-websocket-在线">4. 如果当前 WebSocket 在线 </h3>
+<p>浏览器应该能直接收到：</p>
+<p><code>proactive_message_created</code></p>
+<p>事件。</p>
+<p>这就说明第八阶段真正形成闭环了：</p>
+<p>自动检查 -&gt; 主动执行 -&gt; 落库 -&gt; 留痕 -&gt; 实时到达</p>
+<hr>
+<h2 id="22-第八阶段完成后你现在真正具备了什么">22. 第八阶段完成后，你现在真正具备了什么 </h2>
+<p>如果你按这份教程完整补完，第八阶段结束后你已经具备：</p>
+<ol>
+<li>WebSocket 连接入口</li>
+<li>当前用户实时推送能力</li>
+<li>HTTP 测试推送接口</li>
+<li><code>proactive_service</code> 创建主动消息后的实时联动</li>
+<li>APScheduler 自动巡检任务</li>
+<li><code>main.py</code> 生命周期装配</li>
+</ol>
+<p>更重要的是，你的系统已经从：</p>
+<p>“后端能生成一条主动消息”</p>
+<p>升级成：</p>
+<p>“系统能自动发现时机、自动生成消息，并在用户在线时立刻送达”</p>
+<p>这已经非常接近真实产品体验了。</p>
+<hr>
+<h2 id="23-第八阶段和最终演示怎么衔接">23. 第八阶段和最终演示怎么衔接 </h2>
+<p>做到这一步后，你的比赛演示路线就已经很清晰了：</p>
+<h3 id="路线-1websocket-单独演示">路线 1：WebSocket 单独演示 </h3>
+<ol>
+<li>前端建立连接</li>
+<li>调用 <code>test-push</code></li>
+<li>页面实时弹出消息</li>
+</ol>
+<h3 id="路线-2主动服务演示">路线 2：主动服务演示 </h3>
+<ol>
+<li>先展示规则和窗口配置</li>
+<li>手动触发某条规则执行</li>
+<li>页面实时收到主动消息</li>
+<li>再去消息列表和日志列表里验证已落库</li>
+</ol>
+<h3 id="路线-3scheduler-自动演示">路线 3：Scheduler 自动演示 </h3>
+<ol>
+<li>把调度间隔调到 1 分钟</li>
+<li>启动服务</li>
+<li>不手点主动执行接口</li>
+<li>等系统自动扫到规则并推给前端</li>
+</ol>
+<p>这三条路线能非常直观地体现：</p>
+<ol>
+<li>你的业务不是假数据弹窗</li>
+<li>你的主动能力有规则、有窗口、有频控、有日志</li>
+<li>你的产品已经有“自动运行”的味道</li>
+</ol>
+<hr>
+<h2 id="24-第八阶段最值得你在答辩里讲清楚的三句话">24. 第八阶段最值得你在答辩里讲清楚的三句话 </h2>
+<p>你完全可以把第八阶段总结成下面三句：</p>
+<ol>
+<li><code>WebSocket</code> 不是新的业务模块，而是把已有业务结果实时送到前端的通道。</li>
+<li><code>Scheduler</code> 不是新的业务模块，而是定时调用已有主动服务的自动按钮。</li>
+<li>第八阶段没有重写主动逻辑，而是完整复用了第七阶段的 <code>proactive_service</code> 和第六阶段的日志体系。</li>
+</ol>
+<p>如果这三句你能讲顺，第八阶段的工程思路就算真正吃透了。</p>
+<hr>
+<h2 id="25-到这里第八阶段为什么已经足够比赛版">25. 到这里，第八阶段为什么已经足够比赛版 </h2>
+<p>因为比赛版最重要的不是把技术栈堆满，而是把：</p>
+<ol>
+<li>主链路讲清楚</li>
+<li>用户感知做出来</li>
+<li>自动化味道做出来</li>
+</ol>
+<p>你现在已经有：</p>
+<ol>
+<li>规则</li>
+<li>日志</li>
+<li>主动窗口</li>
+<li>主动消息</li>
+<li>实时推送</li>
+<li>自动巡检</li>
+</ol>
+<p>这套组合已经非常完整。</p>
+<p>后面如果还有时间，你可以再往上叠：</p>
+<ol>
+<li>聊天流式输出</li>
+<li>WebSocket 心跳和重连策略</li>
+<li>更丰富的调度任务</li>
+<li>更智能的主动文案生成</li>
+</ol>
+<p>但这些都已经是锦上添花，不是第八阶段的最低闭环要求了。</p>
+
+      </div>
+      
+      
+    
+    
+    
+    
+    
+    
+  
+    </body></html>

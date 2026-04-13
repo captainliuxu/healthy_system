@@ -1,10 +1,13 @@
 from functools import lru_cache
 from pathlib import Path
+from typing import Annotated
 
 from pydantic import field_validator
-from pydantic_settings import BaseSettings, SettingsConfigDict
-# 定位backend根目录
+from pydantic_settings import BaseSettings, NoDecode, SettingsConfigDict
+
+# 定位 backend 根目录与仓库根目录
 BASE_DIR = Path(__file__).resolve().parent.parent.parent
+PROJECT_ROOT = BASE_DIR.parent
 
 # 把环境变量自动映射成python可以配置的对象
 # 以后别的文件访问直接通过settings.xxx读取配置
@@ -30,7 +33,7 @@ class Settings(BaseSettings):
     LLM_BASE_URL: str = ""
     LLM_MODEL_NAME: str = "qwen-plus"
 
-    BACKEND_CORS_ORIGINS: list[str] = [
+    BACKEND_CORS_ORIGINS: Annotated[list[str], NoDecode] = [
         "http://localhost:5173",
         "http://127.0.0.1:5173",
     ]
@@ -45,8 +48,12 @@ class Settings(BaseSettings):
         return value
 
     model_config = SettingsConfigDict(
-        env_file=BASE_DIR / ".env",
+        # 兼容两种常见放法:
+        # 1. backend/.env
+        # 2. 项目根目录 .env
+        env_file=(BASE_DIR / ".env", PROJECT_ROOT / ".env"),
         env_file_encoding="utf-8",
+        env_ignore_empty=True,
         extra="ignore",
     )
 

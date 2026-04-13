@@ -1,0 +1,1383 @@
+<!DOCTYPE html><html><head>
+      <title>第四阶段</title>
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      
+      <link rel="stylesheet" href="file:///c:\Users\Lenovo\.vscode\extensions\shd101wyy.markdown-preview-enhanced-0.8.22\crossnote\dependencies\katex\katex.min.css">
+      
+      
+      
+      
+      
+      <style>
+      code[class*=language-],pre[class*=language-]{color:#333;background:0 0;font-family:Consolas,"Liberation Mono",Menlo,Courier,monospace;text-align:left;white-space:pre;word-spacing:normal;word-break:normal;word-wrap:normal;line-height:1.4;-moz-tab-size:8;-o-tab-size:8;tab-size:8;-webkit-hyphens:none;-moz-hyphens:none;-ms-hyphens:none;hyphens:none}pre[class*=language-]{padding:.8em;overflow:auto;border-radius:3px;background:#f5f5f5}:not(pre)>code[class*=language-]{padding:.1em;border-radius:.3em;white-space:normal;background:#f5f5f5}.token.blockquote,.token.comment{color:#969896}.token.cdata{color:#183691}.token.doctype,.token.macro.property,.token.punctuation,.token.variable{color:#333}.token.builtin,.token.important,.token.keyword,.token.operator,.token.rule{color:#a71d5d}.token.attr-value,.token.regex,.token.string,.token.url{color:#183691}.token.atrule,.token.boolean,.token.code,.token.command,.token.constant,.token.entity,.token.number,.token.property,.token.symbol{color:#0086b3}.token.prolog,.token.selector,.token.tag{color:#63a35c}.token.attr-name,.token.class,.token.class-name,.token.function,.token.id,.token.namespace,.token.pseudo-class,.token.pseudo-element,.token.url-reference .token.variable{color:#795da3}.token.entity{cursor:help}.token.title,.token.title .token.punctuation{font-weight:700;color:#1d3e81}.token.list{color:#ed6a43}.token.inserted{background-color:#eaffea;color:#55a532}.token.deleted{background-color:#ffecec;color:#bd2c00}.token.bold{font-weight:700}.token.italic{font-style:italic}.language-json .token.property{color:#183691}.language-markup .token.tag .token.punctuation{color:#333}.language-css .token.function,code.language-css{color:#0086b3}.language-yaml .token.atrule{color:#63a35c}code.language-yaml{color:#183691}.language-ruby .token.function{color:#333}.language-markdown .token.url{color:#795da3}.language-makefile .token.symbol{color:#795da3}.language-makefile .token.variable{color:#183691}.language-makefile .token.builtin{color:#0086b3}.language-bash .token.keyword{color:#0086b3}pre[data-line]{position:relative;padding:1em 0 1em 3em}pre[data-line] .line-highlight-wrapper{position:absolute;top:0;left:0;background-color:transparent;display:block;width:100%}pre[data-line] .line-highlight{position:absolute;left:0;right:0;padding:inherit 0;margin-top:1em;background:hsla(24,20%,50%,.08);background:linear-gradient(to right,hsla(24,20%,50%,.1) 70%,hsla(24,20%,50%,0));pointer-events:none;line-height:inherit;white-space:pre}pre[data-line] .line-highlight:before,pre[data-line] .line-highlight[data-end]:after{content:attr(data-start);position:absolute;top:.4em;left:.6em;min-width:1em;padding:0 .5em;background-color:hsla(24,20%,50%,.4);color:#f4f1ef;font:bold 65%/1.5 sans-serif;text-align:center;vertical-align:.3em;border-radius:999px;text-shadow:none;box-shadow:0 1px #fff}pre[data-line] .line-highlight[data-end]:after{content:attr(data-end);top:auto;bottom:.4em}html body{font-family:'Helvetica Neue',Helvetica,'Segoe UI',Arial,freesans,sans-serif;font-size:16px;line-height:1.6;color:#333;background-color:#fff;overflow:initial;box-sizing:border-box;word-wrap:break-word}html body>:first-child{margin-top:0}html body h1,html body h2,html body h3,html body h4,html body h5,html body h6{line-height:1.2;margin-top:1em;margin-bottom:16px;color:#000}html body h1{font-size:2.25em;font-weight:300;padding-bottom:.3em}html body h2{font-size:1.75em;font-weight:400;padding-bottom:.3em}html body h3{font-size:1.5em;font-weight:500}html body h4{font-size:1.25em;font-weight:600}html body h5{font-size:1.1em;font-weight:600}html body h6{font-size:1em;font-weight:600}html body h1,html body h2,html body h3,html body h4,html body h5{font-weight:600}html body h5{font-size:1em}html body h6{color:#5c5c5c}html body strong{color:#000}html body del{color:#5c5c5c}html body a:not([href]){color:inherit;text-decoration:none}html body a{color:#08c;text-decoration:none}html body a:hover{color:#00a3f5;text-decoration:none}html body img{max-width:100%}html body>p{margin-top:0;margin-bottom:16px;word-wrap:break-word}html body>ol,html body>ul{margin-bottom:16px}html body ol,html body ul{padding-left:2em}html body ol.no-list,html body ul.no-list{padding:0;list-style-type:none}html body ol ol,html body ol ul,html body ul ol,html body ul ul{margin-top:0;margin-bottom:0}html body li{margin-bottom:0}html body li.task-list-item{list-style:none}html body li>p{margin-top:0;margin-bottom:0}html body .task-list-item-checkbox{margin:0 .2em .25em -1.8em;vertical-align:middle}html body .task-list-item-checkbox:hover{cursor:pointer}html body blockquote{margin:16px 0;font-size:inherit;padding:0 15px;color:#5c5c5c;background-color:#f0f0f0;border-left:4px solid #d6d6d6}html body blockquote>:first-child{margin-top:0}html body blockquote>:last-child{margin-bottom:0}html body hr{height:4px;margin:32px 0;background-color:#d6d6d6;border:0 none}html body table{margin:10px 0 15px 0;border-collapse:collapse;border-spacing:0;display:block;width:100%;overflow:auto;word-break:normal;word-break:keep-all}html body table th{font-weight:700;color:#000}html body table td,html body table th{border:1px solid #d6d6d6;padding:6px 13px}html body dl{padding:0}html body dl dt{padding:0;margin-top:16px;font-size:1em;font-style:italic;font-weight:700}html body dl dd{padding:0 16px;margin-bottom:16px}html body code{font-family:Menlo,Monaco,Consolas,'Courier New',monospace;font-size:.85em;color:#000;background-color:#f0f0f0;border-radius:3px;padding:.2em 0}html body code::after,html body code::before{letter-spacing:-.2em;content:'\00a0'}html body pre>code{padding:0;margin:0;word-break:normal;white-space:pre;background:0 0;border:0}html body .highlight{margin-bottom:16px}html body .highlight pre,html body pre{padding:1em;overflow:auto;line-height:1.45;border:#d6d6d6;border-radius:3px}html body .highlight pre{margin-bottom:0;word-break:normal}html body pre code,html body pre tt{display:inline;max-width:initial;padding:0;margin:0;overflow:initial;line-height:inherit;word-wrap:normal;background-color:transparent;border:0}html body pre code:after,html body pre code:before,html body pre tt:after,html body pre tt:before{content:normal}html body blockquote,html body dl,html body ol,html body p,html body pre,html body ul{margin-top:0;margin-bottom:16px}html body kbd{color:#000;border:1px solid #d6d6d6;border-bottom:2px solid #c7c7c7;padding:2px 4px;background-color:#f0f0f0;border-radius:3px}@media print{html body{background-color:#fff}html body h1,html body h2,html body h3,html body h4,html body h5,html body h6{color:#000;page-break-after:avoid}html body blockquote{color:#5c5c5c}html body pre{page-break-inside:avoid}html body table{display:table}html body img{display:block;max-width:100%;max-height:100%}html body code,html body pre{word-wrap:break-word;white-space:pre}}.markdown-preview{width:100%;height:100%;box-sizing:border-box}.markdown-preview ul{list-style:disc}.markdown-preview ul ul{list-style:circle}.markdown-preview ul ul ul{list-style:square}.markdown-preview ol{list-style:decimal}.markdown-preview ol ol,.markdown-preview ul ol{list-style-type:lower-roman}.markdown-preview ol ol ol,.markdown-preview ol ul ol,.markdown-preview ul ol ol,.markdown-preview ul ul ol{list-style-type:lower-alpha}.markdown-preview .newpage,.markdown-preview .pagebreak{page-break-before:always}.markdown-preview pre.line-numbers{position:relative;padding-left:3.8em;counter-reset:linenumber}.markdown-preview pre.line-numbers>code{position:relative}.markdown-preview pre.line-numbers .line-numbers-rows{position:absolute;pointer-events:none;top:1em;font-size:100%;left:0;width:3em;letter-spacing:-1px;border-right:1px solid #999;-webkit-user-select:none;-moz-user-select:none;-ms-user-select:none;user-select:none}.markdown-preview pre.line-numbers .line-numbers-rows>span{pointer-events:none;display:block;counter-increment:linenumber}.markdown-preview pre.line-numbers .line-numbers-rows>span:before{content:counter(linenumber);color:#999;display:block;padding-right:.8em;text-align:right}.markdown-preview .mathjax-exps .MathJax_Display{text-align:center!important}.markdown-preview:not([data-for=preview]) .code-chunk .code-chunk-btn-group{display:none}.markdown-preview:not([data-for=preview]) .code-chunk .status{display:none}.markdown-preview:not([data-for=preview]) .code-chunk .output-div{margin-bottom:16px}.markdown-preview .md-toc{padding:0}.markdown-preview .md-toc .md-toc-link-wrapper .md-toc-link{display:inline;padding:.25rem 0}.markdown-preview .md-toc .md-toc-link-wrapper .md-toc-link div,.markdown-preview .md-toc .md-toc-link-wrapper .md-toc-link p{display:inline}.markdown-preview .md-toc .md-toc-link-wrapper.highlighted .md-toc-link{font-weight:800}.scrollbar-style::-webkit-scrollbar{width:8px}.scrollbar-style::-webkit-scrollbar-track{border-radius:10px;background-color:transparent}.scrollbar-style::-webkit-scrollbar-thumb{border-radius:5px;background-color:rgba(150,150,150,.66);border:4px solid rgba(150,150,150,.66);background-clip:content-box}html body[for=html-export]:not([data-presentation-mode]){position:relative;width:100%;height:100%;top:0;left:0;margin:0;padding:0;overflow:auto}html body[for=html-export]:not([data-presentation-mode]) .markdown-preview{position:relative;top:0;min-height:100vh}@media screen and (min-width:914px){html body[for=html-export]:not([data-presentation-mode]) .markdown-preview{padding:2em calc(50% - 457px + 2em)}}@media screen and (max-width:914px){html body[for=html-export]:not([data-presentation-mode]) .markdown-preview{padding:2em}}@media screen and (max-width:450px){html body[for=html-export]:not([data-presentation-mode]) .markdown-preview{font-size:14px!important;padding:1em}}@media print{html body[for=html-export]:not([data-presentation-mode]) #sidebar-toc-btn{display:none}}html body[for=html-export]:not([data-presentation-mode]) #sidebar-toc-btn{position:fixed;bottom:8px;left:8px;font-size:28px;cursor:pointer;color:inherit;z-index:99;width:32px;text-align:center;opacity:.4}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] #sidebar-toc-btn{opacity:1}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc{position:fixed;top:0;left:0;width:300px;height:100%;padding:32px 0 48px 0;font-size:14px;box-shadow:0 0 4px rgba(150,150,150,.33);box-sizing:border-box;overflow:auto;background-color:inherit}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc::-webkit-scrollbar{width:8px}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc::-webkit-scrollbar-track{border-radius:10px;background-color:transparent}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc::-webkit-scrollbar-thumb{border-radius:5px;background-color:rgba(150,150,150,.66);border:4px solid rgba(150,150,150,.66);background-clip:content-box}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc a{text-decoration:none}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc .md-toc{padding:0 16px}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc .md-toc .md-toc-link-wrapper .md-toc-link{display:inline;padding:.25rem 0}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc .md-toc .md-toc-link-wrapper .md-toc-link div,html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc .md-toc .md-toc-link-wrapper .md-toc-link p{display:inline}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc .md-toc .md-toc-link-wrapper.highlighted .md-toc-link{font-weight:800}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .markdown-preview{left:300px;width:calc(100% - 300px);padding:2em calc(50% - 457px - 300px / 2);margin:0;box-sizing:border-box}@media screen and (max-width:1274px){html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .markdown-preview{padding:2em}}@media screen and (max-width:450px){html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .markdown-preview{width:100%}}html body[for=html-export]:not([data-presentation-mode]):not([html-show-sidebar-toc]) .markdown-preview{left:50%;transform:translateX(-50%)}html body[for=html-export]:not([data-presentation-mode]):not([html-show-sidebar-toc]) .md-sidebar-toc{display:none}
+/* Please visit the URL below for more information: */
+/*   https://shd101wyy.github.io/markdown-preview-enhanced/#/customize-css */
+
+      </style>
+      <script type="text/javascript">
+  document.addEventListener("DOMContentLoaded", function () {
+    // your code here
+  });
+</script>
+    </head>
+    <body for="html-export">
+      <div class="crossnote markdown-preview  ">
+      <div>
+<h1 id="healthy-system-fastapi-第四阶段详细教程">Healthy System FastAPI 第四阶段详细教程 </h1>
+<h2 id="1-这一阶段到底要解决什么">1. 这一阶段到底要解决什么 </h2>
+<p>第四阶段先做一件很重要的事:</p>
+<p>把聊天相关的数据结构先稳定下来，也就是先把:</p>
+<ol>
+<li><code>Conversation</code></li>
+<li><code>Message</code></li>
+</ol>
+<p>这两个模块建好。</p>
+<p>注意，这一阶段先不要急着接大模型。</p>
+<p>因为聊天功能本质上至少有两层:</p>
+<ol>
+<li>会话层 <code>conversation</code></li>
+<li>消息层 <code>message</code></li>
+</ol>
+<p>如果这两层的数据模型不先稳定，后面你一接模型调用，就会不停返工。</p>
+<p>所以第四阶段的目标不是“先聊起来”，而是:</p>
+<p>先把聊天数据真正存得清楚、查得清楚、关联得清楚。</p>
+<hr>
+<h2 id="2-第四阶段完成后的验收标准">2. 第四阶段完成后的验收标准 </h2>
+<p>做到下面这些，就算第四阶段合格:</p>
+<ol>
+<li><code>conversation</code> 与 <code>user</code> 正确关联</li>
+<li><code>message</code> 与 <code>conversation</code> 正确关联</li>
+<li>用户可以创建会话</li>
+<li>用户可以查看自己的会话列表</li>
+<li>用户可以查看某个会话详情</li>
+<li>用户可以修改会话标题</li>
+<li>用户可以删除会话</li>
+<li>用户可以查看某个会话下的历史消息</li>
+<li>消息可以手动插入并落库</li>
+<li>用户不能查看别人的会话和消息</li>
+</ol>
+<hr>
+<h2 id="3-为什么这一阶段先做数据结构不先接大模型">3. 为什么这一阶段先做数据结构，不先接大模型 </h2>
+<p>因为你后面真正的聊天接口，本质上一定会依赖这两张表:</p>
+<ol>
+<li><code>conversations</code></li>
+<li><code>messages</code></li>
+</ol>
+<p>你以后无论是:</p>
+<ol>
+<li>普通问答</li>
+<li>上下文续聊</li>
+<li>多轮记忆</li>
+<li>历史记录回放</li>
+<li>主动消息回显</li>
+</ol>
+<p>都离不开这两层数据。</p>
+<p>如果你现在不先把它们建稳，后面接大模型时会不断遇到这些问题:</p>
+<ol>
+<li>消息不知道该挂到哪个会话下</li>
+<li>会话不知道归哪个用户</li>
+<li>历史消息查不出来</li>
+<li>想补标题、状态、角色时又得返工改表</li>
+</ol>
+<p>所以第四阶段最正确的思路是:</p>
+<p>先把数据库结构和基础 CRUD 做好，再谈聊天主链路。</p>
+<hr>
+<h2 id="4-这一阶段先不做什么">4. 这一阶段先不做什么 </h2>
+<p>这一阶段先不要做这些内容:</p>
+<ol>
+<li>不做流式输出</li>
+<li>不做 WebSocket</li>
+<li>不做复杂 prompt 编排</li>
+<li>不做上下文截断策略</li>
+<li>不做自动生成会话标题</li>
+<li>不做 LLM 调用封装</li>
+<li>不做 <code>/chat</code> 真正问答接口</li>
+</ol>
+<p>这一阶段你只要做到:</p>
+<ol>
+<li>用户能创建会话</li>
+<li>用户能查历史消息</li>
+<li>消息能落库</li>
+</ol>
+<p>就已经完成目标了。</p>
+<hr>
+<h2 id="5-先说明你当前项目里的草稿文件">5. 先说明你当前项目里的草稿文件 </h2>
+<p>你现在仓库里已经有这些草稿文件:</p>
+<ol>
+<li><code>backend/app/db/models/conversation.py</code></li>
+<li><code>backend/app/db/models/message.py</code></li>
+<li><code>backend/app/schemas/conversation.py</code></li>
+<li><code>backend/app/schemas/chat.py</code></li>
+</ol>
+<p>但你前两阶段、第三阶段已经逐步统一成了正式结构:</p>
+<ol>
+<li>ORM 模型放在 <code>app/models/</code></li>
+<li>Alembic 通过 <code>app/db/base.py</code> 找模型</li>
+<li>路由放在 <code>app/api/routes/</code></li>
+<li>service 放在 <code>app/services/</code></li>
+</ol>
+<p>所以第四阶段也要继续统一成这套正式结构。</p>
+<h3 id="51-这一阶段的处理原则">5.1 这一阶段的处理原则 </h3>
+<ol>
+<li>正式版 <code>Conversation</code> 放到 <code>app/models/conversation.py</code></li>
+<li>正式版 <code>Message</code> 放到 <code>app/models/message.py</code></li>
+<li><code>app/db/models/conversation.py</code> 和 <code>app/db/models/message.py</code> 先不要再继续用</li>
+<li><code>app/schemas/conversation.py</code> 可以直接重写</li>
+<li>新增 <code>app/schemas/message.py</code></li>
+<li><code>app/schemas/chat.py</code> 这一阶段先不要动</li>
+</ol>
+<h3 id="52-为什么这里不继续沿用-profile_id">5.2 为什么这里不继续沿用 <code>profile_id</code> </h3>
+<p>你现在草稿里的 <code>conversation.py</code> 用的是 <code>profile_id</code>。</p>
+<p>但第四阶段的验收标准写得很明确:</p>
+<p><code>conversation</code> 与 <code>user</code> 正确关联</p>
+<p>所以这一阶段推荐直接改成:</p>
+<p><code>Conversation -&gt; user_id</code></p>
+<p>这样做好处是:</p>
+<ol>
+<li>和第二阶段的认证体系直接对上</li>
+<li>当前用户权限判断最简单</li>
+<li>这一阶段更容易演示</li>
+<li>不依赖 profile 是否已创建</li>
+</ol>
+<p>以后如果你要做“一个账号管理多个不同聊天对象”，再往 <code>profile_id</code> 扩展也不迟。</p>
+<hr>
+<h2 id="6-第四阶段推荐的数据设计">6. 第四阶段推荐的数据设计 </h2>
+<h2 id="61-conversation-表">6.1 Conversation 表 </h2>
+<p>推荐字段:</p>
+<table>
+<thead>
+<tr>
+<th>字段</th>
+<th>类型</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>id</code></td>
+<td>int</td>
+<td>主键</td>
+</tr>
+<tr>
+<td><code>user_id</code></td>
+<td>int</td>
+<td>归属用户</td>
+</tr>
+<tr>
+<td><code>title</code></td>
+<td>str</td>
+<td>会话标题</td>
+</tr>
+<tr>
+<td><code>status</code></td>
+<td>str</td>
+<td>会话状态</td>
+</tr>
+<tr>
+<td><code>created_at</code></td>
+<td>datetime</td>
+<td>创建时间</td>
+</tr>
+<tr>
+<td><code>updated_at</code></td>
+<td>datetime</td>
+<td>更新时间</td>
+</tr>
+</tbody>
+</table>
+<h3 id="为什么这里加-status">为什么这里加 <code>status</code> </h3>
+<p>虽然这一阶段你还不会真的用到很多状态流转，但建议先把 <code>status</code> 留好。</p>
+<p>因为以后你很可能会需要:</p>
+<ol>
+<li>激活中的会话</li>
+<li>归档会话</li>
+<li>已关闭会话</li>
+</ol>
+<p>第四阶段先保留最小状态字段，后面就不容易返工。</p>
+<p>推荐先用:</p>
+<ol>
+<li><code>active</code></li>
+<li><code>archived</code></li>
+</ol>
+<p>但这一阶段先只默认写 <code>active</code>，不做复杂状态切换接口。</p>
+<h2 id="62-message-表">6.2 Message 表 </h2>
+<p>推荐字段:</p>
+<table>
+<thead>
+<tr>
+<th>字段</th>
+<th>类型</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>id</code></td>
+<td>int</td>
+<td>主键</td>
+</tr>
+<tr>
+<td><code>conversation_id</code></td>
+<td>int</td>
+<td>所属会话</td>
+</tr>
+<tr>
+<td><code>role</code></td>
+<td>str</td>
+<td>角色</td>
+</tr>
+<tr>
+<td><code>content</code></td>
+<td>text</td>
+<td>消息内容</td>
+</tr>
+<tr>
+<td><code>message_type</code></td>
+<td>str</td>
+<td>消息类型</td>
+</tr>
+<tr>
+<td><code>created_at</code></td>
+<td>datetime</td>
+<td>创建时间</td>
+</tr>
+</tbody>
+</table>
+<h3 id="role-推荐值"><code>role</code> 推荐值 </h3>
+<ol>
+<li><code>user</code></li>
+<li><code>assistant</code></li>
+<li><code>system</code></li>
+</ol>
+<p>这三个值是聊天系统里最经典、最通用的一套角色设计。</p>
+<p>第四阶段先固定成这三个值，后面你接大模型时就不用重构历史消息结构了。</p>
+<h3 id="message_type-为什么先保留"><code>message_type</code> 为什么先保留 </h3>
+<p>虽然这一阶段大多数消息都只是普通文本，但这个字段建议先留好。</p>
+<p>后面你可能会扩展:</p>
+<ol>
+<li><code>text</code></li>
+<li><code>summary</code></li>
+<li><code>event</code></li>
+<li><code>reminder</code></li>
+</ol>
+<p>第四阶段先统一默认成 <code>text</code> 就够了。</p>
+<hr>
+<h2 id="7-这一阶段会改哪些文件">7. 这一阶段会改哪些文件 </h2>
+<p>如果你按本教程做，第四阶段会涉及下面这些文件:</p>
+<pre data-role="codeBlock" data-info="text" class="language-text text"><code>backend/
+├─ app/
+│  ├─ api/
+│  │  ├─ routes/
+│  │  │  ├─ conversations.py
+│  │  │  ├─ messages.py
+│  │  │  └─ router.py
+│  ├─ models/
+│  │  ├─ conversation.py
+│  │  ├─ message.py
+│  │  └─ __init__.py
+│  ├─ schemas/
+│  │  ├─ conversation.py
+│  │  └─ message.py
+│  ├─ services/
+│  │  ├─ conversation_service.py
+│  │  └─ message_service.py
+│  └─ db/
+│     └─ base.py
+└─ alembic/
+   └─ versions/
+</code></pre><p>说明:</p>
+<ol>
+<li><code>app/models/conversation.py</code> 是新建</li>
+<li><code>app/models/message.py</code> 是新建</li>
+<li><code>app/services/conversation_service.py</code> 是新建</li>
+<li><code>app/services/message_service.py</code> 是新建</li>
+<li><code>app/api/routes/conversations.py</code> 是新建</li>
+<li><code>app/api/routes/messages.py</code> 是新建</li>
+<li><code>app/schemas/conversation.py</code> 是重写</li>
+<li><code>app/schemas/message.py</code> 是新建</li>
+<li><code>app/models/__init__.py</code>、<code>app/db/base.py</code>、<code>app/api/router.py</code> 都要补内容</li>
+</ol>
+<hr>
+<h2 id="8-这一阶段建议提供的接口">8. 这一阶段建议提供的接口 </h2>
+<h2 id="81-conversation-接口">8.1 Conversation 接口 </h2>
+<table>
+<thead>
+<tr>
+<th>方法</th>
+<th>路径</th>
+<th>作用</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>POST</code></td>
+<td><code>/api/v1/conversations</code></td>
+<td>创建会话</td>
+</tr>
+<tr>
+<td><code>GET</code></td>
+<td><code>/api/v1/conversations</code></td>
+<td>获取会话列表</td>
+</tr>
+<tr>
+<td><code>GET</code></td>
+<td><code>/api/v1/conversations/{conversation_id}</code></td>
+<td>获取会话详情</td>
+</tr>
+<tr>
+<td><code>PUT</code></td>
+<td><code>/api/v1/conversations/{conversation_id}/title</code></td>
+<td>修改会话标题</td>
+</tr>
+<tr>
+<td><code>DELETE</code></td>
+<td><code>/api/v1/conversations/{conversation_id}</code></td>
+<td>删除会话</td>
+</tr>
+</tbody>
+</table>
+<h2 id="82-message-接口">8.2 Message 接口 </h2>
+<table>
+<thead>
+<tr>
+<th>方法</th>
+<th>路径</th>
+<th>作用</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>GET</code></td>
+<td><code>/api/v1/conversations/{conversation_id}/messages</code></td>
+<td>获取某会话消息列表</td>
+</tr>
+<tr>
+<td><code>POST</code></td>
+<td><code>/api/v1/conversations/{conversation_id}/messages/debug</code></td>
+<td>手动插入消息，调试用</td>
+</tr>
+</tbody>
+</table>
+<p>为什么这里把消息接口设计成挂在会话下面:</p>
+<p>因为消息一定属于某个会话。<br>
+所以用嵌套路由最直观:</p>
+<p><code>conversation -&gt; messages</code></p>
+<hr>
+<h2 id="9-开发顺序建议">9. 开发顺序建议 </h2>
+<p>这个顺序不要乱:</p>
+<ol>
+<li>先做 <code>Conversation</code> 模型</li>
+<li>再做 <code>Message</code> 模型</li>
+<li>再补 <code>app/models/__init__.py</code></li>
+<li>再补 <code>app/db/base.py</code></li>
+<li>再写 <code>Conversation</code> 的 schema</li>
+<li>再写 <code>Message</code> 的 schema</li>
+<li>再写 <code>ConversationService</code></li>
+<li>再写 <code>MessageService</code></li>
+<li>再写 <code>conversations.py</code></li>
+<li>再写 <code>messages.py</code></li>
+<li>再补总路由 <code>app/api/router.py</code></li>
+<li>最后做 Alembic migration 和 Swagger 验收</li>
+</ol>
+<p>原因:</p>
+<ol>
+<li>没有模型，后面都没法写</li>
+<li>没有 schema，请求和响应边界不清楚</li>
+<li>没有 service，路由里会堆满业务逻辑</li>
+<li>没有 base 导入，Alembic 很可能生成空 migration</li>
+</ol>
+<hr>
+<h2 id="10-正式开始写代码">10. 正式开始写代码 </h2>
+<p>下面开始按文件一个一个来。</p>
+<p>为了降低你出错概率，这里尽量采用下面这种方式:</p>
+<ol>
+<li>明确告诉你这个文件是新建还是替换</li>
+<li>给你完整代码</li>
+<li>告诉你这份代码在做什么</li>
+<li>标明容易写错的地方</li>
+</ol>
+<hr>
+<h2 id="11-先建-conversation-orm-模型">11. 先建 <code>Conversation</code> ORM 模型 </h2>
+<h3 id="111-新建-appmodelsconversationpy">11.1 新建 <code>app/models/conversation.py</code> </h3>
+<p>完整代码如下:</p>
+<pre data-role="codeBlock" data-info="python" class="language-python python"><code><span class="token keyword keyword-from">from</span> __future__ <span class="token keyword keyword-import">import</span> annotations
+
+<span class="token keyword keyword-from">from</span> datetime <span class="token keyword keyword-import">import</span> UTC<span class="token punctuation">,</span> datetime
+
+<span class="token keyword keyword-from">from</span> sqlalchemy <span class="token keyword keyword-import">import</span> DateTime<span class="token punctuation">,</span> ForeignKey<span class="token punctuation">,</span> Integer<span class="token punctuation">,</span> String
+<span class="token keyword keyword-from">from</span> sqlalchemy<span class="token punctuation">.</span>orm <span class="token keyword keyword-import">import</span> Mapped<span class="token punctuation">,</span> mapped_column
+
+<span class="token keyword keyword-from">from</span> app<span class="token punctuation">.</span>db<span class="token punctuation">.</span>session <span class="token keyword keyword-import">import</span> Base
+
+
+<span class="token keyword keyword-class">class</span> <span class="token class-name">Conversation</span><span class="token punctuation">(</span>Base<span class="token punctuation">)</span><span class="token punctuation">:</span>
+    __tablename__ <span class="token operator">=</span> <span class="token string">"conversations"</span>
+
+    <span class="token builtin">id</span><span class="token punctuation">:</span> Mapped<span class="token punctuation">[</span><span class="token builtin">int</span><span class="token punctuation">]</span> <span class="token operator">=</span> mapped_column<span class="token punctuation">(</span>Integer<span class="token punctuation">,</span> primary_key<span class="token operator">=</span><span class="token boolean">True</span><span class="token punctuation">,</span> index<span class="token operator">=</span><span class="token boolean">True</span><span class="token punctuation">)</span>
+    user_id<span class="token punctuation">:</span> Mapped<span class="token punctuation">[</span><span class="token builtin">int</span><span class="token punctuation">]</span> <span class="token operator">=</span> mapped_column<span class="token punctuation">(</span>
+        ForeignKey<span class="token punctuation">(</span><span class="token string">"users.id"</span><span class="token punctuation">,</span> ondelete<span class="token operator">=</span><span class="token string">"CASCADE"</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+        index<span class="token operator">=</span><span class="token boolean">True</span><span class="token punctuation">,</span>
+        nullable<span class="token operator">=</span><span class="token boolean">False</span><span class="token punctuation">,</span>
+    <span class="token punctuation">)</span>
+    title<span class="token punctuation">:</span> Mapped<span class="token punctuation">[</span><span class="token builtin">str</span><span class="token punctuation">]</span> <span class="token operator">=</span> mapped_column<span class="token punctuation">(</span>String<span class="token punctuation">(</span><span class="token number">100</span><span class="token punctuation">)</span><span class="token punctuation">,</span> nullable<span class="token operator">=</span><span class="token boolean">False</span><span class="token punctuation">,</span> default<span class="token operator">=</span><span class="token string">"New Conversation"</span><span class="token punctuation">)</span>
+    status<span class="token punctuation">:</span> Mapped<span class="token punctuation">[</span><span class="token builtin">str</span><span class="token punctuation">]</span> <span class="token operator">=</span> mapped_column<span class="token punctuation">(</span>String<span class="token punctuation">(</span><span class="token number">20</span><span class="token punctuation">)</span><span class="token punctuation">,</span> nullable<span class="token operator">=</span><span class="token boolean">False</span><span class="token punctuation">,</span> default<span class="token operator">=</span><span class="token string">"active"</span><span class="token punctuation">,</span> index<span class="token operator">=</span><span class="token boolean">True</span><span class="token punctuation">)</span>
+    created_at<span class="token punctuation">:</span> Mapped<span class="token punctuation">[</span>datetime<span class="token punctuation">]</span> <span class="token operator">=</span> mapped_column<span class="token punctuation">(</span>
+        DateTime<span class="token punctuation">(</span>timezone<span class="token operator">=</span><span class="token boolean">True</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+        default<span class="token operator">=</span><span class="token keyword keyword-lambda">lambda</span><span class="token punctuation">:</span> datetime<span class="token punctuation">.</span>now<span class="token punctuation">(</span>UTC<span class="token punctuation">)</span><span class="token punctuation">,</span>
+        nullable<span class="token operator">=</span><span class="token boolean">False</span><span class="token punctuation">,</span>
+    <span class="token punctuation">)</span>
+    updated_at<span class="token punctuation">:</span> Mapped<span class="token punctuation">[</span>datetime<span class="token punctuation">]</span> <span class="token operator">=</span> mapped_column<span class="token punctuation">(</span>
+        DateTime<span class="token punctuation">(</span>timezone<span class="token operator">=</span><span class="token boolean">True</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+        default<span class="token operator">=</span><span class="token keyword keyword-lambda">lambda</span><span class="token punctuation">:</span> datetime<span class="token punctuation">.</span>now<span class="token punctuation">(</span>UTC<span class="token punctuation">)</span><span class="token punctuation">,</span>
+        onupdate<span class="token operator">=</span><span class="token keyword keyword-lambda">lambda</span><span class="token punctuation">:</span> datetime<span class="token punctuation">.</span>now<span class="token punctuation">(</span>UTC<span class="token punctuation">)</span><span class="token punctuation">,</span>
+        nullable<span class="token operator">=</span><span class="token boolean">False</span><span class="token punctuation">,</span>
+    <span class="token punctuation">)</span>
+</code></pre><h3 id="112-这份模型代码在做什么">11.2 这份模型代码在做什么 </h3>
+<ol>
+<li><code>user_id</code> 表示这个会话属于哪个用户</li>
+<li><code>title</code> 是会话标题</li>
+<li><code>status</code> 是会话状态</li>
+<li><code>created_at</code> 是创建时间</li>
+<li><code>updated_at</code> 是最后更新时间</li>
+</ol>
+<h3 id="113-这里为什么先不加-relationship">11.3 这里为什么先不加 relationship </h3>
+<p>这一阶段的核心目标是:</p>
+<p>把会话和消息的数据结构先跑通。</p>
+<p>所以第四阶段先只用外键表达关联关系就够了。</p>
+<p>也就是说:</p>
+<ol>
+<li><code>Conversation.user_id -&gt; users.id</code></li>
+<li><code>Message.conversation_id -&gt; conversations.id</code></li>
+</ol>
+<p>这已经足够支撑 CRUD 和历史消息查询。</p>
+<p>后面如果你熟悉了 SQLAlchemy relationship，再补也不迟。</p>
+<hr>
+<h2 id="12-再建-message-orm-模型">12. 再建 <code>Message</code> ORM 模型 </h2>
+<h3 id="121-新建-appmodelsmessagepy">12.1 新建 <code>app/models/message.py</code> </h3>
+<p>完整代码如下:</p>
+<pre data-role="codeBlock" data-info="python" class="language-python python"><code><span class="token keyword keyword-from">from</span> __future__ <span class="token keyword keyword-import">import</span> annotations
+
+<span class="token keyword keyword-from">from</span> datetime <span class="token keyword keyword-import">import</span> UTC<span class="token punctuation">,</span> datetime
+
+<span class="token keyword keyword-from">from</span> sqlalchemy <span class="token keyword keyword-import">import</span> DateTime<span class="token punctuation">,</span> ForeignKey<span class="token punctuation">,</span> Integer<span class="token punctuation">,</span> String<span class="token punctuation">,</span> Text
+<span class="token keyword keyword-from">from</span> sqlalchemy<span class="token punctuation">.</span>orm <span class="token keyword keyword-import">import</span> Mapped<span class="token punctuation">,</span> mapped_column
+
+<span class="token keyword keyword-from">from</span> app<span class="token punctuation">.</span>db<span class="token punctuation">.</span>session <span class="token keyword keyword-import">import</span> Base
+
+
+<span class="token keyword keyword-class">class</span> <span class="token class-name">Message</span><span class="token punctuation">(</span>Base<span class="token punctuation">)</span><span class="token punctuation">:</span>
+    __tablename__ <span class="token operator">=</span> <span class="token string">"messages"</span>
+
+    <span class="token builtin">id</span><span class="token punctuation">:</span> Mapped<span class="token punctuation">[</span><span class="token builtin">int</span><span class="token punctuation">]</span> <span class="token operator">=</span> mapped_column<span class="token punctuation">(</span>Integer<span class="token punctuation">,</span> primary_key<span class="token operator">=</span><span class="token boolean">True</span><span class="token punctuation">,</span> index<span class="token operator">=</span><span class="token boolean">True</span><span class="token punctuation">)</span>
+    conversation_id<span class="token punctuation">:</span> Mapped<span class="token punctuation">[</span><span class="token builtin">int</span><span class="token punctuation">]</span> <span class="token operator">=</span> mapped_column<span class="token punctuation">(</span>
+        ForeignKey<span class="token punctuation">(</span><span class="token string">"conversations.id"</span><span class="token punctuation">,</span> ondelete<span class="token operator">=</span><span class="token string">"CASCADE"</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+        index<span class="token operator">=</span><span class="token boolean">True</span><span class="token punctuation">,</span>
+        nullable<span class="token operator">=</span><span class="token boolean">False</span><span class="token punctuation">,</span>
+    <span class="token punctuation">)</span>
+    role<span class="token punctuation">:</span> Mapped<span class="token punctuation">[</span><span class="token builtin">str</span><span class="token punctuation">]</span> <span class="token operator">=</span> mapped_column<span class="token punctuation">(</span>String<span class="token punctuation">(</span><span class="token number">20</span><span class="token punctuation">)</span><span class="token punctuation">,</span> nullable<span class="token operator">=</span><span class="token boolean">False</span><span class="token punctuation">,</span> index<span class="token operator">=</span><span class="token boolean">True</span><span class="token punctuation">)</span>
+    content<span class="token punctuation">:</span> Mapped<span class="token punctuation">[</span><span class="token builtin">str</span><span class="token punctuation">]</span> <span class="token operator">=</span> mapped_column<span class="token punctuation">(</span>Text<span class="token punctuation">,</span> nullable<span class="token operator">=</span><span class="token boolean">False</span><span class="token punctuation">)</span>
+    message_type<span class="token punctuation">:</span> Mapped<span class="token punctuation">[</span><span class="token builtin">str</span><span class="token punctuation">]</span> <span class="token operator">=</span> mapped_column<span class="token punctuation">(</span>String<span class="token punctuation">(</span><span class="token number">30</span><span class="token punctuation">)</span><span class="token punctuation">,</span> nullable<span class="token operator">=</span><span class="token boolean">False</span><span class="token punctuation">,</span> default<span class="token operator">=</span><span class="token string">"text"</span><span class="token punctuation">)</span>
+    created_at<span class="token punctuation">:</span> Mapped<span class="token punctuation">[</span>datetime<span class="token punctuation">]</span> <span class="token operator">=</span> mapped_column<span class="token punctuation">(</span>
+        DateTime<span class="token punctuation">(</span>timezone<span class="token operator">=</span><span class="token boolean">True</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+        default<span class="token operator">=</span><span class="token keyword keyword-lambda">lambda</span><span class="token punctuation">:</span> datetime<span class="token punctuation">.</span>now<span class="token punctuation">(</span>UTC<span class="token punctuation">)</span><span class="token punctuation">,</span>
+        nullable<span class="token operator">=</span><span class="token boolean">False</span><span class="token punctuation">,</span>
+        index<span class="token operator">=</span><span class="token boolean">True</span><span class="token punctuation">,</span>
+    <span class="token punctuation">)</span>
+</code></pre><h3 id="122-这份模型代码在做什么">12.2 这份模型代码在做什么 </h3>
+<ol>
+<li><code>conversation_id</code> 表示这条消息属于哪个会话</li>
+<li><code>role</code> 表示消息角色</li>
+<li><code>content</code> 表示消息内容</li>
+<li><code>message_type</code> 表示消息类型</li>
+<li><code>created_at</code> 表示消息写入时间</li>
+</ol>
+<h3 id="123-为什么这里不加-updated_at">12.3 为什么这里不加 <code>updated_at</code> </h3>
+<p>因为聊天消息一般是追加式数据，不是频繁修改的数据。</p>
+<p>第四阶段的最小模型里，消息只需要:</p>
+<ol>
+<li>知道是谁说的</li>
+<li>知道说了什么</li>
+<li>知道什么时候写入</li>
+</ol>
+<p>就够了。</p>
+<hr>
+<h2 id="13-把-conversation-和-message-注册到模型入口">13. 把 <code>Conversation</code> 和 <code>Message</code> 注册到模型入口 </h2>
+<p>如果你不把模型导入统一入口，Alembic 很可能发现不了它们。</p>
+<p>这一步必须做。</p>
+<h3 id="131-修改-appmodels__init__py">13.1 修改 <code>app/models/__init__.py</code> </h3>
+<p>如果你已经按第三阶段做了 <code>Record</code>，建议这里直接替换成下面这份累积版代码。</p>
+<p>完整代码如下:</p>
+<pre data-role="codeBlock" data-info="python" class="language-python python"><code><span class="token keyword keyword-from">from</span> app<span class="token punctuation">.</span>models<span class="token punctuation">.</span>conversation <span class="token keyword keyword-import">import</span> Conversation
+<span class="token keyword keyword-from">from</span> app<span class="token punctuation">.</span>models<span class="token punctuation">.</span>message <span class="token keyword keyword-import">import</span> Message
+<span class="token keyword keyword-from">from</span> app<span class="token punctuation">.</span>models<span class="token punctuation">.</span>profile <span class="token keyword keyword-import">import</span> Profile
+<span class="token keyword keyword-from">from</span> app<span class="token punctuation">.</span>models<span class="token punctuation">.</span>record <span class="token keyword keyword-import">import</span> Record
+<span class="token keyword keyword-from">from</span> app<span class="token punctuation">.</span>models<span class="token punctuation">.</span>user <span class="token keyword keyword-import">import</span> User
+
+__all__ <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token string">"User"</span><span class="token punctuation">,</span> <span class="token string">"Profile"</span><span class="token punctuation">,</span> <span class="token string">"Record"</span><span class="token punctuation">,</span> <span class="token string">"Conversation"</span><span class="token punctuation">,</span> <span class="token string">"Message"</span><span class="token punctuation">]</span>
+</code></pre><p>如果你还没有真正落地第三阶段，那就把上面代码里的 <code>Record</code> 那两行先去掉。</p>
+<h3 id="132-修改-appdbbasepy">13.2 修改 <code>app/db/base.py</code> </h3>
+<p>同样建议直接替换成下面这份累积版代码。</p>
+<p>完整代码如下:</p>
+<pre data-role="codeBlock" data-info="python" class="language-python python"><code><span class="token keyword keyword-from">from</span> app<span class="token punctuation">.</span>db<span class="token punctuation">.</span>session <span class="token keyword keyword-import">import</span> Base
+<span class="token keyword keyword-from">from</span> app<span class="token punctuation">.</span>models<span class="token punctuation">.</span>conversation <span class="token keyword keyword-import">import</span> Conversation  <span class="token comment"># noqa: F401</span>
+<span class="token keyword keyword-from">from</span> app<span class="token punctuation">.</span>models<span class="token punctuation">.</span>message <span class="token keyword keyword-import">import</span> Message  <span class="token comment"># noqa: F401</span>
+<span class="token keyword keyword-from">from</span> app<span class="token punctuation">.</span>models<span class="token punctuation">.</span>profile <span class="token keyword keyword-import">import</span> Profile  <span class="token comment"># noqa: F401</span>
+<span class="token keyword keyword-from">from</span> app<span class="token punctuation">.</span>models<span class="token punctuation">.</span>record <span class="token keyword keyword-import">import</span> Record  <span class="token comment"># noqa: F401</span>
+<span class="token keyword keyword-from">from</span> app<span class="token punctuation">.</span>models<span class="token punctuation">.</span>user <span class="token keyword keyword-import">import</span> User  <span class="token comment"># noqa: F401</span>
+
+__all__ <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token string">"Base"</span><span class="token punctuation">,</span> <span class="token string">"User"</span><span class="token punctuation">,</span> <span class="token string">"Profile"</span><span class="token punctuation">,</span> <span class="token string">"Record"</span><span class="token punctuation">,</span> <span class="token string">"Conversation"</span><span class="token punctuation">,</span> <span class="token string">"Message"</span><span class="token punctuation">]</span>
+</code></pre><p>如果你还没有真正落地第三阶段，那就把 <code>Record</code> 那两行先去掉。</p>
+<h3 id="133-这一步为什么非常关键">13.3 这一步为什么非常关键 </h3>
+<p>因为 Alembic 自动生成 migration 时，要通过 <code>Base.metadata</code> 扫描模型。</p>
+<p>如果你忘了导入:</p>
+<ol>
+<li><code>Conversation</code></li>
+<li><code>Message</code></li>
+</ol>
+<p>那后果通常就是:</p>
+<ol>
+<li>migration 文件为空</li>
+<li>数据库里根本没有这两张表</li>
+<li>路由一调用就报错</li>
+</ol>
+<hr>
+<h2 id="14-写-conversation-的-schema">14. 写 <code>Conversation</code> 的 Schema </h2>
+<p>schema 要解决的核心问题是:</p>
+<ol>
+<li>创建会话时允许前端传什么</li>
+<li>改标题时允许前端传什么</li>
+<li>读取会话时要返回什么</li>
+</ol>
+<h3 id="141-重写-appschemasconversationpy">14.1 重写 <code>app/schemas/conversation.py</code> </h3>
+<p>你当前仓库里已经有这个文件，但内容还是很早期的草稿版。<br>
+第四阶段建议直接整文件替换。</p>
+<p>完整代码如下:</p>
+<pre data-role="codeBlock" data-info="python" class="language-python python"><code><span class="token keyword keyword-from">from</span> datetime <span class="token keyword keyword-import">import</span> datetime
+<span class="token keyword keyword-from">from</span> enum <span class="token keyword keyword-import">import</span> Enum
+
+<span class="token keyword keyword-from">from</span> pydantic <span class="token keyword keyword-import">import</span> BaseModel<span class="token punctuation">,</span> ConfigDict<span class="token punctuation">,</span> Field
+
+
+<span class="token keyword keyword-class">class</span> <span class="token class-name">ConversationStatus</span><span class="token punctuation">(</span><span class="token builtin">str</span><span class="token punctuation">,</span> Enum<span class="token punctuation">)</span><span class="token punctuation">:</span>
+    active <span class="token operator">=</span> <span class="token string">"active"</span>
+    archived <span class="token operator">=</span> <span class="token string">"archived"</span>
+
+
+<span class="token keyword keyword-class">class</span> <span class="token class-name">ConversationCreate</span><span class="token punctuation">(</span>BaseModel<span class="token punctuation">)</span><span class="token punctuation">:</span>
+    title<span class="token punctuation">:</span> <span class="token builtin">str</span> <span class="token operator">|</span> <span class="token boolean">None</span> <span class="token operator">=</span> Field<span class="token punctuation">(</span>default<span class="token operator">=</span><span class="token boolean">None</span><span class="token punctuation">,</span> max_length<span class="token operator">=</span><span class="token number">100</span><span class="token punctuation">)</span>
+
+
+<span class="token keyword keyword-class">class</span> <span class="token class-name">ConversationTitleUpdate</span><span class="token punctuation">(</span>BaseModel<span class="token punctuation">)</span><span class="token punctuation">:</span>
+    title<span class="token punctuation">:</span> <span class="token builtin">str</span> <span class="token operator">=</span> Field<span class="token punctuation">(</span><span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">,</span> min_length<span class="token operator">=</span><span class="token number">1</span><span class="token punctuation">,</span> max_length<span class="token operator">=</span><span class="token number">100</span><span class="token punctuation">)</span>
+
+
+<span class="token keyword keyword-class">class</span> <span class="token class-name">ConversationRead</span><span class="token punctuation">(</span>BaseModel<span class="token punctuation">)</span><span class="token punctuation">:</span>
+    <span class="token builtin">id</span><span class="token punctuation">:</span> <span class="token builtin">int</span>
+    user_id<span class="token punctuation">:</span> <span class="token builtin">int</span>
+    title<span class="token punctuation">:</span> <span class="token builtin">str</span>
+    status<span class="token punctuation">:</span> ConversationStatus
+    created_at<span class="token punctuation">:</span> datetime
+    updated_at<span class="token punctuation">:</span> datetime
+
+    model_config <span class="token operator">=</span> ConfigDict<span class="token punctuation">(</span>from_attributes<span class="token operator">=</span><span class="token boolean">True</span><span class="token punctuation">)</span>
+
+
+<span class="token keyword keyword-class">class</span> <span class="token class-name">ConversationListData</span><span class="token punctuation">(</span>BaseModel<span class="token punctuation">)</span><span class="token punctuation">:</span>
+    items<span class="token punctuation">:</span> <span class="token builtin">list</span><span class="token punctuation">[</span>ConversationRead<span class="token punctuation">]</span>
+</code></pre><h3 id="142-每个-schema-的作用">14.2 每个 schema 的作用 </h3>
+<h4 id="conversationstatus"><code>ConversationStatus</code> </h4>
+<p>作用:</p>
+<p>把会话状态限制在固定范围内。</p>
+<p>这一阶段先保留两个最小值:</p>
+<ol>
+<li><code>active</code></li>
+<li><code>archived</code></li>
+</ol>
+<h4 id="conversationcreate"><code>ConversationCreate</code> </h4>
+<p>作用:</p>
+<p>创建会话时使用。</p>
+<p>这里让标题可不传，是为了让你在第四阶段可以快速创建一个空标题会话。</p>
+<p>如果用户没传标题，后端会自动补默认值。</p>
+<h4 id="conversationtitleupdate"><code>ConversationTitleUpdate</code> </h4>
+<p>作用:</p>
+<p>专门给“修改会话标题”接口使用。</p>
+<p>这里把 <code>title</code> 设成必填，是因为这个接口只做一件事:</p>
+<p>改标题。</p>
+<h4 id="conversationread"><code>ConversationRead</code> </h4>
+<p>作用:</p>
+<p>返回给前端的会话读取结构。</p>
+<h4 id="conversationlistdata"><code>ConversationListData</code> </h4>
+<p>作用:</p>
+<p>统一会话列表的返回数据结构。</p>
+<hr>
+<h2 id="15-写-message-的-schema">15. 写 <code>Message</code> 的 Schema </h2>
+<h3 id="151-新建-appschemasmessagepy">15.1 新建 <code>app/schemas/message.py</code> </h3>
+<p>完整代码如下:</p>
+<pre data-role="codeBlock" data-info="python" class="language-python python"><code><span class="token keyword keyword-from">from</span> datetime <span class="token keyword keyword-import">import</span> datetime
+<span class="token keyword keyword-from">from</span> enum <span class="token keyword keyword-import">import</span> Enum
+
+<span class="token keyword keyword-from">from</span> pydantic <span class="token keyword keyword-import">import</span> BaseModel<span class="token punctuation">,</span> ConfigDict<span class="token punctuation">,</span> Field
+
+
+<span class="token keyword keyword-class">class</span> <span class="token class-name">MessageRole</span><span class="token punctuation">(</span><span class="token builtin">str</span><span class="token punctuation">,</span> Enum<span class="token punctuation">)</span><span class="token punctuation">:</span>
+    user <span class="token operator">=</span> <span class="token string">"user"</span>
+    assistant <span class="token operator">=</span> <span class="token string">"assistant"</span>
+    system <span class="token operator">=</span> <span class="token string">"system"</span>
+
+
+<span class="token keyword keyword-class">class</span> <span class="token class-name">MessageCreate</span><span class="token punctuation">(</span>BaseModel<span class="token punctuation">)</span><span class="token punctuation">:</span>
+    role<span class="token punctuation">:</span> MessageRole
+    content<span class="token punctuation">:</span> <span class="token builtin">str</span> <span class="token operator">=</span> Field<span class="token punctuation">(</span><span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">,</span> min_length<span class="token operator">=</span><span class="token number">1</span><span class="token punctuation">)</span>
+    message_type<span class="token punctuation">:</span> <span class="token builtin">str</span> <span class="token operator">=</span> Field<span class="token punctuation">(</span>default<span class="token operator">=</span><span class="token string">"text"</span><span class="token punctuation">,</span> min_length<span class="token operator">=</span><span class="token number">1</span><span class="token punctuation">,</span> max_length<span class="token operator">=</span><span class="token number">30</span><span class="token punctuation">)</span>
+
+
+<span class="token keyword keyword-class">class</span> <span class="token class-name">MessageRead</span><span class="token punctuation">(</span>BaseModel<span class="token punctuation">)</span><span class="token punctuation">:</span>
+    <span class="token builtin">id</span><span class="token punctuation">:</span> <span class="token builtin">int</span>
+    conversation_id<span class="token punctuation">:</span> <span class="token builtin">int</span>
+    role<span class="token punctuation">:</span> MessageRole
+    content<span class="token punctuation">:</span> <span class="token builtin">str</span>
+    message_type<span class="token punctuation">:</span> <span class="token builtin">str</span>
+    created_at<span class="token punctuation">:</span> datetime
+
+    model_config <span class="token operator">=</span> ConfigDict<span class="token punctuation">(</span>from_attributes<span class="token operator">=</span><span class="token boolean">True</span><span class="token punctuation">)</span>
+
+
+<span class="token keyword keyword-class">class</span> <span class="token class-name">MessageListData</span><span class="token punctuation">(</span>BaseModel<span class="token punctuation">)</span><span class="token punctuation">:</span>
+    items<span class="token punctuation">:</span> <span class="token builtin">list</span><span class="token punctuation">[</span>MessageRead<span class="token punctuation">]</span>
+</code></pre><h3 id="152-每个-schema-的作用">15.2 每个 schema 的作用 </h3>
+<h4 id="messagerole"><code>MessageRole</code> </h4>
+<p>作用:</p>
+<p>把消息角色固定成三种:</p>
+<ol>
+<li><code>user</code></li>
+<li><code>assistant</code></li>
+<li><code>system</code></li>
+</ol>
+<p>这是后面真正接大模型时最常用的一套消息角色结构。</p>
+<h4 id="messagecreate"><code>MessageCreate</code> </h4>
+<p>作用:</p>
+<p>用于第四阶段“手动插入消息，调试用”的接口。</p>
+<h4 id="messageread"><code>MessageRead</code> </h4>
+<p>作用:</p>
+<p>把数据库里的消息返回给前端。</p>
+<h4 id="messagelistdata"><code>MessageListData</code> </h4>
+<p>作用:</p>
+<p>统一消息列表返回结构。</p>
+<hr>
+<h2 id="16-写-conversationservice">16. 写 <code>ConversationService</code> </h2>
+<p>service 层负责:</p>
+<ol>
+<li>会话归属校验</li>
+<li>创建会话</li>
+<li>查询会话列表</li>
+<li>查询会话详情</li>
+<li>修改标题</li>
+<li>删除会话</li>
+</ol>
+<h3 id="161-新建-appservicesconversation_servicepy">16.1 新建 <code>app/services/conversation_service.py</code> </h3>
+<p>完整代码如下:</p>
+<pre data-role="codeBlock" data-info="python" class="language-python python"><code><span class="token keyword keyword-from">from</span> sqlalchemy <span class="token keyword keyword-import">import</span> delete<span class="token punctuation">,</span> select
+<span class="token keyword keyword-from">from</span> sqlalchemy<span class="token punctuation">.</span>orm <span class="token keyword keyword-import">import</span> Session
+
+<span class="token keyword keyword-from">from</span> app<span class="token punctuation">.</span>core<span class="token punctuation">.</span>exception <span class="token keyword keyword-import">import</span> BusinessException
+<span class="token keyword keyword-from">from</span> app<span class="token punctuation">.</span>models<span class="token punctuation">.</span>conversation <span class="token keyword keyword-import">import</span> Conversation
+<span class="token keyword keyword-from">from</span> app<span class="token punctuation">.</span>models<span class="token punctuation">.</span>message <span class="token keyword keyword-import">import</span> Message
+<span class="token keyword keyword-from">from</span> app<span class="token punctuation">.</span>schemas<span class="token punctuation">.</span>conversation <span class="token keyword keyword-import">import</span> ConversationCreate<span class="token punctuation">,</span> ConversationTitleUpdate
+
+
+<span class="token keyword keyword-class">class</span> <span class="token class-name">ConversationService</span><span class="token punctuation">:</span>
+    <span class="token keyword keyword-def">def</span> <span class="token function">create_for_user</span><span class="token punctuation">(</span>
+        self<span class="token punctuation">,</span>
+        db<span class="token punctuation">:</span> Session<span class="token punctuation">,</span>
+        user_id<span class="token punctuation">:</span> <span class="token builtin">int</span><span class="token punctuation">,</span>
+        payload<span class="token punctuation">:</span> ConversationCreate<span class="token punctuation">,</span>
+    <span class="token punctuation">)</span> <span class="token operator">-</span><span class="token operator">&gt;</span> Conversation<span class="token punctuation">:</span>
+        title <span class="token operator">=</span> <span class="token punctuation">(</span>payload<span class="token punctuation">.</span>title <span class="token keyword keyword-or">or</span> <span class="token string">""</span><span class="token punctuation">)</span><span class="token punctuation">.</span>strip<span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token keyword keyword-or">or</span> <span class="token string">"New Conversation"</span>
+
+        conversation <span class="token operator">=</span> Conversation<span class="token punctuation">(</span>
+            user_id<span class="token operator">=</span>user_id<span class="token punctuation">,</span>
+            title<span class="token operator">=</span>title<span class="token punctuation">,</span>
+            status<span class="token operator">=</span><span class="token string">"active"</span><span class="token punctuation">,</span>
+        <span class="token punctuation">)</span>
+        db<span class="token punctuation">.</span>add<span class="token punctuation">(</span>conversation<span class="token punctuation">)</span>
+        db<span class="token punctuation">.</span>commit<span class="token punctuation">(</span><span class="token punctuation">)</span>
+        db<span class="token punctuation">.</span>refresh<span class="token punctuation">(</span>conversation<span class="token punctuation">)</span>
+        <span class="token keyword keyword-return">return</span> conversation
+
+    <span class="token keyword keyword-def">def</span> <span class="token function">list_for_user</span><span class="token punctuation">(</span>
+        self<span class="token punctuation">,</span>
+        db<span class="token punctuation">:</span> Session<span class="token punctuation">,</span>
+        user_id<span class="token punctuation">:</span> <span class="token builtin">int</span><span class="token punctuation">,</span>
+    <span class="token punctuation">)</span> <span class="token operator">-</span><span class="token operator">&gt;</span> <span class="token builtin">list</span><span class="token punctuation">[</span>Conversation<span class="token punctuation">]</span><span class="token punctuation">:</span>
+        stmt <span class="token operator">=</span> <span class="token punctuation">(</span>
+            select<span class="token punctuation">(</span>Conversation<span class="token punctuation">)</span>
+            <span class="token punctuation">.</span>where<span class="token punctuation">(</span>Conversation<span class="token punctuation">.</span>user_id <span class="token operator">==</span> user_id<span class="token punctuation">)</span>
+            <span class="token punctuation">.</span>order_by<span class="token punctuation">(</span>Conversation<span class="token punctuation">.</span>updated_at<span class="token punctuation">.</span>desc<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span> Conversation<span class="token punctuation">.</span><span class="token builtin">id</span><span class="token punctuation">.</span>desc<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+        <span class="token punctuation">)</span>
+        <span class="token keyword keyword-return">return</span> <span class="token builtin">list</span><span class="token punctuation">(</span>db<span class="token punctuation">.</span>scalars<span class="token punctuation">(</span>stmt<span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token builtin">all</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+
+    <span class="token keyword keyword-def">def</span> <span class="token function">get_or_raise</span><span class="token punctuation">(</span>
+        self<span class="token punctuation">,</span>
+        db<span class="token punctuation">:</span> Session<span class="token punctuation">,</span>
+        user_id<span class="token punctuation">:</span> <span class="token builtin">int</span><span class="token punctuation">,</span>
+        conversation_id<span class="token punctuation">:</span> <span class="token builtin">int</span><span class="token punctuation">,</span>
+    <span class="token punctuation">)</span> <span class="token operator">-</span><span class="token operator">&gt;</span> Conversation<span class="token punctuation">:</span>
+        stmt <span class="token operator">=</span> select<span class="token punctuation">(</span>Conversation<span class="token punctuation">)</span><span class="token punctuation">.</span>where<span class="token punctuation">(</span>
+            Conversation<span class="token punctuation">.</span><span class="token builtin">id</span> <span class="token operator">==</span> conversation_id<span class="token punctuation">,</span>
+            Conversation<span class="token punctuation">.</span>user_id <span class="token operator">==</span> user_id<span class="token punctuation">,</span>
+        <span class="token punctuation">)</span>
+        conversation <span class="token operator">=</span> db<span class="token punctuation">.</span>scalar<span class="token punctuation">(</span>stmt<span class="token punctuation">)</span>
+        <span class="token keyword keyword-if">if</span> <span class="token keyword keyword-not">not</span> conversation<span class="token punctuation">:</span>
+            <span class="token keyword keyword-raise">raise</span> BusinessException<span class="token punctuation">(</span>
+                code<span class="token operator">=</span><span class="token number">40431</span><span class="token punctuation">,</span>
+                message<span class="token operator">=</span><span class="token string">"conversation not found"</span><span class="token punctuation">,</span>
+                status_code<span class="token operator">=</span><span class="token number">404</span><span class="token punctuation">,</span>
+            <span class="token punctuation">)</span>
+        <span class="token keyword keyword-return">return</span> conversation
+
+    <span class="token keyword keyword-def">def</span> <span class="token function">update_title_for_user</span><span class="token punctuation">(</span>
+        self<span class="token punctuation">,</span>
+        db<span class="token punctuation">:</span> Session<span class="token punctuation">,</span>
+        user_id<span class="token punctuation">:</span> <span class="token builtin">int</span><span class="token punctuation">,</span>
+        conversation_id<span class="token punctuation">:</span> <span class="token builtin">int</span><span class="token punctuation">,</span>
+        payload<span class="token punctuation">:</span> ConversationTitleUpdate<span class="token punctuation">,</span>
+    <span class="token punctuation">)</span> <span class="token operator">-</span><span class="token operator">&gt;</span> Conversation<span class="token punctuation">:</span>
+        conversation <span class="token operator">=</span> self<span class="token punctuation">.</span>get_or_raise<span class="token punctuation">(</span>db<span class="token punctuation">,</span> user_id<span class="token punctuation">,</span> conversation_id<span class="token punctuation">)</span>
+        title <span class="token operator">=</span> payload<span class="token punctuation">.</span>title<span class="token punctuation">.</span>strip<span class="token punctuation">(</span><span class="token punctuation">)</span>
+
+        <span class="token keyword keyword-if">if</span> <span class="token keyword keyword-not">not</span> title<span class="token punctuation">:</span>
+            <span class="token keyword keyword-raise">raise</span> BusinessException<span class="token punctuation">(</span>
+                code<span class="token operator">=</span><span class="token number">40031</span><span class="token punctuation">,</span>
+                message<span class="token operator">=</span><span class="token string">"title cannot be empty"</span><span class="token punctuation">,</span>
+                status_code<span class="token operator">=</span><span class="token number">400</span><span class="token punctuation">,</span>
+            <span class="token punctuation">)</span>
+
+        conversation<span class="token punctuation">.</span>title <span class="token operator">=</span> title
+        db<span class="token punctuation">.</span>add<span class="token punctuation">(</span>conversation<span class="token punctuation">)</span>
+        db<span class="token punctuation">.</span>commit<span class="token punctuation">(</span><span class="token punctuation">)</span>
+        db<span class="token punctuation">.</span>refresh<span class="token punctuation">(</span>conversation<span class="token punctuation">)</span>
+        <span class="token keyword keyword-return">return</span> conversation
+
+    <span class="token keyword keyword-def">def</span> <span class="token function">delete_for_user</span><span class="token punctuation">(</span>
+        self<span class="token punctuation">,</span>
+        db<span class="token punctuation">:</span> Session<span class="token punctuation">,</span>
+        user_id<span class="token punctuation">:</span> <span class="token builtin">int</span><span class="token punctuation">,</span>
+        conversation_id<span class="token punctuation">:</span> <span class="token builtin">int</span><span class="token punctuation">,</span>
+    <span class="token punctuation">)</span> <span class="token operator">-</span><span class="token operator">&gt;</span> <span class="token boolean">None</span><span class="token punctuation">:</span>
+        conversation <span class="token operator">=</span> self<span class="token punctuation">.</span>get_or_raise<span class="token punctuation">(</span>db<span class="token punctuation">,</span> user_id<span class="token punctuation">,</span> conversation_id<span class="token punctuation">)</span>
+
+        db<span class="token punctuation">.</span>execute<span class="token punctuation">(</span>
+            delete<span class="token punctuation">(</span>Message<span class="token punctuation">)</span><span class="token punctuation">.</span>where<span class="token punctuation">(</span>Message<span class="token punctuation">.</span>conversation_id <span class="token operator">==</span> conversation<span class="token punctuation">.</span><span class="token builtin">id</span><span class="token punctuation">)</span>
+        <span class="token punctuation">)</span>
+        db<span class="token punctuation">.</span>delete<span class="token punctuation">(</span>conversation<span class="token punctuation">)</span>
+        db<span class="token punctuation">.</span>commit<span class="token punctuation">(</span><span class="token punctuation">)</span>
+
+
+conversation_service <span class="token operator">=</span> ConversationService<span class="token punctuation">(</span><span class="token punctuation">)</span>
+</code></pre><h3 id="162-这份-service-代码最关键的点">16.2 这份 service 代码最关键的点 </h3>
+<h4 id="1-所有查询都必须带-user_id">1. 所有查询都必须带 <code>user_id</code> </h4>
+<p>这一阶段最重要的权限原则就是:</p>
+<p>会话必须归当前用户所有。</p>
+<p>所以不管是详情、改标题还是删除，都不能只写:</p>
+<pre data-role="codeBlock" data-info="python" class="language-python python"><code>db<span class="token punctuation">.</span>get<span class="token punctuation">(</span>Conversation<span class="token punctuation">,</span> conversation_id<span class="token punctuation">)</span>
+</code></pre><p>因为这样没有做用户归属限制。</p>
+<p>正确思路必须是:</p>
+<pre data-role="codeBlock" data-info="python" class="language-python python"><code>where<span class="token punctuation">(</span>Conversation<span class="token punctuation">.</span><span class="token builtin">id</span> <span class="token operator">==</span> conversation_id<span class="token punctuation">,</span> Conversation<span class="token punctuation">.</span>user_id <span class="token operator">==</span> user_id<span class="token punctuation">)</span>
+</code></pre><h4 id="2-创建会话时user_id-不能来自前端">2. 创建会话时，<code>user_id</code> 不能来自前端 </h4>
+<p>它必须来自当前登录用户。</p>
+<p>也就是说:</p>
+<ol>
+<li>前端负责传标题</li>
+<li>后端负责把当前用户 id 写进会话</li>
+</ol>
+<h4 id="3-删除会话时为什么这里手动先删消息">3. 删除会话时，为什么这里手动先删消息 </h4>
+<p>你当前项目默认数据库是 SQLite。<br>
+而 SQLite 的外键级联删除行为，很多初学者环境里并不会默认稳定生效。</p>
+<p>所以为了让你在第四阶段少踩坑，这里直接在 service 里手动删:</p>
+<ol>
+<li>先删 <code>messages</code></li>
+<li>再删 <code>conversation</code></li>
+</ol>
+<p>这样逻辑最稳，也最容易理解。</p>
+<hr>
+<h2 id="17-写-messageservice">17. 写 <code>MessageService</code> </h2>
+<p><code>MessageService</code> 主要负责:</p>
+<ol>
+<li>验证会话是否属于当前用户</li>
+<li>查询某个会话下的消息列表</li>
+<li>手动插入消息用于调试</li>
+</ol>
+<h3 id="171-新建-appservicesmessage_servicepy">17.1 新建 <code>app/services/message_service.py</code> </h3>
+<p>完整代码如下:</p>
+<pre data-role="codeBlock" data-info="python" class="language-python python"><code><span class="token keyword keyword-from">from</span> datetime <span class="token keyword keyword-import">import</span> UTC<span class="token punctuation">,</span> datetime
+
+<span class="token keyword keyword-from">from</span> sqlalchemy <span class="token keyword keyword-import">import</span> select
+<span class="token keyword keyword-from">from</span> sqlalchemy<span class="token punctuation">.</span>orm <span class="token keyword keyword-import">import</span> Session
+
+<span class="token keyword keyword-from">from</span> app<span class="token punctuation">.</span>core<span class="token punctuation">.</span>exception <span class="token keyword keyword-import">import</span> BusinessException
+<span class="token keyword keyword-from">from</span> app<span class="token punctuation">.</span>models<span class="token punctuation">.</span>message <span class="token keyword keyword-import">import</span> Message
+<span class="token keyword keyword-from">from</span> app<span class="token punctuation">.</span>schemas<span class="token punctuation">.</span>message <span class="token keyword keyword-import">import</span> MessageCreate
+<span class="token keyword keyword-from">from</span> app<span class="token punctuation">.</span>services<span class="token punctuation">.</span>conversation_service <span class="token keyword keyword-import">import</span> conversation_service
+
+
+<span class="token keyword keyword-class">class</span> <span class="token class-name">MessageService</span><span class="token punctuation">:</span>
+    <span class="token keyword keyword-def">def</span> <span class="token function">list_for_conversation</span><span class="token punctuation">(</span>
+        self<span class="token punctuation">,</span>
+        db<span class="token punctuation">:</span> Session<span class="token punctuation">,</span>
+        user_id<span class="token punctuation">:</span> <span class="token builtin">int</span><span class="token punctuation">,</span>
+        conversation_id<span class="token punctuation">:</span> <span class="token builtin">int</span><span class="token punctuation">,</span>
+    <span class="token punctuation">)</span> <span class="token operator">-</span><span class="token operator">&gt;</span> <span class="token builtin">list</span><span class="token punctuation">[</span>Message<span class="token punctuation">]</span><span class="token punctuation">:</span>
+        conversation_service<span class="token punctuation">.</span>get_or_raise<span class="token punctuation">(</span>db<span class="token punctuation">,</span> user_id<span class="token punctuation">,</span> conversation_id<span class="token punctuation">)</span>
+
+        stmt <span class="token operator">=</span> <span class="token punctuation">(</span>
+            select<span class="token punctuation">(</span>Message<span class="token punctuation">)</span>
+            <span class="token punctuation">.</span>where<span class="token punctuation">(</span>Message<span class="token punctuation">.</span>conversation_id <span class="token operator">==</span> conversation_id<span class="token punctuation">)</span>
+            <span class="token punctuation">.</span>order_by<span class="token punctuation">(</span>Message<span class="token punctuation">.</span>created_at<span class="token punctuation">.</span>asc<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span> Message<span class="token punctuation">.</span><span class="token builtin">id</span><span class="token punctuation">.</span>asc<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+        <span class="token punctuation">)</span>
+        <span class="token keyword keyword-return">return</span> <span class="token builtin">list</span><span class="token punctuation">(</span>db<span class="token punctuation">.</span>scalars<span class="token punctuation">(</span>stmt<span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token builtin">all</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+
+    <span class="token keyword keyword-def">def</span> <span class="token function">create_debug_for_conversation</span><span class="token punctuation">(</span>
+        self<span class="token punctuation">,</span>
+        db<span class="token punctuation">:</span> Session<span class="token punctuation">,</span>
+        user_id<span class="token punctuation">:</span> <span class="token builtin">int</span><span class="token punctuation">,</span>
+        conversation_id<span class="token punctuation">:</span> <span class="token builtin">int</span><span class="token punctuation">,</span>
+        payload<span class="token punctuation">:</span> MessageCreate<span class="token punctuation">,</span>
+    <span class="token punctuation">)</span> <span class="token operator">-</span><span class="token operator">&gt;</span> Message<span class="token punctuation">:</span>
+        conversation <span class="token operator">=</span> conversation_service<span class="token punctuation">.</span>get_or_raise<span class="token punctuation">(</span>
+            db<span class="token punctuation">,</span> user_id<span class="token punctuation">,</span> conversation_id
+        <span class="token punctuation">)</span>
+
+        content <span class="token operator">=</span> payload<span class="token punctuation">.</span>content<span class="token punctuation">.</span>strip<span class="token punctuation">(</span><span class="token punctuation">)</span>
+        <span class="token keyword keyword-if">if</span> <span class="token keyword keyword-not">not</span> content<span class="token punctuation">:</span>
+            <span class="token keyword keyword-raise">raise</span> BusinessException<span class="token punctuation">(</span>
+                code<span class="token operator">=</span><span class="token number">40041</span><span class="token punctuation">,</span>
+                message<span class="token operator">=</span><span class="token string">"content cannot be empty"</span><span class="token punctuation">,</span>
+                status_code<span class="token operator">=</span><span class="token number">400</span><span class="token punctuation">,</span>
+            <span class="token punctuation">)</span>
+
+        message_type <span class="token operator">=</span> payload<span class="token punctuation">.</span>message_type<span class="token punctuation">.</span>strip<span class="token punctuation">(</span><span class="token punctuation">)</span>
+        <span class="token keyword keyword-if">if</span> <span class="token keyword keyword-not">not</span> message_type<span class="token punctuation">:</span>
+            <span class="token keyword keyword-raise">raise</span> BusinessException<span class="token punctuation">(</span>
+                code<span class="token operator">=</span><span class="token number">40042</span><span class="token punctuation">,</span>
+                message<span class="token operator">=</span><span class="token string">"message_type cannot be empty"</span><span class="token punctuation">,</span>
+                status_code<span class="token operator">=</span><span class="token number">400</span><span class="token punctuation">,</span>
+            <span class="token punctuation">)</span>
+
+        message <span class="token operator">=</span> Message<span class="token punctuation">(</span>
+            conversation_id<span class="token operator">=</span>conversation_id<span class="token punctuation">,</span>
+            role<span class="token operator">=</span>payload<span class="token punctuation">.</span>role<span class="token punctuation">.</span>value<span class="token punctuation">,</span>
+            content<span class="token operator">=</span>content<span class="token punctuation">,</span>
+            message_type<span class="token operator">=</span>message_type<span class="token punctuation">,</span>
+        <span class="token punctuation">)</span>
+
+        db<span class="token punctuation">.</span>add<span class="token punctuation">(</span>message<span class="token punctuation">)</span>
+
+        conversation<span class="token punctuation">.</span>updated_at <span class="token operator">=</span> datetime<span class="token punctuation">.</span>now<span class="token punctuation">(</span>UTC<span class="token punctuation">)</span>
+        db<span class="token punctuation">.</span>add<span class="token punctuation">(</span>conversation<span class="token punctuation">)</span>
+
+        db<span class="token punctuation">.</span>commit<span class="token punctuation">(</span><span class="token punctuation">)</span>
+        db<span class="token punctuation">.</span>refresh<span class="token punctuation">(</span>message<span class="token punctuation">)</span>
+        <span class="token keyword keyword-return">return</span> message
+
+
+message_service <span class="token operator">=</span> MessageService<span class="token punctuation">(</span><span class="token punctuation">)</span>
+</code></pre><h3 id="172-这份-service-代码最关键的点">17.2 这份 service 代码最关键的点 </h3>
+<h4 id="1-先验证会话归属再查消息">1. 先验证会话归属，再查消息 </h4>
+<p>消息本身没有直接挂 <code>user_id</code>，所以权限判断不能直接从 <code>Message</code> 表做。</p>
+<p>正确做法是:</p>
+<p>先验证:</p>
+<ol>
+<li>这个 <code>conversation_id</code> 存在</li>
+<li>并且它属于当前用户</li>
+</ol>
+<p>然后再去查这个会话下面的消息。</p>
+<h4 id="2-为什么插入消息时要更新-conversationupdated_at">2. 为什么插入消息时要更新 <code>conversation.updated_at</code> </h4>
+<p>这是一个非常容易忽略的点。</p>
+<p>如果你新增了一条消息，但不更新会话的 <code>updated_at</code>，那会发生什么?</p>
+<p>会话列表排序可能就不准确。</p>
+<p>比如:</p>
+<ol>
+<li>会话 A 昨天创建</li>
+<li>会话 B 今天创建</li>
+<li>你今天又往会话 A 里新增了一条消息</li>
+</ol>
+<p>按业务直觉，会话 A 应该排到更前面。<br>
+所以插入消息时，最好顺手刷新会话的 <code>updated_at</code>。</p>
+<p>这一步非常重要。</p>
+<hr>
+<h2 id="18-写-conversation-路由">18. 写 <code>Conversation</code> 路由 </h2>
+<p>路由层负责:</p>
+<ol>
+<li>接收请求</li>
+<li>注入数据库会话</li>
+<li>注入当前用户</li>
+<li>调用 service</li>
+<li>返回统一响应</li>
+</ol>
+<h3 id="181-新建-appapiroutesconversationspy">18.1 新建 <code>app/api/routes/conversations.py</code> </h3>
+<p>完整代码如下:</p>
+<pre data-role="codeBlock" data-info="python" class="language-python python"><code><span class="token keyword keyword-from">from</span> fastapi <span class="token keyword keyword-import">import</span> APIRouter<span class="token punctuation">,</span> Depends<span class="token punctuation">,</span> status
+<span class="token keyword keyword-from">from</span> sqlalchemy<span class="token punctuation">.</span>orm <span class="token keyword keyword-import">import</span> Session
+
+<span class="token keyword keyword-from">from</span> app<span class="token punctuation">.</span>api<span class="token punctuation">.</span>deps <span class="token keyword keyword-import">import</span> get_current_active_user<span class="token punctuation">,</span> get_db
+<span class="token keyword keyword-from">from</span> app<span class="token punctuation">.</span>core<span class="token punctuation">.</span>response <span class="token keyword keyword-import">import</span> success_response
+<span class="token keyword keyword-from">from</span> app<span class="token punctuation">.</span>models<span class="token punctuation">.</span>user <span class="token keyword keyword-import">import</span> User
+<span class="token keyword keyword-from">from</span> app<span class="token punctuation">.</span>schemas<span class="token punctuation">.</span>common <span class="token keyword keyword-import">import</span> ApiResponse
+<span class="token keyword keyword-from">from</span> app<span class="token punctuation">.</span>schemas<span class="token punctuation">.</span>conversation <span class="token keyword keyword-import">import</span> <span class="token punctuation">(</span>
+    ConversationCreate<span class="token punctuation">,</span>
+    ConversationListData<span class="token punctuation">,</span>
+    ConversationRead<span class="token punctuation">,</span>
+    ConversationTitleUpdate<span class="token punctuation">,</span>
+<span class="token punctuation">)</span>
+<span class="token keyword keyword-from">from</span> app<span class="token punctuation">.</span>services<span class="token punctuation">.</span>conversation_service <span class="token keyword keyword-import">import</span> conversation_service
+
+router <span class="token operator">=</span> APIRouter<span class="token punctuation">(</span>prefix<span class="token operator">=</span><span class="token string">"/conversations"</span><span class="token punctuation">,</span> tags<span class="token operator">=</span><span class="token punctuation">[</span><span class="token string">"conversations"</span><span class="token punctuation">]</span><span class="token punctuation">)</span>
+
+
+<span class="token decorator annotation punctuation">@router<span class="token punctuation">.</span>post</span><span class="token punctuation">(</span>
+    <span class="token string">""</span><span class="token punctuation">,</span>
+    response_model<span class="token operator">=</span>ApiResponse<span class="token punctuation">[</span>ConversationRead<span class="token punctuation">]</span><span class="token punctuation">,</span>
+    status_code<span class="token operator">=</span>status<span class="token punctuation">.</span>HTTP_201_CREATED<span class="token punctuation">,</span>
+<span class="token punctuation">)</span>
+<span class="token keyword keyword-def">def</span> <span class="token function">create_conversation</span><span class="token punctuation">(</span>
+    payload<span class="token punctuation">:</span> ConversationCreate<span class="token punctuation">,</span>
+    db<span class="token punctuation">:</span> Session <span class="token operator">=</span> Depends<span class="token punctuation">(</span>get_db<span class="token punctuation">)</span><span class="token punctuation">,</span>
+    current_user<span class="token punctuation">:</span> User <span class="token operator">=</span> Depends<span class="token punctuation">(</span>get_current_active_user<span class="token punctuation">)</span><span class="token punctuation">,</span>
+<span class="token punctuation">)</span><span class="token punctuation">:</span>
+    conversation <span class="token operator">=</span> conversation_service<span class="token punctuation">.</span>create_for_user<span class="token punctuation">(</span>
+        db<span class="token punctuation">,</span> current_user<span class="token punctuation">.</span><span class="token builtin">id</span><span class="token punctuation">,</span> payload
+    <span class="token punctuation">)</span>
+    <span class="token keyword keyword-return">return</span> success_response<span class="token punctuation">(</span>
+        data<span class="token operator">=</span>ConversationRead<span class="token punctuation">.</span>model_validate<span class="token punctuation">(</span>conversation<span class="token punctuation">)</span><span class="token punctuation">,</span>
+        message<span class="token operator">=</span><span class="token string">"conversation created"</span><span class="token punctuation">,</span>
+    <span class="token punctuation">)</span>
+
+
+<span class="token decorator annotation punctuation">@router<span class="token punctuation">.</span>get</span><span class="token punctuation">(</span>
+    <span class="token string">""</span><span class="token punctuation">,</span>
+    response_model<span class="token operator">=</span>ApiResponse<span class="token punctuation">[</span>ConversationListData<span class="token punctuation">]</span><span class="token punctuation">,</span>
+<span class="token punctuation">)</span>
+<span class="token keyword keyword-def">def</span> <span class="token function">list_conversations</span><span class="token punctuation">(</span>
+    db<span class="token punctuation">:</span> Session <span class="token operator">=</span> Depends<span class="token punctuation">(</span>get_db<span class="token punctuation">)</span><span class="token punctuation">,</span>
+    current_user<span class="token punctuation">:</span> User <span class="token operator">=</span> Depends<span class="token punctuation">(</span>get_current_active_user<span class="token punctuation">)</span><span class="token punctuation">,</span>
+<span class="token punctuation">)</span><span class="token punctuation">:</span>
+    conversations <span class="token operator">=</span> conversation_service<span class="token punctuation">.</span>list_for_user<span class="token punctuation">(</span>db<span class="token punctuation">,</span> current_user<span class="token punctuation">.</span><span class="token builtin">id</span><span class="token punctuation">)</span>
+    <span class="token keyword keyword-return">return</span> success_response<span class="token punctuation">(</span>
+        data<span class="token operator">=</span>ConversationListData<span class="token punctuation">(</span>
+            items<span class="token operator">=</span><span class="token punctuation">[</span>
+                ConversationRead<span class="token punctuation">.</span>model_validate<span class="token punctuation">(</span>item<span class="token punctuation">)</span>
+                <span class="token keyword keyword-for">for</span> item <span class="token keyword keyword-in">in</span> conversations
+            <span class="token punctuation">]</span>
+        <span class="token punctuation">)</span><span class="token punctuation">,</span>
+        message<span class="token operator">=</span><span class="token string">"success"</span><span class="token punctuation">,</span>
+    <span class="token punctuation">)</span>
+
+
+<span class="token decorator annotation punctuation">@router<span class="token punctuation">.</span>get</span><span class="token punctuation">(</span>
+    <span class="token string">"/{conversation_id}"</span><span class="token punctuation">,</span>
+    response_model<span class="token operator">=</span>ApiResponse<span class="token punctuation">[</span>ConversationRead<span class="token punctuation">]</span><span class="token punctuation">,</span>
+<span class="token punctuation">)</span>
+<span class="token keyword keyword-def">def</span> <span class="token function">get_conversation_detail</span><span class="token punctuation">(</span>
+    conversation_id<span class="token punctuation">:</span> <span class="token builtin">int</span><span class="token punctuation">,</span>
+    db<span class="token punctuation">:</span> Session <span class="token operator">=</span> Depends<span class="token punctuation">(</span>get_db<span class="token punctuation">)</span><span class="token punctuation">,</span>
+    current_user<span class="token punctuation">:</span> User <span class="token operator">=</span> Depends<span class="token punctuation">(</span>get_current_active_user<span class="token punctuation">)</span><span class="token punctuation">,</span>
+<span class="token punctuation">)</span><span class="token punctuation">:</span>
+    conversation <span class="token operator">=</span> conversation_service<span class="token punctuation">.</span>get_or_raise<span class="token punctuation">(</span>
+        db<span class="token punctuation">,</span> current_user<span class="token punctuation">.</span><span class="token builtin">id</span><span class="token punctuation">,</span> conversation_id
+    <span class="token punctuation">)</span>
+    <span class="token keyword keyword-return">return</span> success_response<span class="token punctuation">(</span>
+        data<span class="token operator">=</span>ConversationRead<span class="token punctuation">.</span>model_validate<span class="token punctuation">(</span>conversation<span class="token punctuation">)</span><span class="token punctuation">,</span>
+        message<span class="token operator">=</span><span class="token string">"success"</span><span class="token punctuation">,</span>
+    <span class="token punctuation">)</span>
+
+
+<span class="token decorator annotation punctuation">@router<span class="token punctuation">.</span>put</span><span class="token punctuation">(</span>
+    <span class="token string">"/{conversation_id}/title"</span><span class="token punctuation">,</span>
+    response_model<span class="token operator">=</span>ApiResponse<span class="token punctuation">[</span>ConversationRead<span class="token punctuation">]</span><span class="token punctuation">,</span>
+<span class="token punctuation">)</span>
+<span class="token keyword keyword-def">def</span> <span class="token function">update_conversation_title</span><span class="token punctuation">(</span>
+    conversation_id<span class="token punctuation">:</span> <span class="token builtin">int</span><span class="token punctuation">,</span>
+    payload<span class="token punctuation">:</span> ConversationTitleUpdate<span class="token punctuation">,</span>
+    db<span class="token punctuation">:</span> Session <span class="token operator">=</span> Depends<span class="token punctuation">(</span>get_db<span class="token punctuation">)</span><span class="token punctuation">,</span>
+    current_user<span class="token punctuation">:</span> User <span class="token operator">=</span> Depends<span class="token punctuation">(</span>get_current_active_user<span class="token punctuation">)</span><span class="token punctuation">,</span>
+<span class="token punctuation">)</span><span class="token punctuation">:</span>
+    conversation <span class="token operator">=</span> conversation_service<span class="token punctuation">.</span>update_title_for_user<span class="token punctuation">(</span>
+        db<span class="token operator">=</span>db<span class="token punctuation">,</span>
+        user_id<span class="token operator">=</span>current_user<span class="token punctuation">.</span><span class="token builtin">id</span><span class="token punctuation">,</span>
+        conversation_id<span class="token operator">=</span>conversation_id<span class="token punctuation">,</span>
+        payload<span class="token operator">=</span>payload<span class="token punctuation">,</span>
+    <span class="token punctuation">)</span>
+    <span class="token keyword keyword-return">return</span> success_response<span class="token punctuation">(</span>
+        data<span class="token operator">=</span>ConversationRead<span class="token punctuation">.</span>model_validate<span class="token punctuation">(</span>conversation<span class="token punctuation">)</span><span class="token punctuation">,</span>
+        message<span class="token operator">=</span><span class="token string">"conversation title updated"</span><span class="token punctuation">,</span>
+    <span class="token punctuation">)</span>
+
+
+<span class="token decorator annotation punctuation">@router<span class="token punctuation">.</span>delete</span><span class="token punctuation">(</span>
+    <span class="token string">"/{conversation_id}"</span><span class="token punctuation">,</span>
+    response_model<span class="token operator">=</span>ApiResponse<span class="token punctuation">[</span><span class="token boolean">None</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
+<span class="token punctuation">)</span>
+<span class="token keyword keyword-def">def</span> <span class="token function">delete_conversation</span><span class="token punctuation">(</span>
+    conversation_id<span class="token punctuation">:</span> <span class="token builtin">int</span><span class="token punctuation">,</span>
+    db<span class="token punctuation">:</span> Session <span class="token operator">=</span> Depends<span class="token punctuation">(</span>get_db<span class="token punctuation">)</span><span class="token punctuation">,</span>
+    current_user<span class="token punctuation">:</span> User <span class="token operator">=</span> Depends<span class="token punctuation">(</span>get_current_active_user<span class="token punctuation">)</span><span class="token punctuation">,</span>
+<span class="token punctuation">)</span><span class="token punctuation">:</span>
+    conversation_service<span class="token punctuation">.</span>delete_for_user<span class="token punctuation">(</span>db<span class="token punctuation">,</span> current_user<span class="token punctuation">.</span><span class="token builtin">id</span><span class="token punctuation">,</span> conversation_id<span class="token punctuation">)</span>
+    <span class="token keyword keyword-return">return</span> success_response<span class="token punctuation">(</span>message<span class="token operator">=</span><span class="token string">"conversation deleted"</span><span class="token punctuation">)</span>
+</code></pre><h3 id="182-这份路由代码在做什么">18.2 这份路由代码在做什么 </h3>
+<h4 id="post-conversations"><code>POST /conversations</code> </h4>
+<p>作用:</p>
+<p>创建一个新的会话。</p>
+<h4 id="get-conversations"><code>GET /conversations</code> </h4>
+<p>作用:</p>
+<p>查看当前用户自己的会话列表。</p>
+<h4 id="get-conversationsconversation_id"><code>GET /conversations/{conversation_id}</code> </h4>
+<p>作用:</p>
+<p>查看某个会话详情。</p>
+<h4 id="put-conversationsconversation_idtitle"><code>PUT /conversations/{conversation_id}/title</code> </h4>
+<p>作用:</p>
+<p>只修改会话标题。</p>
+<p>为什么不直接用:</p>
+<pre data-role="codeBlock" data-info="text" class="language-text text"><code>PUT /conversations/{conversation_id}
+</code></pre><p>因为第四阶段你只做标题更新，不做整会话复杂更新。<br>
+单独拆一个标题更新接口，语义更清楚。</p>
+<h4 id="delete-conversationsconversation_id"><code>DELETE /conversations/{conversation_id}</code> </h4>
+<p>作用:</p>
+<p>删除会话。</p>
+<p>这一阶段删除是物理删除，不做回收站。</p>
+<hr>
+<h2 id="19-写-message-路由">19. 写 <code>Message</code> 路由 </h2>
+<h3 id="191-新建-appapiroutesmessagespy">19.1 新建 <code>app/api/routes/messages.py</code> </h3>
+<p>完整代码如下:</p>
+<pre data-role="codeBlock" data-info="python" class="language-python python"><code><span class="token keyword keyword-from">from</span> fastapi <span class="token keyword keyword-import">import</span> APIRouter<span class="token punctuation">,</span> Depends<span class="token punctuation">,</span> status
+<span class="token keyword keyword-from">from</span> sqlalchemy<span class="token punctuation">.</span>orm <span class="token keyword keyword-import">import</span> Session
+
+<span class="token keyword keyword-from">from</span> app<span class="token punctuation">.</span>api<span class="token punctuation">.</span>deps <span class="token keyword keyword-import">import</span> get_current_active_user<span class="token punctuation">,</span> get_db
+<span class="token keyword keyword-from">from</span> app<span class="token punctuation">.</span>core<span class="token punctuation">.</span>response <span class="token keyword keyword-import">import</span> success_response
+<span class="token keyword keyword-from">from</span> app<span class="token punctuation">.</span>models<span class="token punctuation">.</span>user <span class="token keyword keyword-import">import</span> User
+<span class="token keyword keyword-from">from</span> app<span class="token punctuation">.</span>schemas<span class="token punctuation">.</span>common <span class="token keyword keyword-import">import</span> ApiResponse
+<span class="token keyword keyword-from">from</span> app<span class="token punctuation">.</span>schemas<span class="token punctuation">.</span>message <span class="token keyword keyword-import">import</span> MessageCreate<span class="token punctuation">,</span> MessageListData<span class="token punctuation">,</span> MessageRead
+<span class="token keyword keyword-from">from</span> app<span class="token punctuation">.</span>services<span class="token punctuation">.</span>message_service <span class="token keyword keyword-import">import</span> message_service
+
+router <span class="token operator">=</span> APIRouter<span class="token punctuation">(</span>
+    prefix<span class="token operator">=</span><span class="token string">"/conversations/{conversation_id}/messages"</span><span class="token punctuation">,</span>
+    tags<span class="token operator">=</span><span class="token punctuation">[</span><span class="token string">"messages"</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
+<span class="token punctuation">)</span>
+
+
+<span class="token decorator annotation punctuation">@router<span class="token punctuation">.</span>get</span><span class="token punctuation">(</span>
+    <span class="token string">""</span><span class="token punctuation">,</span>
+    response_model<span class="token operator">=</span>ApiResponse<span class="token punctuation">[</span>MessageListData<span class="token punctuation">]</span><span class="token punctuation">,</span>
+<span class="token punctuation">)</span>
+<span class="token keyword keyword-def">def</span> <span class="token function">list_messages</span><span class="token punctuation">(</span>
+    conversation_id<span class="token punctuation">:</span> <span class="token builtin">int</span><span class="token punctuation">,</span>
+    db<span class="token punctuation">:</span> Session <span class="token operator">=</span> Depends<span class="token punctuation">(</span>get_db<span class="token punctuation">)</span><span class="token punctuation">,</span>
+    current_user<span class="token punctuation">:</span> User <span class="token operator">=</span> Depends<span class="token punctuation">(</span>get_current_active_user<span class="token punctuation">)</span><span class="token punctuation">,</span>
+<span class="token punctuation">)</span><span class="token punctuation">:</span>
+    messages <span class="token operator">=</span> message_service<span class="token punctuation">.</span>list_for_conversation<span class="token punctuation">(</span>
+        db<span class="token punctuation">,</span> current_user<span class="token punctuation">.</span><span class="token builtin">id</span><span class="token punctuation">,</span> conversation_id
+    <span class="token punctuation">)</span>
+    <span class="token keyword keyword-return">return</span> success_response<span class="token punctuation">(</span>
+        data<span class="token operator">=</span>MessageListData<span class="token punctuation">(</span>
+            items<span class="token operator">=</span><span class="token punctuation">[</span>MessageRead<span class="token punctuation">.</span>model_validate<span class="token punctuation">(</span>item<span class="token punctuation">)</span> <span class="token keyword keyword-for">for</span> item <span class="token keyword keyword-in">in</span> messages<span class="token punctuation">]</span>
+        <span class="token punctuation">)</span><span class="token punctuation">,</span>
+        message<span class="token operator">=</span><span class="token string">"success"</span><span class="token punctuation">,</span>
+    <span class="token punctuation">)</span>
+
+
+<span class="token decorator annotation punctuation">@router<span class="token punctuation">.</span>post</span><span class="token punctuation">(</span>
+    <span class="token string">"/debug"</span><span class="token punctuation">,</span>
+    response_model<span class="token operator">=</span>ApiResponse<span class="token punctuation">[</span>MessageRead<span class="token punctuation">]</span><span class="token punctuation">,</span>
+    status_code<span class="token operator">=</span>status<span class="token punctuation">.</span>HTTP_201_CREATED<span class="token punctuation">,</span>
+<span class="token punctuation">)</span>
+<span class="token keyword keyword-def">def</span> <span class="token function">create_message_debug</span><span class="token punctuation">(</span>
+    conversation_id<span class="token punctuation">:</span> <span class="token builtin">int</span><span class="token punctuation">,</span>
+    payload<span class="token punctuation">:</span> MessageCreate<span class="token punctuation">,</span>
+    db<span class="token punctuation">:</span> Session <span class="token operator">=</span> Depends<span class="token punctuation">(</span>get_db<span class="token punctuation">)</span><span class="token punctuation">,</span>
+    current_user<span class="token punctuation">:</span> User <span class="token operator">=</span> Depends<span class="token punctuation">(</span>get_current_active_user<span class="token punctuation">)</span><span class="token punctuation">,</span>
+<span class="token punctuation">)</span><span class="token punctuation">:</span>
+    message <span class="token operator">=</span> message_service<span class="token punctuation">.</span>create_debug_for_conversation<span class="token punctuation">(</span>
+        db<span class="token operator">=</span>db<span class="token punctuation">,</span>
+        user_id<span class="token operator">=</span>current_user<span class="token punctuation">.</span><span class="token builtin">id</span><span class="token punctuation">,</span>
+        conversation_id<span class="token operator">=</span>conversation_id<span class="token punctuation">,</span>
+        payload<span class="token operator">=</span>payload<span class="token punctuation">,</span>
+    <span class="token punctuation">)</span>
+    <span class="token keyword keyword-return">return</span> success_response<span class="token punctuation">(</span>
+        data<span class="token operator">=</span>MessageRead<span class="token punctuation">.</span>model_validate<span class="token punctuation">(</span>message<span class="token punctuation">)</span><span class="token punctuation">,</span>
+        message<span class="token operator">=</span><span class="token string">"message created"</span><span class="token punctuation">,</span>
+    <span class="token punctuation">)</span>
+</code></pre><h3 id="192-这份消息路由为什么这样设计">19.2 这份消息路由为什么这样设计 </h3>
+<h4 id="1-为什么消息接口挂在会话下面">1. 为什么消息接口挂在会话下面 </h4>
+<p>因为消息一定从属于某个会话。</p>
+<p>所以:</p>
+<p><code>/conversations/{conversation_id}/messages</code></p>
+<p>比单独搞一个:</p>
+<p><code>/messages?conversation_id=xxx</code></p>
+<p>更直观，也更不容易绕晕。</p>
+<h4 id="2-为什么手动插入消息接口叫-debug">2. 为什么手动插入消息接口叫 <code>/debug</code> </h4>
+<p>因为第四阶段你还没真正接 LLM。</p>
+<p>所以这个接口的本质是:</p>
+<p>手动往数据库里插消息，方便调试历史消息链路。</p>
+<p>它不是最终聊天入口，所以路径里明确标个 <code>/debug</code> 更合适。</p>
+<hr>
+<h2 id="20-把新路由挂到总路由里">20. 把新路由挂到总路由里 </h2>
+<p>如果你不把新路由挂进去，这些接口是不会生效的。</p>
+<h3 id="201-修改-appapirouterpy">20.1 修改 <code>app/api/router.py</code> </h3>
+<p>如果你已经按第三阶段做了 <code>records</code> 路由，建议这里直接替换成下面这份累积版代码。</p>
+<p>完整代码如下:</p>
+<pre data-role="codeBlock" data-info="python" class="language-python python"><code><span class="token keyword keyword-from">from</span> fastapi <span class="token keyword keyword-import">import</span> APIRouter
+
+<span class="token keyword keyword-from">from</span> app<span class="token punctuation">.</span>api<span class="token punctuation">.</span>routes<span class="token punctuation">.</span>auth <span class="token keyword keyword-import">import</span> router <span class="token keyword keyword-as">as</span> auth_router
+<span class="token keyword keyword-from">from</span> app<span class="token punctuation">.</span>api<span class="token punctuation">.</span>routes<span class="token punctuation">.</span>conversations <span class="token keyword keyword-import">import</span> router <span class="token keyword keyword-as">as</span> conversations_router
+<span class="token keyword keyword-from">from</span> app<span class="token punctuation">.</span>api<span class="token punctuation">.</span>routes<span class="token punctuation">.</span>health <span class="token keyword keyword-import">import</span> router <span class="token keyword keyword-as">as</span> health_router
+<span class="token keyword keyword-from">from</span> app<span class="token punctuation">.</span>api<span class="token punctuation">.</span>routes<span class="token punctuation">.</span>messages <span class="token keyword keyword-import">import</span> router <span class="token keyword keyword-as">as</span> messages_router
+<span class="token keyword keyword-from">from</span> app<span class="token punctuation">.</span>api<span class="token punctuation">.</span>routes<span class="token punctuation">.</span>profiles <span class="token keyword keyword-import">import</span> router <span class="token keyword keyword-as">as</span> profiles_router
+<span class="token keyword keyword-from">from</span> app<span class="token punctuation">.</span>api<span class="token punctuation">.</span>routes<span class="token punctuation">.</span>records <span class="token keyword keyword-import">import</span> router <span class="token keyword keyword-as">as</span> records_router
+<span class="token keyword keyword-from">from</span> app<span class="token punctuation">.</span>api<span class="token punctuation">.</span>routes<span class="token punctuation">.</span>users <span class="token keyword keyword-import">import</span> router <span class="token keyword keyword-as">as</span> users_router
+
+api_router <span class="token operator">=</span> APIRouter<span class="token punctuation">(</span><span class="token punctuation">)</span>
+api_router<span class="token punctuation">.</span>include_router<span class="token punctuation">(</span>health_router<span class="token punctuation">)</span>
+api_router<span class="token punctuation">.</span>include_router<span class="token punctuation">(</span>auth_router<span class="token punctuation">)</span>
+api_router<span class="token punctuation">.</span>include_router<span class="token punctuation">(</span>users_router<span class="token punctuation">)</span>
+api_router<span class="token punctuation">.</span>include_router<span class="token punctuation">(</span>profiles_router<span class="token punctuation">)</span>
+api_router<span class="token punctuation">.</span>include_router<span class="token punctuation">(</span>records_router<span class="token punctuation">)</span>
+api_router<span class="token punctuation">.</span>include_router<span class="token punctuation">(</span>conversations_router<span class="token punctuation">)</span>
+api_router<span class="token punctuation">.</span>include_router<span class="token punctuation">(</span>messages_router<span class="token punctuation">)</span>
+</code></pre><p>如果你还没有真正落地第三阶段，那就把里面和 <code>records_router</code> 有关的两行先去掉。</p>
+<h3 id="202-这一步的作用">20.2 这一步的作用 </h3>
+<ol>
+<li>统一收口所有 API 子路由</li>
+<li>让 <code>main.py</code> 继续只挂一个总路由</li>
+<li>让新增的会话和消息接口真正对外生效</li>
+</ol>
+<hr>
+<h2 id="21-这一阶段哪些文件不用动">21. 这一阶段哪些文件不用动 </h2>
+<p>下面这些文件第四阶段一般不需要动:</p>
+<ol>
+<li><code>app/api/deps.py</code></li>
+<li><code>app/core/security.py</code></li>
+<li><code>app/core/response.py</code></li>
+<li><code>app/core/exception.py</code></li>
+<li><code>app/main.py</code></li>
+<li><code>app/api/routes/auth.py</code></li>
+<li><code>app/api/routes/users.py</code></li>
+<li><code>app/api/routes/profiles.py</code></li>
+<li><code>app/schemas/chat.py</code></li>
+</ol>
+<p>特别注意:</p>
+<p><code>app/schemas/chat.py</code> 虽然名字看起来和聊天有关，但这一阶段先不要碰它。</p>
+<p>因为第四阶段先做的是聊天数据结构，不是最终聊天接口。</p>
+<hr>
+<h2 id="22-现在开始做数据库迁移">22. 现在开始做数据库迁移 </h2>
+<p>前面的 Python 代码都准备好之后，才轮到数据库迁移。</p>
+<h3 id="221-先确认这几件事">22.1 先确认这几件事 </h3>
+<p>在跑 Alembic 之前，先确认:</p>
+<ol>
+<li><code>app/models/conversation.py</code> 已经存在</li>
+<li><code>app/models/message.py</code> 已经存在</li>
+<li><code>app/models/__init__.py</code> 已经导入它们</li>
+<li><code>app/db/base.py</code> 已经导入它们</li>
+<li><code>app/api/router.py</code> 已经挂载了新路由</li>
+<li>没有正式代码继续 import <code>app/db/models/conversation.py</code></li>
+<li>没有正式代码继续 import <code>app/db/models/message.py</code></li>
+</ol>
+<h3 id="222-进入后端目录">22.2 进入后端目录 </h3>
+<pre data-role="codeBlock" data-info="powershell" class="language-powershell powershell"><code>cd D:\vue_fastapi\backend
+</code></pre><h3 id="223-生成-migration">22.3 生成 migration </h3>
+<pre data-role="codeBlock" data-info="powershell" class="language-powershell powershell"><code>alembic revision <span class="token operator">--</span>autogenerate <span class="token operator">-</span>m <span class="token string">"create conversations and messages"</span>
+</code></pre><h3 id="224-检查生成出来的-migration-文件">22.4 检查生成出来的 migration 文件 </h3>
+<p>你应该重点确认:</p>
+<ol>
+<li>有 <code>conversations</code> 表</li>
+<li>有 <code>messages</code> 表</li>
+<li><code>conversations.user_id</code> 指向 <code>users.id</code></li>
+<li><code>messages.conversation_id</code> 指向 <code>conversations.id</code></li>
+<li>有必要的索引</li>
+</ol>
+<h3 id="225-如果-migration-是空的通常只有两个原因">22.5 如果 migration 是空的，通常只有两个原因 </h3>
+<ol>
+<li>你忘了在 <code>app/db/base.py</code> 里导入 <code>Conversation</code> 和 <code>Message</code></li>
+<li>你把主要代码写在了 <code>app/db/models/</code>，但正式入口没有扫描到</li>
+</ol>
+<h3 id="226-执行迁移">22.6 执行迁移 </h3>
+<pre data-role="codeBlock" data-info="powershell" class="language-powershell powershell"><code>alembic upgrade head
+</code></pre><p>执行成功后，数据库里就应该有:</p>
+<ol>
+<li><code>conversations</code></li>
+<li><code>messages</code></li>
+</ol>
+<p>这两张表了。</p>
+<hr>
+<h2 id="23-启动项目并做-swagger-验收">23. 启动项目并做 Swagger 验收 </h2>
+<h3 id="231-启动后端">23.1 启动后端 </h3>
+<p>如果你平时就是这样启动项目，就继续用你原来的方式。</p>
+<p>最常见的是:</p>
+<pre data-role="codeBlock" data-info="powershell" class="language-powershell powershell"><code>uvicorn app<span class="token punctuation">.</span>main:app <span class="token operator">--</span>reload
+</code></pre><h3 id="232-打开-swagger">23.2 打开 Swagger </h3>
+<p>访问:</p>
+<pre data-role="codeBlock" data-info="text" class="language-text text"><code>http://127.0.0.1:8000/docs
+</code></pre><h3 id="233-先完成登录">23.3 先完成登录 </h3>
+<p>第四阶段所有会话和消息接口都依赖当前登录用户，所以必须先:</p>
+<ol>
+<li>注册</li>
+<li>登录</li>
+<li>拿到 token</li>
+<li>在 Swagger 里点 <code>Authorize</code></li>
+</ol>
+<hr>
+<h2 id="24-第四阶段的-swagger-演示顺序">24. 第四阶段的 Swagger 演示顺序 </h2>
+<p>建议你严格按下面顺序来测。</p>
+<h2 id="241-先创建一个会话">24.1 先创建一个会话 </h2>
+<p><code>POST /api/v1/conversations</code></p>
+<p>请求体可以这样写:</p>
+<pre data-role="codeBlock" data-info="json" class="language-json json"><code><span class="token punctuation">{</span>
+  <span class="token property">"title"</span><span class="token operator">:</span> <span class="token string">"第一次健康咨询"</span>
+<span class="token punctuation">}</span>
+</code></pre><p>也可以直接传空对象:</p>
+<pre data-role="codeBlock" data-info="json" class="language-json json"><code><span class="token punctuation">{</span><span class="token punctuation">}</span>
+</code></pre><p>如果你不传标题，后端会自动补:</p>
+<p><code>New Conversation</code></p>
+<h2 id="242-查看会话列表">24.2 查看会话列表 </h2>
+<p><code>GET /api/v1/conversations</code></p>
+<p>你应该能看到刚刚创建出来的会话。</p>
+<h2 id="243-查看会话详情">24.3 查看会话详情 </h2>
+<p><code>GET /api/v1/conversations/{conversation_id}</code></p>
+<p>把上一步返回的 <code>id</code> 填进去。</p>
+<h2 id="244-修改会话标题">24.4 修改会话标题 </h2>
+<p><code>PUT /api/v1/conversations/{conversation_id}/title</code></p>
+<p>请求体示例:</p>
+<pre data-role="codeBlock" data-info="json" class="language-json json"><code><span class="token punctuation">{</span>
+  <span class="token property">"title"</span><span class="token operator">:</span> <span class="token string">"今天的健康咨询记录"</span>
+<span class="token punctuation">}</span>
+</code></pre><h2 id="245-手动插入一条用户消息">24.5 手动插入一条用户消息 </h2>
+<p><code>POST /api/v1/conversations/{conversation_id}/messages/debug</code></p>
+<p>请求体示例:</p>
+<pre data-role="codeBlock" data-info="json" class="language-json json"><code><span class="token punctuation">{</span>
+  <span class="token property">"role"</span><span class="token operator">:</span> <span class="token string">"user"</span><span class="token punctuation">,</span>
+  <span class="token property">"content"</span><span class="token operator">:</span> <span class="token string">"我今天有点头晕，血压也偏高。"</span><span class="token punctuation">,</span>
+  <span class="token property">"message_type"</span><span class="token operator">:</span> <span class="token string">"text"</span>
+<span class="token punctuation">}</span>
+</code></pre><h2 id="246-再手动插入一条助手消息">24.6 再手动插入一条助手消息 </h2>
+<p><code>POST /api/v1/conversations/{conversation_id}/messages/debug</code></p>
+<p>请求体示例:</p>
+<pre data-role="codeBlock" data-info="json" class="language-json json"><code><span class="token punctuation">{</span>
+  <span class="token property">"role"</span><span class="token operator">:</span> <span class="token string">"assistant"</span><span class="token punctuation">,</span>
+  <span class="token property">"content"</span><span class="token operator">:</span> <span class="token string">"建议先复测血压，并注意休息与补水。"</span><span class="token punctuation">,</span>
+  <span class="token property">"message_type"</span><span class="token operator">:</span> <span class="token string">"text"</span>
+<span class="token punctuation">}</span>
+</code></pre><h2 id="247-查看这个会话下的历史消息">24.7 查看这个会话下的历史消息 </h2>
+<p><code>GET /api/v1/conversations/{conversation_id}/messages</code></p>
+<p>你应该能看到:</p>
+<ol>
+<li>刚插入的用户消息</li>
+<li>刚插入的助手消息</li>
+<li>顺序按时间正序排列</li>
+</ol>
+<h2 id="248-删除会话">24.8 删除会话 </h2>
+<p><code>DELETE /api/v1/conversations/{conversation_id}</code></p>
+<p>删完后:</p>
+<ol>
+<li>再查这个会话详情，应该报 <code>conversation not found</code></li>
+<li>再查这个会话的消息列表，也应该无法通过会话归属校验</li>
+</ol>
+<hr>
+<h2 id="25-这一阶段最容易写错的地方">25. 这一阶段最容易写错的地方 </h2>
+<h3 id="251-继续把-conversation-设计成挂-profile_id">25.1 继续把 <code>Conversation</code> 设计成挂 <code>profile_id</code> </h3>
+<p>这是你当前草稿最容易延续下来的问题。</p>
+<p>但第四阶段的验收标准要求是:</p>
+<p><code>conversation</code> 与 <code>user</code> 正确关联</p>
+<p>所以这一阶段正式版必须是:</p>
+<p><code>Conversation.user_id</code></p>
+<h3 id="252-查会话时只按-conversation_id-查不按-user_id-限制">25.2 查会话时只按 <code>conversation_id</code> 查，不按 <code>user_id</code> 限制 </h3>
+<p>这是最典型的越权 bug。</p>
+<p>错误写法:</p>
+<pre data-role="codeBlock" data-info="python" class="language-python python"><code>conversation <span class="token operator">=</span> db<span class="token punctuation">.</span>get<span class="token punctuation">(</span>Conversation<span class="token punctuation">,</span> conversation_id<span class="token punctuation">)</span>
+</code></pre><p>正确思路:</p>
+<pre data-role="codeBlock" data-info="python" class="language-python python"><code>where<span class="token punctuation">(</span>Conversation<span class="token punctuation">.</span><span class="token builtin">id</span> <span class="token operator">==</span> conversation_id<span class="token punctuation">,</span> Conversation<span class="token punctuation">.</span>user_id <span class="token operator">==</span> user_id<span class="token punctuation">)</span>
+</code></pre><h3 id="253-查消息时直接按-conversation_id-查没有先校验会话归属">25.3 查消息时直接按 <code>conversation_id</code> 查，没有先校验会话归属 </h3>
+<p>消息表本身没有 <code>user_id</code>，所以你不能直接假设:</p>
+<p>这个 <code>conversation_id</code> 一定属于当前用户。</p>
+<p>正确流程一定是:</p>
+<ol>
+<li>先校验这个会话归当前用户</li>
+<li>再查该会话下的消息</li>
+</ol>
+<h3 id="254-插入消息时忘了更新-conversationupdated_at">25.4 插入消息时忘了更新 <code>conversation.updated_at</code> </h3>
+<p>这会导致会话列表排序不符合实际使用顺序。</p>
+<h3 id="255-删除会话时只删会话不删消息">25.5 删除会话时只删会话，不删消息 </h3>
+<p>这样很容易留下脏数据。</p>
+<p>第四阶段为了稳定起见，直接在 service 里手动先删消息，再删会话。</p>
+<h3 id="256-现在就急着去写-chat">25.6 现在就急着去写 <code>/chat</code> </h3>
+<p>第四阶段先不要急。</p>
+<p>这一阶段的核心任务只是:</p>
+<ol>
+<li>会话建好</li>
+<li>消息建好</li>
+<li>历史消息能查</li>
+<li>消息能落库</li>
+</ol>
+<p>把这一步做好，后面接大模型才顺。</p>
+<hr>
+<h2 id="26-第四阶段做完后你应该真正学会了什么">26. 第四阶段做完后，你应该真正学会了什么 </h2>
+<p>做完这一阶段，你应该至少能说清楚下面这些问题:</p>
+<ol>
+<li>为什么聊天系统至少要拆成 <code>Conversation</code> 和 <code>Message</code></li>
+<li>为什么会话要直接归属于 <code>user</code></li>
+<li>为什么消息要通过 <code>conversation_id</code> 关联</li>
+<li>为什么消息列表必须先校验会话归属</li>
+<li>为什么插入消息时要同步更新会话的 <code>updated_at</code></li>
+<li>为什么这一阶段先不急着接大模型</li>
+</ol>
+<p>如果这些你都能讲清楚，说明你已经开始真正理解聊天后端的数据基础了。</p>
+<hr>
+<h2 id="27-第四阶段最终检查清单">27. 第四阶段最终检查清单 </h2>
+<ul>
+<li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox"> <code>app/models/conversation.py</code> 已创建</li>
+<li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox"> <code>app/models/message.py</code> 已创建</li>
+<li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox"> <code>app/models/__init__.py</code> 已导入 <code>Conversation</code> 和 <code>Message</code></li>
+<li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox"> <code>app/db/base.py</code> 已导入 <code>Conversation</code> 和 <code>Message</code></li>
+<li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox"> <code>app/schemas/conversation.py</code> 已重写</li>
+<li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox"> <code>app/schemas/message.py</code> 已创建</li>
+<li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox"> <code>app/services/conversation_service.py</code> 已创建</li>
+<li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox"> <code>app/services/message_service.py</code> 已创建</li>
+<li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox"> <code>app/api/routes/conversations.py</code> 已创建</li>
+<li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox"> <code>app/api/routes/messages.py</code> 已创建</li>
+<li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox"> <code>app/api/router.py</code> 已挂载新路由</li>
+<li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox"> Alembic migration 已生成</li>
+<li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox"> Alembic migration 已执行</li>
+<li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox"> Swagger 可创建会话</li>
+<li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox"> Swagger 可查看会话列表</li>
+<li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox"> Swagger 可查看会话详情</li>
+<li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox"> Swagger 可修改会话标题</li>
+<li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox"> Swagger 可删除会话</li>
+<li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox"> Swagger 可查看某会话历史消息</li>
+<li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox"> Swagger 可手动插入消息</li>
+<li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox"> <code>conversation</code> 与 <code>user</code> 正确关联</li>
+<li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox"> <code>message</code> 与 <code>conversation</code> 正确关联</li>
+</ul>
+<hr>
+<h2 id="28-这一阶段完成后的意义">28. 这一阶段完成后的意义 </h2>
+<p>第四阶段做完之后，你的聊天系统就第一次有了真正的数据骨架。</p>
+<p>这意味着你后面接大模型时，不再是“边聊边想表怎么设计”，而是已经有稳定的数据落点:</p>
+<ol>
+<li>先确定会话</li>
+<li>再写入用户消息</li>
+<li>再写入助手消息</li>
+<li>再回放历史消息</li>
+</ol>
+<p>这其实就是后面聊天主链路的基础骨架。</p>
+<p>所以第四阶段虽然还没有真正调用 LLM，但它非常关键。<br>
+因为后面的聊天功能，几乎都会建立在这一阶段的数据结构之上。</p>
+</div>
+      </div>
+      
+      
+    
+    
+    
+    
+    
+    
+  
+    </body></html>

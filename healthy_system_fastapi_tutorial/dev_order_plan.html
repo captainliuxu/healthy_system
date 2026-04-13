@@ -1,0 +1,820 @@
+<!DOCTYPE html><html><head>
+      <title>dev_order_plan</title>
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      
+      <link rel="stylesheet" href="file:///c:\Users\Lenovo\.vscode\extensions\shd101wyy.markdown-preview-enhanced-0.8.22\crossnote\dependencies\katex\katex.min.css">
+      
+      
+      
+      
+      
+      <style>
+      code[class*=language-],pre[class*=language-]{color:#333;background:0 0;font-family:Consolas,"Liberation Mono",Menlo,Courier,monospace;text-align:left;white-space:pre;word-spacing:normal;word-break:normal;word-wrap:normal;line-height:1.4;-moz-tab-size:8;-o-tab-size:8;tab-size:8;-webkit-hyphens:none;-moz-hyphens:none;-ms-hyphens:none;hyphens:none}pre[class*=language-]{padding:.8em;overflow:auto;border-radius:3px;background:#f5f5f5}:not(pre)>code[class*=language-]{padding:.1em;border-radius:.3em;white-space:normal;background:#f5f5f5}.token.blockquote,.token.comment{color:#969896}.token.cdata{color:#183691}.token.doctype,.token.macro.property,.token.punctuation,.token.variable{color:#333}.token.builtin,.token.important,.token.keyword,.token.operator,.token.rule{color:#a71d5d}.token.attr-value,.token.regex,.token.string,.token.url{color:#183691}.token.atrule,.token.boolean,.token.code,.token.command,.token.constant,.token.entity,.token.number,.token.property,.token.symbol{color:#0086b3}.token.prolog,.token.selector,.token.tag{color:#63a35c}.token.attr-name,.token.class,.token.class-name,.token.function,.token.id,.token.namespace,.token.pseudo-class,.token.pseudo-element,.token.url-reference .token.variable{color:#795da3}.token.entity{cursor:help}.token.title,.token.title .token.punctuation{font-weight:700;color:#1d3e81}.token.list{color:#ed6a43}.token.inserted{background-color:#eaffea;color:#55a532}.token.deleted{background-color:#ffecec;color:#bd2c00}.token.bold{font-weight:700}.token.italic{font-style:italic}.language-json .token.property{color:#183691}.language-markup .token.tag .token.punctuation{color:#333}.language-css .token.function,code.language-css{color:#0086b3}.language-yaml .token.atrule{color:#63a35c}code.language-yaml{color:#183691}.language-ruby .token.function{color:#333}.language-markdown .token.url{color:#795da3}.language-makefile .token.symbol{color:#795da3}.language-makefile .token.variable{color:#183691}.language-makefile .token.builtin{color:#0086b3}.language-bash .token.keyword{color:#0086b3}pre[data-line]{position:relative;padding:1em 0 1em 3em}pre[data-line] .line-highlight-wrapper{position:absolute;top:0;left:0;background-color:transparent;display:block;width:100%}pre[data-line] .line-highlight{position:absolute;left:0;right:0;padding:inherit 0;margin-top:1em;background:hsla(24,20%,50%,.08);background:linear-gradient(to right,hsla(24,20%,50%,.1) 70%,hsla(24,20%,50%,0));pointer-events:none;line-height:inherit;white-space:pre}pre[data-line] .line-highlight:before,pre[data-line] .line-highlight[data-end]:after{content:attr(data-start);position:absolute;top:.4em;left:.6em;min-width:1em;padding:0 .5em;background-color:hsla(24,20%,50%,.4);color:#f4f1ef;font:bold 65%/1.5 sans-serif;text-align:center;vertical-align:.3em;border-radius:999px;text-shadow:none;box-shadow:0 1px #fff}pre[data-line] .line-highlight[data-end]:after{content:attr(data-end);top:auto;bottom:.4em}html body{font-family:'Helvetica Neue',Helvetica,'Segoe UI',Arial,freesans,sans-serif;font-size:16px;line-height:1.6;color:#333;background-color:#fff;overflow:initial;box-sizing:border-box;word-wrap:break-word}html body>:first-child{margin-top:0}html body h1,html body h2,html body h3,html body h4,html body h5,html body h6{line-height:1.2;margin-top:1em;margin-bottom:16px;color:#000}html body h1{font-size:2.25em;font-weight:300;padding-bottom:.3em}html body h2{font-size:1.75em;font-weight:400;padding-bottom:.3em}html body h3{font-size:1.5em;font-weight:500}html body h4{font-size:1.25em;font-weight:600}html body h5{font-size:1.1em;font-weight:600}html body h6{font-size:1em;font-weight:600}html body h1,html body h2,html body h3,html body h4,html body h5{font-weight:600}html body h5{font-size:1em}html body h6{color:#5c5c5c}html body strong{color:#000}html body del{color:#5c5c5c}html body a:not([href]){color:inherit;text-decoration:none}html body a{color:#08c;text-decoration:none}html body a:hover{color:#00a3f5;text-decoration:none}html body img{max-width:100%}html body>p{margin-top:0;margin-bottom:16px;word-wrap:break-word}html body>ol,html body>ul{margin-bottom:16px}html body ol,html body ul{padding-left:2em}html body ol.no-list,html body ul.no-list{padding:0;list-style-type:none}html body ol ol,html body ol ul,html body ul ol,html body ul ul{margin-top:0;margin-bottom:0}html body li{margin-bottom:0}html body li.task-list-item{list-style:none}html body li>p{margin-top:0;margin-bottom:0}html body .task-list-item-checkbox{margin:0 .2em .25em -1.8em;vertical-align:middle}html body .task-list-item-checkbox:hover{cursor:pointer}html body blockquote{margin:16px 0;font-size:inherit;padding:0 15px;color:#5c5c5c;background-color:#f0f0f0;border-left:4px solid #d6d6d6}html body blockquote>:first-child{margin-top:0}html body blockquote>:last-child{margin-bottom:0}html body hr{height:4px;margin:32px 0;background-color:#d6d6d6;border:0 none}html body table{margin:10px 0 15px 0;border-collapse:collapse;border-spacing:0;display:block;width:100%;overflow:auto;word-break:normal;word-break:keep-all}html body table th{font-weight:700;color:#000}html body table td,html body table th{border:1px solid #d6d6d6;padding:6px 13px}html body dl{padding:0}html body dl dt{padding:0;margin-top:16px;font-size:1em;font-style:italic;font-weight:700}html body dl dd{padding:0 16px;margin-bottom:16px}html body code{font-family:Menlo,Monaco,Consolas,'Courier New',monospace;font-size:.85em;color:#000;background-color:#f0f0f0;border-radius:3px;padding:.2em 0}html body code::after,html body code::before{letter-spacing:-.2em;content:'\00a0'}html body pre>code{padding:0;margin:0;word-break:normal;white-space:pre;background:0 0;border:0}html body .highlight{margin-bottom:16px}html body .highlight pre,html body pre{padding:1em;overflow:auto;line-height:1.45;border:#d6d6d6;border-radius:3px}html body .highlight pre{margin-bottom:0;word-break:normal}html body pre code,html body pre tt{display:inline;max-width:initial;padding:0;margin:0;overflow:initial;line-height:inherit;word-wrap:normal;background-color:transparent;border:0}html body pre code:after,html body pre code:before,html body pre tt:after,html body pre tt:before{content:normal}html body blockquote,html body dl,html body ol,html body p,html body pre,html body ul{margin-top:0;margin-bottom:16px}html body kbd{color:#000;border:1px solid #d6d6d6;border-bottom:2px solid #c7c7c7;padding:2px 4px;background-color:#f0f0f0;border-radius:3px}@media print{html body{background-color:#fff}html body h1,html body h2,html body h3,html body h4,html body h5,html body h6{color:#000;page-break-after:avoid}html body blockquote{color:#5c5c5c}html body pre{page-break-inside:avoid}html body table{display:table}html body img{display:block;max-width:100%;max-height:100%}html body code,html body pre{word-wrap:break-word;white-space:pre}}.markdown-preview{width:100%;height:100%;box-sizing:border-box}.markdown-preview ul{list-style:disc}.markdown-preview ul ul{list-style:circle}.markdown-preview ul ul ul{list-style:square}.markdown-preview ol{list-style:decimal}.markdown-preview ol ol,.markdown-preview ul ol{list-style-type:lower-roman}.markdown-preview ol ol ol,.markdown-preview ol ul ol,.markdown-preview ul ol ol,.markdown-preview ul ul ol{list-style-type:lower-alpha}.markdown-preview .newpage,.markdown-preview .pagebreak{page-break-before:always}.markdown-preview pre.line-numbers{position:relative;padding-left:3.8em;counter-reset:linenumber}.markdown-preview pre.line-numbers>code{position:relative}.markdown-preview pre.line-numbers .line-numbers-rows{position:absolute;pointer-events:none;top:1em;font-size:100%;left:0;width:3em;letter-spacing:-1px;border-right:1px solid #999;-webkit-user-select:none;-moz-user-select:none;-ms-user-select:none;user-select:none}.markdown-preview pre.line-numbers .line-numbers-rows>span{pointer-events:none;display:block;counter-increment:linenumber}.markdown-preview pre.line-numbers .line-numbers-rows>span:before{content:counter(linenumber);color:#999;display:block;padding-right:.8em;text-align:right}.markdown-preview .mathjax-exps .MathJax_Display{text-align:center!important}.markdown-preview:not([data-for=preview]) .code-chunk .code-chunk-btn-group{display:none}.markdown-preview:not([data-for=preview]) .code-chunk .status{display:none}.markdown-preview:not([data-for=preview]) .code-chunk .output-div{margin-bottom:16px}.markdown-preview .md-toc{padding:0}.markdown-preview .md-toc .md-toc-link-wrapper .md-toc-link{display:inline;padding:.25rem 0}.markdown-preview .md-toc .md-toc-link-wrapper .md-toc-link div,.markdown-preview .md-toc .md-toc-link-wrapper .md-toc-link p{display:inline}.markdown-preview .md-toc .md-toc-link-wrapper.highlighted .md-toc-link{font-weight:800}.scrollbar-style::-webkit-scrollbar{width:8px}.scrollbar-style::-webkit-scrollbar-track{border-radius:10px;background-color:transparent}.scrollbar-style::-webkit-scrollbar-thumb{border-radius:5px;background-color:rgba(150,150,150,.66);border:4px solid rgba(150,150,150,.66);background-clip:content-box}html body[for=html-export]:not([data-presentation-mode]){position:relative;width:100%;height:100%;top:0;left:0;margin:0;padding:0;overflow:auto}html body[for=html-export]:not([data-presentation-mode]) .markdown-preview{position:relative;top:0;min-height:100vh}@media screen and (min-width:914px){html body[for=html-export]:not([data-presentation-mode]) .markdown-preview{padding:2em calc(50% - 457px + 2em)}}@media screen and (max-width:914px){html body[for=html-export]:not([data-presentation-mode]) .markdown-preview{padding:2em}}@media screen and (max-width:450px){html body[for=html-export]:not([data-presentation-mode]) .markdown-preview{font-size:14px!important;padding:1em}}@media print{html body[for=html-export]:not([data-presentation-mode]) #sidebar-toc-btn{display:none}}html body[for=html-export]:not([data-presentation-mode]) #sidebar-toc-btn{position:fixed;bottom:8px;left:8px;font-size:28px;cursor:pointer;color:inherit;z-index:99;width:32px;text-align:center;opacity:.4}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] #sidebar-toc-btn{opacity:1}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc{position:fixed;top:0;left:0;width:300px;height:100%;padding:32px 0 48px 0;font-size:14px;box-shadow:0 0 4px rgba(150,150,150,.33);box-sizing:border-box;overflow:auto;background-color:inherit}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc::-webkit-scrollbar{width:8px}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc::-webkit-scrollbar-track{border-radius:10px;background-color:transparent}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc::-webkit-scrollbar-thumb{border-radius:5px;background-color:rgba(150,150,150,.66);border:4px solid rgba(150,150,150,.66);background-clip:content-box}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc a{text-decoration:none}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc .md-toc{padding:0 16px}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc .md-toc .md-toc-link-wrapper .md-toc-link{display:inline;padding:.25rem 0}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc .md-toc .md-toc-link-wrapper .md-toc-link div,html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc .md-toc .md-toc-link-wrapper .md-toc-link p{display:inline}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc .md-toc .md-toc-link-wrapper.highlighted .md-toc-link{font-weight:800}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .markdown-preview{left:300px;width:calc(100% - 300px);padding:2em calc(50% - 457px - 300px / 2);margin:0;box-sizing:border-box}@media screen and (max-width:1274px){html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .markdown-preview{padding:2em}}@media screen and (max-width:450px){html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .markdown-preview{width:100%}}html body[for=html-export]:not([data-presentation-mode]):not([html-show-sidebar-toc]) .markdown-preview{left:50%;transform:translateX(-50%)}html body[for=html-export]:not([data-presentation-mode]):not([html-show-sidebar-toc]) .md-sidebar-toc{display:none}
+/* Please visit the URL below for more information: */
+/*   https://shd101wyy.github.io/markdown-preview-enhanced/#/customize-css */
+
+      </style>
+      <script type="text/javascript">
+  document.addEventListener("DOMContentLoaded", function () {
+    // your code here
+  });
+</script>
+    </head>
+    <body for="html-export">
+      <div class="crossnote markdown-preview  ">
+      
+<h1 id="比赛项目后端开发顺序详细文档">比赛项目后端开发顺序详细文档 </h1>
+<h2 id="文档目标">文档目标 </h2>
+<p>这份文档用于指导你当前比赛项目的后端开发顺序，目标不是一开始就把所有“高级功能”全部堆上去，而是按照<strong>可运行、可验证、可扩展</strong>的方式，一步一步把项目真正做起来。</p>
+<p>你的项目里可能包含这些方向：</p>
+<ul>
+<li>用户系统</li>
+<li>健康档案 / Profile</li>
+<li>健康记录 / Record</li>
+<li>会话与消息 / Conversation &amp; Message</li>
+<li>聊天链路</li>
+<li>主动提醒 / 主动服务</li>
+<li>触发规则</li>
+<li>WebSocket 实时推送</li>
+<li>Scheduler 定时任务</li>
+</ul>
+<p>这些模块之间是有依赖关系的，所以开发顺序很重要。</p>
+<hr>
+<h1 id="一-总原则">一、总原则 </h1>
+<h2 id="1-先做地基再做功能最后做增强体验">1. 先做“地基”，再做“功能”，最后做“增强体验” </h2>
+<p>推荐你始终遵守这条思路：</p>
+<blockquote>
+<p><strong>基础设施 → 核心 CRUD → 聊天闭环 → 主动能力 → 实时化 / 定时化</strong></p>
+</blockquote>
+<p>原因很简单：</p>
+<ul>
+<li>没有用户体系，后面的数据没法绑定到人</li>
+<li>没有基础 CRUD，后面的智能能力没有数据来源</li>
+<li>没有聊天闭环，主动服务就没有上下文基础</li>
+<li>没有触发机制，WebSocket 和 scheduler 只是空壳</li>
+</ul>
+<p>所以不要一开始就冲 WebSocket、定时任务、复杂 Agent，这样很容易把项目做散。</p>
+<hr>
+<h1 id="二-推荐总开发顺序">二、推荐总开发顺序 </h1>
+<h2 id="推荐顺序">推荐顺序 </h2>
+<ol>
+<li>基础骨架层</li>
+<li>用户 / 认证 / Profile</li>
+<li>Record 业务模块</li>
+<li>Conversation / Message 模块</li>
+<li>聊天主链路落地</li>
+<li>主动日志与触发规则</li>
+<li>主动服务与主动窗口</li>
+<li>WebSocket 与 Scheduler</li>
+<li>优化、测试、演示包装</li>
+</ol>
+<hr>
+<h1 id="三-阶段式开发方案">三、阶段式开发方案 </h1>
+<hr>
+<h2 id="第一阶段基础骨架层">第一阶段：基础骨架层 </h2>
+<h3 id="阶段目标">阶段目标 </h3>
+<p>先把项目跑起来，形成一个规范的后端基础工程，保证后面加功能不会乱。</p>
+<h3 id="这一阶段必须完成的内容">这一阶段必须完成的内容 </h3>
+<h4 id="1-项目目录结构">1. 项目目录结构 </h4>
+<p>建议至少拆成：</p>
+<pre data-role="codeBlock" data-info="text" class="language-text text"><code>app/
+├─ api/
+├─ core/
+├─ models/
+├─ schemas/
+├─ services/
+├─ db/
+├─ utils/
+└─ main.py
+</code></pre><h4 id="2-配置管理">2. 配置管理 </h4>
+<p>包括：</p>
+<ul>
+<li>开发环境配置</li>
+<li>数据库连接配置</li>
+<li>JWT 配置</li>
+<li>大模型 API Key 配置</li>
+<li>CORS 配置</li>
+</ul>
+<p>建议统一放在：</p>
+<ul>
+<li><code>app/core/config.py</code></li>
+</ul>
+<h4 id="3-数据库连接与会话管理">3. 数据库连接与会话管理 </h4>
+<p>包括：</p>
+<ul>
+<li>SQLAlchemy engine</li>
+<li>SessionLocal</li>
+<li>Base</li>
+<li>数据库依赖注入</li>
+</ul>
+<h4 id="4-通用返回格式">4. 通用返回格式 </h4>
+<p>统一接口返回结构，例如：</p>
+<pre data-role="codeBlock" data-info="json" class="language-json json"><code><span class="token punctuation">{</span>
+  <span class="token property">"code"</span><span class="token operator">:</span> <span class="token number">0</span><span class="token punctuation">,</span>
+  <span class="token property">"message"</span><span class="token operator">:</span> <span class="token string">"success"</span><span class="token punctuation">,</span>
+  <span class="token property">"data"</span><span class="token operator">:</span> <span class="token punctuation">{</span><span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+</code></pre><h4 id="5-全局异常处理">5. 全局异常处理 </h4>
+<p>包括：</p>
+<ul>
+<li>参数错误</li>
+<li>业务错误</li>
+<li>404</li>
+<li>500</li>
+</ul>
+<h4 id="6-alembic-迁移初始化">6. Alembic 迁移初始化 </h4>
+<p>你后面表会越来越多，不要靠手改数据库。</p>
+<h3 id="这一阶段不要做的事">这一阶段不要做的事 </h3>
+<ul>
+<li>不要碰聊天功能</li>
+<li>不要碰 WebSocket</li>
+<li>不要碰 scheduler</li>
+<li>不要写很多业务逻辑</li>
+</ul>
+<h3 id="阶段验收标准">阶段验收标准 </h3>
+<p>做到下面这些，就算第一阶段合格：</p>
+<ul>
+<li>项目能启动</li>
+<li><code>/docs</code> 可访问</li>
+<li>数据库能连通</li>
+<li>有统一响应格式</li>
+<li>可以做 migration</li>
+</ul>
+<hr>
+<h2 id="第二阶段用户--认证--profile">第二阶段：用户 / 认证 / Profile </h2>
+<h3 id="阶段目标-1">阶段目标 </h3>
+<p>把“谁在使用系统”这件事先确定下来。</p>
+<p>因为几乎所有业务表，最后都要挂到用户下面。</p>
+<h3 id="推荐顺序-1">推荐顺序 </h3>
+<ol>
+<li>User</li>
+<li>Auth</li>
+<li>Profile</li>
+</ol>
+<hr>
+<h3 id="21-user-模块">2.1 User 模块 </h3>
+<h4 id="建议先做的字段">建议先做的字段 </h4>
+<pre data-role="codeBlock" data-info="text" class="language-text text"><code>id
+username
+email
+phone
+password_hash
+is_active
+created_at
+updated_at
+</code></pre><h4 id="建议接口">建议接口 </h4>
+<ul>
+<li>用户注册</li>
+<li>用户登录</li>
+<li>获取当前用户信息</li>
+<li>修改基本信息</li>
+</ul>
+<hr>
+<h3 id="22-auth-模块">2.2 Auth 模块 </h3>
+<h4 id="建议内容">建议内容 </h4>
+<ul>
+<li>密码加密</li>
+<li>JWT 登录</li>
+<li>当前用户依赖注入</li>
+<li>路由鉴权</li>
+</ul>
+<h4 id="最低要求">最低要求 </h4>
+<p>至少实现：</p>
+<ul>
+<li>注册</li>
+<li>登录</li>
+<li>受保护接口访问</li>
+</ul>
+<hr>
+<h3 id="23-profile-模块">2.3 Profile 模块 </h3>
+<p>Profile 建议理解成“用户健康档案 / 用户画像”，而不是登录账号本身。</p>
+<h4 id="建议字段">建议字段 </h4>
+<p>根据你的比赛项目可以先简化，例如：</p>
+<pre data-role="codeBlock" data-info="text" class="language-text text"><code>id
+user_id
+name
+age
+gender
+height
+weight
+chronic_history
+allergy_history
+emergency_contact
+remark
+</code></pre><h4 id="建议接口-1">建议接口 </h4>
+<ul>
+<li>创建 profile</li>
+<li>查看 profile</li>
+<li>更新 profile</li>
+</ul>
+<h3 id="为什么先做-profile">为什么先做 Profile </h3>
+<p>因为后面的：</p>
+<ul>
+<li>健康记录</li>
+<li>聊天建议</li>
+<li>主动提醒</li>
+<li>个性化推荐</li>
+</ul>
+<p>通常都需要 profile 作为基础上下文。</p>
+<h3 id="阶段验收标准-1">阶段验收标准 </h3>
+<ul>
+<li>用户可注册登录</li>
+<li>用户身份可鉴权</li>
+<li>每个用户能维护自己的 profile</li>
+</ul>
+<hr>
+<h2 id="第三阶段record-模块">第三阶段：Record 模块 </h2>
+<h3 id="阶段目标-2">阶段目标 </h3>
+<p>先完成一个完整、清晰、好演示的业务 CRUD 模块。</p>
+<p>Record 适合先做，因为它相对独立，最适合练完整开发流程。</p>
+<h3 id="record-是什么">Record 是什么 </h3>
+<p>Record 可以是：</p>
+<ul>
+<li>健康打卡记录</li>
+<li>血压记录</li>
+<li>血糖记录</li>
+<li>睡眠记录</li>
+<li>用药记录</li>
+<li>心情记录</li>
+</ul>
+<p>你比赛里不需要一开始就做得特别复杂，先统一成一个基础记录表即可。</p>
+<h3 id="推荐最小模型">推荐最小模型 </h3>
+<pre data-role="codeBlock" data-info="text" class="language-text text"><code>id
+user_id
+record_type
+value
+unit
+record_time
+note
+created_at
+updated_at
+</code></pre><p>或者你也可以先拆几个通用字段：</p>
+<pre data-role="codeBlock" data-info="text" class="language-text text"><code>id
+user_id
+category
+content
+measure_value
+measure_unit
+record_time
+remark
+</code></pre><h3 id="建议接口-2">建议接口 </h3>
+<ul>
+<li>创建记录</li>
+<li>获取记录列表</li>
+<li>获取记录详情</li>
+<li>更新记录</li>
+<li>删除记录</li>
+</ul>
+<h3 id="推荐额外补的能力">推荐额外补的能力 </h3>
+<ul>
+<li>分页</li>
+<li>按类型筛选</li>
+<li>按时间筛选</li>
+</ul>
+<h3 id="这一阶段的重要意义">这一阶段的重要意义 </h3>
+<p>它会帮你真正练到：</p>
+<ul>
+<li>model</li>
+<li>schema</li>
+<li>router</li>
+<li>service</li>
+<li>CRUD</li>
+<li>数据验证</li>
+<li>查询过滤</li>
+</ul>
+<p>这是后面所有模块的模板。</p>
+<h3 id="阶段验收标准-2">阶段验收标准 </h3>
+<ul>
+<li>记录模块 CRUD 完整</li>
+<li>每条记录归属当前用户</li>
+<li>支持基础筛选</li>
+<li>Swagger 可直接演示</li>
+</ul>
+<hr>
+<h2 id="第四阶段conversation--message-模块">第四阶段：Conversation / Message 模块 </h2>
+<h3 id="阶段目标-3">阶段目标 </h3>
+<p>先把聊天数据结构建好，但这时候先不要急着接大模型。</p>
+<h3 id="为什么先做数据结构">为什么先做数据结构 </h3>
+<p>因为聊天功能本质上至少有两层：</p>
+<ol>
+<li>会话（conversation）</li>
+<li>消息（message）</li>
+</ol>
+<p>如果数据模型不先稳定，后面接模型调用时你会不断返工。</p>
+<hr>
+<h3 id="41-conversation-模块">4.1 Conversation 模块 </h3>
+<h4 id="建议字段-1">建议字段 </h4>
+<pre data-role="codeBlock" data-info="text" class="language-text text"><code>id
+user_id
+title
+status
+created_at
+updated_at
+</code></pre><h4 id="建议接口-3">建议接口 </h4>
+<ul>
+<li>创建会话</li>
+<li>获取会话列表</li>
+<li>获取会话详情</li>
+<li>修改会话标题</li>
+<li>删除会话</li>
+</ul>
+<hr>
+<h3 id="42-message-模块">4.2 Message 模块 </h3>
+<h4 id="建议字段-2">建议字段 </h4>
+<pre data-role="codeBlock" data-info="text" class="language-text text"><code>id
+conversation_id
+role
+content
+message_type
+created_at
+</code></pre><h4 id="role-建议值">role 建议值 </h4>
+<ul>
+<li>user</li>
+<li>assistant</li>
+<li>system</li>
+</ul>
+<h4 id="建议接口-4">建议接口 </h4>
+<ul>
+<li>获取某会话消息列表</li>
+<li>手动插入消息（调试用）</li>
+</ul>
+<h3 id="这一阶段先不要做的事">这一阶段先不要做的事 </h3>
+<ul>
+<li>不要急着流式输出</li>
+<li>不要急着 WebSocket</li>
+<li>不要急着复杂 prompt 编排</li>
+</ul>
+<h3 id="先验目标">先验目标 </h3>
+<p>你只要做到：</p>
+<ul>
+<li>用户能创建会话</li>
+<li>用户能查历史消息</li>
+<li>消息能落库</li>
+</ul>
+<p>就已经完成这一阶段的目标。</p>
+<h3 id="阶段验收标准-3">阶段验收标准 </h3>
+<ul>
+<li>conversation 与 user 正确关联</li>
+<li>message 与 conversation 正确关联</li>
+<li>历史消息可查询</li>
+</ul>
+<hr>
+<h2 id="第五阶段聊天主链路落地">第五阶段：聊天主链路落地 </h2>
+<h3 id="阶段目标-4">阶段目标 </h3>
+<p>真正打通一条最小可用聊天链路：</p>
+<blockquote>
+<p>用户发消息 → 写入 user message → 调用大模型 / 规则引擎 → 生成 assistant message → 回复前端</p>
+</blockquote>
+<p>这一步是整个项目从“静态管理系统”变成“智能应用”的关键。</p>
+<hr>
+<h3 id="推荐先实现的最小版本">推荐先实现的最小版本 </h3>
+<h4 id="输入">输入 </h4>
+<p>前端发来：</p>
+<ul>
+<li>conversation_id</li>
+<li>用户消息内容</li>
+</ul>
+<h4 id="后端流程">后端流程 </h4>
+<ol>
+<li>校验 conversation 是否属于当前用户</li>
+<li>保存 user message</li>
+<li>读取最近若干条历史消息</li>
+<li>拼 prompt 或构造 messages</li>
+<li>调用模型</li>
+<li>保存 assistant message</li>
+<li>返回结果</li>
+</ol>
+<hr>
+<h3 id="推荐封装">推荐封装 </h3>
+<p>建议把模型调用单独封装在：</p>
+<ul>
+<li><code>app/services/chat_service.py</code></li>
+<li><code>app/services/llm_service.py</code></li>
+</ul>
+<p>不要直接把调用模型的代码塞到 router 里。</p>
+<hr>
+<h3 id="这一阶段建议先做同步版本">这一阶段建议先做同步版本 </h3>
+<p>也就是先普通 HTTP 请求返回，不要一开始就搞流式。</p>
+<p>原因：</p>
+<ul>
+<li>好调试</li>
+<li>好定位报错</li>
+<li>便于先验证数据库链路</li>
+<li>逻辑更容易看懂</li>
+</ul>
+<h3 id="这一阶段推荐接口">这一阶段推荐接口 </h3>
+<ul>
+<li><code>POST /chat/send</code></li>
+<li><code>GET /conversations/{id}/messages</code></li>
+</ul>
+<h3 id="阶段验收标准-4">阶段验收标准 </h3>
+<ul>
+<li>发一条消息能拿到 AI 回复</li>
+<li>用户消息和 AI 回复都能入库</li>
+<li>历史消息能回显</li>
+</ul>
+<hr>
+<h2 id="第六阶段主动日志与触发规则">第六阶段：主动日志与触发规则 </h2>
+<h3 id="阶段目标-5">阶段目标 </h3>
+<p>开始为“主动服务”打地基。</p>
+<p>很多项目喜欢一上来就说“主动关怀”“智能提醒”，但如果没有触发规则和日志，这些功能都很空。</p>
+<p>所以这阶段先做两个底层模块：</p>
+<ol>
+<li>trigger rule（触发规则）</li>
+<li>active log（主动行为日志）</li>
+</ol>
+<hr>
+<h3 id="61-trigger-rule">6.1 Trigger Rule </h3>
+<h4 id="它是干什么的">它是干什么的 </h4>
+<p>定义系统在什么情况下要主动介入。</p>
+<p>例如：</p>
+<ul>
+<li>用户 3 天没记录健康数据</li>
+<li>用户血压超阈值</li>
+<li>用户情绪连续低落</li>
+<li>用户最近聊天表达焦虑倾向</li>
+</ul>
+<h4 id="最小字段建议">最小字段建议 </h4>
+<pre data-role="codeBlock" data-info="text" class="language-text text"><code>id
+name
+trigger_type
+enabled
+condition_json
+priority
+created_at
+updated_at
+</code></pre><h4 id="condition_json-可以存什么">condition_json 可以存什么 </h4>
+<p>例如：</p>
+<pre data-role="codeBlock" data-info="json" class="language-json json"><code><span class="token punctuation">{</span>
+  <span class="token property">"days_without_record"</span><span class="token operator">:</span> <span class="token number">3</span><span class="token punctuation">,</span>
+  <span class="token property">"record_type"</span><span class="token operator">:</span> <span class="token string">"blood_pressure"</span>
+<span class="token punctuation">}</span>
+</code></pre><hr>
+<h3 id="62-active-log">6.2 Active Log </h3>
+<h4 id="它是干什么的-1">它是干什么的 </h4>
+<p>记录系统每一次主动行为：</p>
+<ul>
+<li>为什么触发</li>
+<li>对谁触发</li>
+<li>触发时机</li>
+<li>做了什么动作</li>
+<li>成功还是失败</li>
+</ul>
+<h4 id="最小字段建议-1">最小字段建议 </h4>
+<pre data-role="codeBlock" data-info="text" class="language-text text"><code>id
+user_id
+trigger_rule_id
+action_type
+status
+request_payload
+response_payload
+created_at
+</code></pre><h3 id="为什么先做日志再做主动服务">为什么先做日志再做主动服务 </h3>
+<p>因为只做“主动发送”不做日志，后期你根本查不清：</p>
+<ul>
+<li>为什么触发了</li>
+<li>触发错了没有</li>
+<li>是不是重复触发</li>
+<li>哪些规则效果最好</li>
+</ul>
+<h3 id="阶段验收标准-5">阶段验收标准 </h3>
+<ul>
+<li>规则可配置</li>
+<li>可手动触发规则检查</li>
+<li>日志可记录一次触发过程</li>
+</ul>
+<hr>
+<h2 id="第七阶段主动服务与主动窗口">第七阶段：主动服务与主动窗口 </h2>
+<h3 id="阶段目标-6">阶段目标 </h3>
+<p>让系统开始具备“主动触达用户”的能力。</p>
+<p>这一层才是比赛里比较亮眼的部分，但它必须建立在前面的数据和日志基础之上。</p>
+<hr>
+<h3 id="71-主动服务">7.1 主动服务 </h3>
+<h4 id="可以理解成什么">可以理解成什么 </h4>
+<p>根据触发规则，系统决定向用户执行某种动作，例如：</p>
+<ul>
+<li>推送提醒</li>
+<li>生成建议消息</li>
+<li>弹出健康关怀提示</li>
+<li>写入一条主动 assistant message</li>
+</ul>
+<h4 id="推荐最小版本">推荐最小版本 </h4>
+<p>不要一开始就做真实通知推送，先做：</p>
+<ul>
+<li>在 conversation 里插入一条系统主动消息</li>
+<li>或者在主动消息表中生成待展示内容</li>
+</ul>
+<p>这样更容易演示，也更容易测试。</p>
+<hr>
+<h3 id="72-主动窗口">7.2 主动窗口 </h3>
+<p>主动窗口可以理解为：</p>
+<blockquote>
+<p>在什么时间段 / 什么场景下允许主动打扰用户</p>
+</blockquote>
+<p>例如：</p>
+<ul>
+<li>只在 8:00 - 22:00 之间主动触发</li>
+<li>同一用户 24 小时内最多主动一次</li>
+<li>某类事件优先级更高</li>
+</ul>
+<h4 id="建议先不用做很复杂">建议先不用做很复杂 </h4>
+<p>可以先做简单字段：</p>
+<pre data-role="codeBlock" data-info="text" class="language-text text"><code>quiet_hours_start
+quiet_hours_end
+max_trigger_per_day
+</code></pre><p>或者直接放在配置表 / 用户偏好表中。</p>
+<h3 id="阶段验收标准-6">阶段验收标准 </h3>
+<ul>
+<li>系统可根据规则生成主动消息</li>
+<li>能限制主动频率</li>
+<li>能记录主动行为日志</li>
+</ul>
+<hr>
+<h2 id="第八阶段websocket-与-scheduler">第八阶段：WebSocket 与 Scheduler </h2>
+<h3 id="阶段目标-7">阶段目标 </h3>
+<p>把系统从“能用”升级到“更像真实产品”。</p>
+<p>这两个都属于增强层，而不是最前置层。</p>
+<hr>
+<h3 id="81-websocket">8.1 WebSocket </h3>
+<h4 id="适合放在后面的原因">适合放在后面的原因 </h4>
+<p>因为它解决的是：</p>
+<ul>
+<li>实时推送</li>
+<li>流式返回</li>
+<li>即时刷新</li>
+</ul>
+<p>但它不决定你的核心业务逻辑是否成立。</p>
+<p>如果你前面聊天主链路都没打通，直接做 WebSocket 只会让调试更复杂。</p>
+<h4 id="推荐使用场景">推荐使用场景 </h4>
+<ul>
+<li>聊天流式输出</li>
+<li>主动提醒实时弹出</li>
+<li>在线状态同步</li>
+</ul>
+<h4 id="推荐先做什么">推荐先做什么 </h4>
+<p>先做最小版：</p>
+<ul>
+<li>建立连接</li>
+<li>向当前用户推一条文本消息</li>
+</ul>
+<p>不要一开始就写复杂的房间管理。</p>
+<hr>
+<h3 id="82-scheduler">8.2 Scheduler </h3>
+<h4 id="它是干什么的-2">它是干什么的 </h4>
+<p>定期执行规则扫描、提醒任务、归档任务等。</p>
+<p>例如：</p>
+<ul>
+<li>每天早上 8 点检查未打卡用户</li>
+<li>每小时扫描高风险记录</li>
+<li>每天总结用户健康数据</li>
+</ul>
+<h4 id="推荐技术">推荐技术 </h4>
+<p>FastAPI 项目里你可以后续考虑：</p>
+<ul>
+<li>APScheduler</li>
+<li>Celery（更重，暂时不推荐第一版就上）</li>
+</ul>
+<h4 id="为什么最后做">为什么最后做 </h4>
+<p>因为 scheduler 依赖：</p>
+<ul>
+<li>规则已经定义好</li>
+<li>主动服务已经可执行</li>
+<li>日志系统已经存在</li>
+</ul>
+<p>否则它只是“定时空转”。</p>
+<h3 id="阶段验收标准-7">阶段验收标准 </h3>
+<ul>
+<li>能定时执行触发检查</li>
+<li>触发后能记录日志</li>
+<li>可以选配 WebSocket 推送到前端</li>
+</ul>
+<hr>
+<h2 id="第九阶段测试-优化-演示包装">第九阶段：测试、优化、演示包装 </h2>
+<h3 id="阶段目标-8">阶段目标 </h3>
+<p>为比赛做最终展示准备。</p>
+<p>这一阶段不是继续疯狂加功能，而是让已有功能稳定、清晰、可演示。</p>
+<h3 id="重点内容">重点内容 </h3>
+<h4 id="1-接口测试">1. 接口测试 </h4>
+<p>建议至少测：</p>
+<ul>
+<li>注册 / 登录</li>
+<li>Profile CRUD</li>
+<li>Record CRUD</li>
+<li>Conversation / Message 查询</li>
+<li>Chat send</li>
+<li>Trigger check</li>
+</ul>
+<h4 id="2-权限测试">2. 权限测试 </h4>
+<p>重点看：</p>
+<ul>
+<li>用户 A 是否能访问用户 B 的数据</li>
+<li>conversation 是否能越权访问</li>
+<li>record 是否能越权修改</li>
+</ul>
+<h4 id="3-演示数据准备">3. 演示数据准备 </h4>
+<p>比赛项目一定要准备演示账号与演示数据。</p>
+<h4 id="4-swagger-文档整理">4. Swagger 文档整理 </h4>
+<ul>
+<li>tags 分组清晰</li>
+<li>示例请求清晰</li>
+<li>响应模型清晰</li>
+</ul>
+<h4 id="5-readme-补全">5. README 补全 </h4>
+<p>至少写清楚：</p>
+<ul>
+<li>项目简介</li>
+<li>技术栈</li>
+<li>目录结构</li>
+<li>启动方式</li>
+<li>主要模块</li>
+</ul>
+<hr>
+<h1 id="四-每个阶段的依赖关系">四、每个阶段的依赖关系 </h1>
+<p>可以用下面这个逻辑记：</p>
+<pre data-role="codeBlock" data-info="text" class="language-text text"><code>基础骨架
+  ↓
+User / Auth / Profile
+  ↓
+Record
+  ↓
+Conversation / Message
+  ↓
+Chat 主链路
+  ↓
+Trigger Rule / Active Log
+  ↓
+Active Service / Active Window
+  ↓
+WebSocket / Scheduler
+</code></pre><hr>
+<h1 id="五-你原始顺序的评价">五、你原始顺序的评价 </h1>
+<p>你原来的思路是：</p>
+<ol>
+<li>先把 profile 做好</li>
+<li>再把 record 做好</li>
+<li>再补 conversation 和 message</li>
+<li>再让聊天链路落地</li>
+<li>再做主动窗口和主动日志</li>
+<li>再做触发服务和主动服务</li>
+<li>最后才做 WebSocket 和 scheduler</li>
+</ol>
+<h2 id="结论">结论 </h2>
+<p>这个思路整体是对的，已经比“先做高级功能”强很多。</p>
+<p>但是建议你补一个更前置的阶段：</p>
+<blockquote>
+<p><strong>Profile 前面还要先有 User / Auth / 基础设施</strong></p>
+</blockquote>
+<p>否则后面很多表会因为缺 user_id、权限体系、登录状态而返工。</p>
+<p>另外还有一个建议：</p>
+<blockquote>
+<p><strong>主动日志最好放在主动窗口前面，作为更底层的追踪能力。</strong></p>
+</blockquote>
+<p>所以更合理的版本是：</p>
+<ol>
+<li>基础骨架</li>
+<li>User / Auth</li>
+<li>Profile</li>
+<li>Record</li>
+<li>Conversation / Message</li>
+<li>Chat 主链路</li>
+<li>Trigger Rule / Active Log</li>
+<li>Active Service / Active Window</li>
+<li>WebSocket / Scheduler</li>
+</ol>
+<hr>
+<h1 id="六-最适合你当前比赛项目的执行版顺序">六、最适合你当前比赛项目的执行版顺序 </h1>
+<p>下面给你一个更接地气的“真正照着做”的版本。</p>
+<h2 id="第-1-批">第 1 批 </h2>
+<ul>
+<li>项目结构</li>
+<li>config</li>
+<li>database</li>
+<li>BaseModel</li>
+<li>通用响应</li>
+<li>异常处理</li>
+<li>Alembic</li>
+</ul>
+<h2 id="第-2-批">第 2 批 </h2>
+<ul>
+<li>user model</li>
+<li>register/login</li>
+<li>JWT 鉴权</li>
+<li>current user 依赖</li>
+<li>profile model + CRUD</li>
+</ul>
+<h2 id="第-3-批">第 3 批 </h2>
+<ul>
+<li>record model</li>
+<li>record CRUD</li>
+<li>record 筛选查询</li>
+</ul>
+<h2 id="第-4-批">第 4 批 </h2>
+<ul>
+<li>conversation model</li>
+<li>message model</li>
+<li>conversation CRUD</li>
+<li>message list 查询</li>
+</ul>
+<h2 id="第-5-批">第 5 批 </h2>
+<ul>
+<li>chat/send 接口</li>
+<li>用户消息入库</li>
+<li>调用模型</li>
+<li>assistant 回复入库</li>
+</ul>
+<h2 id="第-6-批">第 6 批 </h2>
+<ul>
+<li>trigger rule model</li>
+<li>active log model</li>
+<li>规则检查 service</li>
+</ul>
+<h2 id="第-7-批">第 7 批 </h2>
+<ul>
+<li>主动消息 service</li>
+<li>主动窗口限制</li>
+<li>频率控制</li>
+</ul>
+<h2 id="第-8-批">第 8 批 </h2>
+<ul>
+<li>scheduler 定时检查</li>
+<li>websocket 主动推送</li>
+<li>聊天流式输出（可选）</li>
+</ul>
+<h2 id="第-9-批">第 9 批 </h2>
+<ul>
+<li>测试</li>
+<li>优化</li>
+<li>演示脚本</li>
+<li>README</li>
+</ul>
+<hr>
+<h1 id="七-每个阶段不要做什么总结">七、每个阶段“不要做什么”总结 </h1>
+<h2 id="第一阶段不要做">第一阶段不要做 </h2>
+<ul>
+<li>不要接模型</li>
+<li>不要写业务细节</li>
+<li>不要搞 WebSocket</li>
+</ul>
+<h2 id="第二阶段不要做">第二阶段不要做 </h2>
+<ul>
+<li>不要把 profile 和 user 混成一个表后又反复改</li>
+<li>不要跳过 auth</li>
+</ul>
+<h2 id="第三阶段不要做">第三阶段不要做 </h2>
+<ul>
+<li>不要过度设计 record 类型</li>
+<li>不要一开始拆十几张记录表</li>
+</ul>
+<h2 id="第四阶段不要做">第四阶段不要做 </h2>
+<ul>
+<li>不要一开始就做复杂多轮记忆</li>
+<li>不要先上流式输出</li>
+</ul>
+<h2 id="第五阶段不要做">第五阶段不要做 </h2>
+<ul>
+<li>不要把模型调用逻辑写死在 router</li>
+<li>不要不落库直接返回</li>
+</ul>
+<h2 id="第六七阶段不要做">第六七阶段不要做 </h2>
+<ul>
+<li>不要只做“主动提醒”界面，不做触发规则与日志</li>
+<li>不要没有频率控制就主动触发</li>
+</ul>
+<h2 id="第八阶段不要做">第八阶段不要做 </h2>
+<ul>
+<li>不要在核心链路没稳时硬上 WebSocket</li>
+<li>不要一开始就上 Celery 全家桶</li>
+</ul>
+<hr>
+<h1 id="八-最终一句话版">八、最终一句话版 </h1>
+<p>你最应该遵循的开发顺序是：</p>
+<blockquote>
+<p><strong>基础设施 → 用户认证与 Profile → Record → Conversation / Message → 聊天主链路 → 触发规则与主动日志 → 主动服务 → WebSocket / Scheduler</strong></p>
+</blockquote>
+<p>这是最适合你当前比赛项目的后端开发顺序。</p>
+<hr>
+<h1 id="九-下一步建议">九、下一步建议 </h1>
+<p>你现在最适合继续做的是：</p>
+<ol>
+<li>按这个顺序建立项目目录</li>
+<li>先完成 User / Auth / Profile</li>
+<li>再开始写 Record 的完整 CRUD</li>
+</ol>
+<p>如果你愿意，下一份我可以继续给你写：</p>
+<ul>
+<li><strong><a href="http://xn--4gq4w38hfoak16bohjn0kptevz9arsh8t1bd4z.md">第一阶段详细文件开发清单.md</a></strong></li>
+<li>或者 <strong>FastAPI <a href="http://xn--fqr65xfrgta954aq6cor3aba833gw6j8u5b141a.md">比赛项目后端目录结构模板.md</a></strong></li>
+</ul>
+
+      </div>
+      
+      
+    
+    
+    
+    
+    
+    
+  
+    </body></html>
