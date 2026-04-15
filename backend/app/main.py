@@ -1,9 +1,29 @@
+import asyncio
+from contextlib import asynccontextmanager
+
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 
 from app.api.router import api_router
 from app.core.config import settings
 from app.core.exception import register_exception_handlers
+from app.core.logging_config import configure_logging
+from app.core.scheduler import shutdown_scheduler, start_scheduler
+from app.ws.manager import realtime_manager
+
+configure_logging()
+
+
+@asynccontextmanager
+async def lifespan(app: FastAPI):
+    realtime_manager.bind_loop(asyncio.get_running_loop())
+    start_scheduler()
+
+    try:
+        yield
+    finally:
+        shutdown_scheduler()
+        realtime_manager.reset()
 
 
 def create_application() -> FastAPI:
@@ -11,11 +31,10 @@ def create_application() -> FastAPI:
         title=settings.PROJECT_NAME,
         debug=settings.DEBUG,
         version="0.1.0",
+        lifespan=lifespan,
     )
 
     app.add_middleware(
-        # 允许前端跨域访问后端
-        # Vue 前端常见是 5173
         CORSMiddleware,
         allow_origins=settings.BACKEND_CORS_ORIGINS or ["*"],
         allow_credentials=True,

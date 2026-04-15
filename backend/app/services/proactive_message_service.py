@@ -47,6 +47,24 @@ class ProactiveMessageService:
         )
         return list(db.scalars(stmt).all())
 
+    def list_pending_for_user(
+        self,
+        db: Session,
+        user_id: int,
+    ) -> list[ProactiveMessage]:
+        stmt = (
+            select(ProactiveMessage)
+            .where(
+                ProactiveMessage.user_id == user_id,
+                ProactiveMessage.status == "pending",
+            )
+            .order_by(
+                ProactiveMessage.created_at.asc(),
+                ProactiveMessage.id.asc(),
+            )
+        )
+        return list(db.scalars(stmt).all())
+
     def get_or_raise(
         self,
         db: Session,

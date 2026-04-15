@@ -8,6 +8,7 @@ from app.api.routes.health import router as health_router
 from app.api.routes.messages import router as messages_router
 from app.api.routes.proactive import router as proactive_router
 from app.api.routes.profiles import router as profiles_router
+from app.api.routes.realtime import router as realtime_router
 from app.api.routes.records import router as records_router
 from app.api.routes.trigger_rules import router as trigger_rules_router
 from app.api.routes.users import router as users_router
@@ -24,3 +25,4 @@ api_router.include_router(chat_router)
 api_router.include_router(trigger_rules_router)
 api_router.include_router(active_logs_router)
 api_router.include_router(proactive_router)
+api_router.include_router(realtime_router)

@@ -7,11 +7,13 @@ from sqlalchemy import func, select
 from sqlalchemy.orm import Session
 
 from app.models.active_log import ActiveLog
+from app.models.proactive_message import ProactiveMessage
 from app.models.trigger_rule import TriggerRule
 from app.services.active_log_service import active_log_service
 from app.services.proactive_message_service import proactive_message_service
 from app.services.proactive_window_service import proactive_window_service
 from app.services.trigger_rule_service import trigger_rule_service
+from app.ws.manager import realtime_manager
 
 
 class ProactiveService:
@@ -116,11 +118,17 @@ class ProactiveService:
                 content=content,
             )
 
+            delivered_connection_count = self._push_created_message(
+                user_id=user_id,
+                proactive_message=proactive_message,
+            )
+
             response_payload = {
                 **evaluation,
                 "proactive_message_id": proactive_message.id,
                 "title": proactive_message.title,
                 "status": proactive_message.status,
+                "realtime_delivered_connection_count": delivered_connection_count,
             }
             log = active_log_service.create_log(
                 db=db,
@@ -231,6 +239,48 @@ class ProactiveService:
             "checkin": "健康打卡",
         }
         return mapping.get(record_type, record_type)
+
+    def _push_created_message(
+        self,
+        user_id: int,
+        proactive_message: ProactiveMessage,
+    ) -> int:
+        payload = self.build_created_event_payload(proactive_message)
+        return realtime_manager.send_json_to_user_sync(user_id, payload)
+
+    def build_created_event_payload(
+        self,
+        proactive_message: ProactiveMessage,
+    ) -> dict[str, Any]:
+        return {
+            "event": "proactive_message_created",
+            "data": {
+                "id": proactive_message.id,
+                "user_id": proactive_message.user_id,
+                "trigger_rule_id": proactive_message.trigger_rule_id,
+                "trigger_type": proactive_message.trigger_type,
+                "title": proactive_message.title,
+                "content": proactive_message.content,
+                "status": proactive_message.status,
+                "created_at": proactive_message.created_at.isoformat(),
+                "displayed_at": (
+                    proactive_message.displayed_at.isoformat()
+                    if proactive_message.displayed_at
+                    else None
+                ),
+            },
+        }
+
+    def list_pending_created_event_payloads(
+        self,
+        db: Session,
+        user_id: int,
+    ) -> list[dict[str, Any]]:
+        pending_messages = proactive_message_service.list_pending_for_user(db, user_id)
+        return [
+            self.build_created_event_payload(message)
+            for message in pending_messages
+        ]
 
 
 proactive_service = ProactiveService()
