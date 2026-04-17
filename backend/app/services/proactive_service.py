@@ -1,11 +1,11 @@
 from __future__ import annotations
 
-from datetime import UTC, datetime
 from typing import Any
 
 from sqlalchemy import func, select
 from sqlalchemy.orm import Session
 
+from app.core.timezone import now_beijing
 from app.models.active_log import ActiveLog
 from app.models.proactive_message import ProactiveMessage
 from app.models.trigger_rule import TriggerRule
@@ -28,7 +28,7 @@ class ProactiveService:
             "rule_id": rule.id,
             "trigger_type": rule.trigger_type,
             "condition_json": rule.condition_json,
-            "executed_at": datetime.now(UTC).isoformat(),
+            "executed_at": now_beijing().isoformat(),
         }
 
         try:
@@ -165,7 +165,7 @@ class ProactiveService:
         db: Session,
         user_id: int,
     ) -> int:
-        day_start = datetime.now(UTC).replace(
+        day_start = now_beijing().replace(
             hour=0,
             minute=0,
             second=0,

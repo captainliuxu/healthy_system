@@ -6,6 +6,7 @@ from sqlalchemy import select
 from sqlalchemy.orm import Session
 
 from app.core.exception import BusinessException
+from app.core.timezone import ensure_beijing_datetime, now_beijing
 from app.models.proactive_window import ProactiveWindow
 from app.schemas.proactive import ProactiveWindowUpdate
 
@@ -62,7 +63,7 @@ class ProactiveWindowService:
         if not window.enabled:
             return False, "proactive window is disabled"
 
-        current_time = (now or datetime.now()).time().replace(
+        current_time = ensure_beijing_datetime(now or now_beijing()).time().replace(
             second=0,
             microsecond=0,
         )

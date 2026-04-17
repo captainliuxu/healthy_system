@@ -1,10 +1,11 @@
 from __future__ import annotations
 
-from datetime import UTC, datetime
+from datetime import datetime
 
-from sqlalchemy import DateTime, ForeignKey, Integer, String, Text
+from sqlalchemy import ForeignKey, Integer, String, Text
 from sqlalchemy.orm import Mapped, mapped_column
 
+from app.core.timezone import BeijingDateTime, now_beijing
 from app.db.session import Base
 
 
@@ -21,8 +22,8 @@ class Record(Base):
     value: Mapped[str] = mapped_column(String(100), nullable=False)
     unit: Mapped[str | None] = mapped_column(String(30), nullable=True)
     record_time: Mapped[datetime] = mapped_column(
-        DateTime(timezone=True),
-        default=lambda: datetime.now(UTC),
+        BeijingDateTime(),
+        default=now_beijing,
         nullable=False,
         index=True,
     )
@@ -30,13 +31,13 @@ class Record(Base):
     # created_at 是“这条数据什么时候写进数据库”
     note: Mapped[str | None] = mapped_column(Text, nullable=True)
     created_at: Mapped[datetime] = mapped_column(
-        DateTime(timezone=True),
-        default=lambda: datetime.now(UTC),
+        BeijingDateTime(),
+        default=now_beijing,
         nullable=False,
     )
     updated_at: Mapped[datetime] = mapped_column(
-        DateTime(timezone=True),
-        default=lambda: datetime.now(UTC),
-        onupdate=lambda: datetime.now(UTC),
+        BeijingDateTime(),
+        default=now_beijing,
+        onupdate=now_beijing,
         nullable=False,
     )
