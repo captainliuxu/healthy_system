@@ -26,16 +26,18 @@ app = FastAPI()
 # CORS（允许前端访问）
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["*"],
+    allow_origins=[
+        "http://localhost:5173",
+        "http://127.0.0.1:5173"
+    ],
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
 )
-
 # ======================
 # 密码加密
 # ======================
-pwd_context = CryptContext(schemes=["bcrypt"], deprecated="auto")
+pwd_context = CryptContext(schemes=["pbkdf2_sha256"], deprecated="auto")
 
 def get_password_hash(password):
     return pwd_context.hash(password)
@@ -73,13 +75,12 @@ class UserLogin(BaseModel):
     username: str
     password: str
 
-# ======================
-# 🔥 注册接口（你前端正在用的）
-# ======================
+from fastapi.responses import JSONResponse
+
 @app.post("/api/v1/auth/register")
 def register(user: UserRegister):
     if user.password != user.confirm_password:
-        raise HTTPException(status_code=400, detail="两次密码不一致")
+        return JSONResponse(status_code=400, content={"code": 1, "message": "两次密码不一致"})
 
     conn = sqlite3.connect("users.db")
     c = conn.cursor()
@@ -88,7 +89,7 @@ def register(user: UserRegister):
 
     if exists:
         conn.close()
-        raise HTTPException(status_code=400, detail="用户名已存在")
+        return JSONResponse(status_code=400, content={"code": 1, "message": "用户名已存在"})
 
     hashed_pw = get_password_hash(user.password)
     c.execute(
@@ -100,9 +101,6 @@ def register(user: UserRegister):
 
     return {"code": 0, "message": "注册成功"}
 
-# ======================
-# 登录接口
-# ======================
 @app.post("/api/v1/auth/login")
 def login(user: UserLogin):
     conn = sqlite3.connect("users.db")

@@ -61,34 +61,58 @@ const form = ref({
 })
 
 const msg = ref('')
+const loading = ref(false)
 
 const handleRegister = async () => {
   msg.value = ''
-  if (!form.value.username) {
+
+  const username = form.value.username.trim()
+  const password = form.value.password
+  const confirmPassword = form.value.confirm_password
+  const email = form.value.email.trim()
+  const phone = form.value.phone.trim()
+
+  if (!username) {
     msg.value = '请输入用户名'
     return
   }
-  if (form.value.password.length < 8) {
+
+  if (password.length < 8) {
     msg.value = '密码至少8位'
     return
   }
-  if (form.value.password !== form.value.confirm_password) {
+
+  if (password !== confirmPassword) {
     msg.value = '两次密码不一致'
     return
   }
 
+  loading.value = true
+
   try {
-    const res = await axios.post('http://127.0.0.1:8000/api/v1/auth/register', form.value)
+    const res = await axios.post('/api/v1/auth/register', form.value)
+
+    console.log('注册成功响应：', res.data)
+
     if (res.data.code === 0) {
-      msg.value = '注册成功！即将跳转到登录'
+      msg.value = res.data.message || '注册成功！即将跳转到登录'
       setTimeout(() => {
         router.push('/login')
       }, 1000)
     } else {
-      msg.value = res.data.message
+      msg.value = res.data.message || '注册失败'
     }
   } catch (err) {
-    msg.value = err.response?.data?.message || '注册失败'
+    console.log('注册失败完整对象：', err)
+    console.log('注册失败返回数据：', err.response?.data)
+
+    msg.value =
+      err.response?.data?.message ||
+      err.response?.data?.detail ||
+      err.message ||
+      '注册失败'
+  } finally {
+    loading.value = false
   }
 }
 </script>

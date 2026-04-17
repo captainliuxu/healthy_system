@@ -1,7 +1,12 @@
 .env
+.env.example
 .idea/
 __pycache__/
 *.pyc
 node_modules/
 dist/
 .vite/
+.vite/
+/backend/app/schemas/common.py
+/backend/requirements.txt
+*.db
