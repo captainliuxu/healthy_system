@@ -1,9 +1,8 @@
-from datetime import UTC, datetime
-
 from sqlalchemy import func, select
 from sqlalchemy.orm import Session
 
 from app.core.exception import BusinessException
+from app.core.timezone import now_beijing
 from app.models.record import Record
 from app.schemas.record import RecordCreate, RecordQueryParams, RecordUpdate
 
@@ -20,7 +19,7 @@ class RecordService:
             record_type=payload.record_type.value,
             value=payload.value,
             unit=payload.unit,
-            record_time=payload.record_time or datetime.now(UTC),
+            record_time=payload.record_time or now_beijing(),
             note=payload.note,
         )
         db.add(record)

@@ -18,7 +18,7 @@ class Settings(BaseSettings):
 
     DATABASE_URL: str = "sqlite:///./healthy_system.db"
 
-    JWT_SECRET_KEY: str = "replace_this_in_production"
+    JWT_SECRET_KEY: str = "replace_this_with_at_least_32_chars_in_production"
     JWT_ALGORITHM: str = "HS256"
     JWT_ACCESS_TOKEN_EXPIRE_MINUTES: int = 120
     JWT_REFRESH_TOKEN_EXPIRE_DAYS: int = 7

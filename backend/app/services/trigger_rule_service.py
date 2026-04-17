@@ -6,13 +6,14 @@
 
 from __future__ import annotations
 
-from datetime import UTC, datetime, timedelta
+from datetime import datetime, timedelta
 from typing import Any
 
 from sqlalchemy import select
 from sqlalchemy.orm import Session
 
 from app.core.exception import BusinessException
+from app.core.timezone import ensure_beijing_datetime, now_beijing
 from app.models.conversation import Conversation
 from app.models.message import Message
 from app.models.record import Record
@@ -23,12 +24,8 @@ from app.services.active_log_service import active_log_service
 
 class TriggerRuleService:
     @staticmethod
-    def _as_utc_datetime(value: datetime) -> datetime:
-        # SQLite often returns naive datetimes even when the app writes UTC values.
-        # Normalize them before any Python-side comparison.
-        if value.tzinfo is None:
-            return value.replace(tzinfo=UTC)
-        return value.astimezone(UTC)
+    def _as_beijing_datetime(value: datetime) -> datetime:
+        return ensure_beijing_datetime(value)
 
     def create(
         self,
@@ -131,7 +128,7 @@ class TriggerRuleService:
             "rule_id": rule.id,
             "trigger_type": rule.trigger_type,
             "condition_json": rule.condition_json,
-            "checked_at": datetime.now(UTC).isoformat(),
+            "checked_at": now_beijing().isoformat(),
         }
 
         try:
@@ -204,10 +201,10 @@ class TriggerRuleService:
         )
         last_record = db.scalar(stmt)
 
-        cutoff_time = datetime.now(UTC) - timedelta(days=days_without_record)
+        cutoff_time = now_beijing() - timedelta(days=days_without_record)
         last_record_time = None
         if last_record is not None:
-            last_record_time = self._as_utc_datetime(last_record.record_time)
+            last_record_time = self._as_beijing_datetime(last_record.record_time)
 
         triggered = last_record_time is None or last_record_time < cutoff_time
 

@@ -1,9 +1,8 @@
-from datetime import UTC, datetime
-
 from sqlalchemy import select
 from sqlalchemy.orm import Session
 
 from app.core.exception import BusinessException
+from app.core.timezone import now_beijing
 from app.models.message import Message
 from app.schemas.message import MessageCreate
 from app.services.conversation_service import conversation_service
@@ -82,7 +81,7 @@ class MessageService:
 
         db.add(message)
 
-        conversation.updated_at = datetime.now(UTC)
+        conversation.updated_at = now_beijing()
         db.add(conversation)
 
         db.commit()

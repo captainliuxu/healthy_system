@@ -1,7 +1,5 @@
 from __future__ import annotations
 
-from datetime import UTC, datetime
-
 from fastapi import APIRouter, Depends, Query, WebSocket, WebSocketDisconnect
 
 from app.api.deps import get_current_active_user
@@ -9,6 +7,7 @@ from app.core.config import settings
 from app.core.exception import BusinessException
 from app.core.response import success_response
 from app.core.security import InvalidTokenError, decode_access_token
+from app.core.timezone import now_beijing
 from app.db.session import SessionLocal
 from app.models.user import User
 from app.schemas.common import ApiResponse
@@ -81,7 +80,7 @@ async def websocket_endpoint(
             "event": "connected",
             "message": "realtime channel connected",
             "user_id": current_user.id,
-            "connected_at": datetime.now(UTC).isoformat(),
+            "connected_at": now_beijing().isoformat(),
         },
     )
     # Replay still-pending proactive messages so late WebSocket connections
@@ -97,7 +96,7 @@ async def websocket_endpoint(
                     {
                         "event": "pong",
                         "message": "pong",
-                        "sent_at": datetime.now(UTC).isoformat(),
+                        "sent_at": now_beijing().isoformat(),
                     }
                 )
     except WebSocketDisconnect:
@@ -121,7 +120,7 @@ def send_test_push_to_current_user(
             "event": "manual_test_push",
             "data": {
                 "content": payload.content,
-                "sent_at": datetime.now(UTC).isoformat(),
+                "sent_at": now_beijing().isoformat(),
             },
         },
     )

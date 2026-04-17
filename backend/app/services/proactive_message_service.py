@@ -1,11 +1,10 @@
 from __future__ import annotations
 
-from datetime import UTC, datetime
-
 from sqlalchemy import select
 from sqlalchemy.orm import Session
 
 from app.core.exception import BusinessException
+from app.core.timezone import now_beijing
 from app.models.proactive_message import ProactiveMessage
 from app.models.trigger_rule import TriggerRule
 
@@ -94,7 +93,7 @@ class ProactiveMessageService:
 
         if message.status != "displayed":
             message.status = "displayed"
-            message.displayed_at = datetime.now(UTC)
+            message.displayed_at = now_beijing()
             db.add(message)
             db.commit()
             db.refresh(message)
